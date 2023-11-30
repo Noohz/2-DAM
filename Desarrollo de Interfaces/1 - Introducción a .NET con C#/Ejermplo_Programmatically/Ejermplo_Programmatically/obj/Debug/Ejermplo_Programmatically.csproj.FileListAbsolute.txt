@@ -1,0 +1,10 @@
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Ejermplo_Programmatically\Ejermplo_Programmatically\bin\Debug\Ejermplo_Programmatically.exe.config
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Ejermplo_Programmatically\Ejermplo_Programmatically\bin\Debug\Ejermplo_Programmatically.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Ejermplo_Programmatically\Ejermplo_Programmatically\bin\Debug\Ejermplo_Programmatically.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Ejermplo_Programmatically\Ejermplo_Programmatically\obj\Debug\Ejermplo_Programmatically.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Ejermplo_Programmatically\Ejermplo_Programmatically\obj\Debug\Ejermplo_Programmatically.Form1.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Ejermplo_Programmatically\Ejermplo_Programmatically\obj\Debug\Ejermplo_Programmatically.Properties.Resources.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Ejermplo_Programmatically\Ejermplo_Programmatically\obj\Debug\Ejermplo_Programmatically.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Ejermplo_Programmatically\Ejermplo_Programmatically\obj\Debug\Ejermplo_Programmatically.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Ejermplo_Programmatically\Ejermplo_Programmatically\obj\Debug\Ejermplo_Programmatically.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Ejermplo_Programmatically\Ejermplo_Programmatically\obj\Debug\Ejermplo_Programmatically.pdb
