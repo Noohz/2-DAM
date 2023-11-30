@@ -1,0 +1,64 @@
+C:\Users\Vero\source\repos\TPV\TPV\bin\Debug\TPV.exe.config
+C:\Users\Vero\source\repos\TPV\TPV\bin\Debug\TPV.exe
+C:\Users\Vero\source\repos\TPV\TPV\bin\Debug\TPV.pdb
+C:\Users\Vero\source\repos\TPV\TPV\obj\Debug\TPV.csproj.AssemblyReference.cache
+C:\Users\Vero\source\repos\TPV\TPV\obj\Debug\TPV.TPV.resources
+C:\Users\Vero\source\repos\TPV\TPV\obj\Debug\TPV.Properties.Resources.resources
+C:\Users\Vero\source\repos\TPV\TPV\obj\Debug\TPV.csproj.GenerateResource.cache
+C:\Users\Vero\source\repos\TPV\TPV\obj\Debug\TPV.csproj.CoreCompileInputs.cache
+C:\Users\Vero\source\repos\TPV\TPV\obj\Debug\TPV.csproj.CopyComplete
+C:\Users\Vero\source\repos\TPV\TPV\obj\Debug\TPV.exe
+C:\Users\Vero\source\repos\TPV\TPV\obj\Debug\TPV.pdb
+C:\Users\David\source\repos\TPV\TPV\bin\Debug\TPV.exe.config
+C:\Users\David\source\repos\TPV\TPV\bin\Debug\TPV.exe
+C:\Users\David\source\repos\TPV\TPV\bin\Debug\TPV.pdb
+C:\Users\David\source\repos\TPV\TPV\obj\Debug\TPV.csproj.AssemblyReference.cache
+C:\Users\David\source\repos\TPV\TPV\obj\Debug\TPV.TPV.resources
+C:\Users\David\source\repos\TPV\TPV\obj\Debug\TPV.Properties.Resources.resources
+C:\Users\David\source\repos\TPV\TPV\obj\Debug\TPV.csproj.GenerateResource.cache
+C:\Users\David\source\repos\TPV\TPV\obj\Debug\TPV.csproj.CoreCompileInputs.cache
+C:\Users\David\source\repos\TPV\TPV\obj\Debug\TPV.csproj.CopyComplete
+C:\Users\David\source\repos\TPV\TPV\obj\Debug\TPV.exe
+C:\Users\David\source\repos\TPV\TPV\obj\Debug\TPV.pdb
+C:\Users\Vero\source\repos\TPV\TPV\obj\Debug\TPV.Inicio.resources
+C:\Users\Vero\source\repos\TPV\TPV\obj\Debug\TPV.backEnd.resources
+C:\Users\usuario\Downloads\TPV\TPV\bin\Debug\TPV.exe.config
+C:\Users\usuario\Downloads\TPV\TPV\bin\Debug\TPV.exe
+C:\Users\usuario\Downloads\TPV\TPV\bin\Debug\TPV.pdb
+C:\Users\usuario\Downloads\TPV\TPV\obj\Debug\TPV.csproj.AssemblyReference.cache
+C:\Users\usuario\Downloads\TPV\TPV\obj\Debug\TPV.csproj.SuggestedBindingRedirects.cache
+C:\Users\usuario\Downloads\TPV\TPV\obj\Debug\TPV.backEnd.resources
+C:\Users\usuario\Downloads\TPV\TPV\obj\Debug\TPV.Inicio.resources
+C:\Users\usuario\Downloads\TPV\TPV\obj\Debug\TPV.TPV.resources
+C:\Users\usuario\Downloads\TPV\TPV\obj\Debug\TPV.Properties.Resources.resources
+C:\Users\usuario\Downloads\TPV\TPV\obj\Debug\TPV.csproj.GenerateResource.cache
+C:\Users\usuario\Downloads\TPV\TPV\obj\Debug\TPV.csproj.CoreCompileInputs.cache
+C:\Users\usuario\Downloads\TPV\TPV\obj\Debug\TPV.csproj.CopyComplete
+C:\Users\usuario\Downloads\TPV\TPV\obj\Debug\TPV.exe
+C:\Users\usuario\Downloads\TPV\TPV\obj\Debug\TPV.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.backEnd.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.Inicio.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.TPV.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.Properties.Resources.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\bin\Debug\TPV.exe.config
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\bin\Debug\TPV.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\bin\Debug\TPV.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.csproj.CopyComplete
+C:\Users\pdm_a\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\bin\Debug\TPV.exe.config
+C:\Users\pdm_a\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\bin\Debug\TPV.exe
+C:\Users\pdm_a\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\bin\Debug\TPV.pdb
+C:\Users\pdm_a\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.csproj.AssemblyReference.cache
+C:\Users\pdm_a\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.backEnd.resources
+C:\Users\pdm_a\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.Inicio.resources
+C:\Users\pdm_a\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.TPV.resources
+C:\Users\pdm_a\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.Properties.Resources.resources
+C:\Users\pdm_a\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.csproj.GenerateResource.cache
+C:\Users\pdm_a\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.csproj.CoreCompileInputs.cache
+C:\Users\pdm_a\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.csproj.CopyComplete
+C:\Users\pdm_a\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.exe
+C:\Users\pdm_a\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Tpv_v1\TPV\obj\Debug\TPV.pdb
