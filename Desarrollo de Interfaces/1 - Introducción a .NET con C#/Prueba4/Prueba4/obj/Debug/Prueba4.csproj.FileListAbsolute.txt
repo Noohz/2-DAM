@@ -1,0 +1,10 @@
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba4\Prueba4\bin\Debug\Prueba4.exe.config
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba4\Prueba4\bin\Debug\Prueba4.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba4\Prueba4\bin\Debug\Prueba4.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba4\Prueba4\obj\Debug\Prueba4.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba4\Prueba4\obj\Debug\Prueba4.Form1.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba4\Prueba4\obj\Debug\Prueba4.Properties.Resources.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba4\Prueba4\obj\Debug\Prueba4.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba4\Prueba4\obj\Debug\Prueba4.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba4\Prueba4\obj\Debug\Prueba4.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba4\Prueba4\obj\Debug\Prueba4.pdb
