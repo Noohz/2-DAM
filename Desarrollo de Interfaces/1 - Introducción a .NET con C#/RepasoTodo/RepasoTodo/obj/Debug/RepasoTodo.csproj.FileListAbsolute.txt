@@ -1,0 +1,10 @@
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\RepasoTodo\RepasoTodo\bin\Debug\RepasoTodo.exe.config
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\RepasoTodo\RepasoTodo\bin\Debug\RepasoTodo.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\RepasoTodo\RepasoTodo\bin\Debug\RepasoTodo.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\RepasoTodo\RepasoTodo\obj\Debug\RepasoTodo.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\RepasoTodo\RepasoTodo\obj\Debug\RepasoTodo.Form1.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\RepasoTodo\RepasoTodo\obj\Debug\RepasoTodo.Properties.Resources.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\RepasoTodo\RepasoTodo\obj\Debug\RepasoTodo.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\RepasoTodo\RepasoTodo\obj\Debug\RepasoTodo.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\RepasoTodo\RepasoTodo\obj\Debug\RepasoTodo.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\RepasoTodo\RepasoTodo\obj\Debug\RepasoTodo.pdb
