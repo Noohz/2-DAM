@@ -1,0 +1,55 @@
+package fBinario;
+
+import java.util.Scanner;
+
+import fTexto.Modelo;
+
+public class Principal {
+
+	public static Scanner t = new Scanner(System.in);
+
+	// Declaramos el objeto modelo que accede a los datos.
+	public static Modelo ad = new Modelo("alumnos.txt");
+
+	public static void main(String[] args) {
+
+		int opcion = 0;
+
+		do {
+
+			System.out.println("* - MENU - *");
+
+			System.out.println("Selecciona la opción deseada");
+			System.out.println("0- Salir");
+			System.out.println("1- Alta Alumno");
+			System.out.println("2- Mostrar Alumno");
+			System.out.println("3- Baja Alumno");
+			System.out.println("4- Borrar Alumno");
+			System.out.println("5- Mostrar por dni");
+			opcion = t.nextInt();
+			t.nextLine();
+			System.out.println("\n");
+
+			switch (opcion) {
+
+			case 1:
+				altaAlumno();
+				break;
+			case 2:
+				mostrarAlumno();
+				break;
+			case 3:
+				bajaAlumno();
+				break;
+			case 4:
+				borrarAlumno();
+				break;
+			case 5:
+				mostrarPorDni();
+				break;
+			}
+
+		} while (opcion != 0);
+	}
+
+}

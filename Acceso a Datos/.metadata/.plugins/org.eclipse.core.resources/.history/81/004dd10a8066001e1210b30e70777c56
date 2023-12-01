@@ -1,0 +1,30 @@
+package ClaseObject;
+
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
+public class Modelo {
+	
+	private String nombreFichero = "historial.obj";
+
+	public Modelo() {
+		
+	}
+			
+	public boolean crearHistorial (Historial h) {
+		
+		boolean resultado = false;
+		
+		ObjectOutputStream f = null;
+		
+		try {
+			
+			f = new ObjectOutputStream(new FileOutputStream(nombreFichero, true))
+			
+		} catch () {
+			
+		}
+		
+		return resultado;
+	}
+}

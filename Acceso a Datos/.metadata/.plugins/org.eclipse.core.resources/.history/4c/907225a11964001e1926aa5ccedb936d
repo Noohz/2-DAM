@@ -1,0 +1,9 @@
+package ClaseObject;
+
+import fTexto.Alumno;
+
+public class Historial {
+
+	private Alumno;
+	
+}

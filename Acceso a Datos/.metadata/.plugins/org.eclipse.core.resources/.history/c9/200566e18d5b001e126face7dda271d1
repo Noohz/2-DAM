@@ -1,0 +1,25 @@
+package fBinario;
+
+import java.util.Date;
+
+public class Asignatura {
+	private int id;
+	private String nombre;
+	private Date fechaRD; //Fecha real decreto
+	private float creditos;
+	private boolean activa;
+	
+	public Asignatura() {
+		
+	}
+	
+	public Asignatura(int id, String nombre, Date fechaRD, float creditos, boolean activa) {
+		this.id = id;
+		this.nombre = nombre;
+		this.fechaRD = fechaRD;
+		this.creditos = creditos;
+		this.activa = activa;
+	}
+	
+	
+}

@@ -1,0 +1,17 @@
+package fTexto;
+
+public class Modelo {
+
+	private String nombreFichero;
+
+	public Modelo(String nombreFichero) {
+		this.nombreFichero = nombreFichero;
+	}
+
+	public Alumno obtenerAlumno(String dni) {
+		
+		Alumno resultado = null;
+		
+		return resultado;
+	}
+}

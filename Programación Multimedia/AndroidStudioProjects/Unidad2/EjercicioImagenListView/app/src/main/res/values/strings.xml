@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">EjercicioImagenListView</string>
+
+    <string-array name="titulos">
+        <item>whatsapp</item>
+        <item>facebook</item>
+        <item>youtube</item>
+        <item>paypal</item>
+    </string-array>
+
+    <string-array name="subtitulos">
+        <item>Subtitulo de whatsapp</item>
+        <item>Subtitulo de facebook</item>
+        <item>Subtitulo de youtube</item>
+        <item>Subtitulo de paypal</item>
+    </string-array>
+
+    <string-array name="ciudades">
+        <item>Madrid</item>
+        <item>Bilbao</item>
+        <item>Sevilla</item>
+        <item>Valencia</item>
+    </string-array>
+</resources>

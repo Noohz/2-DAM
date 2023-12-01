@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-sm bg-light">
+
+	<div class="container-fluid">
+		<!-- Links -->
+		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link"
+				href="ControladorAlumnos?accion=verAlumnos">Alumnos</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="ControladorAsignaturas?accion=asignaturas">Asignaturas</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="ControladorNotas?accion=notas">Notas</a></li>
+		</ul>
+	</div>
+</nav>

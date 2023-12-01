@@ -1,0 +1,19 @@
+package ejercicios;
+
+public class Ejercicio2 {
+
+	public static void main(String[] args) {
+		
+		if (args.length < 1) {
+			
+			System.exit(1);
+			
+		}
+		
+		if () {
+			System.exit(2);
+		}
+
+	}
+
+}

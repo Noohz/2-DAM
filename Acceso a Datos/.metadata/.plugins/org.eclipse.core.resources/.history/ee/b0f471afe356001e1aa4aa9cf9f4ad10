@@ -1,0 +1,27 @@
+package fTexto;
+
+import java.util.Date;
+
+public class Alumno {
+
+	private String dni;
+	private String nombre;
+	private Date fechaN;
+	private int numExp;
+	private float estatura;
+	private boolean activo;
+	
+	public Alumno() {
+		
+	}
+	
+	public Alumno(String dni, String nombre, Date fechaN, int numExp, float estatura, boolean activo) {
+		super();
+		this.dni = dni;
+		this.nombre = nombre;
+		this.fechaN = fechaN;
+		this.numExp = numExp;
+		this.estatura = estatura;
+		this.activo = activo;
+	}
+}

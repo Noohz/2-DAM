@@ -1,0 +1,20 @@
+package rutas;
+
+import java.util.ArrayList;
+
+public class Modelo {
+
+	private String url = "jdbc.mysql.";
+	private String us;
+	private String ps;
+	
+	public void Modelo() {
+		
+	}
+	
+	public ArrayList<Paraje> obtenerParajes() {
+		
+		return null;
+	}
+
+}

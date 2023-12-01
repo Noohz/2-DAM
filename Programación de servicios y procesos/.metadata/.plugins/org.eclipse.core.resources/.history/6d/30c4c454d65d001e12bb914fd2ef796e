@@ -1,0 +1,32 @@
+package ejercicios;
+
+public class Ejercicio2 {
+
+	public static void main(String[] args) {
+		
+		int num = Integer.parseInt(args[0]);
+		
+		if (args.length < 1) {
+			
+			System.exit(1);
+			
+		}
+		
+		boolean esEntero = true;
+
+        for (char c : args[0].toCharArray()) {
+            if (!Character.isDigit(c)) {
+                esEntero = false;
+                break;
+            }
+        }
+		
+		if (num < 0) {
+            System.exit(3);
+        } else {
+            System.exit(0);
+        }
+
+	}
+
+}

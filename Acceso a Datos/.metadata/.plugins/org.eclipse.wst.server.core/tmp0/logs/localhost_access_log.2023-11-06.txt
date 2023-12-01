@@ -1,0 +1,12 @@
+127.0.0.1 - - [06/Nov/2023:10:33:05 +0100] "GET / HTTP/1.1" 404 688
+0:0:0:0:0:0:0:1 - - [06/Nov/2023:10:33:06 +0100] "GET /Alumnos/ControladorAlumnos HTTP/1.1" 200 3464
+0:0:0:0:0:0:0:1 - - [06/Nov/2023:10:33:06 +0100] "GET /favicon.ico HTTP/1.1" 404 699
+0:0:0:0:0:0:0:1 - - [06/Nov/2023:10:33:49 +0100] "GET /Alumnos/alumnos.jsp HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [06/Nov/2023:10:33:49 +0100] "GET /Alumnos/ControladorAlumnos HTTP/1.1" 200 3465
+0:0:0:0:0:0:0:1 - - [06/Nov/2023:10:33:49 +0100] "GET /favicon.ico HTTP/1.1" 404 699
+0:0:0:0:0:0:0:1 - - [06/Nov/2023:10:34:02 +0100] "GET /Alumnos/ControladorAlumnos HTTP/1.1" 200 3464
+0:0:0:0:0:0:0:1 - - [06/Nov/2023:10:34:07 +0100] "GET /Alumnos/ControladorAlumnos HTTP/1.1" 200 3463
+127.0.0.1 - - [06/Nov/2023:10:40:53 +0100] "GET / HTTP/1.1" 404 688
+0:0:0:0:0:0:0:1 - - [06/Nov/2023:10:40:54 +0100] "GET /Alumnos/ControladorAlumnos HTTP/1.1" 200 3463
+0:0:0:0:0:0:0:1 - - [06/Nov/2023:10:40:56 +0100] "GET /Alumnos/ControladorAlumnos HTTP/1.1" 200 3463
+0:0:0:0:0:0:0:1 - - [06/Nov/2023:10:40:57 +0100] "POST /Alumnos/ControladorAlumnos HTTP/1.1" 200 3217

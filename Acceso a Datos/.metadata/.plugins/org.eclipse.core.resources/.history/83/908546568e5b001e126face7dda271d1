@@ -1,0 +1,6 @@
+package fBinario;
+
+public class Modelo {
+	private String nombreFichero;
+	
+}

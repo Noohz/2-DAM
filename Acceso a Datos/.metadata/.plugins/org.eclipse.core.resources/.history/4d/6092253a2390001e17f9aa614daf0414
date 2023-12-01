@@ -1,0 +1,11 @@
+package rutas;
+
+import java.util.Date;
+
+public class Ruta {
+	private int id;
+	private int paraje;
+	private String color;
+	private Date fecha;
+	private int duracion;
+}

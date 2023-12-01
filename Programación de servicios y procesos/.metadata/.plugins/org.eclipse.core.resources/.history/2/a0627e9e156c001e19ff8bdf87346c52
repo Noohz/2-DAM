@@ -1,0 +1,22 @@
+package ejercicio2;
+
+public class Ejercicio2 {
+
+	public static void main(String[] args) {
+
+		if (args.length < 1) {
+			System.exit(1); // Devuelve 1 si no hay suficientes argumentos
+		}
+
+		try {
+			int numero = Integer.parseInt(args[0]);
+			if (numero < 0) {
+				System.exit(3); // Devuelve 3 si el número es menor que 0
+			} else {
+				System.exit(0); // Devuelve 0 en cualquier otro caso
+			}
+		} catch (NumberFormatException e) {
+			System.exit(2); // Devuelve 2 si el argumento no es un número entero
+		}
+	}
+}

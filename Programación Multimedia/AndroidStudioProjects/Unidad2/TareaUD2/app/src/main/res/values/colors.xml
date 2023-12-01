@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimaryLight">#2196F3</color> <!-- El color que va a tener LinearLayout de abajo de la App si el tema es claro -->
+    <color name="colorPrimaryDark">#1976D2</color> <!-- El color que va a tener LinearLayout de abajo de la App si el tema es oscuro -->
+    <color name="textColorLight">#000000</color> <!-- El color que va a tener textView de abajo de la App si el tema es claro -->
+    <color name="textColorDark">#FFFFFF</color> <!-- El color que va a tener textView de abajo de la App si el tema es oscuro -->
+</resources>

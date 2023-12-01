@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".actividad2">
+
+    <TextView
+        android:id="@+id/textViewTituloA2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Índice de Masa Corporal"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <TextView
+        android:id="@+id/textViewTitulo2A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resumen IMC"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.289" />
+
+    <TextView
+        android:id="@+id/textViewDatos"
+        android:layout_width="383dp"
+        android:layout_height="100dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.101" />
+
+    <TableLayout
+        android:layout_width="392dp"
+        android:layout_height="223dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.523">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textViewIndiceMasaCorporal"
+                android:layout_width="177dp"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:text="Índice Masa Corporal"
+                android:textAllCaps="true"
+                android:textColor="#03A9F4"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewClasificacion"
+                android:layout_width="205dp"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:text="Clasificación"
+                android:textAllCaps="true"
+                android:textColor="#03A9F4"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="138dp">
+
+            <TextView
+                android:id="@+id/textViewDatosIndiceMasaCorporal"
+                android:layout_width="187dp"
+                android:layout_height="191dp"
+                android:gravity="center"
+                android:text="&lt;16.00\n16.00 ~ 16.99\n17.00 ~ 18.49\n18.50 ~ 24.99\n25.00 ~ 29.99\n30.00 ~ 34.99\n35.00 ~ 40.00\n&gt;40.00"
+                android:textStyle="bold" />
+
+            <TextView
+
+                android:id="@+id/textViewDatosClasificacion"
+                android:layout_width="187dp"
+                android:layout_height="191dp"
+                android:gravity="center"
+                android:text="Infrapeso: Delgadez Severa\nInfrapeso: Delgadez moderada\nInfrapeso: Delgadez aceptable\nPeso Normal\nSobrepeso\nObeso: Tipo I\nObeso: Tipo II\nObeso: Tipo III"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+    </TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

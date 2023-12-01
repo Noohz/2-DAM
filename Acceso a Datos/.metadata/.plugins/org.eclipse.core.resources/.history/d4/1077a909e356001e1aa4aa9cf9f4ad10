@@ -1,0 +1,51 @@
+package fTexto;
+
+public class Principal {
+
+public static void main(String[] args) {		
+		
+		int opcion = 0;
+		
+		do {
+			
+			System.out.println("* - MENU - *");
+			
+			System.out.println("Selecciona la opción deseada");
+			System.out.println("0- Salir");
+			System.out.println("1- Info miCarpeta");
+			System.out.println("2- Mostrar contenido");
+			System.out.println("3- Crear fichero o carpeta");
+			System.out.println("4- Renombrar fichero");
+			System.out.println("5- Borrar fichero");
+			System.out.println("6- Mostrar contenido de miCarpeta recursivo");
+			
+			opcion = t.nextInt();
+			t.nextLine();
+			System.out.println("\n");
+			
+			switch (opcion) {
+				
+				case 1:
+					info();
+					break;
+				case 2:
+					mostrarContenido();
+					break;
+				case 3:
+					crearObjeto();
+					break;
+				case 4:
+					renombrarFichero();
+					break;
+				case 5:
+					borrarObjeto();
+					break;
+				case 6:
+					mostrarContenidoRecursivo(rutaCarpeta, 0);
+					break;
+			}
+			
+		} while (opcion != 0);
+	}
+
+}

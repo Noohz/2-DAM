@@ -1,0 +1,9 @@
+package fTexto;
+
+public class Alumno {
+
+	private String dni;
+	private String nombre;
+	p
+	
+}

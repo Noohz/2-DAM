@@ -1,0 +1,86 @@
+package ClaseObject;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import fBinario.Asignatura;
+import fTexto.Alumno;
+
+public class Principal {
+	public static Scanner t = new Scanner(System.in);
+
+	// Declaramos el objeto modelo que accede a los datos
+	public static ClaseRAF.Modelo adNotas = new ClaseRAF.Modelo("notas.bin");
+
+	// Declaramos un acceso a datos de la clase fichero binario - Asignaturas
+	public static fBinario.Modelo adAsig = new fBinario.Modelo("asignaturas.bin");
+
+	// Declaramos un acceso a datos de la clase fichero texto - Alumnos
+	public static fTexto.Modelo adAlumnos = new fTexto.Modelo("alumnos.txt");
+	
+	// Declaramos el acceso a datos para los ficheros de objetos.
+	public static Modelo adHistorial = new Modelo();
+
+	public static void main(String[] args) {
+		int opcion = 0;
+		do {
+			System.out.println("Selecciona una opción");
+			System.out.println("0-Salir");
+			System.out.println("1-Crear Historial");
+			System.out.println("2-Mostrar Historiales");
+			System.out.println("3-Modificar Nota en el historial");
+			System.out.println("4-Mostrar historial de un alumno");
+			System.out.println("5-Borrar historial");
+			opcion = t.nextInt();
+			t.nextLine();
+
+			switch (opcion) {
+			case 1:
+				crearHistorial();
+				break;
+			case 2:
+				
+				break;
+			case 3:
+				
+				break;
+			case 4:
+
+				break;
+			case 5:
+				
+				break;
+
+			}
+
+		} while (opcion != 0);
+	}
+
+	private static void crearHistorial() {
+		ArrayList<Alumno> alumnos = adAlumnos.obtenerAlumno();
+		
+		for (Alumno a : alumnos) {
+			System.out.println(a);
+		}
+		
+		System.out.println("Introduce dni del alumno");
+		Alumno a = adAlumnos.obtenerAlumno(t.nextLine());
+		
+		if (a != null) {
+			Historial h = adHistorial.obtenerHistorial(a);
+			
+			if (h == null) {
+				
+			} else {
+				System.err.println("Error, ya se ha creado el historial para el alumno");
+			}
+			
+		} else {
+			System.err.println("No existe el alumno");
+		}
+		
+	}	
+
+}

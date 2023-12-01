@@ -1,0 +1,115 @@
+package fTexto;
+
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Principal {
+
+	public static Scanner t = new Scanner(System.in);
+
+	// Declaramos el objeto modelo que accede a los datos.
+	public static Modelo ad = new Modelo("alumnos.txt");
+
+	public static void main(String[] args) {
+
+		int opcion = 0;
+
+		do {
+
+			System.out.println("* - MENU - *");
+
+			System.out.println("Selecciona la opción deseada");
+			System.out.println("0- Salir");
+			System.out.println("1- Alta Alumno");
+			System.out.println("2- Mostrar Alumno");
+			System.out.println("3- Baja Alumno");
+			System.out.println("4- Borrar Alumno");
+			System.out.println("5- Mostrar por dni");
+			opcion = t.nextInt();
+			t.nextLine();
+			System.out.println("\n");
+
+			switch (opcion) {
+
+			case 1:
+				altaAlumno();
+				break;
+			case 2:
+				mostrarAlumno();
+				break;
+			case 3:
+				bajaAlumno();
+				break;
+			case 4:
+				break;
+			case 5:
+
+				break;
+			}
+
+		} while (opcion != 0);
+	}
+
+	private static void bajaAlumno() {
+		mostrarAlumnos();
+		System.out.println("Introduce DNI");
+		
+	}
+
+	private static void mostrarAlumno() {
+		
+		ArrayList<Alumno> alumnos = ad.obtenerAlumno();
+		for (Alumno a : alumnos) {
+			System.out.println(a);
+		}
+		
+	}
+
+	private static void altaAlumno() {
+		try {
+			// Pedir solamente el DNI.
+			System.out.println("DNI: ");
+			String dni = t.nextLine();
+
+			// Comprobar si existe el DNI en el fichero.
+			Alumno a = ad.obtenerAlumno(dni);
+
+			if (a == null) {
+				// Alumno no existe, por lo que se puede crear.
+				a = new Alumno();
+				a.setDni(dni);
+
+				// Pedir el resto de datos.
+				System.out.println("Nombre: ");
+				a.setNombre(t.nextLine());
+
+				System.out.println("Fecha de nacimiento (dd/MM/yyyy): ");
+				a.setFechaN(ad.formatoFecha.parse(t.nextLine()));
+
+				System.out.println("Nº de expediente: ");
+				a.setNumExp(t.nextInt());
+				t.nextLine();
+
+				System.out.println("Estatura: ");
+				a.setEstatura(t.nextFloat());
+				t.nextLine();
+
+				a.setActivo(true);
+
+				// Guardar el alumno en el fichero.
+				if (ad.crearAlumno(a)) {
+					System.out.println("Alumno creado.");
+				} else {
+					System.err.println("Error, alumno no creado.");
+				}
+
+			} else {
+				System.err.println("Error, el alumno ya existe.");
+			}
+		} catch (ParseException e) {
+			
+			System.err.println("Error, fecha incorrecta.");
+		}
+	}
+}

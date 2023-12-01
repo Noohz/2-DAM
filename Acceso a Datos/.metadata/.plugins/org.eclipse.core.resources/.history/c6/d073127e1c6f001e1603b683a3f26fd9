@@ -1,0 +1,16 @@
+package Examen;
+
+import java.util.ArrayList;
+
+public class Modelo {
+	final String NOMBRE_FT = "ventas.txt";
+
+	public ArrayList<Ventas> obtenerVentasTXT() {
+		// TODO Auto-generated method stub
+		
+		ArrayList<Ventas> resultado = new ArrayList();
+		
+		return resultado;
+	}
+	
+}

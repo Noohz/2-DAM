@@ -1,0 +1,31 @@
+package ejercicio2;
+
+public class ejecutarEjercicio2 {
+	public static void main(String[] args) {
+		ProcessBuilder pb = new ProcessBuilder("java", "Ejercicio2", "5");
+
+		try {
+			Process process = pb.start();
+			int exitCode = process.waitFor();
+
+			switch (exitCode) {
+			case 0:
+				System.out.println("El programa devolvió: " + exitCode);
+				break;
+			case 1:
+				System.out.println("El programa devolvió: " + exitCode);
+				break;
+			case 2:
+				System.out.println("El programa devolvió: " + exitCode);
+				break;
+			case 3:
+				System.out.println("El programa devolvió: " + exitCode);
+				break;
+			default:
+				System.out.println(exitCode);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

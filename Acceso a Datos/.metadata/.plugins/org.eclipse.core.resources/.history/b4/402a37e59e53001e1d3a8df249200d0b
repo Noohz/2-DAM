@@ -1,0 +1,74 @@
+package ClaseFile;
+
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+public class Ejercicio1 {
+
+	// Ruta de la carpeta
+	public static String rutaCarpeta = "C:\\aitor";
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc1 = new Scanner (System.in);
+		
+		int opcion = 0;
+		
+		do {
+			
+			System.out.println("* - MENU - *");
+			
+			System.out.println("Selecciona la opción deseada");
+			System.out.println("0- Salir");
+			System.out.println("1- Info miCarpeta");
+			System.out.println("2- Mostrar contenido");
+			System.out.println("3- Crear fichero");
+			System.out.println("4- Renombrar fichero");
+			System.out.println("5- Borrar fichero");
+			
+			opcion = sc1.nextInt();
+			sc1.nextLine();
+			
+			switch (opcion) {
+				
+				case 1:
+					info();
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+				case 4:
+					break;
+				case 5:
+					break;	
+			}
+			
+		} while (opcion != 0);
+	}
+
+	private static void info() {
+		// Declara un objeto File que apunte a nuestra carpeta.
+		File miCarpeta = new File(rutaCarpeta);
+		
+		// Mostrar si existe o no.
+		System.out.println("Existe: " +miCarpeta.exists());
+		// Mostrar si es carpeta.
+		System.out.println("Es carpeta: " +miCarpeta.isDirectory());
+		// Mostrar si es fichero.
+		System.out.println("Es fichero: " +miCarpeta.isFile());
+		// Mostrar el nombre
+		System.out.println("Ruta: " +miCarpeta.getAbsolutePath());
+		// Mostrar la fecha de modificiación.
+		Date fecha = new Date(miCarpeta.lastModified());
+		System.out.println("Fecha Modificación: " +fecha);
+		// Mostrar la fecha con formato dd/mm/yyyy hh:mm.
+		// Tenemos que declarar un objeto que represente el formato deseado.
+		SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+		
+		System.out.println("\n");
+	}
+}

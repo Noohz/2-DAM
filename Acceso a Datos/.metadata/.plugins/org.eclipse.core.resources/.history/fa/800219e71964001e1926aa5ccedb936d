@@ -1,0 +1,11 @@
+package ClaseObject;
+
+import java.util.ArrayList;
+
+import fTexto.Alumno;
+
+public class Historial {
+
+	private Alumno alumno;
+	ArrayList<Object[]> datos = new ArrayList<Object[]>();
+}

@@ -1,0 +1,81 @@
+package rutas;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+public class Modelo {
+
+	private String aws = "servidordam.ca3trljvgi9g.us-east-1.rds.amazonaws.com";
+	private String url = "jdbc:mysql://" + aws + "3306/rutas";
+	private String us = "admindam";
+	private String ps = "admindam";
+	private Connection conexion = null;
+
+	public Modelo() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conexion = DriverManager.getConnection(url, us, ps);
+		} catch (ClassNotFoundException e) {
+
+			e.printStackTrace();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+	}
+
+	public ArrayList<Paraje> obtenerParajes() {
+		ArrayList<Paraje> resultado = new ArrayList();
+		try {
+			Statement consulta = conexion.createStatement();
+			ResultSet r = consulta.executeQuery("select * from paraje");
+
+			while (r.next()) {
+				Paraje p = new Paraje(r.getInt(1), r.getString(2), r.getInt(3));
+				resultado.add(p);
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		return resultado;
+	}
+
+	public Connection getConexion() {
+		return conexion;
+	}
+
+	public void setConexion(Connection conexion) {
+		this.conexion = conexion;
+	}
+
+	public Paraje obtenerParajes(int idP) {
+		Paraje resultado = null;
+		try {
+			PreparedStatement consulta = conexion.prepareStatement("select * from parajes where id = ?");
+			consulta.setInt(1, idP);
+			ResultSet r = consulta.executeQuery();
+
+			if (r.next()) {
+				resultado = new Paraje(r.getInt(1), r.getString(2), r.getInt(3));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return resultado;
+	}
+
+	public boolean crearRuta(Ruta r) {
+		boolean resultado = false;
+		
+		PreparedStatement consulta = conexion.prepareStatement("");
+		
+		return resultado;
+	}
+}

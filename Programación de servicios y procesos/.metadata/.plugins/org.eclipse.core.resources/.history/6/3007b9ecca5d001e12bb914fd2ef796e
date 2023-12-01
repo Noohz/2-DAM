@@ -1,0 +1,69 @@
+/*
+ * Lanza la calculadora tanto en Ubuntu como en Windows.
+ * A continuación, comprueba los datos del proceso creado tanto con las aplicaciones gráficas como con el terminal de consola de ambos sistemas. 
+ */
+
+package ejercicios;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Ejercicio1 {
+
+	Scanner sc = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		
+		int menu = 0;
+		
+		do {
+
+			System.out.println("* - MENU - *");
+
+			System.out.println("Selecciona la opción deseada");
+			System.out.println("0- Salir");
+			System.out.println("1- Alta Alumno");
+			System.out.println("2- Mostrar Alumno");
+			System.out.println("3- Baja Alumno");
+			System.out.println("4- Borrar Alumno");
+			System.out.println("5- Mostrar por dni");
+			opcion = t.nextInt();
+			t.nextLine();
+			System.out.println("\n");
+
+			switch (opcion) {
+
+			case 1:
+				altaAlumno();
+				break;
+			case 2:
+				mostrarAlumno();
+				break;
+			case 3:
+				bajaAlumno();
+				break;
+			case 4:
+				borrarAlumno();
+				break;
+			case 5:
+				mostrarPorDni();
+				break;
+			}
+
+		} while (opcion != 0);
+	}
+		
+		
+		
+		try {
+			
+			Process pr = Runtime.getRuntime().exec("calc.exe");
+			
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+
+	}
+
+}

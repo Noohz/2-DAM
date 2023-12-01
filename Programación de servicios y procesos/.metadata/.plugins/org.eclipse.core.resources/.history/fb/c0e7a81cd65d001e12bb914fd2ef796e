@@ -1,0 +1,29 @@
+package ejercicios;
+
+public class Ejercicio2 {
+
+	public static void main(String[] args) {
+		
+		int num = Integer.parseInt(args[0]);
+		
+		if (args.length < 1) {
+			
+			System.exit(1);
+			
+		}
+		
+		for (String a : args[0].charAt(0)) {
+			if () {
+				
+			}
+		}
+		
+		if (num < 0) {
+            System.exit(3);
+        } else {
+            System.exit(0);
+        }
+
+	}
+
+}

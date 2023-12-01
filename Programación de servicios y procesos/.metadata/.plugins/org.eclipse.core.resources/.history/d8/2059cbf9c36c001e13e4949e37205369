@@ -1,0 +1,26 @@
+package ejercicio2;
+
+package ejercicio2;
+
+public class Ejercicio2 {
+
+    public static void main(String[] args) {
+        if (args.length < 1) {
+            System.exit(1);  // No se proporcionaron argumentos
+        } else {
+            try {
+                int numero = Integer.parseInt(args[0]);
+                if (numero < 0) {
+                    System.exit(3);  // El número es negativo
+                } else if (numero > 0) {
+                    System.exit(0);  // El número es positivo
+                } else {
+                    System.exit(2);  // El número es cero
+                }
+            } catch (NumberFormatException e) {
+                System.exit(2);  // No se pudo convertir el argumento a un número
+            }
+        }
+    }
+}
+

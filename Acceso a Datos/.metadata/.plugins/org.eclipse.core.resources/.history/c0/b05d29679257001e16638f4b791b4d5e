@@ -1,0 +1,56 @@
+package fTexto;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+public class Modelo {
+
+	private String nombreFichero;
+	private SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+
+	public Modelo(String nombreFichero) {
+		this.nombreFichero = nombreFichero;
+	}
+
+	public Alumno obtenerAlumno(String dniBuscado) {
+		
+		Alumno resultado = null;
+		
+		// Declarar el fichero para leer.
+		try {
+			// Apertura del fichero
+			BufferedReader f = new BufferedReader(new FileReader(nombreFichero));
+			
+			// Recorrido del fichero.
+			String linea;
+			while((linea = f.readLine())!= null) {
+				// Dividir la linea por ; y guardar en array de String.
+				String[] campos = linea.split(";");
+				
+				// Comprobamos si el dni de linea coincide con el dni buscado.
+				if (dniBuscado.equalsIgnoreCase(campos[0])) {
+					// Alumno encontrado.
+					resultado = new Alumno(campos[0], campos[1], formatoFecha.parse(campos[2]), Integer.parseInt(campos[3]), , false);
+				} 
+			}
+			
+			// Cierre del fichero.
+			
+		} catch (FileNotFoundException e) {
+			
+			System.err.println("El fichero aún no existe.");
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		} catch (ParseException e) {
+			
+			System.err.println("Se ha encontrado una fecha incorrecta en el fichero.");
+		}
+		
+		return resultado;
+	}
+}

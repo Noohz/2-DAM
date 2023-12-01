@@ -1,0 +1,16 @@
+package prueba;
+
+import java.io.IOException;
+
+public class Prueba {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		try {
+			Runtime.getRuntime().exec("notepad.exe");
+		} catch (IOException ex) {
+			System.err.println("Ha habido una excepción.");
+		}
+	}
+}

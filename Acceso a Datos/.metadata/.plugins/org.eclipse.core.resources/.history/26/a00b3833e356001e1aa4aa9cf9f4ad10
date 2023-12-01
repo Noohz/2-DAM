@@ -1,0 +1,47 @@
+package fTexto;
+
+import java.util.Scanner;
+
+public class Principal {
+
+	static Scanner t = new Scanner (System.in);
+	
+	public static void main(String[] args) {		
+		
+		int opcion = 0;
+		
+		do {
+			
+			System.out.println("* - MENU - *");
+			
+			System.out.println("Selecciona la opción deseada");
+			System.out.println("0- Salir");
+			System.out.println("1- ");
+			System.out.println("2- Mostrar contenido");
+			System.out.println("3- Crear fichero o carpeta");
+			System.out.println("4- Renombrar fichero");
+			
+			opcion = t.nextInt();
+			t.nextLine();
+			System.out.println("\n");
+			
+			switch (opcion) {
+				
+				case 1:
+					
+					break;
+				case 2:
+					
+					break;
+				case 3:
+					
+					break;
+				case 4:
+					
+					break;
+			}
+			
+		} while (opcion != 0);
+	}
+
+}

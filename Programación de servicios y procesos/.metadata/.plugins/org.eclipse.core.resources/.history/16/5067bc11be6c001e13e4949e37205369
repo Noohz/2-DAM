@@ -1,0 +1,21 @@
+package ejercicio2;
+
+public class Ejercicio2 {
+
+	public static void main(String[] args) {
+		if (args.length < 1) {
+			System.exit(1); // Devuelve 1 si el número de argumentos es menor a 1.
+		}
+
+		try {
+			int numero = Integer.parseInt(args[0]);
+			if (numero < 0) {
+				System.exit(3); // Devuelve 3 si el argumento es un número entero menor que 0.
+			}
+		} catch (NumberFormatException e) {
+			System.exit(2); // Devuelve 2 si el argumento no es un número entero.
+		}
+
+		System.exit(0); // Devuelve 0 en cualquier otro caso.
+	}
+}

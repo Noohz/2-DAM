@@ -1,0 +1,23 @@
+package ejercicio2;
+
+public class Ejercicio2 {
+
+	public static void main(String[] args) {
+
+		if (args.length < 1) {
+			exitCode = 1;
+		} else {
+			try {
+				int numero = Integer.parseInt(args[0]);
+				if (numero < 0) {
+					exitCode = 3;
+				}
+			} catch (NumberFormatException e) {
+				exitCode = 2;
+			}
+		}
+
+		System.exit(exitCode);
+	}
+	}
+}

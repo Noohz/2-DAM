@@ -1,0 +1,32 @@
+/*
+ * Lanza la calculadora tanto en Ubuntu como en Windows.
+ * A continuación, comprueba los datos del proceso creado tanto con las aplicaciones gráficas como con el terminal de consola de ambos sistemas. 
+ */
+
+package ejercicios;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Ejercicio1 {
+
+	static Scanner sc = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		
+		
+		
+		
+		
+		try {
+			
+			Process pr = Runtime.getRuntime().exec("calc.exe");
+			
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+
+	}
+
+}

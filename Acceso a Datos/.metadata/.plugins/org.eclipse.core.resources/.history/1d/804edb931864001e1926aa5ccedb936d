@@ -1,0 +1,7 @@
+package ClaseObject;
+
+public class Historial {
+
+	private Alumno;
+	
+}

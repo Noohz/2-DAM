@@ -1,0 +1,30 @@
+package ejercicio2;
+
+public class ejecutarEjercicio2 {
+
+	public static void main(String[] args) {
+		try {
+			Process process = Runtime.getRuntime().exec("java VerificadorArgumentos " + args[0]);
+			int codigoSalida = process.waitFor();
+
+			switch (codigoSalida) {
+			case 1:
+				System.out.println("El número de argumentos es menor que 1. Código de salida: 1");
+				break;
+			case 2:
+				System.out.println("El argumento no es un número entero. Código de salida: 2");
+				break;
+			case 3:
+				System.out.println("El argumento es un número entero menor que 0. Código de salida: 3");
+				break;
+			case 0:
+				System.out.println("Argumento válido. Código de salida: 0");
+				break;
+			default:
+				System.out.println("Código de salida desconocido: " + codigoSalida);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

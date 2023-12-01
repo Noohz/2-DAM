@@ -1,0 +1,21 @@
+package rutas;
+
+import java.util.ArrayList;
+
+public class Modelo {
+
+	private String aws = "servidordam.ca3trljvgi9g.us-east-1.rds.amazonaws.com";
+	private String url = "jdbc:mysql://" + aws + "3306/rutas";
+	private String us = "admindam";
+	private String ps = "admindam";
+
+	public void Modelo() {
+
+	}
+
+	public ArrayList<Paraje> obtenerParajes() {
+
+		return null;
+	}
+
+}

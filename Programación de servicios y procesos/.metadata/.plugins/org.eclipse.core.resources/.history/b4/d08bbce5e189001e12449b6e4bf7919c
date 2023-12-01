@@ -1,0 +1,84 @@
+package simonDice;
+
+import java.util.Scanner;
+
+public class Juego {
+
+	static int tiempoEspera = 1000;
+	static int contadorAciertos = 0;
+	static int ronda = 1;
+
+	public static void main(String[] args) {
+		Scanner src = new Scanner(System.in);
+		int opcion = 0;
+
+		do {
+			System.out.println("Selecciona una opción");
+			System.out.println("1 - Nueva partida.");
+			System.out.println("2 - Modificar tiempo de espera.");
+			System.out.println("3 - Ver numero de aciertos.");
+			System.out.println("4 - Salir.");
+
+			opcion = src.nextInt();
+			src.nextLine();
+
+			switch (opcion) {
+			case 1:
+				eventoNuevaPartida(contadorAciertos);
+				break;
+			case 2:
+				eventoModificarTheadSleep(tiempoEspera);
+				break;
+			case 3:
+				eventoMostrarAciertosTotal(ronda);
+				break;
+			}
+		} while (opcion != 4);
+		src.close();
+	}
+
+	private static void eventoNuevaPartida(int ronda) {
+		// En vez de usar colores se usarán números.
+		// PJ: Rojo = 1 | Amarillo = 2 | Azul = 3 | Verde = 4.
+		
+		// Bucle que dependiendo de la ronda actual va a generar X cantidad de números aleatorios y que después se irán guardando.
+		for (int i = 0; i < ronda + 1; i++) {
+			int numColor = (int) Math.random() * 4 + 1;
+			
+			System.out.println(numColor);
+			
+			try {
+				Thread.sleep(tiempoEspera);
+			} catch (InterruptedException e) {
+				System.err.println("Error: " +e );
+			}
+			
+		}	
+
+	}
+
+	/**
+	 * Llamar automáticamente a este método cuando la partida finalice para mostrar los aciertos al usuario.
+	 * @param contadorAciertos -> Parámetro que almacena el número de aciertos totales que ha realizado el usuario en la partida actual.
+	 */
+	private static void eventoMostrarAciertosTotal(int contadorAciertos) {
+		System.out.println("Número de aciertos totales: " + contadorAciertos);
+	}
+
+	/**
+	 * Método que le permite al usuario modificar el tiempo que pasará hasta que se oculte la secuencia.
+	 * @param tiempoEspera -> Parámetro que almacena el tiempo de espera actual del Thread.Sleep.
+	 */
+	private static void eventoModificarTheadSleep(int tiempoEspera) {
+		Scanner src = new Scanner(System.in);
+
+		System.out.println("Tiempo de espera actual: " + tiempoEspera);
+		System.out.println("Introduce el nuevo tiempo de espera.");
+		int nuevoTiempo = src.nextInt();
+		src.nextLine();
+
+		tiempoEspera = nuevoTiempo;
+		src.close();
+	}
+
+}

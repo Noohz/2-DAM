@@ -1,0 +1,48 @@
+package ClaseFile;
+
+import java.util.Scanner;
+
+public class Ejercicio1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc1 = new Scanner (System.in);
+		
+		int opcion = 0;
+		
+		do {
+			
+			System.out.println("* - MENU - *");
+			
+			System.out.println(" Selecciona la opción deseada");
+			System.out.println("0- Salir");
+			System.out.println("1- Info miCarpeta");
+			System.out.println("2- Mostrar contenido");
+			System.out.println("3- Crear fichero");
+			System.out.println("4- Renombrar fichero");
+			System.out.println("5- Borrar fichero");
+			
+			opcion = sc1.nextInt();
+			sc1.nextLine();
+			
+			switch (opcion) {
+				
+				case 1:
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+				case 4:
+					break;
+				case 5:
+					break;	
+			}
+			
+		} while (opcion != 0);
+		
+		
+	}
+
+}

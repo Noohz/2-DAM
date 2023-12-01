@@ -1,0 +1,27 @@
+package Examen;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.ArrayList;
+
+public class Modelo {
+	final String NOMBRE_FT = "ventas.txt";
+
+	public ArrayList<Ventas> obtenerVentasTXT() {
+		// TODO Auto-generated method stub
+		
+		ArrayList<Ventas> resultado = new ArrayList();
+		
+		BufferedReader f = null;
+		try {
+			f = new BufferedReader(new FileReader(NOMBRE_FT));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.err.println("");
+		}
+		
+		return resultado;
+	}
+	
+}

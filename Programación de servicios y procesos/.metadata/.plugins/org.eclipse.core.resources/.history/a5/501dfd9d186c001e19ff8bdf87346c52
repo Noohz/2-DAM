@@ -1,0 +1,32 @@
+package ejercicio2;
+
+public class Ejercicio2 {
+
+	public static void main(String[] args) {
+		if (args.length < 1) {
+			System.exit(1); // No se proporcionaron argumentos
+		} else {
+			int suma = 0;
+			boolean argumentosValidos = true;
+
+			for (String arg : args) {
+				try {
+					int numero = Integer.parseInt(arg);
+					if (numero < 0) {
+						System.exit(3); // Al menos uno de los argumentos es negativo
+					}
+					suma += numero;
+				} catch (NumberFormatException e) {
+					argumentosValidos = false;
+					break; // Si uno de los argumentos no es un número, salimos del bucle
+				}
+			}
+
+			if (!argumentosValidos) {
+				System.exit(2); // Al menos uno de los argumentos no es un número
+			}
+
+			System.out.println("La suma de los números es: " + suma);
+		}
+	}
+}

@@ -1,0 +1,18 @@
+package taller;
+
+public class Pieza {
+	private int id;
+	private String nombre;
+	private int stock;
+	private float precio;
+	
+	public Pieza(int id, String nombre, int stock, float precio) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.stock = stock;
+		this.precio = precio;
+	}
+	
+	
+}

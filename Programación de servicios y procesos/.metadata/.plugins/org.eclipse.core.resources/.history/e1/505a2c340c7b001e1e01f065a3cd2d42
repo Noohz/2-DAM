@@ -1,0 +1,43 @@
+package ejercicio2;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ejecutarEjercicio2 {
+    public static void main(String[] args) {
+        try {
+            // Ejecutar MainProgram
+            ProcessBuilder pb = new ProcessBuilder("java", "Ejercicio2", "5");
+            Process process = pb.start();
+            int exitCode = process.waitFor();
+
+            // Leer la salida de MainProgram
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            switch (exitCode) {
+                case 0:
+                    System.out.println("El programa MainProgram devolvió 0: Argumento válido y mayor o igual a 0.");
+                    break;
+                case 1:
+                    System.out.println("El programa MainProgram devolvió 1: Falta de argumentos.");
+                    break;
+                case 2:
+                    System.out.println("El programa MainProgram devolvió 2: Argumento no es un número entero.");
+                    break;
+                case 3:
+                    System.out.println("El programa MainProgram devolvió 3: Argumento es un número entero menor que 0.");
+                    break;
+                default:
+                    System.out.println("El programa MainProgram devolvió un valor desconocido: " + exitCode);
+            }
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+

@@ -1,0 +1,184 @@
+package fTexto;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
+public class Modelo {
+
+	private String nombreFichero;
+	public SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+
+	public Modelo(String nombreFichero) {
+		this.nombreFichero = nombreFichero;
+	}
+
+	public Alumno obtenerAlumno(String dniBuscado) {
+
+		Alumno resultado = null;
+
+		// Declarar el fichero para leer.
+		BufferedReader f = null;
+		try {
+			// Apertura del fichero
+			f = new BufferedReader(new FileReader(nombreFichero));
+
+			// Recorrido del fichero.
+			String linea;
+			while ((linea = f.readLine()) != null) {
+				// Dividir la linea por ; y guardar en array de String.
+				String[] campos = linea.split(";");
+
+				// Comprobamos si el dni de linea coincide con el dni buscado.
+				if (dniBuscado.equalsIgnoreCase(campos[0])) {
+					// Alumno encontrado.
+					resultado = new Alumno(campos[0], campos[1], formatoFecha.parse(campos[2]),
+							Integer.parseInt(campos[3]), Float.parseFloat(campos[4]), Boolean.parseBoolean(campos[5]));
+
+					// Acabar el método devolviendo el alumno.
+					return resultado;
+				}
+			}
+
+		} catch (FileNotFoundException e) {
+
+			System.err.println("El fichero aún no existe.");
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		} catch (ParseException e) {
+
+			System.err.println("Se ha encontrado una fecha incorrecta en el fichero.");
+		} finally {
+			try {
+				if (f != null) {
+					f.close();
+				}
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+		}
+
+		return resultado;
+	}
+
+	public boolean crearAlumno(Alumno a) {
+
+		boolean resultado = false;
+
+		// Declaramos el fichero con el que vamos a trabajar.
+		BufferedWriter f = null;
+
+		// Abrimos el fichero.
+		try {
+			f = new BufferedWriter(new FileWriter(nombreFichero, true));
+
+			// Escribimos los datos del alumno con el formato definido en el fichero.
+			// Ponemos un salto de línea al final de cada alumno.
+			f.write(a.getDni() + ";" + a.getNombre() + ";" + formatoFecha.format(a.getFechaN()) + ";" + a.getNumExp()
+					+ ";" + a.getEstatura() + ";" + a.isActivo() + "\n");
+			resultado = true;
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		} finally {
+			try {
+				if (f != null) {
+					f.close();
+				}
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+		}
+
+		return resultado;
+	}
+
+	public ArrayList<Alumno> obtenerAlumno() {
+
+		ArrayList<Alumno> resultado = new ArrayList<Alumno>();
+
+		// Declarar el fichero para leer.
+		BufferedReader f = null;
+		try {
+			// Apertura del fichero
+			f = new BufferedReader(new FileReader(nombreFichero));
+
+			// Recorrido del fichero.
+			String linea;
+			while ((linea = f.readLine()) != null) {
+				// Dividir la linea por ; y guardar en array de String.
+				String[] campos = linea.split(";");
+
+				
+				Alumno a = new Alumno(campos[0], campos[1], formatoFecha.parse(campos[2]), Integer.parseInt(campos[3]),
+						Float.parseFloat(campos[4]), Boolean.parseBoolean(campos[5]));
+				
+				// Añadimos cada alumno al arrayList resultado.
+				resultado.add(a);
+			}
+
+		} catch (FileNotFoundException e) {
+
+			System.err.println("El fichero aún no existe.");
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		} catch (ParseException e) {
+
+			System.err.println("Se ha encontrado una fecha incorrecta en el fichero.");
+		} finally {
+			try {
+				if (f != null) {
+					f.close();
+				}
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+		}
+
+		return resultado;
+	}
+
+	public boolean bajaAlumno(Alumno a) {
+		
+		boolean resultado = false;
+		
+		// Declarar dos ficheros.
+		// El fichero original para leer y un fichero temporal para escribir.
+		BufferedReader fOriginal = null;
+		BufferedWriter fTmp = null;
+		
+		try {
+			fOriginal = new BufferedReader(new FileReader(nombreFichero));
+			fTmp = new BufferedWriter(new FileWriter("alumnos.tmp", false));
+			
+			// Recorrer el f0riginal.
+			String linea;
+			while((linea = fOriginal.readLine()) != null) {
+				// Dividir la línea en campos.
+				String[] campos = linea.split(";");
+			}
+			
+		} catch (FileNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return resultado;
+	}
+}

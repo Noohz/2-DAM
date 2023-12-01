@@ -1,0 +1,14 @@
+package fTexto;
+
+import java.util.Date;
+
+public class Alumno {
+
+	private String dni;
+	private String nombre;
+	private Date fechaN;
+	private int numExp;
+	private float estatura;
+	private boolean activo;
+	
+}

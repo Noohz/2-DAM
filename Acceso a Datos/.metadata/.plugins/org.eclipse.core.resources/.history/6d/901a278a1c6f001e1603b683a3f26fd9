@@ -1,0 +1,19 @@
+package Examen;
+
+import java.io.BufferedReader;
+import java.util.ArrayList;
+
+public class Modelo {
+	final String NOMBRE_FT = "ventas.txt";
+
+	public ArrayList<Ventas> obtenerVentasTXT() {
+		// TODO Auto-generated method stub
+		
+		ArrayList<Ventas> resultado = new ArrayList();
+		
+		BufferedReader f = null;
+		
+		return resultado;
+	}
+	
+}
