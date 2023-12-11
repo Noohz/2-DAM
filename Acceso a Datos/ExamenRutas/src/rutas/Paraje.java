@@ -5,15 +5,15 @@ public class Paraje {
 	private String nombre;
 	private int hectareas;
 
-	public Paraje() {
-		super();
-	}
-
 	public Paraje(int id, String nombre, int hectareas) {
-		super();
+
 		this.id = id;
 		this.nombre = nombre;
 		this.hectareas = hectareas;
+	}
+
+	public Paraje() {
+
 	}
 
 	public int getId() {
@@ -44,4 +44,5 @@ public class Paraje {
 	public String toString() {
 		return "Paraje [id=" + id + ", nombre=" + nombre + ", hectareas=" + hectareas + "]";
 	}
+
 }

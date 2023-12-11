@@ -3,7 +3,6 @@ package com.example.tareaud2;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
@@ -22,36 +21,28 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import java.util.Random;
 
 public class Actividad2 extends AppCompatActivity {
-    // Handler para programar generar el código aleatorio.
-    private final Handler handler = new Handler();
-    private final int intervalo = 5000; // Intervalo de 5 segundos.
-    private static final int ACTUALIZAR = 1;
-
-    String datosUsuario;
-    String emailUsuario;
-    String contraUsuario;
-
     LinearLayout LinearLayoutApps;
     TextView textViewBienvenida, textViewAppSeleccionada, textViewCodigo;
     ImageButton imageButtonApp1, imageButtonPortapapeles;
     ImageView imageViewAppSeleccionada;
     CheckBox checkBoxCodigo;
-    AccesoDatos baseBD;
+
+    // Handler para programar generar el código aleatorio.
+    private final Handler handler = new Handler();
+    private final int intervalo = 5000; // Intervalo de 5 segundos.
+
     Boolean modoOscuro = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad2);
-        baseBD = new AccesoDatos(this);
 
         LinearLayoutApps = findViewById(R.id.LinearLayoutApps);
         textViewBienvenida = findViewById(R.id.textViewBienvenida);
@@ -63,9 +54,7 @@ public class Actividad2 extends AppCompatActivity {
         imageButtonPortapapeles = findViewById(R.id.imageButtonPortapapeles);
 
         Bundle extrasMainActivity = getIntent().getExtras();
-        datosUsuario = extrasMainActivity.getString("usuario");
-        emailUsuario = extrasMainActivity.getString("email");
-        contraUsuario = extrasMainActivity.getString("contrasenia");
+        String datosUsuario = extrasMainActivity.getString("usuario");
         textViewBienvenida.setText("Bienvenido " + datosUsuario);
 
         // Un for para recorrer todo el LinearLayout y obtener cuantos elementos tiene.
@@ -128,6 +117,15 @@ public class Actividad2 extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.menuCambiarTheme) {
+            // FUNCIONA PERO NECESITA HACER 2 CLICKS PARA VOLVER AL TEMA CLARO.
+            /*if (!modoOscuro) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                modoOscuro = true;
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                modoOscuro = false;
+            }*/
+
             int temaActual = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK; // Obtiene si el tema actual es oscuro o no.
             if (temaActual == Configuration.UI_MODE_NIGHT_NO) { // Si el tema actual no es oscuro lo aplica.
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -142,45 +140,25 @@ public class Actividad2 extends AppCompatActivity {
             startActivity(acercaDe);
         } else if (id == R.id.menuCerrarSesion) {
             finish();
-        } else if (id == R.id.menuEliminarCuenta) {
-            AlertDialog.Builder notEC = new AlertDialog.Builder(Actividad2.this);
-            notEC.setTitle("¿Eliminar Usuario?");
-            notEC.setMessage("¿Deseas eliminar tu usuario actual?");
-            notEC.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    long resultado = baseBD.BorrarUsuario(datosUsuario, contraUsuario);
-                    if (resultado != -1) {
-                        finish();
-                    }
-                }
-            });
-            notEC.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-                }
-            });
-            notEC.show();
-        } else if (id == R.id.menuModificarUsuario) {
-            Intent modUsuario = new Intent(this, PantallaModificarUsuario.class);
-            modUsuario.putExtra("usuario", datosUsuario);
-            modUsuario.putExtra("contrasenia", contraUsuario);
-            modUsuario.putExtra("email", emailUsuario);
-            startActivityForResult(modUsuario, ACTUALIZAR);
-        } return true;
+        }
+
+        return true;
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ACTUALIZAR && resultCode == RESULT_OK) {
-            datosUsuario = data.getStringExtra("usuario");
-            emailUsuario = data.getStringExtra("email");
-            contraUsuario = data.getStringExtra("contrasenia");
-            textViewBienvenida.setText("Bienvenido " + datosUsuario);
+    // Runnable para generar números aleatorios
+    private final Runnable generarCodigo = new Runnable() {
+        @Override
+        public void run() {
+            // Generar un número aleatorio de 8 dígitos
+            String CodigoAleatorio = generarCodigo();
+
+            // Asignar el código al TextView
+            textViewCodigo.setText(CodigoAleatorio);
+
+            // Programar la próxima ejecución después de 15 segundos
+            handler.postDelayed(this, intervalo); // Esto también permite que se actualice la pantalla y que se muestre el codigo nuevo.
         }
-    }
+    };
 
     // Método para generar el código aleatorio.
     private String generarCodigo() {
@@ -205,6 +183,7 @@ public class Actividad2 extends AppCompatActivity {
         textViewAppSeleccionada.setVisibility(View.VISIBLE);
         imageButtonPortapapeles.setVisibility(View.VISIBLE);
 
+
         if (checkBoxCodigo.isChecked()) {
             textViewCodigo.setVisibility(View.INVISIBLE);
             checkBoxCodigo.setText("Mostrar código");
@@ -213,19 +192,4 @@ public class Actividad2 extends AppCompatActivity {
             checkBoxCodigo.setText("Ocultar código");
         }
     }
-
-    // Runnable para generar números aleatorios
-    private final Runnable generarCodigo = new Runnable() {
-        @Override
-        public void run() {
-            // Generar un número aleatorio de 8 dígitos
-            String CodigoAleatorio = generarCodigo();
-
-            // Asignar el código al TextView
-            textViewCodigo.setText(CodigoAleatorio);
-
-            // Programar la próxima ejecución después de 15 segundos
-            handler.postDelayed(this, intervalo); // Esto también permite que se actualice la pantalla y que se muestre el codigo nuevo.
-        }
-    };
 }

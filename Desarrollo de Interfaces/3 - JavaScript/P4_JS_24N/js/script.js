@@ -1,26 +1,41 @@
-const partidos = ["PartidoA", "PartidoB", "PartidoC", "PartidoD"];
-const sumaRepresen = [0, 0, 0, 0];
-const sumaVotosTo = [0, 0, 0, 0];
-const sumaProvincias = ["", "", "", ""];
-var xhr = new XMLHttpRequest();
+window.onload = inicio;
 
-xhr.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        var objeto = JSON.parse(this.responseText);
-        objeto.forEach(recorrer);
-        function recorrer(item, indice) {
-            const votos = [Number(item.votosPA), Number(item.votosPB), Number(item.votosPC), Number(item.votosPD)]
-            var mayor = -1;
-            var pos = -1;
-            for (let i = 0; i < votos.length; i++) {
-                if (votos[i] >= mayor) {
-                    mayor = votos[i];
-                    pos = i;
+const cuerpo = document.body;
+
+var contenedor = document.createElement("div");
+
+function inicio() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            let objeto = JSON.parse(this.responseText);
+            let res = "";
+            let votosTotales = "";
+            objeto.forEach(recorrer);
+
+            function recorrer(congreso, indice) {
+                let ganador;
+                if (congreso.votosPA > congreso.votosPB && congreso.votosPA > congreso.votosPC && congreso.votosPA > congreso.votosPD) {
+                    ganador = congreso.votosPA;
+                    votosTotales = congreso.votosPA + congreso.votosPB + congreso.votosPC + congreso.votosPD;
+                } else if (congreso.votosPB > congreso.votosPA && congreso.votosPB > congreso.votosPC && congreso.votosPB > congreso.votosPD) {
+                    ganador = congreso.votosPB;
+                    votosTotales = congreso.votosPA + congreso.votosPB + congreso.votosPC + congreso.votosPD;
+                } else if (congreso.votosPC > congreso.votosPA && congreso.votosPC > congreso.votosPB && congreso.votosPC > congreso.votosPD) {
+                    ganador = congreso.votosPC;
+                    votosTotales = congreso.votosPA + congreso.votosPB + congreso.votosPC + congreso.votosPD;
+                } else if (congreso.votosPD > congreso.votosPA && congreso.votosPD > congreso.votosPB && congreso.votosPD > congreso.votosPC) {
+                    ganador = congreso.votosPD;
+                    votosTotales = congreso.votosPA + congreso.votosPB + congreso.votosPC + congreso.votosPD;
                 }
+
+                res +=
+                    "<a>Partido " + congreso.nombreProvincia + ": " + congreso.Representantes + " Representantes <br></a><br>"
             }
-            sumaRepresen[pos] += Number;
+            cuerpo.innerHTML = res;
         }
     }
-};
-xhr.open("GET", "http://moralo.atwebpages.com/menuAjax/Provincias/getProvincias.php", true);
-xhr.send();
+    xhr.open("GET", "http://moralo.atwebpages.com/menuAjax/Provincias/getProvincias.php", true);
+    xhr.send();
+}
+
