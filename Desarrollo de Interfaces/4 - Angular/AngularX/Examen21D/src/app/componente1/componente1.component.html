@@ -1,0 +1,6 @@
+<p>componente1 works!</p>
+<h3>{{titulo}}</h3>
+
+<li *ngFor="let btn of botones; let i=index">
+    <button [ngClass]="color" (click)="cambiar(i)" class="btn btn-md m-2">{{btn}}</button>
+</li>

@@ -7,14 +7,18 @@
 <item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Servers" type="4"/>
 </workingSet>
 <workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1699354229022_5" label="Examen" name="Examen">
-<item elementID="=ExamenUD1" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=ExamenRutas" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ExamenUD1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ExamenRutas" type="4"/>
 </workingSet>
 <workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1699435753414_5" label="Unidad 2" name="Unidad 2">
-<item elementID="=ExamenRutas" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ExamenRutas" type="4"/>
 <item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Unidad2" type="4"/>
 </workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1704707320833_6" label="Unidad 5" name="Unidad 5">
+<item elementID="=Unidad5" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1694594139130_2" label="Window Working Set" name="Aggregate for window 1694594139130"/>
+<mruList name="Unidad 5"/>
 <mruList name="Unidad 2"/>
 <mruList name="Examen"/>
 </workingSetManager>

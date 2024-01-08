@@ -4,7 +4,9 @@
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
+		<item key="selection" value="obtenerPaci"/>
 		<list key="findhistory">
+			<item value="obtenerPaci"/>
 			<item value="MiO"/>
 		</list>
 		<list key="replacehistory">

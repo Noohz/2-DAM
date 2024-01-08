@@ -1,8 +1,0 @@
-package taller;
-
-public class PiezaReparacion {
-	private int reparacion;
-	private int pieza;
-	private int cantidad;
-	private float precio;
-}

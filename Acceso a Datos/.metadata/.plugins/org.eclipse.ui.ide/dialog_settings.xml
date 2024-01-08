@@ -6,6 +6,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Github\2-DAM\Acceso a Datos\Unidad5"/>
 			<item value="C:\Users\Aitor\Desktop\prueba\AD2324-master\Alumnos"/>
 			<item value="C:\Users\Aitor\Desktop\2DAM\Acceso a Datos\Alumnos"/>
 			<item value="C:\Users\Aitor\Desktop\2DAM\Acceso a Datos\Unidad1\src\JAXB"/>
