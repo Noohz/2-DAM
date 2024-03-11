@@ -1,0 +1,10 @@
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba8\Prueba8\bin\Debug\Prueba8.exe.config
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba8\Prueba8\bin\Debug\Prueba8.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba8\Prueba8\bin\Debug\Prueba8.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba8\Prueba8\obj\Debug\Prueba8.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba8\Prueba8\obj\Debug\Prueba8.Properties.Resources.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba8\Prueba8\obj\Debug\Prueba8.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba8\Prueba8\obj\Debug\Prueba8.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba8\Prueba8\obj\Debug\Prueba8.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba8\Prueba8\obj\Debug\Prueba8.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba8\Prueba8\obj\Debug\Prueba8.Form1.resources

@@ -1,0 +1,10 @@
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba5\Prueba5\bin\Debug\Prueba5.exe.config
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba5\Prueba5\bin\Debug\Prueba5.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba5\Prueba5\bin\Debug\Prueba5.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba5\Prueba5\obj\Debug\Prueba5.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba5\Prueba5\obj\Debug\Prueba5.Form1.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba5\Prueba5\obj\Debug\Prueba5.Properties.Resources.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba5\Prueba5\obj\Debug\Prueba5.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba5\Prueba5\obj\Debug\Prueba5.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba5\Prueba5\obj\Debug\Prueba5.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba5\Prueba5\obj\Debug\Prueba5.pdb
