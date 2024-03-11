@@ -1,0 +1,23 @@
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Examen6Octubre\Examen6Octubre\bin\Debug\Examen6Octubre.exe.config
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Examen6Octubre\Examen6Octubre\bin\Debug\Examen6Octubre.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Examen6Octubre\Examen6Octubre\bin\Debug\Examen6Octubre.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Examen6Octubre\Examen6Octubre\bin\Debug\MySql.Data.dll
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Examen6Octubre\Examen6Octubre\obj\Debug\Examen6Octubre.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Examen6Octubre\Examen6Octubre\obj\Debug\Examen6Octubre.Form1.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Examen6Octubre\Examen6Octubre\obj\Debug\Examen6Octubre.Properties.Resources.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Examen6Octubre\Examen6Octubre\obj\Debug\Examen6Octubre.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Examen6Octubre\Examen6Octubre\obj\Debug\Examen6Octubre.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Examen6Octubre\Examen6Octubre\obj\Debug\Examen6Octubre.csproj.CopyComplete
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Examen6Octubre\Examen6Octubre\obj\Debug\Examen6Octubre.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Examen6Octubre\Examen6Octubre\obj\Debug\Examen6Octubre.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen6Octubre\Examen6Octubre\bin\Debug\Examen6Octubre.exe.config
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen6Octubre\Examen6Octubre\bin\Debug\Examen6Octubre.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen6Octubre\Examen6Octubre\bin\Debug\Examen6Octubre.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen6Octubre\Examen6Octubre\obj\Debug\Examen6Octubre.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen6Octubre\Examen6Octubre\obj\Debug\Examen6Octubre.Form1.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen6Octubre\Examen6Octubre\obj\Debug\Examen6Octubre.Properties.Resources.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen6Octubre\Examen6Octubre\obj\Debug\Examen6Octubre.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen6Octubre\Examen6Octubre\obj\Debug\Examen6Octubre.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen6Octubre\Examen6Octubre\obj\Debug\Examen6Octubre.csproj.CopyComplete
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen6Octubre\Examen6Octubre\obj\Debug\Examen6Octubre.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen6Octubre\Examen6Octubre\obj\Debug\Examen6Octubre.pdb

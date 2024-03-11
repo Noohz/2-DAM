@@ -1,0 +1,108 @@
+C:\Users\David\source\repos\Farmacio version 2.0\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.FormularioPrincipal.resources
+C:\Users\David\source\repos\Farmacio version 2.0\Farmacio version 2.0\obj\Debug\Farmacio_version_2._0.Properties.Resources.resources
+C:\Users\David\source\repos\Farmacio version 2.0\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.GenerateResource.cache
+C:\Users\David\source\repos\Farmacio version 2.0\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.CoreCompileInputs.cache
+C:\Users\David\source\repos\Farmacio version 2.0\Farmacio version 2.0\bin\Debug\Farmacio version 2.0.exe.config
+C:\Users\David\source\repos\Farmacio version 2.0\Farmacio version 2.0\bin\Debug\Farmacio version 2.0.exe
+C:\Users\David\source\repos\Farmacio version 2.0\Farmacio version 2.0\bin\Debug\Farmacio version 2.0.pdb
+C:\Users\David\source\repos\Farmacio version 2.0\Farmacio version 2.0\bin\Debug\itextsharp.dll
+C:\Users\David\source\repos\Farmacio version 2.0\Farmacio version 2.0\bin\Debug\MySql.Data.dll
+C:\Users\David\source\repos\Farmacio version 2.0\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.CopyComplete
+C:\Users\David\source\repos\Farmacio version 2.0\Farmacio version 2.0\obj\Debug\Farmacio version 2.0.exe
+C:\Users\David\source\repos\Farmacio version 2.0\Farmacio version 2.0\obj\Debug\Farmacio version 2.0.pdb
+C:\Users\David\source\repos\Farmacio version 2.0\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.AssemblyReference.cache
+C:\Users\David\source\repos\Farmacio version 2.0\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.formGestion.resources
+C:\Users\David\source\repos\Farmacia version 2.0\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.exe.config
+C:\Users\David\source\repos\Farmacia version 2.0\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.exe
+C:\Users\David\source\repos\Farmacia version 2.0\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.pdb
+C:\Users\David\source\repos\Farmacia version 2.0\Farmacio version 2.0\bin\Debug\itextsharp.dll
+C:\Users\David\source\repos\Farmacia version 2.0\Farmacio version 2.0\bin\Debug\MySql.Data.dll
+C:\Users\David\source\repos\Farmacia version 2.0\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.AssemblyReference.cache
+C:\Users\David\source\repos\Farmacia version 2.0\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.FormularioPrincipal.resources
+C:\Users\David\source\repos\Farmacia version 2.0\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.formGestion.resources
+C:\Users\David\source\repos\Farmacia version 2.0\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.Properties.Resources.resources
+C:\Users\David\source\repos\Farmacia version 2.0\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.GenerateResource.cache
+C:\Users\David\source\repos\Farmacia version 2.0\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.CoreCompileInputs.cache
+C:\Users\David\source\repos\Farmacia version 2.0\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.CopyComplete
+C:\Users\David\source\repos\Farmacia version 2.0\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.exe
+C:\Users\David\source\repos\Farmacia version 2.0\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.pdb
+C:\Users\David\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.AssemblyReference.cache
+C:\Users\David\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.FormularioPrincipal.resources
+C:\Users\David\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.formGestion.resources
+C:\Users\David\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.Properties.Resources.resources
+C:\Users\David\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.GenerateResource.cache
+C:\Users\David\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.CoreCompileInputs.cache
+C:\Users\David\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.exe
+C:\Users\David\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.pdb
+C:\Users\David\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.exe.config
+C:\Users\David\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.exe
+C:\Users\David\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.pdb
+C:\Users\David\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.CopyComplete
+C:\Users\David\Downloads\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.exe.config
+C:\Users\David\Downloads\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.exe
+C:\Users\David\Downloads\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.pdb
+C:\Users\David\Downloads\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.AssemblyReference.cache
+C:\Users\David\Downloads\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.FormularioPrincipal.resources
+C:\Users\David\Downloads\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.formGestion.resources
+C:\Users\David\Downloads\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.Properties.Resources.resources
+C:\Users\David\Downloads\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.GenerateResource.cache
+C:\Users\David\Downloads\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.CoreCompileInputs.cache
+C:\Users\David\Downloads\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.CopyComplete
+C:\Users\David\Downloads\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.exe
+C:\Users\David\Downloads\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.pdb
+C:\Users\David\Downloads\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.FormLogeo.resources
+C:\Users\usuario\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.AssemblyReference.cache
+C:\Users\usuario\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.SuggestedBindingRedirects.cache
+C:\Users\usuario\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.FormularioPrincipal.resources
+C:\Users\usuario\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.formGestion.resources
+C:\Users\usuario\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.FormLogeo.resources
+C:\Users\usuario\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.Properties.Resources.resources
+C:\Users\usuario\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.GenerateResource.cache
+C:\Users\usuario\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.CoreCompileInputs.cache
+C:\Users\usuario\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.exe
+C:\Users\usuario\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.pdb
+C:\Users\usuario\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.exe.config
+C:\Users\usuario\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.exe
+C:\Users\usuario\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.pdb
+C:\Users\usuario\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.CopyComplete
+C:\Users\Aitor\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.exe.config
+C:\Users\Aitor\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.exe
+C:\Users\Aitor\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.pdb
+C:\Users\Aitor\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\itextsharp.dll
+C:\Users\Aitor\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\MySql.Data.dll
+C:\Users\Aitor\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.FormularioPrincipal.resources
+C:\Users\Aitor\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.formGestion.resources
+C:\Users\Aitor\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.FormLogeo.resources
+C:\Users\Aitor\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.Properties.Resources.resources
+C:\Users\Aitor\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.CopyComplete
+C:\Users\Aitor\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.exe
+C:\Users\Aitor\Desktop\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.exe.config
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.FormularioPrincipal.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.formGestion.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.FormLogeo.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.Properties.Resources.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.CopyComplete
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.pdb
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.exe.config
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.exe
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\bin\Debug\Farmacia version 2.0.pdb
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.AssemblyReference.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.FormularioPrincipal.resources
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.formGestion.resources
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.FormLogeo.resources
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia_version_2._0.Properties.Resources.resources
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.GenerateResource.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.CoreCompileInputs.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.csproj.CopyComplete
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.exe
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Farmacia version 2.0.1\Farmacio version 2.0\obj\Debug\Farmacia version 2.0.pdb

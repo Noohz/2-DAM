@@ -1,0 +1,13 @@
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ExamenRec\ExamenRec\bin\Debug\ExamenRec.exe.config
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ExamenRec\ExamenRec\bin\Debug\ExamenRec.exe
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ExamenRec\ExamenRec\bin\Debug\ExamenRec.pdb
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ExamenRec\ExamenRec\obj\Debug\ExamenRec.csproj.AssemblyReference.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ExamenRec\ExamenRec\obj\Debug\ExamenRec.Form1.resources
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ExamenRec\ExamenRec\obj\Debug\ExamenRec.Properties.Resources.resources
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ExamenRec\ExamenRec\obj\Debug\ExamenRec.csproj.GenerateResource.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ExamenRec\ExamenRec\obj\Debug\ExamenRec.csproj.CoreCompileInputs.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ExamenRec\ExamenRec\obj\Debug\ExamenRec.exe
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ExamenRec\ExamenRec\obj\Debug\ExamenRec.pdb
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ExamenRec\ExamenRec\bin\Debug\itextsharp.dll
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ExamenRec\ExamenRec\bin\Debug\MySql.Data.dll
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ExamenRec\ExamenRec\obj\Debug\ExamenRec.csproj.CopyComplete

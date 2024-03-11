@@ -1,0 +1,30 @@
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\TPVExamen\TPVExamen\bin\Debug\TPVExamen.exe.config
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\TPVExamen\TPVExamen\bin\Debug\TPVExamen.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\TPVExamen\TPVExamen\bin\Debug\TPVExamen.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\TPVExamen\TPVExamen\bin\Debug\MySql.Data.dll
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\TPVExamen\TPVExamen\obj\Debug\TPVExamen.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\TPVExamen\TPVExamen\obj\Debug\TPVExamen.Form1.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\TPVExamen\TPVExamen\obj\Debug\TPVExamen.Login.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\TPVExamen\TPVExamen\obj\Debug\TPVExamen.Properties.Resources.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\TPVExamen\TPVExamen\obj\Debug\TPVExamen.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\TPVExamen\TPVExamen\obj\Debug\TPVExamen.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\TPVExamen\TPVExamen\obj\Debug\TPVExamen.csproj.CopyComplete
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\TPVExamen\TPVExamen\obj\Debug\TPVExamen.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\TPVExamen\TPVExamen\obj\Debug\TPVExamen.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\TPVExamen\TPVExamen\obj\Debug\TPVExamen.BackEnd.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen20Oct\TPVExamen\TPVExamen\bin\Debug\TPVExamen.exe.config
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen20Oct\TPVExamen\TPVExamen\bin\Debug\TPVExamen.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen20Oct\TPVExamen\TPVExamen\bin\Debug\TPVExamen.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen20Oct\TPVExamen\TPVExamen\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen20Oct\TPVExamen\TPVExamen\bin\Debug\itextsharp.dll
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen20Oct\TPVExamen\TPVExamen\bin\Debug\itextsharp.xml
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen20Oct\TPVExamen\TPVExamen\obj\Debug\TPVExamen.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen20Oct\TPVExamen\TPVExamen\obj\Debug\TPVExamen.BackEnd.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen20Oct\TPVExamen\TPVExamen\obj\Debug\TPVExamen.Form1.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen20Oct\TPVExamen\TPVExamen\obj\Debug\TPVExamen.Login.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen20Oct\TPVExamen\TPVExamen\obj\Debug\TPVExamen.Properties.Resources.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen20Oct\TPVExamen\TPVExamen\obj\Debug\TPVExamen.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen20Oct\TPVExamen\TPVExamen\obj\Debug\TPVExamen.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen20Oct\TPVExamen\TPVExamen\obj\Debug\TPVExamen.csproj.CopyComplete
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen20Oct\TPVExamen\TPVExamen\obj\Debug\TPVExamen.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Examen20Oct\TPVExamen\TPVExamen\obj\Debug\TPVExamen.pdb
