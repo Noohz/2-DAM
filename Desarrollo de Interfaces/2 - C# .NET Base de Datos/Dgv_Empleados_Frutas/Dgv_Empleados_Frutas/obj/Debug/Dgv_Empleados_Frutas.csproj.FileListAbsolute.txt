@@ -1,0 +1,23 @@
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\bin\Debug\Dgv_Empleados_Frutas.exe.config
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\bin\Debug\Dgv_Empleados_Frutas.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\bin\Debug\Dgv_Empleados_Frutas.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\bin\Debug\MySql.Data.dll
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\obj\Debug\Dgv_Empleados_Frutas.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\obj\Debug\Dgv_Empleados_Frutas.Form1.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\obj\Debug\Dgv_Empleados_Frutas.Properties.Resources.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\obj\Debug\Dgv_Empleados_Frutas.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\obj\Debug\Dgv_Empleados_Frutas.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\obj\Debug\Dgv_Empleados_Frutas.csproj.CopyComplete
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\obj\Debug\Dgv_Empleados_Frutas.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\obj\Debug\Dgv_Empleados_Frutas.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\bin\Debug\Dgv_Empleados_Frutas.exe.config
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\bin\Debug\Dgv_Empleados_Frutas.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\bin\Debug\Dgv_Empleados_Frutas.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\obj\Debug\Dgv_Empleados_Frutas.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\obj\Debug\Dgv_Empleados_Frutas.Form1.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\obj\Debug\Dgv_Empleados_Frutas.Properties.Resources.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\obj\Debug\Dgv_Empleados_Frutas.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\obj\Debug\Dgv_Empleados_Frutas.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\obj\Debug\Dgv_Empleados_Frutas.csproj.CopyComplete
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\obj\Debug\Dgv_Empleados_Frutas.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Dgv_Empleados_Frutas\Dgv_Empleados_Frutas\obj\Debug\Dgv_Empleados_Frutas.pdb
