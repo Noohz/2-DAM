@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuInsertarDatos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Insertar Datos" />
+    <item
+        android:id="@+id/menuBuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Buscar"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menuCerrarApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="Cerrar App"
+        app:showAsAction="always" />
+</menu>

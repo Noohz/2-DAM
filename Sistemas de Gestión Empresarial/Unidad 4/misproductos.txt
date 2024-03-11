@@ -1,0 +1,5 @@
+camisa;10;primavera;10;30
+bañador;4;verano;5;10
+abrigo;12;invierno;20;50
+cazadora;15;otoño;15;40
+falda;5;primavera;5;20
