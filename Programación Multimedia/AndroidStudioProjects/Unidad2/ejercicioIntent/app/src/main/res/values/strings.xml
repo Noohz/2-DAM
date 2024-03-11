@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Ejercicio Intent</string>
+    <string name="textViewNombre">Nombre</string>
+    <string name="editTextNombreHint">Introduce tu nombre</string>
+    <string name="textViewApellidos">Apellidos</string>
+    <string name="editTextApellidosHint">Introduce tus apellidos</string>
+    <string name="botonAceptar">Aceptar</string>
+    <string name="botonSiguiente">Siguiente</string>
+    <string name="botonAtras">Atras</string>
+</resources>

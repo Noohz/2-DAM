@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RESERVA DE ENTRADAS</string>
+
+    <string-array name="arrayLugares">
+        <item>Teatro del Mercado</item>
+        <item>Piscina Climatizada</item>
+    </string-array>
+</resources>
