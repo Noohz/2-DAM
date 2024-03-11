@@ -1,0 +1,34 @@
+Haz una versión del juego "El Ahorcado" basado en un sistema Cliente/Servidor que trabajará mediante conexiones TCP en el puerto 23432.
+
+Cuando el cliente se conecta con el servidor, éste eligirá una palabra aleatoria de entre una de las que tiene almacenadas en un array estático del tipo:
+final String[] palabras = {"carroza", "puerta", "musculo", "tibia", "nariz", "pierna"}
+
+En el juego del ahorcado, el usuario tendrá un máximo de 6 fallos antes de dar por perdida la partida. El programa del cliente tendrá un interfaz de usuario parecido al siguiente:
+Palabra a adivinar: - a - - o z a
+Número actual de fallos: 3
+1.- Indicar nueva letra.
+2.- Intentar resolver.
+3.- Terminar.
+
+En la opción 1, el cliente le enviará al servidor una trama con el formato:
+Letra \t valorLetra \n
+
+En la opción 2, el cliente le enviará al servidor una trama con el formato:
+Palabra \t valorPalabra \n
+
+En la opción 3, el cliente le enviará al servidor una trama con el formato:
+Final \n
+
+El servidor no tendrá interfaz de usuario y se limitará en ir intercambiando mensajes con los diferentes clientes que puedan estar conectados. Por cada conexión de cliente habrá que guardar la siguiente información:
+Palabra seleccionada (string)
+Estado actual de la palabra (char[]). (El estado actual al inicio deberá ser - - - - - - -)
+Número de fallos actuales (int)
+Número de letras pendientes por adivinar (int)
+
+La trama de datos que puede enviar un servidor al cliente son las siguientes:
+Formato trama
+ Inicio \t numActualFallos \t estadoPalabra \n (Uso: Trama inicial cuando el cliente conecta)
+ Aciertos \t numAciertos \t numActualFallos \t estadoPalabra \n (Uso: Cuando el usuario ha enviado una letra y está en alguna de las posiciones)
+ Fallos \t numActualFallos \t estadoPalabra \n (Uso: Cuando el usuario ha enviado una letra que no está o cuando envia una palabra que no es la buscada)
+ Triunfo \t numActualFallos \t palabra \n (Uso: Cuando el número de letras pendientes de adivinar es 0, o ha mandado la palabra correcta).
+ Derrota \t numActualFallos \t palabra \n (Uso: Cuando el número de fallos que lleva el cliente llega a 7)
