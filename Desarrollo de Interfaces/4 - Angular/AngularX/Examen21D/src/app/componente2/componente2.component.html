@@ -1,0 +1,4 @@
+<p>componente2 works!</p>
+<button #btn1 (click)="iniciar(btn1, btn2, btn3)" class="btn btn-info btn-md m-2">Segundos:{{segundo}}</button>
+<button #btn2 disabled="true" (click)="parar(btn2, btn3)" class="btn btn-success btn-md m-2">Parar</button>
+<button #btn3 disabled="true" (click)="iniciar(btn1, btn2, btn3)" class="btn btn-danger btn-md m-2">Reanudar</button>

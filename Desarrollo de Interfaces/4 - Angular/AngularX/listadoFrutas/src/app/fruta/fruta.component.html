@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-lg-6">
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>PRECIO</th>
+                        <th>UNIDADES</th>
+                        <th>IMÁGEN</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let f of fruta">
+                        <td>{{f.id}}</td>
+                        <td>{{f.nombre}}</td>
+                        <td>{{f.precio}}</td>
+                        <td>{{f.unidades}}</td>
+                        <td><img src={{f.imagen}} width="100" height="80"></td>
+                        <td><button class="btn btn-danger btn-md m-2">Eliminar</button></td>
+                        <td><button class="btn btn-info btn-md m-2">Modificar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="col-lg-6">
+
+        </div>
+
+    </div>
+</div>
