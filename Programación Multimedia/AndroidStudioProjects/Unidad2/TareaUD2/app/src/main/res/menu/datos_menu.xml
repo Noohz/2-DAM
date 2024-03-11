@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuCambiarTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/cambiartheme"
+        android:title="Cambiar Tema"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menuAcercaDe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Acerca de" />
+    <item
+        android:id="@+id/menuCerrarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Cerrar Sesión" />
+    <item
+        android:id="@+id/menuEliminarCuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Eliminar Cuenta" />
+    <item
+        android:id="@+id/menuModificarUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Modificar Usuario" />
+</menu>

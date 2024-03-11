@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Actividad2">
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/textViewAutor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aitor Ramos Sánchez"
+            android:textColor="?android:textColorPrimaryInverse" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewBienvenida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutApps"
+        android:layout_width="394dp"
+        android:layout_height="106dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.968">
+
+        <ImageButton
+            android:id="@+id/imageButtonApp1"
+            android:layout_width="99dp"
+            android:layout_height="104dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Twitter"
+            android:scaleType="centerCrop"
+            android:src="@drawable/twitter"
+            android:tag="Twitter" />
+
+        <ImageButton
+            android:id="@+id/imageButtonApp2"
+            android:layout_width="99dp"
+            android:layout_height="104dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Discord"
+            android:padding="20px"
+            android:scaleType="centerInside"
+            android:src="@drawable/discord"
+            android:tag="Discord" />
+
+        <ImageButton
+            android:id="@+id/imageButtonApp3"
+            android:layout_width="99dp"
+            android:layout_height="104dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Mega"
+            android:padding="20px"
+            android:scaleType="centerInside"
+            android:src="@drawable/mega"
+            android:tag="Mega" />
+
+        <ImageButton
+            android:id="@+id/imageButtonApp4"
+            android:layout_width="99dp"
+            android:layout_height="104dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Github"
+            android:padding="20px"
+            android:scaleType="centerInside"
+            android:src="@drawable/github"
+            android:tag="Github" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageViewAppSeleccionada"
+        android:layout_width="103dp"
+        android:layout_height="97dp"
+        android:contentDescription="imgApp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.192" />
+
+    <TextView
+        android:id="@+id/textViewAppSeleccionada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.351" />
+
+    <TextView
+        android:id="@+id/textViewCodigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="64534234"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.442" />
+
+    <CheckBox
+        android:id="@+id/checkBoxCodigo"
+        android:layout_width="110dp"
+        android:layout_height="34dp"
+        android:checked="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <ImageButton
+        android:id="@+id/imageButtonPortapapeles"
+        android:layout_width="49dp"
+        android:layout_height="32dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.72"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.442"
+        app:srcCompat="@drawable/copy" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
