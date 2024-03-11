@@ -1,0 +1,10 @@
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba9 Juego Colores\Prueba9 Juego Colores\bin\Debug\Prueba9 Juego Colores.exe.config
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba9 Juego Colores\Prueba9 Juego Colores\bin\Debug\Prueba9 Juego Colores.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba9 Juego Colores\Prueba9 Juego Colores\bin\Debug\Prueba9 Juego Colores.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba9 Juego Colores\Prueba9 Juego Colores\obj\Debug\Prueba9 Juego Colores.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba9 Juego Colores\Prueba9 Juego Colores\obj\Debug\Prueba9_Juego_Colores.Form1.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba9 Juego Colores\Prueba9 Juego Colores\obj\Debug\Prueba9_Juego_Colores.Properties.Resources.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba9 Juego Colores\Prueba9 Juego Colores\obj\Debug\Prueba9 Juego Colores.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba9 Juego Colores\Prueba9 Juego Colores\obj\Debug\Prueba9 Juego Colores.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba9 Juego Colores\Prueba9 Juego Colores\obj\Debug\Prueba9 Juego Colores.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba9 Juego Colores\Prueba9 Juego Colores\obj\Debug\Prueba9 Juego Colores.pdb
