@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Ejercicio2CambiarTexto</string>
+    <string name="textViewDatosContacto"><u>Datos de contacto</u></string>
+</resources>
