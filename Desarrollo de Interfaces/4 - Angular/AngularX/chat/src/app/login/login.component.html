@@ -1,0 +1,30 @@
+<div class="container">
+    <label class="email">Email</label>
+    <mat-form-field>
+        <mat-label>Introduce tu correo</mat-label>
+        <input matInput placeholder="ejemplo@gmail.com" [formControl]="email" required>
+        @if (email.invalid) {
+        <mat-error>{{getErrorMessage()}}</mat-error>
+        }
+    </mat-form-field>
+</div>
+
+<div class="container">
+    <label class="pwd">Contraseña</label>
+    <mat-form-field>
+        <mat-label>Introduce tu contraseña</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required>
+        @if (password.invalid) {
+        <mat-error>{{getErrorMessage()}}</mat-error>
+        }
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+    <br>
+</div>
+
+<mat-divider></mat-divider>
+<br>
+<button mat-raised-button color="primary" class="btnLogin" (click)="logearse()">Logearse</button>

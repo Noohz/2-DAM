@@ -1,0 +1,16 @@
+.email {
+    padding: 6px 32px;
+}
+
+.pwd {
+    padding: 6px 12px;
+}
+
+.user {
+    padding: 6px 25px;
+}
+
+.btnLogin {
+    width: 150px;
+    margin-left: 20px;
+}

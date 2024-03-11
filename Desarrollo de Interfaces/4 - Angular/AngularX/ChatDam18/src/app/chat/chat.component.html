@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-auto">
+      <h3>Usuario</h3>
+      <input [(ngModel)]="usuario" type="text">
+      <br><br>
+      <h3>Mensaje</h3>
+      <input [(ngModel)]="texto" type="text">
+      <br><br>
+      <button class="btn btn-info btn-md m-2" (click)="enviarMensaje()">Enviar</button>
+      <button class="btn btn-danger btn-md m-2" (click)="refrescar()">Refrescar</button>
+      <br><br><br>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>FECHA</th>
+            <th>USUARIO</th>
+            <th>MENSAJE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let m of listaMensajes">
+            <td>{{m.id}}</td>
+            <td>{{m.fecha}}</td>
+            <td>{{m.usuario}}</td>
+            <td>{{m.mensaje}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
