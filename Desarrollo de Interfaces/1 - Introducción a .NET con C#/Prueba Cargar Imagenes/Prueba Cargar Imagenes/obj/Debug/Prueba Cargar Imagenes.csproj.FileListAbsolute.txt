@@ -1,0 +1,10 @@
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba Cargar Imagenes\Prueba Cargar Imagenes\bin\Debug\Prueba Cargar Imagenes.exe.config
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba Cargar Imagenes\Prueba Cargar Imagenes\bin\Debug\Prueba Cargar Imagenes.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba Cargar Imagenes\Prueba Cargar Imagenes\bin\Debug\Prueba Cargar Imagenes.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba Cargar Imagenes\Prueba Cargar Imagenes\obj\Debug\Prueba Cargar Imagenes.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba Cargar Imagenes\Prueba Cargar Imagenes\obj\Debug\Prueba_Cargar_Imagenes.Form1.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba Cargar Imagenes\Prueba Cargar Imagenes\obj\Debug\Prueba_Cargar_Imagenes.Properties.Resources.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba Cargar Imagenes\Prueba Cargar Imagenes\obj\Debug\Prueba Cargar Imagenes.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba Cargar Imagenes\Prueba Cargar Imagenes\obj\Debug\Prueba Cargar Imagenes.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba Cargar Imagenes\Prueba Cargar Imagenes\obj\Debug\Prueba Cargar Imagenes.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba Cargar Imagenes\Prueba Cargar Imagenes\obj\Debug\Prueba Cargar Imagenes.pdb

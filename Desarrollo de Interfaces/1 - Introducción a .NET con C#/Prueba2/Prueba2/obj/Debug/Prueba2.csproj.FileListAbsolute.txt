@@ -1,0 +1,20 @@
+C:\Users\usuario\source\repos\Prueba2\Prueba2\bin\Debug\Prueba2.exe.config
+C:\Users\usuario\source\repos\Prueba2\Prueba2\bin\Debug\Prueba2.exe
+C:\Users\usuario\source\repos\Prueba2\Prueba2\bin\Debug\Prueba2.pdb
+C:\Users\usuario\source\repos\Prueba2\Prueba2\obj\Debug\Prueba2.csproj.AssemblyReference.cache
+C:\Users\usuario\source\repos\Prueba2\Prueba2\obj\Debug\Prueba2.Form1.resources
+C:\Users\usuario\source\repos\Prueba2\Prueba2\obj\Debug\Prueba2.Properties.Resources.resources
+C:\Users\usuario\source\repos\Prueba2\Prueba2\obj\Debug\Prueba2.csproj.GenerateResource.cache
+C:\Users\usuario\source\repos\Prueba2\Prueba2\obj\Debug\Prueba2.csproj.CoreCompileInputs.cache
+C:\Users\usuario\source\repos\Prueba2\Prueba2\obj\Debug\Prueba2.exe
+C:\Users\usuario\source\repos\Prueba2\Prueba2\obj\Debug\Prueba2.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba2\Prueba2\bin\Debug\Prueba2.exe.config
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba2\Prueba2\bin\Debug\Prueba2.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba2\Prueba2\bin\Debug\Prueba2.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba2\Prueba2\obj\Debug\Prueba2.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba2\Prueba2\obj\Debug\Prueba2.Form1.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba2\Prueba2\obj\Debug\Prueba2.Properties.Resources.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba2\Prueba2\obj\Debug\Prueba2.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba2\Prueba2\obj\Debug\Prueba2.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba2\Prueba2\obj\Debug\Prueba2.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba2\Prueba2\obj\Debug\Prueba2.pdb

@@ -1,0 +1,10 @@
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\ExamenEj3\ExamenEj3\bin\Debug\ExamenEj3.exe.config
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\ExamenEj3\ExamenEj3\bin\Debug\ExamenEj3.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\ExamenEj3\ExamenEj3\bin\Debug\ExamenEj3.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\ExamenEj3\ExamenEj3\obj\Debug\ExamenEj3.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\ExamenEj3\ExamenEj3\obj\Debug\ExamenEj3.Form1.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\ExamenEj3\ExamenEj3\obj\Debug\ExamenEj3.Properties.Resources.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\ExamenEj3\ExamenEj3\obj\Debug\ExamenEj3.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\ExamenEj3\ExamenEj3\obj\Debug\ExamenEj3.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\ExamenEj3\ExamenEj3\obj\Debug\ExamenEj3.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\ExamenEj3\ExamenEj3\obj\Debug\ExamenEj3.pdb

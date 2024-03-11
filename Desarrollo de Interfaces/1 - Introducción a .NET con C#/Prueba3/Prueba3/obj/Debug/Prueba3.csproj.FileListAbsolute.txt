@@ -1,0 +1,20 @@
+C:\Users\usuario\source\repos\Prueba3\Prueba3\bin\Debug\Prueba3.exe.config
+C:\Users\usuario\source\repos\Prueba3\Prueba3\bin\Debug\Prueba3.exe
+C:\Users\usuario\source\repos\Prueba3\Prueba3\bin\Debug\Prueba3.pdb
+C:\Users\usuario\source\repos\Prueba3\Prueba3\obj\Debug\Prueba3.csproj.AssemblyReference.cache
+C:\Users\usuario\source\repos\Prueba3\Prueba3\obj\Debug\Prueba3.Form1.resources
+C:\Users\usuario\source\repos\Prueba3\Prueba3\obj\Debug\Prueba3.Properties.Resources.resources
+C:\Users\usuario\source\repos\Prueba3\Prueba3\obj\Debug\Prueba3.csproj.GenerateResource.cache
+C:\Users\usuario\source\repos\Prueba3\Prueba3\obj\Debug\Prueba3.csproj.CoreCompileInputs.cache
+C:\Users\usuario\source\repos\Prueba3\Prueba3\obj\Debug\Prueba3.exe
+C:\Users\usuario\source\repos\Prueba3\Prueba3\obj\Debug\Prueba3.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba3\Prueba3\bin\Debug\Prueba3.exe.config
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba3\Prueba3\bin\Debug\Prueba3.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba3\Prueba3\bin\Debug\Prueba3.pdb
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba3\Prueba3\obj\Debug\Prueba3.csproj.AssemblyReference.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba3\Prueba3\obj\Debug\Prueba3.Form1.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba3\Prueba3\obj\Debug\Prueba3.Properties.Resources.resources
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba3\Prueba3\obj\Debug\Prueba3.csproj.GenerateResource.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba3\Prueba3\obj\Debug\Prueba3.csproj.CoreCompileInputs.cache
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba3\Prueba3\obj\Debug\Prueba3.exe
+C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\Prueba3\Prueba3\obj\Debug\Prueba3.pdb
