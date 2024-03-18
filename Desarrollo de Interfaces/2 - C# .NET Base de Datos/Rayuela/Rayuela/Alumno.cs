@@ -1,0 +1,39 @@
+﻿using System;
+
+namespace Rayuela
+{
+    internal class Alumno
+    {
+        private String Identificador;
+        private String Nombre;
+        private String Mail;
+        private int Ciclo;
+        private int Curso;
+        private String Foto;
+        private bool Activo;
+
+        public Alumno()
+        {
+
+        }
+
+        public Alumno(string identificador, string nombre, string mail, int ciclo, int curso, string foto, bool activo)
+        {
+            Identificador = identificador;
+            Nombre = nombre;
+            Mail = mail;
+            Ciclo = ciclo;
+            Curso = curso;
+            Foto = foto;
+            Activo = activo;
+        }
+
+        public string Identificador1 { get => Identificador; set => Identificador = value; }
+        public string Nombre1 { get => Nombre; set => Nombre = value; }
+        public string Mail1 { get => Mail; set => Mail = value; }
+        public int Ciclo1 { get => Ciclo; set => Ciclo = value; }
+        public int Curso1 { get => Curso; set => Curso = value; }
+        public string Foto1 { get => Foto; set => Foto = value; }
+        public bool Activo1 { get => Activo; set => Activo = value; }
+    }
+}
