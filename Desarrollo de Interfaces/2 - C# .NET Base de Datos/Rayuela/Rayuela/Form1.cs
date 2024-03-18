@@ -12,9 +12,18 @@ namespace Rayuela
 {
     public partial class Form1 : Form
     {
+        Clase_Conectar cnx = new Clase_Conectar();
+        List<Alumno> listaAlumnos = new List<Alumno>();
+
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            listaAlumnos = cnx.listarAlumnos();
+            dataGridView1.DataSource = listaAlumnos;
         }
     }
 }

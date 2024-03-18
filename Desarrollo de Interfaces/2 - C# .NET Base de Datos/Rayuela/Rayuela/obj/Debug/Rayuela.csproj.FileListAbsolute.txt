@@ -1,0 +1,16 @@
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\bin\Debug\Rayuela.exe.config
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\bin\Debug\Rayuela.exe
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\bin\Debug\Rayuela.pdb
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\bin\Debug\itextsharp.dll
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\bin\Debug\MySql.Data.dll
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\bin\Debug\mysqlbackup.dll
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.csproj.AssemblyReference.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.csproj.SuggestedBindingRedirects.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.exe.config
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.Form1.resources
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.Properties.Resources.resources
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.csproj.GenerateResource.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.csproj.CoreCompileInputs.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.csproj.CopyComplete
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.exe
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.pdb

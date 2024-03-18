@@ -7,7 +7,7 @@ namespace Rayuela
         private String Identificador;
         private String Nombre;
         private String Mail;
-        private int Ciclo;
+        private String Ciclo;
         private int Curso;
         private String Foto;
         private bool Activo;
@@ -17,7 +17,7 @@ namespace Rayuela
 
         }
 
-        public Alumno(string identificador, string nombre, string mail, int ciclo, int curso, string foto, bool activo)
+        public Alumno(string identificador, string nombre, string mail, string ciclo, int curso, string foto, bool activo)
         {
             Identificador = identificador;
             Nombre = nombre;
@@ -31,7 +31,7 @@ namespace Rayuela
         public string Identificador1 { get => Identificador; set => Identificador = value; }
         public string Nombre1 { get => Nombre; set => Nombre = value; }
         public string Mail1 { get => Mail; set => Mail = value; }
-        public int Ciclo1 { get => Ciclo; set => Ciclo = value; }
+        public string Ciclo1 { get => Ciclo; set => Ciclo = value; }
         public int Curso1 { get => Curso; set => Curso = value; }
         public string Foto1 { get => Foto; set => Foto = value; }
         public bool Activo1 { get => Activo; set => Activo = value; }
