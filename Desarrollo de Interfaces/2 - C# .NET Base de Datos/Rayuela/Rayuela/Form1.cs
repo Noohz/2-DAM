@@ -48,6 +48,11 @@ namespace Rayuela
                 {
                     FlowLayoutPanel flp = new FlowLayoutPanel();
 
+                    Label lblNombreAlumno = new Label();
+                    lblNombreAlumno.Text = listaAlumnosCurso[j].Nombre1; // Suponiendo que el nombre del alumno está en la propiedad "Nombre" de la clase Alumno.
+
+                    // Agregar la etiqueta al panel de flujo.
+                    flp.Controls.Add(lblNombreAlumno);
 
                     tlp.Controls.Add(flp);
                 }
