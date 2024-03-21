@@ -42,6 +42,7 @@ namespace Rayuela
                 cA.Ciclo1 = Convert.ToString(datos["Ciclo"]);
                 cA.Curso1 = Convert.ToInt16(datos["Curso"]);
                 cA.Foto1 = Convert.ToString(datos["Foto"]);
+                cA.Activo1 = Convert.ToInt16(datos["Activo"]);
 
                 listaAlumno.Add(cA);
 
@@ -132,6 +133,64 @@ namespace Rayuela
 
             conexion.Close();
             return listaModulos;
+        }
+
+        // Método para listar los cursos para el TabPage.
+        public List<Cursos> listarCursos()
+        {
+            conexion.Open();
+
+            String cadenaSql = "select * from cursos";
+            comando = new MySqlCommand(cadenaSql, conexion);
+
+            datos = comando.ExecuteReader();
+
+            while (datos.Read())
+            {
+                Cursos curso = new Cursos();
+                curso.IdCurso1 = Convert.ToString(datos["IdCurso"]);
+                curso.NombreCompleto1 = Convert.ToString(datos["NombreCompleto"]);
+                curso.Curso1 = Convert.ToInt16(datos["Curso"]);
+                curso.Ciclo1 = Convert.ToString(datos["Ciclo"]);
+
+                listaCursos.Add(curso);
+            }
+
+            conexion.Close();
+            return listaCursos;
+        }
+
+        internal List<Alumno> listarAlumnosXCurso(string ciclo1, int curso1)
+        {
+            List<Alumno> listaXCurso = new List<Alumno>();
+
+            conexion.Open();
+
+            String cadenaSql = "select * from alumnos where Ciclo = ?cic and Curso = ?cur";
+
+            comando = new MySqlCommand(cadenaSql, conexion);
+
+            comando.Parameters.AddWithValue("?cic", ciclo1);
+            comando.Parameters.AddWithValue("?cur", curso1);
+
+            datos = comando.ExecuteReader();
+
+            while (datos.Read())
+            {
+                Alumno cA = new Alumno();
+                cA.Identificador1 = Convert.ToString(datos["Identificador"]);
+                cA.Nombre1 = Convert.ToString(datos["Nombre"]);
+                cA.Mail1 = Convert.ToString(datos["Mail"]);
+                cA.Ciclo1 = Convert.ToString(datos["Ciclo"]);
+                cA.Curso1 = Convert.ToInt16(datos["Curso"]);
+                cA.Foto1 = Convert.ToString(datos["Foto"]);
+                cA.Activo1 = Convert.ToInt16(datos["Activo"]);
+
+                listaXCurso.Add(cA);
+            }
+
+            conexion.Close();
+            return listaXCurso;
         }
     }
 }
