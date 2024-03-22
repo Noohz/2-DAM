@@ -60,6 +60,12 @@
     <Compile Include="Calificaciones.cs" />
     <Compile Include="Clase_Conectar.cs" />
     <Compile Include="Cursos.cs" />
+    <Compile Include="DatosUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatosUsuario.Designer.cs">
+      <DependentUpon>DatosUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Faltasasistencia.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -67,11 +73,23 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="InformacionAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InformacionAlumno.Designer.cs">
+      <DependentUpon>InformacionAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modulos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DatosUsuario.resx">
+      <DependentUpon>DatosUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformacionAlumno.resx">
+      <DependentUpon>InformacionAlumno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

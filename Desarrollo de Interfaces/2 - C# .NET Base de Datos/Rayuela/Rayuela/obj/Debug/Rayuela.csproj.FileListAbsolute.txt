@@ -14,3 +14,5 @@ C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayue
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.csproj.CopyComplete
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.exe
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.pdb
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.DatosUsuario.resources
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.InformacionAlumno.resources

@@ -2,7 +2,7 @@
 
 namespace Rayuela
 {
-    internal class Alumno
+    public class Alumno
     {
         private String Identificador;
         private String Nombre;

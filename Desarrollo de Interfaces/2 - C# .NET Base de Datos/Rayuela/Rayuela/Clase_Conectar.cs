@@ -68,7 +68,7 @@ namespace Rayuela
             {
                 Faltasasistencia fA = new Faltasasistencia();
                 fA.Indice1 = Convert.ToInt16(datos["Indice"]);
-                fA.IdentificadorAlumno1 = Convert.ToString(datos["IdentificadorAlumnos"]);
+                fA.IdentificadorAlumno1 = Convert.ToString(datos["IdentificadorAlumno"]);
                 fA.Fecha1 = Convert.ToString(datos["Fecha"]);
                 fA.Modulo1 = Convert.ToString(datos["Modulo"]);
 
@@ -81,7 +81,7 @@ namespace Rayuela
         }
 
         // Método para obtener las calificaciones de un alumno.
-        public List<Calificaciones> listarCalificaciones(String idAlumno)
+        public List<Calificaciones> listarCalificaciones(String idAlumno, string ciclo1, int curso1)
         {
             conexion.Open();
 
@@ -95,8 +95,9 @@ namespace Rayuela
             while (datos.Read())
             {
                 Calificaciones cAlif = new Calificaciones();
+
                 cAlif.Indice1 = Convert.ToInt16(datos["Indice"]);
-                cAlif.IdentificadorAlumno1 = Convert.ToString(datos["IdentificadorAlumnos"]);
+                cAlif.IdentificadorAlumno1 = Convert.ToString(datos["IdentificadorAlumno"]);
                 cAlif.Modulo1 = Convert.ToString(datos["Modulo"]);
                 cAlif.Puntos1 = Convert.ToInt16(datos["Puntos"]);
 
@@ -166,7 +167,7 @@ namespace Rayuela
 
             conexion.Open();
 
-            String cadenaSql = "select * from alumnos where Ciclo = ?cic and Curso = ?cur";
+            String cadenaSql = "select * from alumnos where Ciclo = ?cic and Curso = ?cur and Activo = 1 order by Nombre";
 
             comando = new MySqlCommand(cadenaSql, conexion);
 
@@ -191,6 +192,22 @@ namespace Rayuela
 
             conexion.Close();
             return listaXCurso;
+        }
+
+        public void insertarCalificacion(String idAlumno, String modulo, String nota) // Terminar con CrudMedicamentos.
+        {
+            conexion.Open();
+
+            String cadenaSql = "insert into calificaciones values (?idAl, ?mod, ?not)";
+            comando = new MySqlCommand(cadenaSql, conexion);
+
+            comando.Parameters.AddWithValue("?idAl", idAlumno);
+            comando.Parameters.AddWithValue("?mod", modulo);
+            comando.Parameters.AddWithValue("?not", nota);
+
+            comando.ExecuteNonQuery();
+
+            conexion.Close();
         }
     }
 }
