@@ -38,11 +38,13 @@ namespace Rayuela
             btnInformar.Tag = cA;
             btnInformar.Click += BtnInformar_Click;
 
-            btnCerrar.Click += BtnCerrar_Click;
-
-            btnPuntuar.Click += BtnPuntuar_Click;
-
+            btnNoAsiste.Tag = cA;
             btnNoAsiste.Click += BtnNoAsiste_Click;
+
+            btnPuntuar.Tag = cA;
+            btnPuntuar.Click += BtnPuntuar_Click;                   
+
+            btnCerrar.Click += BtnCerrar_Click;
         }
 
         private void BtnPuntuar_Click(object sender, EventArgs e)
@@ -50,7 +52,14 @@ namespace Rayuela
             Button btnx = (Button)sender;
             Alumno nA = (Alumno)btnx.Tag;
 
-            cnx.insertarCalificacion(nA.Identificador1, cBAsignatura.Text.ToString(), cBNota.Text.ToString());
+            if (cBAsignatura.SelectedIndex == -1 | cBNota.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debes seleccionar la asignatura y la nota", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else
+            {
+                cnx.insertarCalificacion(nA.Identificador1, cBAsignatura.Text.ToString(), cBNota.Text.ToString());
+                MessageBox.Show("Puntuación introducida correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }                    
         }
 
         private void BtnNoAsiste_Click(object sender, EventArgs e)

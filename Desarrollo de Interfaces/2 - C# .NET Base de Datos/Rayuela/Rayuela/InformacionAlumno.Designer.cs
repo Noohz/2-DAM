@@ -90,9 +90,12 @@
             // 
             // dGVCalif
             // 
+            this.dGVCalif.AllowUserToAddRows = false;
+            this.dGVCalif.AllowUserToDeleteRows = false;
+            this.dGVCalif.AllowUserToOrderColumns = true;
             this.dGVCalif.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dGVCalif.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGVCalif.Enabled = false;
+            this.dGVCalif.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dGVCalif.Location = new System.Drawing.Point(13, 39);
             this.dGVCalif.Name = "dGVCalif";
             this.dGVCalif.Size = new System.Drawing.Size(775, 150);

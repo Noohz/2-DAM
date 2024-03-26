@@ -194,11 +194,11 @@ namespace Rayuela
             return listaXCurso;
         }
 
-        public void insertarCalificacion(String idAlumno, String modulo, String nota) // Terminar con CrudMedicamentos.
+        public void insertarCalificacion(String idAlumno, String modulo, String nota)
         {
             conexion.Open();
 
-            String cadenaSql = "insert into calificaciones values (?idAl, ?mod, ?not)";
+            String cadenaSql = "insert into calificaciones values (null, ?idAl, ?mod, ?not)";
             comando = new MySqlCommand(cadenaSql, conexion);
 
             comando.Parameters.AddWithValue("?idAl", idAlumno);
