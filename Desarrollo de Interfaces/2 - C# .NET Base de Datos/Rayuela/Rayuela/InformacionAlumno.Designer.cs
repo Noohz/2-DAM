@@ -58,6 +58,7 @@
             this.btnPdfMailCalif.TabIndex = 2;
             this.btnPdfMailCalif.Text = "PDF + MAIL";
             this.btnPdfMailCalif.UseVisualStyleBackColor = true;
+            this.btnPdfMailCalif.Click += new System.EventHandler(this.btnPdfMailCalif_Click);
             // 
             // btnPdfMailAsis
             // 
@@ -87,6 +88,7 @@
             this.btnCerrar.TabIndex = 6;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // dGVCalif
             // 
@@ -103,9 +105,12 @@
             // 
             // dGVAsis
             // 
+            this.dGVAsis.AllowUserToAddRows = false;
+            this.dGVAsis.AllowUserToDeleteRows = false;
+            this.dGVAsis.AllowUserToOrderColumns = true;
             this.dGVAsis.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dGVAsis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGVAsis.Enabled = false;
+            this.dGVAsis.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dGVAsis.Location = new System.Drawing.Point(13, 268);
             this.dGVAsis.Name = "dGVAsis";
             this.dGVAsis.Size = new System.Drawing.Size(775, 150);

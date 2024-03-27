@@ -64,7 +64,20 @@ namespace Rayuela
 
         private void BtnNoAsiste_Click(object sender, EventArgs e)
         {
-            
+            Button btnx = (Button)sender;
+            Alumno nA = (Alumno)btnx.Tag;
+
+            String fecha = DateTime.Now.ToString("yyyyMMddHHmmss");
+
+            if (cBAsignatura.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debes seleccionar la asignatura.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                cnx.insertarFalta(nA.Identificador1, cBAsignatura.Text.ToString(), fecha);
+                MessageBox.Show("Falta de asistencia introducida correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)

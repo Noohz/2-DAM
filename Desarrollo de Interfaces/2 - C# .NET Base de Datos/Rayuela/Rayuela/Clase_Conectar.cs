@@ -209,5 +209,22 @@ namespace Rayuela
 
             conexion.Close();
         }
+
+        internal void insertarFalta(String idAlumno, String modulo, String fecha)
+        {
+
+            conexion.Open();
+
+            String cadenaSql = "insert into faltasasistencia values (null, ?idAl, ?fech, ?mod)";
+            comando = new MySqlCommand(cadenaSql, conexion);
+
+            comando.Parameters.AddWithValue("?idAl", idAlumno);
+            comando.Parameters.AddWithValue("?mod", modulo);
+            comando.Parameters.AddWithValue("?fech", fecha);
+
+            comando.ExecuteNonQuery();
+
+            conexion.Close();
+        }
     }
 }
