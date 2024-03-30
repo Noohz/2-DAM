@@ -51,7 +51,7 @@ namespace Rayuela
             pdfTable.DefaultCell.Padding = 3;
             pdfTable.WidthPercentage = 30;
 
-            pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
 
             pdfTable.DefaultCell.BorderWidth = 1;
 
