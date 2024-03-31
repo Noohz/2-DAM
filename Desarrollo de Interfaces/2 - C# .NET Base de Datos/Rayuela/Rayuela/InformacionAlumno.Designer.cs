@@ -58,7 +58,6 @@
             this.btnPdfMailCalif.TabIndex = 2;
             this.btnPdfMailCalif.Text = "PDF + MAIL";
             this.btnPdfMailCalif.UseVisualStyleBackColor = true;
-            this.btnPdfMailCalif.Click += new System.EventHandler(this.btnPdfMailCalif_Click);
             // 
             // btnPdfMailAsis
             // 
