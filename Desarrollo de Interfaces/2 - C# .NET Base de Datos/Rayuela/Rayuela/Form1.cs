@@ -63,6 +63,7 @@ namespace Rayuela
                     // Nombre.
                     Label lblNombre = new Label();
                     lblNombre.Text = listaAlumnosXCurso[j].Nombre1;
+                    lblNombre.AutoSize = true;
                     flp.Controls.Add(lblNombre);
 
                     // Botón imágen
@@ -101,7 +102,6 @@ namespace Rayuela
 
             MemoryStream ms = new MemoryStream(bytes);
             Image img = Image.FromStream(ms);
-
 
             DatosUsuario datosUsuario = new DatosUsuario(cA, img);
 

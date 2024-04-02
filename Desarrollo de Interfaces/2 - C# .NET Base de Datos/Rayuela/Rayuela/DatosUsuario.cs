@@ -42,7 +42,7 @@ namespace Rayuela
             btnNoAsiste.Click += BtnNoAsiste_Click;
 
             btnPuntuar.Tag = cA;
-            btnPuntuar.Click += BtnPuntuar_Click;                   
+            btnPuntuar.Click += BtnPuntuar_Click;
 
             btnCerrar.Click += BtnCerrar_Click;
         }
@@ -55,11 +55,22 @@ namespace Rayuela
             if (cBAsignatura.SelectedIndex == -1 | cBNota.SelectedIndex == -1)
             {
                 MessageBox.Show("Debes seleccionar la asignatura y la nota", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else
+            }
+            else
             {
-                cnx.insertarCalificacion(nA.Identificador1, cBAsignatura.Text.ToString(), cBNota.Text.ToString());
-                MessageBox.Show("Puntuación introducida correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }                    
+                int codigo = cnx.insertarCalificacion(nA.Identificador1, cBAsignatura.Text.ToString(), cBNota.Text.ToString());
+
+                if (codigo == 1)
+                {
+                    MessageBox.Show("Puntuación introducida correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error al introducir la puntuación.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            cBNota.SelectedIndex = -1;
         }
 
         private void BtnNoAsiste_Click(object sender, EventArgs e)
@@ -67,7 +78,7 @@ namespace Rayuela
             Button btnx = (Button)sender;
             Alumno nA = (Alumno)btnx.Tag;
 
-            String fecha = DateTime.Now.ToString("yyyyMMddHHmmss");
+            DateTime fecha = DateTime.Now;
 
             if (cBAsignatura.SelectedIndex == -1)
             {
@@ -75,8 +86,16 @@ namespace Rayuela
             }
             else
             {
-                cnx.insertarFalta(nA.Identificador1, cBAsignatura.Text.ToString(), fecha);
-                MessageBox.Show("Falta de asistencia introducida correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                int codigo = cnx.insertarFalta(nA.Identificador1, cBAsignatura.Text.ToString(), fecha);
+
+                if (codigo == 1)
+                {
+                    MessageBox.Show("Falta de asistencia introducida correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error al introducir la falta de asistencia.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

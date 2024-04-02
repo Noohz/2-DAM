@@ -6,6 +6,8 @@ using System.Net;
 using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.Diagnostics;
+using System.Drawing;
 
 namespace Rayuela
 {
@@ -44,7 +46,7 @@ namespace Rayuela
             Button btnx = (Button)sender;
             Alumno nA = (Alumno)btnx.Tag;
 
-            mandarMail(generarPdf(dGVCalif), nA.Mail1, nA.Nombre1);
+            mandarMail(generarPdf(dGVCalif, nA), nA.Mail1, nA.Nombre1);
         }
 
         private void BtnPdfMailAsis_Click(object sender, EventArgs e)
@@ -52,29 +54,41 @@ namespace Rayuela
             Button btnx = (Button)sender;
             Alumno nA = (Alumno)btnx.Tag;
 
-            mandarMail(generarPdf(dGVAsis), nA.Mail1, nA.Nombre1);
+            mandarMail(generarPdf(dGVAsis, nA), nA.Mail1, nA.Nombre1);
         }
 
-        private String generarPdf(DataGridView dGV)
+        private String generarPdf(DataGridView dGV, Alumno nA)
         {
+            // Descargamos la imágen.
+            WebClient wc = new WebClient();
+            byte[] bytes = wc.DownloadData(nA.Foto1);
+            MemoryStream ms = new MemoryStream(bytes);
+            System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
+
+            // La convertimos de System.Drawing a iTextSharp para poder utilizarla en el pdf.
+            iTextSharp.text.Image png = iTextSharp.text.Image.GetInstance(img, System.Drawing.Imaging.ImageFormat.Jpeg);
+
             String nombrePDF = "";
             String fecha = DateTime.Now.ToString("yyyyMMddHHmmss");
+            String asunto = "";
             bool pdfCreado = false;
 
             if (dGV.Name.Equals("dGVCalif"))
             {
                 nombrePDF = "Calificaciones " + fecha;
+                asunto = "Calificaciones";
 
             }
             else if (dGV.Name.Equals("dGVAsis"))
             {
                 nombrePDF = "Faltas de Asistencia " + fecha;
+                asunto = "Faltas de Asistencia";
             }
 
             PdfPTable pdfTable = new PdfPTable(dGV.ColumnCount);
 
             pdfTable.DefaultCell.Padding = 3;
-            pdfTable.WidthPercentage = 30;
+            pdfTable.WidthPercentage = 100;
 
             pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
 
@@ -108,25 +122,43 @@ namespace Rayuela
 
             using (FileStream stream = new FileStream(folderPath + "" + nombrePDF + ".pdf", FileMode.Create))
             {
-                Document pdfDoc = new Document(PageSize.A2, 10f, 10f, 10f, 0f);
+                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
                 PdfWriter.GetInstance(pdfDoc, stream);
                 pdfDoc.Open();
+
+                pdfDoc.Add(png);
+
+                pdfDoc.Add(new Paragraph("Nombre: " + nA.Nombre1));
+                pdfDoc.Add(new Paragraph("Correo: " + nA.Mail1));
+                pdfDoc.Add(new Paragraph("Identificador: " + nA.Identificador1));
+                pdfDoc.Add(new Paragraph("Curso: " + nA.Curso1 + " " + nA.Ciclo1));
+                pdfDoc.Add(new Paragraph("\n"));
+
+                pdfDoc.Add(new Paragraph(asunto, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 18, iTextSharp.text.Font.BOLD)) { Alignment = Element.ALIGN_CENTER });
+                pdfDoc.Add(new Paragraph("\n"));
+
                 pdfDoc.Add(pdfTable);
+
                 pdfDoc.Close();
                 stream.Close();
+
                 pdfCreado = true;
             }
+
+            String ruta = folderPath + "" + nombrePDF + ".pdf";
 
             if (pdfCreado == true)
             {
                 MessageBox.Show("PDF con el nombre: " + nombrePDF + " creado correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Process p1 = new Process();
+                p1.StartInfo.FileName = ruta;
+                p1.Start();
             }
             else
             {
                 MessageBox.Show("Ha ocurrido un error a la hora de crear el Pdf.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            String ruta = folderPath + "" + nombrePDF + ".pdf";
+            }           
 
             return ruta;
         }

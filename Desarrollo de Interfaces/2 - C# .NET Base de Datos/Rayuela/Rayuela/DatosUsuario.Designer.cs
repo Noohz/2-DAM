@@ -55,6 +55,7 @@
             // 
             // cBNota
             // 
+            this.cBNota.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBNota.FormattingEnabled = true;
             this.cBNota.Location = new System.Drawing.Point(12, 367);
             this.cBNota.Name = "cBNota";
@@ -81,6 +82,7 @@
             // 
             // cBAsignatura
             // 
+            this.cBAsignatura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBAsignatura.FormattingEnabled = true;
             this.cBAsignatura.Location = new System.Drawing.Point(12, 325);
             this.cBAsignatura.Name = "cBAsignatura";
@@ -143,9 +145,9 @@
             // 
             // btnInformar
             // 
-            this.btnInformar.Location = new System.Drawing.Point(182, 7);
+            this.btnInformar.Location = new System.Drawing.Point(196, 7);
             this.btnInformar.Name = "btnInformar";
-            this.btnInformar.Size = new System.Drawing.Size(124, 40);
+            this.btnInformar.Size = new System.Drawing.Size(110, 40);
             this.btnInformar.TabIndex = 11;
             this.btnInformar.Text = "Informar";
             this.btnInformar.UseVisualStyleBackColor = true;

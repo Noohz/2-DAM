@@ -194,8 +194,10 @@ namespace Rayuela
             return listaXCurso;
         }
 
-        public void insertarCalificacion(String idAlumno, String modulo, String nota)
+        public int insertarCalificacion(String idAlumno, String modulo, String nota)
         {
+            int codigo = 0;
+
             conexion.Open();
 
             String cadenaSql = "insert into calificaciones values (null, ?idAl, ?mod, ?not)";
@@ -203,15 +205,18 @@ namespace Rayuela
 
             comando.Parameters.AddWithValue("?idAl", idAlumno);
             comando.Parameters.AddWithValue("?mod", modulo);
-            comando.Parameters.AddWithValue("?not", nota);
+            comando.Parameters.AddWithValue("?not", int.Parse(nota));
 
-            comando.ExecuteNonQuery();
+            codigo = comando.ExecuteNonQuery();
 
             conexion.Close();
+
+            return codigo;
         }
 
-        internal void insertarFalta(String idAlumno, String modulo, String fecha)
+        internal int insertarFalta(String idAlumno, String modulo, DateTime fecha)
         {
+            int codigo = 0;
 
             conexion.Open();
 
@@ -222,9 +227,11 @@ namespace Rayuela
             comando.Parameters.AddWithValue("?mod", modulo);
             comando.Parameters.AddWithValue("?fech", fecha);
 
-            comando.ExecuteNonQuery();
+            codigo = comando.ExecuteNonQuery();
 
             conexion.Close();
+
+            return codigo;
         }
     }
 }
