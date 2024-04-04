@@ -69,7 +69,7 @@ namespace Rayuela
                 Faltasasistencia fA = new Faltasasistencia();
                 fA.Indice1 = Convert.ToInt16(datos["Indice"]);
                 fA.IdentificadorAlumno1 = Convert.ToString(datos["IdentificadorAlumno"]);
-                fA.Fecha1 = Convert.ToString(datos["Fecha"]);
+                fA.Fecha1 = (DateTime)datos["Fecha"];
                 fA.Modulo1 = Convert.ToString(datos["Modulo"]);
 
                 listaFaltas.Add(fA);
@@ -81,7 +81,7 @@ namespace Rayuela
         }
 
         // Método para obtener las calificaciones de un alumno.
-        public List<Calificaciones> listarCalificaciones(String idAlumno, string ciclo1, int curso1)
+        public List<Calificaciones> listarCalificaciones(String idAlumno)
         {
             conexion.Open();
 

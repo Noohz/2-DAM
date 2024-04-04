@@ -6,7 +6,7 @@ namespace Rayuela
     {
         private int Indice;
         private String IdentificadorAlumno;
-        private String Fecha;
+        private DateTime Fecha;
         private String Modulo;
 
         public Faltasasistencia()
@@ -14,7 +14,7 @@ namespace Rayuela
 
         }
 
-        public Faltasasistencia(int indice, string identificadorAlumno, string fecha, string modulo)
+        public Faltasasistencia(int indice, string identificadorAlumno, DateTime fecha, string modulo)
         {
             Indice = indice;
             IdentificadorAlumno = identificadorAlumno;
@@ -24,7 +24,7 @@ namespace Rayuela
 
         public int Indice1 { get => Indice; set => Indice = value; }
         public string IdentificadorAlumno1 { get => IdentificadorAlumno; set => IdentificadorAlumno = value; }
-        public string Fecha1 { get => Fecha; set => Fecha = value; }
+        public DateTime Fecha1 { get => Fecha; set => Fecha = value; }
         public string Modulo1 { get => Modulo; set => Modulo = value; }
     }
 }

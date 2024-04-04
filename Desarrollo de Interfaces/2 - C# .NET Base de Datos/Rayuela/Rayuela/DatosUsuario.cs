@@ -28,12 +28,12 @@ namespace Rayuela
 
             asignaturas = cnx.listadoModulosXCursosXCiclos(cA.Ciclo1, cA.Curso1);
 
-            foreach (var asig in asignaturas)
+            foreach (var asig in asignaturas) // Un foreach para recorrer la Lista de asignaturas que tenga el asignadas el ciclo y el curso que se le pasa al método listadoModulosXCursosXCiclos.
             {
-                cBAsignatura.Items.Add(asig.IdModulo1);
+                cBAsignatura.Items.Add(asig.IdModulo1); // Esto le asigna al comboBox el nombre de los módulos que se han encontrado mediante el foreach.
             }
 
-            cBNota.Items.AddRange(notas.ToArray());
+            cBNota.Items.AddRange(notas.ToArray()); // Esto añade las notas de las que está compuesta la Lista (del 1 al 10).
 
             btnInformar.Tag = cA;
             btnInformar.Click += BtnInformar_Click;

@@ -23,7 +23,7 @@ namespace Rayuela
 
             this.Text = "Calificaciones / Asistencia de " + nA.Nombre1;
 
-            calificaciones = cnx.listarCalificaciones(nA.Identificador1, nA.Ciclo1, nA.Curso1);
+            calificaciones = cnx.listarCalificaciones(nA.Identificador1);
             dGVCalif.DataSource = calificaciones;
 
             faltasasistencias = cnx.listarFaltas(nA.Identificador1);
@@ -46,7 +46,9 @@ namespace Rayuela
             Button btnx = (Button)sender;
             Alumno nA = (Alumno)btnx.Tag;
 
-            mandarMail(generarPdf(dGVCalif, nA), nA.Mail1, nA.Nombre1);
+            mandarMail(generarPdf(dGVCalif, nA), nA.Mail1, nA.Nombre1); // Esto llama al método mandarMail. Le pasamos el método generarPad con el DGV que queremos exportar.
+                                                                        // El método generarPdf devuelve una ruta con la dirección y el nombre del fichero.
+                                                                        // Al pasarlo por parámetro al método mandarMail usa esa ruta para poder enviar el archivo.
         }
 
         private void BtnPdfMailAsis_Click(object sender, EventArgs e)
