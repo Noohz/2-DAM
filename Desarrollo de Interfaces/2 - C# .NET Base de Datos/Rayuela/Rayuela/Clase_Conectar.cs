@@ -234,18 +234,27 @@ namespace Rayuela
             return codigo;
         }
 
-        internal void crearUsuario(string identificador, string nombre, string email, string ciclo, string curso, string nombreImagen)
+        internal int crearUsuario(string identificador, string nombre, string email, string ciclo, string curso, string nombreImagen)
         {
             int codigo = 0;
 
             conexion.Open();
 
-            String cadenaSql = "insert into alumnos values (?ident, ?nomb, ?eml, ?cicl, ?curs, ?nombImg, null)";
+            String cadenaSql = "insert into alumnos values (?ident, ?nomb, ?eml, ?cicl, ?curs, ?nombImg, 1)";
             comando = new MySqlCommand(cadenaSql, conexion);
 
+            comando.Parameters.AddWithValue("?ident", identificador);
+            comando.Parameters.AddWithValue("?nomb", nombre);
+            comando.Parameters.AddWithValue("?eml", email);
+            comando.Parameters.AddWithValue("?cicl", ciclo);
+            comando.Parameters.AddWithValue("?curs", curso);
+            comando.Parameters.AddWithValue("?nombImg", nombreImagen);
 
+            codigo = comando.ExecuteNonQuery();
 
             conexion.Close();
+
+            return codigo;
         }
     }
 }

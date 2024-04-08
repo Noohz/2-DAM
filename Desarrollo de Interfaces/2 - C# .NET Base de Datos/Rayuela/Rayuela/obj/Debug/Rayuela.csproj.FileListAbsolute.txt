@@ -17,3 +17,4 @@ C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayue
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.DatosUsuario.resources
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.InformacionAlumno.resources
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.CrearAlumno.resources
+C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Rayuela\Rayuela\obj\Debug\Rayuela.ImagenURL.resources

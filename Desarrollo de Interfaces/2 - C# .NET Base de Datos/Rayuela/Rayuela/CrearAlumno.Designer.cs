@@ -38,10 +38,11 @@
             this.lblCiclo = new System.Windows.Forms.Label();
             this.tBCurso = new System.Windows.Forms.TextBox();
             this.lblCurso = new System.Windows.Forms.Label();
-            this.btnImagen = new System.Windows.Forms.Button();
+            this.btnImagenArchivo = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnCrearUsr = new System.Windows.Forms.Button();
+            this.btnImagenUrl = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,16 +131,16 @@
             this.lblCurso.TabIndex = 8;
             this.lblCurso.Text = "Curso";
             // 
-            // btnImagen
+            // btnImagenArchivo
             // 
-            this.btnImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImagen.Location = new System.Drawing.Point(371, 195);
-            this.btnImagen.Name = "btnImagen";
-            this.btnImagen.Size = new System.Drawing.Size(137, 23);
-            this.btnImagen.TabIndex = 10;
-            this.btnImagen.Text = "Añadir Imagen";
-            this.btnImagen.UseVisualStyleBackColor = true;
-            this.btnImagen.Click += new System.EventHandler(this.btnImagen_Click);
+            this.btnImagenArchivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImagenArchivo.Location = new System.Drawing.Point(336, 195);
+            this.btnImagenArchivo.Name = "btnImagenArchivo";
+            this.btnImagenArchivo.Size = new System.Drawing.Size(95, 46);
+            this.btnImagenArchivo.TabIndex = 10;
+            this.btnImagenArchivo.Text = "Añadir Imagen (Archivo)";
+            this.btnImagenArchivo.UseVisualStyleBackColor = true;
+            this.btnImagenArchivo.Click += new System.EventHandler(this.btnImagenArchivo_Click);
             // 
             // pictureBox1
             // 
@@ -153,7 +154,7 @@
             // btnCerrar
             // 
             this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.Location = new System.Drawing.Point(487, 261);
+            this.btnCerrar.Location = new System.Drawing.Point(463, 261);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(75, 23);
             this.btnCerrar.TabIndex = 12;
@@ -172,15 +173,27 @@
             this.btnCrearUsr.UseVisualStyleBackColor = true;
             this.btnCrearUsr.Click += new System.EventHandler(this.btnCrearUsr_Click);
             // 
+            // btnImagenUrl
+            // 
+            this.btnImagenUrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImagenUrl.Location = new System.Drawing.Point(443, 195);
+            this.btnImagenUrl.Name = "btnImagenUrl";
+            this.btnImagenUrl.Size = new System.Drawing.Size(95, 46);
+            this.btnImagenUrl.TabIndex = 14;
+            this.btnImagenUrl.Text = "Añadir Imagen (URL)";
+            this.btnImagenUrl.UseVisualStyleBackColor = true;
+            this.btnImagenUrl.Click += new System.EventHandler(this.btnImagenUrl_Click);
+            // 
             // CrearAlumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(574, 296);
+            this.Controls.Add(this.btnImagenUrl);
             this.Controls.Add(this.btnCrearUsr);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnImagen);
+            this.Controls.Add(this.btnImagenArchivo);
             this.Controls.Add(this.tBCurso);
             this.Controls.Add(this.lblCurso);
             this.Controls.Add(this.tBCiclo);
@@ -212,9 +225,10 @@
         private System.Windows.Forms.Label lblCiclo;
         private System.Windows.Forms.TextBox tBCurso;
         private System.Windows.Forms.Label lblCurso;
-        private System.Windows.Forms.Button btnImagen;
+        private System.Windows.Forms.Button btnImagenArchivo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnCrearUsr;
+        private System.Windows.Forms.Button btnImagenUrl;
     }
 }

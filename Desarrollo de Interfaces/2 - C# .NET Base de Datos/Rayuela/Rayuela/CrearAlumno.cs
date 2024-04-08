@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Rayuela
@@ -13,14 +8,12 @@ namespace Rayuela
     public partial class CrearAlumno : Form
     {
         Clase_Conectar cnx = new Clase_Conectar();
-        String nombreImagen;
+        String nombreImagen = "";
 
         public CrearAlumno()
         {
             InitializeComponent();
             this.Text = "Crear un nuevo alumno";
-
-            //cnx.crearAlumno(tBIdentificador.Text, tBNombreCompleto.Text, tBEmail.Text, tBCiclo.Text, tBCurso.Text);
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -28,9 +21,22 @@ namespace Rayuela
             this.Close();
         }
 
-        private void btnImagen_Click(object sender, EventArgs e)
+        private void btnImagenArchivo_Click(object sender, EventArgs e)
         {
             nombreImagen = obtenerRutaImagen();
+        }
+
+        private void btnImagenUrl_Click(object sender, EventArgs e)
+        {
+            ImagenURL imgURL = new ImagenURL();
+            DialogResult url = imgURL.ShowDialog();
+
+            if (url == DialogResult.OK)
+            {
+                nombreImagen = imgURL.textoTB;
+                pictureBox1.Load(nombreImagen);
+
+            }
         }
 
         private string obtenerRutaImagen()
@@ -39,13 +45,13 @@ namespace Rayuela
             opf.Filter = "Archivos de imagen | *.jpg; *.jpeg; *.png;";
             nombreImagen = opf.FileName;
 
-            string ruta = "";
+            String ruta = "img/";
 
             if (opf.ShowDialog() == DialogResult.OK)
             {
                 pictureBox1.Image = new System.Drawing.Bitmap(opf.FileName);
 
-                ruta = opf.FileName;
+                ruta += Path.GetFileName(opf.FileName);
             }
 
             return ruta;
@@ -53,7 +59,16 @@ namespace Rayuela
 
         private void btnCrearUsr_Click(object sender, EventArgs e)
         {
-            cnx.crearUsuario(tBIdentificador.Text, tBNombreCompleto.Text, tBEmail.Text, tBCiclo.Text, tBCurso.Text, nombreImagen);
-        }
+            int codigo = cnx.crearUsuario(tBIdentificador.Text, tBNombreCompleto.Text, tBEmail.Text, tBCiclo.Text, tBCurso.Text, nombreImagen);
+
+            if (codigo == 1)
+            {
+                MessageBox.Show("Usuario creado correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error al crear el alumno.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }        
     }
 }
