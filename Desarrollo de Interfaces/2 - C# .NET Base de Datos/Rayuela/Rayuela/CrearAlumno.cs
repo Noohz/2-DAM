@@ -29,13 +29,12 @@ namespace Rayuela
         private void btnImagenUrl_Click(object sender, EventArgs e)
         {
             ImagenURL imgURL = new ImagenURL();
-            DialogResult url = imgURL.ShowDialog();
+            DialogResult url = imgURL.ShowDialog(); // En vez de abrirlo como siempre utilizamos un dialogResult para que el código no se siga ejecutando hasta que finalice el Formulario ImagenURL.
 
             if (url == DialogResult.OK)
             {
                 nombreImagen = imgURL.textoTB;
                 pictureBox1.Load(nombreImagen);
-
             }
         }
 
@@ -51,7 +50,7 @@ namespace Rayuela
             {
                 pictureBox1.Image = new System.Drawing.Bitmap(opf.FileName);
 
-                ruta += Path.GetFileName(opf.FileName);
+                ruta += Path.GetFileName(opf.FileName); // GetFileName obtiene el nombre del archivo / imagen (PJ: 80.jpg) por lo que lo concateno al string con el nombre de la carpeta que contiene las imágenes.
             }
 
             return ruta;
