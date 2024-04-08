@@ -7,7 +7,6 @@ using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Diagnostics;
-using System.Drawing;
 
 namespace Rayuela
 {
@@ -71,7 +70,7 @@ namespace Rayuela
             iTextSharp.text.Image png = iTextSharp.text.Image.GetInstance(img, System.Drawing.Imaging.ImageFormat.Jpeg);
 
             String nombrePDF = "";
-            String fecha = DateTime.Now.ToString("yyyyMMddHHmmss");
+            String fecha = DateTime.Now.ToString("dd-MM-yyyy");
             String asunto = "";
             bool pdfCreado = false;
 

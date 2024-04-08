@@ -59,6 +59,12 @@
     <Compile Include="Alumno.cs" />
     <Compile Include="Calificaciones.cs" />
     <Compile Include="Clase_Conectar.cs" />
+    <Compile Include="CrearAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearAlumno.Designer.cs">
+      <DependentUpon>CrearAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cursos.cs" />
     <Compile Include="DatosUsuario.cs">
       <SubType>Form</SubType>
@@ -82,6 +88,9 @@
     <Compile Include="Modulos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CrearAlumno.resx">
+      <DependentUpon>CrearAlumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DatosUsuario.resx">
       <DependentUpon>DatosUsuario.cs</DependentUpon>
     </EmbeddedResource>

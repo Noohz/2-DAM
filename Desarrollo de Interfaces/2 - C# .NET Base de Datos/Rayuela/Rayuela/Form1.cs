@@ -107,5 +107,16 @@ namespace Rayuela
 
             datosUsuario.Show();
         }
+
+        private void btnCrearAlumno_Click(object sender, EventArgs e)
+        {
+            DialogResult crearAlumno = MessageBox.Show("¿Quieres crear un nuevo alumno?", "Crear alumno", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (crearAlumno == DialogResult.Yes)
+            {
+                CrearAlumno crearAl = new CrearAlumno();
+                crearAl.Show();
+            }
+        }
     }
 }
