@@ -1,0 +1,17 @@
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\bin\Debug\CinesNavalmoral.exe.config
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\bin\Debug\CinesNavalmoral.exe
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\bin\Debug\CinesNavalmoral.pdb
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\bin\Debug\itextsharp.dll
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\bin\Debug\MySql.Data.dll
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\bin\Debug\mysqlbackup.dll
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\obj\Debug\CinesNavalmoral.csproj.AssemblyReference.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\obj\Debug\CinesNavalmoral.csproj.SuggestedBindingRedirects.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\obj\Debug\CinesNavalmoral.exe.config
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\obj\Debug\CinesNavalmoral.Form1.resources
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\obj\Debug\CinesNavalmoral.Properties.Resources.resources
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\obj\Debug\CinesNavalmoral.csproj.GenerateResource.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\obj\Debug\CinesNavalmoral.csproj.CoreCompileInputs.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\obj\Debug\CinesNav.D2C6C551.Up2Date
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\obj\Debug\CinesNavalmoral.exe
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\obj\Debug\CinesNavalmoral.pdb
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\obj\Debug\CinesNavalmoral.FormularioSesion.resources
