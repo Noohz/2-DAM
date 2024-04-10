@@ -14,6 +14,7 @@ namespace CinesNavalmoral
         MySqlDataReader datos;
 
         List<ClaseCartelera> listaCartelera = new List<ClaseCartelera>();
+        List<ClaseCartelera> listaSesiones = new List<ClaseCartelera>();
 
         public ClaseConectar()
         {
@@ -43,6 +44,43 @@ namespace CinesNavalmoral
             conexion.Close();
 
             return listaCartelera;
+        }
+
+        // Método para listar las sesiones que tiene la película a buscar.
+        internal List<ClaseCartelera> cargarSesionesPelicula(string titulo)
+        {
+            List<ClaseCartelera> listaSesionsActuales = new List<ClaseCartelera>();
+
+            conexion.Open();
+
+            String cadenaSql = "select * from cartelera where titulo = ?tit";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?tit", titulo);
+
+            datos = comando.ExecuteReader();
+
+            while (datos.Read())
+            {
+                ClaseCartelera cc = new ClaseCartelera();
+                cc.Sesion = (string)datos["sesion"];
+                cc.Sala = (int)datos["sala"];
+
+                listaSesiones.Add(cc);
+            }
+
+            for (int i = 0; i < listaSesiones.Count; i++)
+            {               
+                string fecha = listaSesiones[i].Sesion;
+
+                if (DateTime.Parse(fecha) > DateTime.Now)
+                {
+                    listaSesionsActuales.Add(listaSesiones[i]);
+                }
+            }
+
+            conexion.Close();
+
+            return listaSesionsActuales;
         }
     }
 }

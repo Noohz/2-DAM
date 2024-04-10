@@ -37,9 +37,9 @@
             this.panelPrincipal.AutoScroll = true;
             this.panelPrincipal.BackColor = System.Drawing.Color.NavajoWhite;
             this.panelPrincipal.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.panelPrincipal.Location = new System.Drawing.Point(43, 36);
+            this.panelPrincipal.Location = new System.Drawing.Point(26, 25);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(711, 376);
+            this.panelPrincipal.Size = new System.Drawing.Size(762, 402);
             this.panelPrincipal.TabIndex = 0;
             // 
             // Form1
