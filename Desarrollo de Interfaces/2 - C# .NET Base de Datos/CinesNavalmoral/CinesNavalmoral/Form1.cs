@@ -27,7 +27,8 @@ namespace CinesNavalmoral
         private void cargarCarteles(List<ClaseCartelera> listaPeliculas)
         {
             int nPeliculas = listaPeliculas.Count;
-            int cuadratura = (int)Math.Ceiling(Math.Sqrt(nPeliculas)); // Esto devuelve el resultado mayor de la raiz cuadrada del número de películas.
+            int cuadratura = 4;
+            //int cuadratura = (int)Math.Ceiling(Math.Sqrt(nPeliculas)); // Esto devuelve el resultado mayor de la raiz cuadrada del número de películas.
 
             TableLayoutPanel tlp = new TableLayoutPanel();
             tlp.AutoSize = true;

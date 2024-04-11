@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CinesNavalmoral
@@ -37,7 +31,18 @@ namespace CinesNavalmoral
             {
                 listaSesiones.Items.Add(arrayListSesiones[i].Sesion);
             }
-            lblSala.Text += arrayListSesiones[0].Sala.ToString();
+            lblNSala.Text = arrayListSesiones[0].Sala.ToString();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void listaSesiones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FormularioButacas fB = new FormularioButacas(lblTitulo.Text, listaSesiones.SelectedItem.ToString(), lblNSala.Text);
+            fB.ShowDialog();
         }
     }
 }
