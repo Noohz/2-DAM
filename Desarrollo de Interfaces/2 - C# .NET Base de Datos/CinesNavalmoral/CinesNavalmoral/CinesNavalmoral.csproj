@@ -58,6 +58,7 @@
     <Compile Include="ClaseCartelera.cs" />
     <Compile Include="ClaseConectar.cs" />
     <Compile Include="ClaseFacturacionCine.cs" />
+    <Compile Include="ClaseSalaCine.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

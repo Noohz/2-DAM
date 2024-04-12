@@ -14,13 +14,16 @@ namespace CinesNavalmoral
     {
         ClaseConectar cnx = new ClaseConectar();
         List<ClaseFacturacionCine> listaFacturacion = new List<ClaseFacturacionCine>();
+        List<ClaseSalaCine> listaFilasColumnas = new List<ClaseSalaCine>();
 
         public FormularioButacas(string titulo, string sesion, string sala)
         {
             InitializeComponent();
 
+            this.Text = "Película: " + titulo;
+
             lblTitulo.Text = titulo;
-            lblSala.Text += sala;
+            lblNSala.Text = sala;
             lblSesion.Text = sesion;
 
             lblNTotalButacas.Text = cnx.TotalButacas(sala).ToString();
@@ -43,25 +46,18 @@ namespace CinesNavalmoral
 
         private void cargarButacas(List<ClaseFacturacionCine> listaFacturacion)
         {
+            int salaActual = Convert.ToInt16(lblNSala.Text);
+
+            int totalButacas = cnx.TotalButacas(salaActual.ToString());
             int filas = 0;
             int columnas = 0;
 
-            if (lblSala.Text.Equals("Sala => 1"))
-            {
-                filas = 10;
-                columnas = 6;
+            listaFilasColumnas = cnx.obtenerFilasColumnas(salaActual);
 
-            }
-            else if (lblSala.Text.Equals("Sala => 2"))
+            foreach (ClaseSalaCine cSC in listaFilasColumnas)
             {
-                filas = 15;
-                columnas = 6;
-
-            }
-            else if (lblSala.Text.Equals("Sala => 3"))
-            {
-                filas = 7;
-                columnas = 6;
+                filas = cSC.Filas;
+                columnas = cSC.Columnas;
             }
 
             TableLayoutPanel tlp = new TableLayoutPanel();
@@ -70,6 +66,21 @@ namespace CinesNavalmoral
             tlp.ColumnCount = columnas;
             flPrincipal.Controls.Add(tlp);
 
+            for (int i = 0; i < totalButacas; i++)
+            {
+                FlowLayoutPanel flowPeliculas = new FlowLayoutPanel();
+                flowPeliculas.AutoSize = true;
+                flowPeliculas.FlowDirection = FlowDirection.TopDown;
+                flowPeliculas.Margin = new Padding(55, flowPeliculas.Margin.Top, flowPeliculas.Margin.Right, flowPeliculas.Margin.Bottom);
+
+                // Propiedades del button.
+                Button botonX = new Button();
+                botonX.Width = 20;
+                botonX.Height = 30;
+
+                flowPeliculas.Controls.Add(botonX);
+                tlp.Controls.Add(flowPeliculas);
+            }
 
         }
     }

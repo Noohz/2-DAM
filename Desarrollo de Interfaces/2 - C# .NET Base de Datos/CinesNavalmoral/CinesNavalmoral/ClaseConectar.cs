@@ -16,6 +16,7 @@ namespace CinesNavalmoral
         List<ClaseCartelera> listaCartelera = new List<ClaseCartelera>();
         List<ClaseCartelera> listaSesiones = new List<ClaseCartelera>();
         List<ClaseFacturacionCine> listaFacturacion = new List<ClaseFacturacionCine>();
+        List<ClaseSalaCine> listaFilasColumnas = new List<ClaseSalaCine>();
 
         public ClaseConectar()
         {
@@ -142,6 +143,29 @@ namespace CinesNavalmoral
             conexion.Close();
 
             return listaFacturacion;
+        }
+
+        internal List<ClaseSalaCine> obtenerFilasColumnas(int salaActual)
+        {
+            conexion.Open();
+
+            String cadenaSql = "select * from salacine where idSala = ?sala";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?sala", salaActual);
+
+            datos = comando.ExecuteReader();
+
+            while (datos.Read())
+            {
+                ClaseSalaCine cSC = new ClaseSalaCine();
+                cSC.Filas = (int)datos["filas"];
+                cSC.Columnas = (int)datos["columnas"];
+                listaFilasColumnas.Add(cSC);
+            }
+
+            conexion.Close();
+
+            return listaFilasColumnas;
         }
     }
 }

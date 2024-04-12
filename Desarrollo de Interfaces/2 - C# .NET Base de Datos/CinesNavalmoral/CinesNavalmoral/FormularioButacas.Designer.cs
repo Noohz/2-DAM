@@ -39,14 +39,15 @@
             this.lblNButacasLibres = new System.Windows.Forms.Label();
             this.flPrincipal = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblNSala = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnVolver
             // 
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.Location = new System.Drawing.Point(12, 415);
+            this.btnVolver.Location = new System.Drawing.Point(12, 508);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(75, 23);
+            this.btnVolver.Size = new System.Drawing.Size(229, 36);
             this.btnVolver.TabIndex = 3;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
@@ -134,9 +135,10 @@
             // 
             // flPrincipal
             // 
+            this.flPrincipal.AutoScroll = true;
             this.flPrincipal.Location = new System.Drawing.Point(251, 87);
             this.flPrincipal.Name = "flPrincipal";
-            this.flPrincipal.Size = new System.Drawing.Size(537, 351);
+            this.flPrincipal.Size = new System.Drawing.Size(537, 457);
             this.flPrincipal.TabIndex = 12;
             // 
             // label1
@@ -149,11 +151,23 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Sesion => ";
             // 
+            // lblNSala
+            // 
+            this.lblNSala.AutoSize = true;
+            this.lblNSala.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNSala.Location = new System.Drawing.Point(247, 51);
+            this.lblNSala.Name = "lblNSala";
+            this.lblNSala.Size = new System.Drawing.Size(33, 20);
+            this.lblNSala.TabIndex = 14;
+            this.lblNSala.Text = "*1*";
+            // 
             // FormularioButacas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.NavajoWhite;
+            this.ClientSize = new System.Drawing.Size(800, 554);
+            this.Controls.Add(this.lblNSala);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flPrincipal);
             this.Controls.Add(this.lblNButacasLibres);
@@ -187,5 +201,6 @@
         private System.Windows.Forms.Label lblNButacasLibres;
         private System.Windows.Forms.FlowLayoutPanel flPrincipal;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNSala;
     }
 }
