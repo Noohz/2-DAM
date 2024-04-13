@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CinesNavalmoral
@@ -45,7 +40,7 @@ namespace CinesNavalmoral
         }
 
         private void cargarButacas(List<ClaseFacturacionCine> listaFacturacion)
-        {
+        {            
             int salaActual = Convert.ToInt16(lblNSala.Text);
 
             int totalButacas = cnx.TotalButacas(salaActual.ToString());
@@ -78,10 +73,50 @@ namespace CinesNavalmoral
                 botonX.Width = 20;
                 botonX.Height = 30;
 
+                int filaBoton = i / columnas;
+                int columnaBoton = i % columnas;            
+
+                List<int> posicionBoton = new List<int> { filaBoton, columnaBoton };
+                botonX.Tag = posicionBoton;
+
+                bool ocupado = listaFacturacion.Exists(facturacion => facturacion.Fila == filaBoton && facturacion.Columna == columnaBoton);
+
+                
+                if (ocupado)
+                {
+                    botonX.BackColor = Color.Red;
+                    botonX.Click += BotonX_Click_Ocupado;
+                }
+                else
+                {
+                    botonX.Click += BotonX_Click;
+                }
+
                 flowPeliculas.Controls.Add(botonX);
                 tlp.Controls.Add(flowPeliculas);
             }
+        }
 
+        private void BotonX_Click_Ocupado(object sender, EventArgs e)
+        {
+            Button btnX = (Button)sender;
+            List<int> posicionBoton = (List<int>)btnX.Tag;
+
+            int fila = posicionBoton[0];
+            int columna = posicionBoton[1];
+
+            MessageBox.Show("Butaca ocupada - Fila: " + fila + " columna: " + columna);
+        }
+
+        private void BotonX_Click(object sender, EventArgs e)
+        {
+            Button btnX = (Button)sender;
+            List<int> posicionBoton = (List<int>)btnX.Tag;
+
+            int fila = posicionBoton[0];
+            int columna = posicionBoton[1];
+
+            MessageBox.Show("Boton - Fila: " + fila + " columna: " + columna);
         }
     }
 }

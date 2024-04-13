@@ -145,6 +145,7 @@ namespace CinesNavalmoral
             return listaFacturacion;
         }
 
+        // Método para obtener las filas y las columnas que tinene la sala que se le pasa por parámetro.
         internal List<ClaseSalaCine> obtenerFilasColumnas(int salaActual)
         {
             conexion.Open();
