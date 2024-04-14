@@ -79,9 +79,18 @@ namespace CinesNavalmoral
                 List<int> posicionBoton = new List<int> { filaBoton, columnaBoton };
                 botonX.Tag = posicionBoton;
 
-                bool ocupado = listaFacturacion.Exists(facturacion => facturacion.Fila == filaBoton && facturacion.Columna == columnaBoton);
+                bool ocupado = false;
 
-                
+                // Un foreach para comprobar si la posición del botón coindice con algúno de la lista de facturación para bloquearlo o no.
+                foreach (var facturacion in listaFacturacion)
+                {
+                    if (facturacion.Fila == filaBoton && facturacion.Columna == columnaBoton)
+                    {
+                        ocupado = true;
+                        break;
+                    }
+                }
+
                 if (ocupado)
                 {
                     botonX.BackColor = Color.Red;
@@ -116,7 +125,7 @@ namespace CinesNavalmoral
             int fila = posicionBoton[0];
             int columna = posicionBoton[1];
 
-            MessageBox.Show("Boton - Fila: " + fila + " columna: " + columna);
+            MessageBox.Show("Has seleccionado la butaca - Fila: " + fila + " columna: " + columna);
         }
     }
 }
