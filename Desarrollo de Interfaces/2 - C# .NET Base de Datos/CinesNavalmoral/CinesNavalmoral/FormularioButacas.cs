@@ -9,7 +9,7 @@ namespace CinesNavalmoral
     {
         ClaseConectar cnx = new ClaseConectar();
         List<ClaseFacturacionCine> listaFacturacion = new List<ClaseFacturacionCine>();
-        List<ClaseSalaCine> listaFilasColumnas = new List<ClaseSalaCine>();
+        List<String> listaReservas = new List<string>();
 
         public FormularioButacas(string titulo, string sesion, string sala)
         {
@@ -21,8 +21,12 @@ namespace CinesNavalmoral
             lblNSala.Text = sala;
             lblSesion.Text = sesion;
 
-            lblNTotalButacas.Text = cnx.TotalButacas(sala).ToString();
+            int[] arrayButacas = cnx.TotalButacas(sala);
+            int totalButacas = arrayButacas[0] * arrayButacas[1];
 
+            lblNTotalButacas.Text = totalButacas.ToString();
+
+            // Lista con la información de los asientos ocupados.
             listaFacturacion = cnx.ButacasOcupadas(sala, sesion);
 
             int numButacasLibres = Convert.ToInt16(lblNTotalButacas.Text) - listaFacturacion.Count;
@@ -40,92 +44,100 @@ namespace CinesNavalmoral
         }
 
         private void cargarButacas(List<ClaseFacturacionCine> listaFacturacion)
-        {            
+        {
             int salaActual = Convert.ToInt16(lblNSala.Text);
+            int[] arrayButacas = cnx.TotalButacas(lblNSala.Text);
 
-            int totalButacas = cnx.TotalButacas(salaActual.ToString());
-            int filas = 0;
-            int columnas = 0;
-
-            listaFilasColumnas = cnx.obtenerFilasColumnas(salaActual);
-
-            foreach (ClaseSalaCine cSC in listaFilasColumnas)
-            {
-                filas = cSC.Filas;
-                columnas = cSC.Columnas;
-            }
+            int totalButacas = arrayButacas[0] * arrayButacas[1];
 
             TableLayoutPanel tlp = new TableLayoutPanel();
             tlp.AutoSize = true;
-            tlp.RowCount = filas;
-            tlp.ColumnCount = columnas;
+            tlp.RowCount = arrayButacas[0];
+            tlp.ColumnCount = arrayButacas[1];
             flPrincipal.Controls.Add(tlp);
 
-            for (int i = 0; i < totalButacas; i++)
+            for (int filas = 0; filas < arrayButacas[0]; filas++)
             {
-                FlowLayoutPanel flowPeliculas = new FlowLayoutPanel();
-                flowPeliculas.AutoSize = true;
-                flowPeliculas.FlowDirection = FlowDirection.TopDown;
-                flowPeliculas.Margin = new Padding(55, flowPeliculas.Margin.Top, flowPeliculas.Margin.Right, flowPeliculas.Margin.Bottom);
-
-                // Propiedades del button.
-                Button botonX = new Button();
-                botonX.Width = 20;
-                botonX.Height = 30;
-
-                int filaBoton = i / columnas;
-                int columnaBoton = i % columnas;            
-
-                List<int> posicionBoton = new List<int> { filaBoton, columnaBoton };
-                botonX.Tag = posicionBoton;
-
-                bool ocupado = false;
-
-                // Un foreach para comprobar si la posición del botón coindice con algúno de la lista de facturación para bloquearlo o no.
-                foreach (var facturacion in listaFacturacion)
+                for (int columnas = 0; columnas < arrayButacas[1]; columnas++)
                 {
-                    if (facturacion.Fila == filaBoton && facturacion.Columna == columnaBoton)
+                    Button botonButaca = new Button();
+                    botonButaca.Tag = filas + "," + columnas;
+                    botonButaca.Width = 30;
+                    botonButaca.Height = 20;
+                    botonButaca.BackColor = Color.Green;
+                    botonButaca.Click += BotonButaca_Click;
+
+                    // Añadir las butacas ocupadas.               
+                    foreach (var facturacion in listaFacturacion)
                     {
-                        ocupado = true;
-                        break;
+                        if (facturacion.Fila == filas && facturacion.Columna == columnas)
+                        {
+                            botonButaca.BackColor = Color.Red;
+                            botonButaca.Enabled = false;
+                            break;
+                        }
                     }
-                }
 
-                if (ocupado)
-                {
-                    botonX.BackColor = Color.Red;
-                    botonX.Click += BotonX_Click_Ocupado;
+                    // Añadir el boton al TLP.
+                    tlp.Controls.Add(botonButaca);
                 }
-                else
-                {
-                    botonX.Click += BotonX_Click;
-                }
-
-                flowPeliculas.Controls.Add(botonX);
-                tlp.Controls.Add(flowPeliculas);
             }
         }
 
-        private void BotonX_Click_Ocupado(object sender, EventArgs e)
+        private void BotonButaca_Click(object sender, EventArgs e)
         {
             Button btnX = (Button)sender;
-            List<int> posicionBoton = (List<int>)btnX.Tag;
 
-            int fila = posicionBoton[0];
-            int columna = posicionBoton[1];
+            if (btnX.BackColor == Color.Green)
+            {
+                btnX.BackColor = Color.Blue;
+                btnPagar.Enabled = true;
 
-            MessageBox.Show("Butaca ocupada - Fila: " + fila + " columna: " + columna);
+                // Añadir a la lista de reserva el tag del botón seleccionado.
+                // Por ejemplo Fila/Columna: 10,5
+                listaReservas.Add(btnX.Tag.ToString());
+            }
+            else
+            {
+                btnX.BackColor = Color.Green;
+
+                // Cuando el botón vuelva al color verde (Que el cliente ya no quiere esa butaca) se elimina del array.
+                listaReservas.RemoveAt(listaReservas.IndexOf(btnX.Tag.ToString()));
+
+                if (listaReservas.Count == 0)
+                {
+                    btnPagar.Enabled = false;
+                }
+            }
         }
 
-        private void BotonX_Click(object sender, EventArgs e)
+        private void btnPagar_Click(object sender, EventArgs e)
         {
-            Button btnX = (Button)sender;
-            List<int> posicionBoton = (List<int>)btnX.Tag;
+            string[] butaca = new string[2];
 
-            int fila = posicionBoton[0];
-            int columna = posicionBoton[1];
+            string mensaje = "¿Deseas realizar la compra de las siguientes butacas?\n";
 
-            MessageBox.Show("Has seleccionado la butaca - Fila: " + fila + " columna: " + columna);
+            foreach (string compra in listaReservas) // Un foreach para recorrer la lista de reservas.
+            {
+                butaca = compra.Split(','); // Un array para almacenar los datos que estaban separados por una coma. (ANTES: 0","1 >> AHORA: 0 , 1).
+
+                string fila = butaca[0];
+                string columna = butaca[1];
+                mensaje += "Fila: " + fila + ", Columna: " + columna + "\n";
+            }
+
+            DialogResult confirmacion = MessageBox.Show(mensaje, "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmacion == DialogResult.Yes)
+            {
+                cnx.InsertarFacturacion(lblNSala.Text, Convert.ToInt16(butaca[0]), Convert.ToInt16(butaca[1]));
+                listaReservas.Clear();
+                btnPagar.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Operación cancelada", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

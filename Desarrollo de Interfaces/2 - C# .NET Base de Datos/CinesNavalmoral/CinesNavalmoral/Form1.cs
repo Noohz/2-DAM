@@ -80,5 +80,10 @@ namespace CinesNavalmoral
             FormularioSesion fs = new FormularioSesion(cc);
             fs.ShowDialog();
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

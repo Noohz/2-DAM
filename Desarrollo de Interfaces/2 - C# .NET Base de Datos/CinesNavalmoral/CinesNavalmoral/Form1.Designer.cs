@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelPrincipal = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panelPrincipal
@@ -42,11 +43,22 @@
             this.panelPrincipal.Size = new System.Drawing.Size(762, 402);
             this.panelPrincipal.TabIndex = 0;
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Location = new System.Drawing.Point(-1, 428);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(801, 23);
+            this.btnCerrar.TabIndex = 0;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.panelPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
@@ -59,6 +71,7 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel panelPrincipal;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }
 

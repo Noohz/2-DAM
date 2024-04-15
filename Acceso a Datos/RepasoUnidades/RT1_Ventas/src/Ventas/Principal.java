@@ -32,13 +32,70 @@ public class Principal {
 				ejercicio2();
 				break;
 			case 3:
-				;
+				ejercicio3();
 				break;
 			case 4:
-				;
+				ejercicio4();
 				break;
 			}
 		} while (opc != 0);
+	}
+
+	private static void ejercicio4() { // EJ4: Generar xml con los datos de un producto.
+		mostrarStock();
+		
+		System.out.println("Introduce el código del producto a generar el XML: ");
+		Productos p = mod.obtenerProducto(tec.nextInt());
+		tec.nextLine();
+
+		if (p != null) {
+			
+			Info i = new Info();
+			
+			i.setId(p.getIdProducto());
+			i.setNombre(p.getNombre());
+			i.setStock(p.getStock());
+			
+			VentasObj v = mod.obtenerVentaObj(p.getIdProducto());		
+			
+			i.setVendido(v.getCantidad());
+			i.setRecaudado(v.getImporte());
+			
+			if (mod.marshal(i)) {
+				System.out.println("Fichero creado.");
+				
+			} else {
+				
+			}
+			
+		} else {
+			System.err.println("El código introducido no existe.");
+		}
+	}
+
+	private static void ejercicio3() { // EJ3: Modificar Stock
+		mostrarStock();
+
+		System.out.println("Introduce un codigo de producto a modificar: ");
+		Productos p = mod.obtenerProducto(tec.nextInt());
+		tec.nextLine();
+
+		if (p != null) {
+			System.out.println("Introduce el nuevo stock: ");
+			
+			p.setStock(tec.nextInt());
+			tec.nextLine();
+			
+			if (mod.modificarProducto(p)) {
+				System.out.println("Producto modificado.");
+				mostrarStock();
+			} else {
+				System.err.println("Error al modificar el stock del producto.");
+			}
+			
+		} else {
+			System.err.println("El código introducido no existe.");
+		}
 	}
 
 	private static void ejercicio2() { // EJ2: Crear fichero binario.
@@ -54,23 +111,25 @@ public class Principal {
 			System.out.println("Introduce el stock del producto " + p.getIdProducto() + ":");
 			p.setStock(tec.nextInt());
 			tec.nextLine();
-			
+
 			if (mod.crearProducto(p)) {
 				System.out.println("Producto creado correctamente.");
 			} else {
 				System.err.println("Error al crear el producto.");
 			}
 		}
-		mostrarProductos();
+		mostrarStock();
 	}
 
-	private static void mostrarProductos() {
+	private static void mostrarStock() {
 		ArrayList<Productos> pStock = mod.obtenerProductos();
-		
+
+		System.out.println("# Datos de los productos #");
+
 		for (Productos productos : pStock) {
 			System.out.println(productos);
 		}
-		
+
 	}
 
 	private static void ejercico1() { // EJ1: Crear fichero de objetos.

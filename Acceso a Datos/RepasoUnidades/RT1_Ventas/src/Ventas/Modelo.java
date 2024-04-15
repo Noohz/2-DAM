@@ -11,9 +11,15 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.RandomAccessFile;
+import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+
+import javax.xml.bind.JAXB;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 
 public class Modelo {
 
@@ -251,7 +257,7 @@ public class Modelo {
 			rAF = new RandomAccessFile(FBIN, "rw"); // La clase RandomAccessFile no tiene Output / Input así que se usa
 													// "r" para leer y "rw" para leer y escribir.
 
-			rAF.seek(rAF.getFilePointer()); // Si abrimos para escritura hay que mover el cursor del fichero al final.
+			rAF.seek(rAF.length()); // Si abrimos para escritura hay que mover el cursor del fichero al final.
 
 			rAF.writeInt(p.getIdProducto());
 
@@ -261,6 +267,8 @@ public class Modelo {
 
 			rAF.writeChars(nombre.toString()); // Hay que usar toString().
 			rAF.writeInt(p.getStock());
+
+			resultado = true;
 
 		} catch (IOException e) {
 
@@ -282,42 +290,160 @@ public class Modelo {
 
 	public ArrayList<Productos> obtenerProductos() {
 		ArrayList<Productos> resultado = new ArrayList<Productos>();
-		RandomAccessFile productos = null;
-		String nombre = "";
-				
+		RandomAccessFile productoS = null;
+
 		try {
-			productos = new RandomAccessFile(FBIN, "r");
-			
+			productoS = new RandomAccessFile(FBIN, "r");
+
 			while (true) {
 				Productos p = new Productos();
-				
-				p.setIdProducto(productos.readInt());
-				
+
+				p.setIdProducto(productoS.readInt());
+				p.setNombre("");
 				for (int i = 0; i < 30; i++) {
-					nombre += productos.readChar();
+					p.setNombre(p.getNombre() + productoS.readChar());
 				}
-				p.setNombre(nombre);
-				p.setStock(productos.readInt());
+				p.setNombre(p.getNombre().trim()); // Esto quita los espacios que sobran.
+				p.setStock(productoS.readInt());
+
+				resultado.add(p);
 			}
 		} catch (EOFException e) {
-			
+
 		} catch (FileNotFoundException e) {
-			
+
 			e.printStackTrace();
-			
+
 		} catch (IOException e) {
-			
+
 			e.printStackTrace();
 		} finally {
-			if (productos != null) {
+			if (productoS != null) {
 				try {
-					productos.close();
+					productoS.close();
 
 				} catch (IOException e) {
 
 					e.printStackTrace();
 				}
 			}
+		}
+
+		return resultado;
+	}
+
+	public Productos obtenerProducto(int buscado) {
+		Productos resultado = null;
+
+		RandomAccessFile rAF = null;
+
+		try {
+			rAF = new RandomAccessFile(FBIN, "r");
+
+			while (true) {
+				int codigo = rAF.readInt();
+
+				if (codigo == buscado) {
+					resultado = new Productos();
+
+					resultado.setIdProducto(codigo);
+
+					byte[] nombre = new byte[60];
+					rAF.read(nombre);
+					resultado.setNombre(new String(nombre, StandardCharsets.UTF_16).trim());
+
+					resultado.setStock(rAF.readInt());
+
+					return resultado;
+
+				} else {
+					rAF.seek(rAF.getFilePointer() + 64);
+				}
+			}
+
+		} catch (EOFException E) {
+
+		} catch (FileNotFoundException e) {
+
+			e.printStackTrace();
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		} finally {
+			if (rAF != null) {
+				try {
+					rAF.close();
+				} catch (IOException e) {
+
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return resultado;
+	}
+
+	public boolean modificarProducto(Productos p) {
+		boolean resultado = false;
+
+		RandomAccessFile rAF = null;
+
+		try {
+			rAF = new RandomAccessFile(FBIN, "rw");
+
+			while (true) {
+
+				int idProducto = rAF.readInt();
+
+				if (idProducto == p.getIdProducto()) {
+					rAF.seek(rAF.getFilePointer() + 60);
+
+					rAF.writeInt(p.getStock());
+
+					return true;
+
+				} else {
+					rAF.seek(rAF.getFilePointer() + 64);
+				}
+
+			}
+		} catch (EOFException e) {
+
+		} catch (FileNotFoundException e) {
+
+			e.printStackTrace();
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		} finally {
+			if (rAF != null) {
+				try {
+					rAF.close();
+				} catch (IOException e) {
+
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return resultado;
+	}
+
+	public boolean marshal(Info i) {
+		boolean resultado = false;
+		
+		try {
+			Marshaller m = JAXBContext.newInstance(Info.class).createMarshaller();
+			
+			m.marshal(i, new File(i.getId() + ".xml"));
+			
+			resultado = true;
+			
+		} catch (JAXBException e) {
+			
+			e.printStackTrace();
 		}
 		
 		return resultado;
