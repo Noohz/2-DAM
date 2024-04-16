@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CinesNavalmoral
 {
@@ -92,7 +93,7 @@ namespace CinesNavalmoral
         // Método para contar cuantas butacas hay.
         internal int[] TotalButacas(string sala)
         {
-            int[] totalButacas = {0,0};
+            int[] totalButacas = { 0, 0 };
 
             conexion.Open();
 
@@ -146,9 +147,27 @@ namespace CinesNavalmoral
             return listaFacturacion;
         }
 
-        internal void InsertarFacturacion(string text, short v1, short v2)
+        internal int InsertarFacturacion(int idSala, int fila, int columna, string sesion)
         {
-            
+            conexion.Open();
+
+            string cadenaSql = "insert into facturacioncine values (null, ?idSala, ?fila, ?columna, ?sesion, 0)";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?idSala", idSala);
+            comando.Parameters.AddWithValue("?fila", fila);
+            comando.Parameters.AddWithValue("?columna", columna);
+            comando.Parameters.AddWithValue("?sesion", sesion);
+
+            int codigo = comando.ExecuteNonQuery();
+
+            conexion.Close();          
+
+            return codigo;
+        }
+
+        internal void ocuparButaca()
+        {
+            String cadenaSql = "update facturacioncine set ocupado = 1 where ";
         }
     }
 }

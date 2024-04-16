@@ -138,6 +138,7 @@
             // flPrincipal
             // 
             this.flPrincipal.AutoScroll = true;
+            this.flPrincipal.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flPrincipal.Location = new System.Drawing.Point(251, 87);
             this.flPrincipal.Name = "flPrincipal";
             this.flPrincipal.Size = new System.Drawing.Size(537, 457);

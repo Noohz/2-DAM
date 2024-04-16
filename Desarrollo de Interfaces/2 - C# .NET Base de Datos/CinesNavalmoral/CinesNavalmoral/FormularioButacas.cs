@@ -1,7 +1,14 @@
-﻿using System;
+﻿using QRCoder;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Net.Mail;
+using System.Net;
 using System.Windows.Forms;
+using static QRCoder.PayloadGenerator;
 
 namespace CinesNavalmoral
 {
@@ -54,6 +61,7 @@ namespace CinesNavalmoral
             tlp.AutoSize = true;
             tlp.RowCount = arrayButacas[0];
             tlp.ColumnCount = arrayButacas[1];
+            tlp.Padding =new Padding(100, 10 ,0 ,0);
             flPrincipal.Controls.Add(tlp);
 
             for (int filas = 0; filas < arrayButacas[0]; filas++)
@@ -65,6 +73,7 @@ namespace CinesNavalmoral
                     botonButaca.Width = 30;
                     botonButaca.Height = 20;
                     botonButaca.BackColor = Color.Green;
+                    botonButaca.Margin = new Padding(5, 3, 25, 5);
                     botonButaca.Click += BotonButaca_Click;
 
                     // Añadir las butacas ocupadas.               
@@ -114,6 +123,7 @@ namespace CinesNavalmoral
         private void btnPagar_Click(object sender, EventArgs e)
         {
             string[] butaca = new string[2];
+            string claveQR = "";
 
             string mensaje = "¿Deseas realizar la compra de las siguientes butacas?\n";
 
@@ -130,13 +140,99 @@ namespace CinesNavalmoral
 
             if (confirmacion == DialogResult.Yes)
             {
-                cnx.InsertarFacturacion(lblNSala.Text, Convert.ToInt16(butaca[0]), Convert.ToInt16(butaca[1]));
+                foreach (string compra in listaReservas)
+                {
+                    butaca = compra.Split(',');
+
+                    string fila = butaca[0];
+                    string columna = butaca[1];
+
+                    cnx.InsertarFacturacion(Convert.ToInt16(lblNSala.Text), Convert.ToInt16(butaca[0]), Convert.ToInt16(butaca[1]), lblSesion.Text);
+
+                    claveQR = lblSesion.Text.Replace(":", "_") + fila + columna + lblNSala.Text;
+                }
+
+                generarCodigoQR(claveQR);
                 listaReservas.Clear();
                 btnPagar.Enabled = false;
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Operación cancelada", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void generarCodigoQR(string claveQR)
+        {            
+            // Generate the QR code
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(claveQR, QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+            Bitmap qrCodeImage = qrCode.GetGraphic(20);
+
+
+            // Specify the folder path to save the QR code image
+            string folderPath = @"C:\CinesaQR";
+
+            // Create the folder if it doesn't exist
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            // Save the QR code as a PNG image file inside the specified folder
+            string fileName = Path.Combine(folderPath, claveQR + "_" + "QRCode.png");
+            qrCodeImage.Save(fileName, ImageFormat.Png);
+
+            DialogResult email = MessageBox.Show("¿Deseas recibir un correo con el código QR de tu entrada?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (email == DialogResult.Yes)
+            {
+                // Que aparezca un form para que el usuario meta su correo y poder implementarlo el metodo mandarMail con su correo.
+                // Probablemente hay que mandar fileName además de su correo.
+                mandarMail(fileName);
+            }            
+        }
+
+        private void mandarMail(string fileName)
+        {
+            try
+            {
+                string email = "aramoss27@educarex.es";
+                string password = "porcnrrbaahrromt";
+
+                var loginInfo = new NetworkCredential(email, password);
+
+                var msg = new MailMessage();
+
+                var smtpClient = new SmtpClient("smtp.gmail.com", 25);
+
+                msg.From = new MailAddress("aramoss27@educarex.es");
+
+                msg.To.Add(new MailAddress("aramoss27@educarex.es"));
+
+                msg.Body = "Se adjunta el PDF con el codigo QR de tu entrada.";
+
+                System.Net.Mail.Attachment attachment;
+                attachment = new System.Net.Mail.Attachment(fileName);
+                msg.Attachments.Add(attachment);
+                msg.IsBodyHtml = true;
+
+                smtpClient.EnableSsl = true;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = loginInfo;
+
+                smtpClient.Send(msg);
+
+                smtpClient.Dispose();
+
+                MessageBox.Show("Correo enviado correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error a la hora de enviar el correo");
+
             }
         }
     }
