@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -68,7 +69,7 @@ public class Modelo {
 		try {
 			rAF = new RandomAccessFile(FBIN, "r");
 
-			rAF.seek(FBIN.length() - 28);
+			rAF.seek(rAF.length() - 28);
 
 			resultado = rAF.readInt() + 1;
 
@@ -76,7 +77,7 @@ public class Modelo {
 
 		} catch (FileNotFoundException e) {
 
-			e.printStackTrace();
+			System.out.println("Aun no hay pedidos.");
 
 		} catch (IOException e) {
 
@@ -110,6 +111,112 @@ public class Modelo {
 			e.printStackTrace();
 		}
 
+		return resultado;
+	}
+
+	public Producto obtenerProducto(int codigo) {
+		Producto resultado = null;
+
+		try {
+			Unmarshaller um = JAXBContext.newInstance(McBurgerXML.class).createUnmarshaller();
+
+			McBurgerXML productos = (McBurgerXML) um.unmarshal(new File(FXML));
+
+			for (Producto p : productos.getListaProductos()) {
+				if (codigo == p.getId()) {
+					return p;
+				}
+			}
+
+		} catch (JAXBException e) {
+
+			e.printStackTrace();
+		}
+
+		return resultado;
+	}
+
+	public boolean registrarPedido(Pedido p) {
+		boolean resultado = false;
+
+		RandomAccessFile rAF = null;
+
+		try {
+			rAF = new RandomAccessFile(FBIN, "rw");
+
+			rAF.seek(rAF.length());
+
+			rAF.writeInt(p.getCodigo());
+			rAF.writeLong(p.getFecha().getTime());
+			rAF.writeInt(p.getCodEmp());
+			rAF.writeInt(p.getCodProd());
+			rAF.writeInt(p.getCantidad());
+			rAF.writeFloat(p.getPrecio());
+			
+			resultado = true;
+
+		} catch (FileNotFoundException e) {
+
+			e.printStackTrace();
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		} finally {
+			if (rAF != null) {
+				try {
+					rAF.close();
+				} catch (IOException e) {
+
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return resultado;
+	}
+
+	public ArrayList<Pedido> obtenerPedido(int codigo) {
+		ArrayList<Pedido> resultado = new ArrayList<Pedido>();
+		
+		RandomAccessFile rAF = null;
+		
+		try {
+			rAF = new RandomAccessFile(FBIN, "r");
+			
+			while (true) {
+				int codigoLeido = rAF.readInt();
+				
+				if (codigo == codigoLeido) {
+					
+					Pedido p = new Pedido(codigo, new Date(rAF.readLong()), rAF.readInt(), rAF.readInt(), rAF.readInt(), rAF.readFloat());
+					
+					resultado.add(p);
+					
+				} else {
+					rAF.seek(rAF.getFilePointer() + 24);
+				}
+			}
+		} catch (EOFException e) {
+			
+		} catch (FileNotFoundException e) {
+			
+			e.printStackTrace();
+			
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		} finally {
+			if (rAF != null) {
+				try {
+					rAF.close();
+				} catch (IOException e) {
+					
+					e.printStackTrace();
+				}
+			}
+		}
+		
 		return resultado;
 	}
 

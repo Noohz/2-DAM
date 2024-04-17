@@ -9,9 +9,9 @@ public class Pedido {
 	private int codProd; // 4B
 	private int cantidad; // 4B
 	private float precio; // 4B
-	
+
 	public Pedido() {
-		
+
 	}
 
 	public Pedido(int codigo, Date fecha, int codEmp, int codProd, int cantidad, float precio) {
@@ -74,8 +74,7 @@ public class Pedido {
 	@Override
 	public String toString() {
 		return "Pedido [codigo=" + codigo + ", fecha=" + fecha + ", codEmp=" + codEmp + ", codProd=" + codProd
-				+ ", cantidad=" + cantidad + ", precio=" + precio + "]";
+				+ ", cantidad=" + cantidad + ", precio=" + precio + ", total=" + (cantidad * precio) + "]";
 	}
 
-	
 }

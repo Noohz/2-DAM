@@ -11,7 +11,7 @@
 		<producto id="3" precio="10.00">
 			<nombre>Hamburguesa Angus</nombre>
 		</producto>
-		<producto id="1" precio="8.10">
+		<producto id="4" precio="8.10">
 			<nombre>Hamburguesa 100%  Vegana</nombre>
 		</producto>
 	</listaProductos>

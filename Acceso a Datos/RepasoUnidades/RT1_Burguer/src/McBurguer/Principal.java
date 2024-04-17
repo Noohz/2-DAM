@@ -80,8 +80,7 @@ public class Principal {
 					System.err.println("Error, el producto no existe.");
 				}
 
-				System.out.print("¿Más productos?");
-				System.out.println("Introduce 0 si no deseas introducir más productos.");
+				System.out.println("¿Más productos? - 0 = No | 1 = Si");
 				opcion = tec.nextInt();
 				tec.nextLine();
 
