@@ -15,3 +15,4 @@ C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmor
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\obj\Debug\CinesNavalmoral.FormularioButacas.resources
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\obj\Debug\CinesNav.D2C6C551.Up2Date
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\bin\Debug\QRCoder.dll
+C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CinesNavalmoral\CinesNavalmoral\obj\Debug\CinesNavalmoral.FormularioEmail.resources

@@ -1,14 +1,12 @@
 ﻿using QRCoder;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Net.Mail;
 using System.Net;
 using System.Windows.Forms;
-using static QRCoder.PayloadGenerator;
 
 namespace CinesNavalmoral
 {
@@ -61,7 +59,7 @@ namespace CinesNavalmoral
             tlp.AutoSize = true;
             tlp.RowCount = arrayButacas[0];
             tlp.ColumnCount = arrayButacas[1];
-            tlp.Padding =new Padding(100, 10 ,0 ,0);
+            tlp.Padding = new Padding(100, 10, 0, 0);
             flPrincipal.Controls.Add(tlp);
 
             for (int filas = 0; filas < arrayButacas[0]; filas++)
@@ -164,13 +162,14 @@ namespace CinesNavalmoral
         }
 
         private void generarCodigoQR(string claveQR)
-        {            
+        {
+            String emailCliente = "";
+
             // Generate the QR code
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(claveQR, QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
             Bitmap qrCodeImage = qrCode.GetGraphic(20);
-
 
             // Specify the folder path to save the QR code image
             string folderPath = @"C:\CinesaQR";
@@ -189,13 +188,19 @@ namespace CinesNavalmoral
 
             if (email == DialogResult.Yes)
             {
-                // Que aparezca un form para que el usuario meta su correo y poder implementarlo el metodo mandarMail con su correo.
-                // Probablemente hay que mandar fileName además de su correo.
-                mandarMail(fileName);
-            }            
+                FormularioEmail fmE = new FormularioEmail(fileName);
+                DialogResult correo = fmE.ShowDialog();
+
+                if (correo == DialogResult.OK)
+                {
+                    emailCliente = fmE.textoTB;
+                }
+            }
+
+            mandarMail(fileName, emailCliente);
         }
 
-        private void mandarMail(string fileName)
+        private void mandarMail(string archivoQR, string emailCliente)
         {
             try
             {
@@ -210,12 +215,12 @@ namespace CinesNavalmoral
 
                 msg.From = new MailAddress("aramoss27@educarex.es");
 
-                msg.To.Add(new MailAddress("aramoss27@educarex.es"));
+                msg.To.Add(new MailAddress(emailCliente));
 
                 msg.Body = "Se adjunta el PDF con el codigo QR de tu entrada.";
 
                 System.Net.Mail.Attachment attachment;
-                attachment = new System.Net.Mail.Attachment(fileName);
+                attachment = new System.Net.Mail.Attachment(archivoQR);
                 msg.Attachments.Add(attachment);
                 msg.IsBodyHtml = true;
 
@@ -228,6 +233,7 @@ namespace CinesNavalmoral
                 smtpClient.Dispose();
 
                 MessageBox.Show("Correo enviado correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             catch (Exception)
             {

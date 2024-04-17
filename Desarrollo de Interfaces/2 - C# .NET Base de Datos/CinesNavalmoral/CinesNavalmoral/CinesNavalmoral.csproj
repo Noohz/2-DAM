@@ -77,6 +77,12 @@
     <Compile Include="FormularioButacas.Designer.cs">
       <DependentUpon>FormularioButacas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormularioEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormularioEmail.Designer.cs">
+      <DependentUpon>FormularioEmail.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormularioSesion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioButacas.resx">
       <DependentUpon>FormularioButacas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormularioEmail.resx">
+      <DependentUpon>FormularioEmail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioSesion.resx">
       <DependentUpon>FormularioSesion.cs</DependentUpon>
