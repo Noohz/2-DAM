@@ -148,9 +148,10 @@ namespace CinesNavalmoral
                     cnx.InsertarFacturacion(Convert.ToInt16(lblNSala.Text), Convert.ToInt16(butaca[0]), Convert.ToInt16(butaca[1]), lblSesion.Text);
 
                     claveQR = lblSesion.Text.Replace(":", "_") + fila + columna + lblNSala.Text;
+
+                    generarCodigoQR(claveQR);
                 }
 
-                generarCodigoQR(claveQR);
                 listaReservas.Clear();
                 btnPagar.Enabled = false;
                 this.Close();
@@ -195,9 +196,9 @@ namespace CinesNavalmoral
                 {
                     emailCliente = fmE.textoTB;
                 }
-            }
 
-            mandarMail(fileName, emailCliente);
+                mandarMail(fileName, emailCliente);
+            }
         }
 
         private void mandarMail(string archivoQR, string emailCliente)
@@ -237,7 +238,7 @@ namespace CinesNavalmoral
             }
             catch (Exception)
             {
-                MessageBox.Show("Ha ocurrido un error a la hora de enviar el correo");
+                
 
             }
         }
