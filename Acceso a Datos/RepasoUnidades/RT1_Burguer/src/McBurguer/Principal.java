@@ -21,7 +21,7 @@ public class Principal {
 			System.out.println("2 - Registrar pedido");
 			System.out.println("3 - Modificar pedido");
 			System.out.println("4 - Cerrar caja");
-			System.out.println("Selepcione una opcion: ");
+			System.out.println("Seleccione una opcion: ");
 			opc = tec.nextInt();
 			tec.nextLine();
 			System.out.println("---------------------------------");

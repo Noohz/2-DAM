@@ -147,7 +147,7 @@ namespace CinesNavalmoral
             return listaFacturacion;
         }
 
-        internal int InsertarFacturacion(int idSala, int fila, int columna, string sesion)
+        internal void InsertarFacturacion(int idSala, int fila, int columna, string sesion)
         {
             conexion.Open();
 
@@ -158,16 +158,52 @@ namespace CinesNavalmoral
             comando.Parameters.AddWithValue("?columna", columna);
             comando.Parameters.AddWithValue("?sesion", sesion);
 
+            comando.ExecuteNonQuery();
+
+            conexion.Close();
+        }
+
+        internal int programarNuevaSesion(string titulo, string sesion, int sala, byte[] bloque)
+        {
+            conexion.Open();
+
+            String cadenaSql = "insert into cartelera values(null, ?titulo, ?sesion, ?sala, ?img)";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?titulo", titulo);
+            comando.Parameters.AddWithValue("?sesion", sesion);
+            comando.Parameters.AddWithValue("?sala", sala);
+            comando.Parameters.AddWithValue("?img", bloque);
+
             int codigo = comando.ExecuteNonQuery();
 
-            conexion.Close();          
+            conexion.Close();
 
             return codigo;
         }
 
-        internal void ocuparButaca()
+        internal bool comprobarSalaHoraLibre(string sesion, int sala)
         {
-            String cadenaSql = "update facturacioncine set ocupado = 1 where ";
+            conexion.Open();
+
+            String cadenaSql = "select * from cartelera where sesion = ?sesion and sala = ?sala";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?sesion", sesion);
+            comando.Parameters.AddWithValue("?sala", sala);
+
+            datos = comando.ExecuteReader();                 
+
+            if (datos.Read())
+            {
+                MessageBox.Show("Ya existe una película con la sesión introducida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                conexion.Close();
+                return false;
+            }
+            else
+            {
+                conexion.Close();
+                return true;
+            }
         }
     }
 }

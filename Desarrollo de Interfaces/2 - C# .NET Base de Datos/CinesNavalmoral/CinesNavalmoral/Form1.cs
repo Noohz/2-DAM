@@ -85,5 +85,23 @@ namespace CinesNavalmoral
         {
             this.Close();
         }
+
+        private void tBAdmin_TextChanged(object sender, EventArgs e)
+        {
+            if (tBAdmin.Text == "12345")
+            {
+                btnAdmin.Enabled = true;
+            }
+            else
+            {
+                btnAdmin.Enabled = false;
+            }            
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            FormularioBack fb = new FormularioBack();
+            fb.ShowDialog();
+        }
     }
 }

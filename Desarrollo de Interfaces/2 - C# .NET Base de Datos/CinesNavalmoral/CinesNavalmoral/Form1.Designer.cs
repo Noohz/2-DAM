@@ -30,34 +30,58 @@
         {
             this.panelPrincipal = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnAdmin = new System.Windows.Forms.Button();
+            this.tBAdmin = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // panelPrincipal
             // 
-            this.panelPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panelPrincipal.AutoScroll = true;
             this.panelPrincipal.BackColor = System.Drawing.Color.NavajoWhite;
             this.panelPrincipal.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.panelPrincipal.Location = new System.Drawing.Point(26, 25);
+            this.panelPrincipal.Location = new System.Drawing.Point(12, 25);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(762, 402);
+            this.panelPrincipal.Size = new System.Drawing.Size(738, 403);
             this.panelPrincipal.TabIndex = 0;
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(-1, 428);
+            this.btnCerrar.Location = new System.Drawing.Point(214, 434);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(801, 23);
+            this.btnCerrar.Size = new System.Drawing.Size(370, 35);
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // btnAdmin
+            // 
+            this.btnAdmin.Enabled = false;
+            this.btnAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdmin.Location = new System.Drawing.Point(12, 485);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(125, 23);
+            this.btnAdmin.TabIndex = 1;
+            this.btnAdmin.Text = "Administración";
+            this.btnAdmin.UseVisualStyleBackColor = true;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
+            // 
+            // tBAdmin
+            // 
+            this.tBAdmin.Location = new System.Drawing.Point(144, 487);
+            this.tBAdmin.Name = "tBAdmin";
+            this.tBAdmin.PasswordChar = '*';
+            this.tBAdmin.Size = new System.Drawing.Size(181, 20);
+            this.tBAdmin.TabIndex = 2;
+            this.tBAdmin.TextChanged += new System.EventHandler(this.tBAdmin_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(762, 513);
+            this.Controls.Add(this.tBAdmin);
+            this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.panelPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -65,6 +89,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -72,6 +97,8 @@
 
         private System.Windows.Forms.FlowLayoutPanel panelPrincipal;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button btnAdmin;
+        private System.Windows.Forms.TextBox tBAdmin;
     }
 }
 

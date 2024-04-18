@@ -238,8 +238,6 @@ namespace CinesNavalmoral
             }
             catch (Exception)
             {
-                
-
             }
         }
     }

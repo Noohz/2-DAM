@@ -19,7 +19,7 @@ public class Principal {
 			System.out.println("2 - Crear fichero binario");
 			System.out.println("3 - Modificar stock");
 			System.out.println("4 - Generar Xml");
-			System.out.println("Selepcione una opcion: ");
+			System.out.println("Seleccione una opcion: ");
 			opc = tec.nextInt();
 			tec.nextLine();
 			System.out.println("---------------------------------");
