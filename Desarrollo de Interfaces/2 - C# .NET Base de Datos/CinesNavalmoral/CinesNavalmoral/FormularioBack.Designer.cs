@@ -30,7 +30,6 @@
         {
             this.tBTitulo = new System.Windows.Forms.TextBox();
             this.tbSesion = new System.Windows.Forms.TextBox();
-            this.tBSala = new System.Windows.Forms.TextBox();
             this.btnProgramarSesion = new System.Windows.Forms.Button();
             this.lblPelicula = new System.Windows.Forms.Label();
             this.lblSesion = new System.Windows.Forms.Label();
@@ -38,6 +37,7 @@
             this.pctImagen = new System.Windows.Forms.PictureBox();
             this.btnVolver = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cBSala = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pctImagen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,13 +54,6 @@
             this.tbSesion.Name = "tbSesion";
             this.tbSesion.Size = new System.Drawing.Size(189, 20);
             this.tbSesion.TabIndex = 1;
-            // 
-            // tBSala
-            // 
-            this.tBSala.Location = new System.Drawing.Point(12, 142);
-            this.tBSala.Name = "tBSala";
-            this.tBSala.Size = new System.Drawing.Size(76, 20);
-            this.tBSala.TabIndex = 2;
             // 
             // btnProgramarSesion
             // 
@@ -94,7 +87,7 @@
             // lblSala
             // 
             this.lblSala.AutoSize = true;
-            this.lblSala.Location = new System.Drawing.Point(9, 126);
+            this.lblSala.Location = new System.Drawing.Point(9, 128);
             this.lblSala.Name = "lblSala";
             this.lblSala.Size = new System.Drawing.Size(28, 13);
             this.lblSala.TabIndex = 6;
@@ -125,16 +118,25 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(103, 139);
+            this.dateTimePicker1.Location = new System.Drawing.Point(103, 65);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 9;
+            // 
+            // cBSala
+            // 
+            this.cBSala.FormattingEnabled = true;
+            this.cBSala.Location = new System.Drawing.Point(12, 144);
+            this.cBSala.Name = "cBSala";
+            this.cBSala.Size = new System.Drawing.Size(99, 21);
+            this.cBSala.TabIndex = 10;
             // 
             // FormularioBack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(518, 258);
+            this.Controls.Add(this.cBSala);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.pctImagen);
@@ -142,7 +144,6 @@
             this.Controls.Add(this.lblSesion);
             this.Controls.Add(this.lblPelicula);
             this.Controls.Add(this.btnProgramarSesion);
-            this.Controls.Add(this.tBSala);
             this.Controls.Add(this.tbSesion);
             this.Controls.Add(this.tBTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -158,7 +159,6 @@
 
         private System.Windows.Forms.TextBox tBTitulo;
         private System.Windows.Forms.TextBox tbSesion;
-        private System.Windows.Forms.TextBox tBSala;
         private System.Windows.Forms.Button btnProgramarSesion;
         private System.Windows.Forms.Label lblPelicula;
         private System.Windows.Forms.Label lblSesion;
@@ -166,5 +166,6 @@
         private System.Windows.Forms.PictureBox pctImagen;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox cBSala;
     }
 }

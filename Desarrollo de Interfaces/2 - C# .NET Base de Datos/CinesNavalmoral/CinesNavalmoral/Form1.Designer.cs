@@ -43,6 +43,7 @@
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(738, 403);
             this.panelPrincipal.TabIndex = 0;
+            this.panelPrincipal.WrapContents = false;
             // 
             // btnCerrar
             // 

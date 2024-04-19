@@ -41,7 +41,7 @@ namespace CinesNavalmoral
                 FlowLayoutPanel flowPeliculas = new FlowLayoutPanel();
                 flowPeliculas.AutoSize = true;
                 flowPeliculas.FlowDirection = FlowDirection.TopDown;
-                flowPeliculas.Padding = new Padding(33);
+                flowPeliculas.Padding = new Padding(31);
 
                 // Propiedades del button.
                 Button botonX = new Button();

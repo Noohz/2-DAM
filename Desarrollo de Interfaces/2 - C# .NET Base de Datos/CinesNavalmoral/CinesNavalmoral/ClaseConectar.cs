@@ -93,7 +93,7 @@ namespace CinesNavalmoral
         // Método para contar cuantas butacas hay.
         internal int[] TotalButacas(string sala)
         {
-            int[] totalButacas = { 0, 0 };
+            int[] totalButacas = { 0, 0};
 
             conexion.Open();
 
@@ -190,7 +190,7 @@ namespace CinesNavalmoral
             comando.Parameters.AddWithValue("?sesion", sesion);
             comando.Parameters.AddWithValue("?sala", sala);
 
-            datos = comando.ExecuteReader();                 
+            datos = comando.ExecuteReader();
 
             if (datos.Read())
             {
@@ -204,6 +204,32 @@ namespace CinesNavalmoral
                 conexion.Close();
                 return true;
             }
+        }
+
+        internal List<ClaseSalaCine> obtenerIdSala()
+        {
+            List<ClaseSalaCine> numSalas = new List<ClaseSalaCine>();
+
+            conexion.Open();
+
+            String cadenaSql = "select * from salacine";
+            comando = new MySqlCommand(cadenaSql, conexion);
+
+            datos = comando.ExecuteReader();
+
+            while (datos.Read())
+            {
+                ClaseSalaCine cSC = new ClaseSalaCine();
+                cSC.IdSala = (int)datos["idSala"];
+                cSC.Filas = (int)datos["filas"];
+                cSC.Columnas = (int)datos["columnas"];
+
+                numSalas.Add(cSC);
+            }
+
+            conexion.Close();
+
+            return numSalas;
         }
     }
 }
