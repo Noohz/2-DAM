@@ -12,10 +12,6 @@ namespace CinesNavalmoral
         List<ClaseSalaCine> numSalas = new List<ClaseSalaCine>();
 
         String nombreImagen;
-
-        // VALIDAR EL TEXTBOX DE LA FECHA PARA QUE SE ASEMEJE A LA BASE DE DATOS, USANDO UN DATETIMEPICKER.
-        // TODOS LOS CAMPOS TIENEN QUE SER OBLIGATORIOS..
-
         public FormularioBack()
         {
             InitializeComponent();
@@ -27,31 +23,40 @@ namespace CinesNavalmoral
                 cBSala.Items.Add(sala.IdSala);
             }
 
+            dateTPSesion.Format = DateTimePickerFormat.Custom;
+            dateTPSesion.CustomFormat = "yyyy-MM-dd-hh:mm";
         }
 
         private void btnProgramarSesion_Click(object sender, EventArgs e)
         {
-            if (cnx.comprobarSalaHoraLibre(tbSesion.Text, cBSala.SelectedIndex))
+            if (tBTitulo != null && cBSala.SelectedIndex != -1)
             {
-                if (nombreImagen != null) 
+                if (cnx.comprobarSalaHoraLibre(dateTPSesion.Text, cBSala.SelectedIndex))
                 {
-                    /*crear fichero binario a partir del fichero físico*/
-                    FileStream fs = new FileStream(nombreImagen, FileMode.Open, FileAccess.Read);
-                    /*se prepara la secuencia de datos o caracteres que se van a leer*/
-                    BinaryReader br = new BinaryReader(fs);
-                    /*Lee el número especificado de bytes de la secuencia actual en una matriz de bytes y hace avanzar la posición actual en función del número de bytes leídos.*/
-                    byte[] bloque = br.ReadBytes((int)fs.Length);
-
-                    if (cnx.programarNuevaSesion(tBTitulo.Text, tbSesion.Text, cBSala.SelectedIndex, bloque) == 1)
+                    if (nombreImagen != null)
                     {
-                        MessageBox.Show("Pelicula añadida.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        /*crear fichero binario a partir del fichero físico*/
+                        FileStream fs = new FileStream(nombreImagen, FileMode.Open, FileAccess.Read);
+                        /*se prepara la secuencia de datos o caracteres que se van a leer*/
+                        BinaryReader br = new BinaryReader(fs);
+                        /*Lee el número especificado de bytes de la secuencia actual en una matriz de bytes y hace avanzar la posición actual en función del número de bytes leídos.*/
+                        byte[] bloque = br.ReadBytes((int)fs.Length);
+
+                        if (cnx.programarNuevaSesion(tBTitulo.Text, dateTPSesion.Text, cBSala.SelectedIndex, bloque) == 1)
+                        {
+                            MessageBox.Show("Pelicula añadida.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
-                } else
-                {
-                    MessageBox.Show("Debes introducir una imágen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                    {
+                        MessageBox.Show("Debes introducir una imágen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                 }
-                
-            }
+            } else
+            {
+                MessageBox.Show("Debes completar todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

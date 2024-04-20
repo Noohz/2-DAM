@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9BCC26EA-1757-47E3-9A80-6109FCF59533}|CinesNavalmoral\\CinesNavalmoral.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\cinesnavalmoral\\formularioback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9BCC26EA-1757-47E3-9A80-6109FCF59533}|CinesNavalmoral\\CinesNavalmoral.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\cinesnavalmoral\\cinesnavalmoral\\formularioback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9BCC26EA-1757-47E3-9A80-6109FCF59533}|CinesNavalmoral\\CinesNavalmoral.csproj|solutionrelative:cinesnavalmoral\\formularioback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9BCC26EA-1757-47E3-9A80-6109FCF59533}|CinesNavalmoral\\CinesNavalmoral.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\cinesnavalmoral\\cinesnavalmoral\\formularioback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{9BCC26EA-1757-47E3-9A80-6109FCF59533}|CinesNavalmoral\\CinesNavalmoral.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\cinesnavalmoral\\formularioback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9BCC26EA-1757-47E3-9A80-6109FCF59533}|CinesNavalmoral\\CinesNavalmoral.csproj|solutionrelative:cinesnavalmoral\\formularioback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "CinesNavalmoral\\FormularioBack.cs",
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\CinesNavalmoral\\FormularioBack.cs",
               "RelativeToolTip": "CinesNavalmoral\\FormularioBack.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAYwBQAAAAiAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAwA0AAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-18T10:55:54.16Z",
               "EditorCaption": ""
@@ -54,8 +54,7 @@
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\CinesNavalmoral\\FormularioBack.cs [Dise\u00F1o]",
               "RelativeToolTip": "CinesNavalmoral\\FormularioBack.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-18T10:53:36.337Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-04-18T10:53:36.337Z"
             },
             {
               "$type": "Document",
@@ -67,8 +66,7 @@
               "RelativeToolTip": "CinesNavalmoral\\Form1.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAQwCsAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T08:57:18.227Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-09T08:57:18.227Z"
             },
             {
               "$type": "Document",
@@ -79,8 +77,7 @@
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\CinesNavalmoral\\Form1.cs [Dise\u00F1o]",
               "RelativeToolTip": "CinesNavalmoral\\Form1.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T08:39:32.773Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-04-09T08:39:32.773Z"
             },
             {
               "$type": "Document",
@@ -92,8 +89,7 @@
               "RelativeToolTip": "CinesNavalmoral\\ClaseConectar.cs",
               "ViewState": "AQIAAKQAAAAAAAAAAAAYwOEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-18T10:58:58.05Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-18T10:58:58.05Z"
             }
           ]
         }
