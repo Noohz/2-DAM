@@ -24,7 +24,7 @@ namespace CinesNavalmoral
             }
 
             dateTPSesion.Format = DateTimePickerFormat.Custom;
-            dateTPSesion.CustomFormat = "yyyy-MM-dd-hh:mm";
+            dateTPSesion.CustomFormat = "yyyy-MM-dd";
         }
 
         private void btnProgramarSesion_Click(object sender, EventArgs e)
@@ -42,9 +42,16 @@ namespace CinesNavalmoral
                         /*Lee el número especificado de bytes de la secuencia actual en una matriz de bytes y hace avanzar la posición actual en función del número de bytes leídos.*/
                         byte[] bloque = br.ReadBytes((int)fs.Length);
 
-                        if (cnx.programarNuevaSesion(tBTitulo.Text, dateTPSesion.Text, cBSala.SelectedIndex, bloque) == 1)
+                        if (cnx.programarNuevaSesion(tBTitulo.Text, tBsesion.Text, cBSala.SelectedIndex, bloque) == 1)
                         {
                             MessageBox.Show("Pelicula añadida.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            tBTitulo.ResetText();
+                            pctImagen.Image = null;
+                            cBSala.SelectedIndex = -1;
+                            numHoras.Value = 0;
+                            numHoras.Enabled = false;
+                            numMin.Value = 0;
+                            numMin.Enabled = false;
                         }
                     }
                     else
@@ -73,6 +80,63 @@ namespace CinesNavalmoral
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void numHoras_ValueChanged(object sender, EventArgs e)
+        {
+            String cadenaDateTime = tBsesion.Text;
+            String nuevaCadena = cadenaDateTime.Substring(0, 11);
+            nuevaCadena += numHoras.Value + ":" + numMin.Value;
+            tBsesion.Text = nuevaCadena;
+        }
+
+        private void numMin_ValueChanged(object sender, EventArgs e)
+        {
+            String cadenaDateTime = tBsesion.Text;
+            String nuevaCadena = cadenaDateTime.Substring(0, 11);
+            nuevaCadena += numHoras.Value + ":" + numMin.Value;
+            tBsesion.Text = nuevaCadena;
+        }
+
+        private void dateTPSesion_ValueChanged(object sender, EventArgs e)
+        {
+            String resultadoDTP_sesion = dateTPSesion.Value.ToString("yyyy-MM-dd-");
+
+            if (dateTPSesion.Value >= DateTime.Now)
+            {
+                tBsesion.Text = resultadoDTP_sesion;
+                numHoras.Enabled = true;
+                numMin.Enabled = true;
+            } else
+            {
+                MessageBox.Show("Fecha no válida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCrearSala_Click(object sender, EventArgs e)
+        {
+            // Un if para comprobar que la sala tenga un tamaño.
+            if (numFilas.Value > 0 && numColumnas.Value > 0)
+            {
+                int codigo = cnx.generarSala(Convert.ToInt16(numFilas.Value), Convert.ToInt16(numColumnas.Value));
+
+                if (codigo == 1)
+                {
+                    MessageBox.Show("Nueva sala creada.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    numSalas.Clear();
+                    numSalas = cnx.obtenerIdSala();
+                    cBSala.Items.Clear();
+
+                    foreach (var item in numSalas)
+                    {
+                        cBSala.Items.Add(item.IdSala);
+                    }
+                } else
+                {
+                    MessageBox.Show("Error al crear la sala.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

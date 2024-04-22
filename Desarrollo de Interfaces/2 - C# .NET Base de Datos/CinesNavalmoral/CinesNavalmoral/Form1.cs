@@ -14,7 +14,7 @@ namespace CinesNavalmoral
 
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -95,13 +95,18 @@ namespace CinesNavalmoral
             else
             {
                 btnAdmin.Enabled = false;
-            }            
+            }
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
             FormularioBack fb = new FormularioBack();
             fb.ShowDialog();
+
+            panelPrincipal.Controls.Clear();
+            listaPeliculas.Clear();
+            listaPeliculas = cnx.listarCarteles();
+            cargarCarteles(listaPeliculas);
         }
     }
 }

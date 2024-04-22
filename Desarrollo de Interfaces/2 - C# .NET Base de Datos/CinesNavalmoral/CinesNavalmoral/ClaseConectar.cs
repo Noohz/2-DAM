@@ -93,7 +93,7 @@ namespace CinesNavalmoral
         // Método para contar cuantas butacas hay.
         internal int[] TotalButacas(string sala)
         {
-            int[] totalButacas = { 0, 0};
+            int[] totalButacas = { 0, 0 };
 
             conexion.Open();
 
@@ -230,6 +230,22 @@ namespace CinesNavalmoral
             conexion.Close();
 
             return numSalas;
+        }
+
+        internal int generarSala(int filas, int columnas)
+        {
+            conexion.Open();
+
+            String cadenaSql = "insert into salacine values(null, ?fila, ?columna)";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?fila", filas);
+            comando.Parameters.AddWithValue("?columna", columnas);
+
+            int codigo = comando.ExecuteNonQuery();
+
+            conexion.Close();
+
+            return codigo;
         }
     }
 }
