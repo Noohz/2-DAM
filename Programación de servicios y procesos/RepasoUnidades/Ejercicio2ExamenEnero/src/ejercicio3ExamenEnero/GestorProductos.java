@@ -1,11 +1,13 @@
 package ejercicio3ExamenEnero;
 
+import java.util.Random;
+
 public class GestorProductos {
 
 	// Array con el stock inicial de los 6 productos diferentes.
 	int[] productos = { 10, 3, 12, 2, 11, 8 };
 	
-	void chequearStock(String nombreReponedor) {
+	synchronized void chequearStock(String nombreReponedor) {
 		
 		boolean productoEncontrado = false;
 		
@@ -33,5 +35,24 @@ public class GestorProductos {
 		if (productoEncontrado == false) {
 			System.err.println("El " + nombreReponedor + " no ha encontrado ningún producto para actualizar.");
 		}
+	}
+
+	public synchronized void intentarComprarProducto(String nombreCliente) {
+		Random numAleatorio = new Random();
+		
+		// Seleccionar el producto.
+		int idProducto = numAleatorio.nextInt(0, productos.length);
+		int numUnidades = numAleatorio.nextInt(1, 4);
+		
+		if (productos[idProducto] >= numUnidades) {
+			productos[idProducto] -= numUnidades;
+			
+			// El cliente puede comprar ese producto.
+			System.out.println("El cliente " + nombreCliente + " ha comprado " + numUnidades + " unidades del producto " + idProducto + ". Quedan " + productos[idProducto] + "unidades.");
+		} else {
+			// El cliente no puede comprar ese producto por que no hay stock suficiente.
+			System.err.println("El cliente " + nombreCliente + " ha intentado comprar " + numUnidades + " del producto " + idProducto + " pero no había stock suficiente.");
+		}
+		
 	}
 }

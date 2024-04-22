@@ -35,11 +35,10 @@ public class Aplicacion {
 			}
 
 			// Creo el hilo para el nuevo cliente.
-			Cliente nuevoCliente = new Cliente(gestor);
+			Cliente nuevoCliente = new Cliente(gestor, semaforo);
 			nuevoCliente.start();
 
-			// El cliente se va.
-			semaforo.release();
+			
 		}
 
 	}
