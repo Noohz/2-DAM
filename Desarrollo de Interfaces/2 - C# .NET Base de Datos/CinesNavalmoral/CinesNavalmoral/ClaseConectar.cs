@@ -271,5 +271,27 @@ namespace CinesNavalmoral
 
             return codigo;
         }
+
+        internal int buscarUltimoID()
+        {
+            int codigo = 0;
+
+            conexion.Open();
+
+            String cadenaSql = "SELECT id FROM facturacioncine ORDER BY id DESC LIMIT 1";
+
+            comando = new MySqlCommand(cadenaSql, conexion);
+
+            datos = comando.ExecuteReader();
+
+            while (datos.Read())
+            {
+                codigo = (int)datos["id"];
+            }
+
+            conexion.Close();
+
+            return codigo;
+        }
     }
 }

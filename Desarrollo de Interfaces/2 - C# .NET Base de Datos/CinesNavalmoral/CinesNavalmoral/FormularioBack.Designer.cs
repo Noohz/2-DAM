@@ -51,10 +51,10 @@
             this.tBQREnter = new System.Windows.Forms.TextBox();
             this.tBQRAuto = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblQR = new System.Windows.Forms.Label();
-            this.panelValidacion = new System.Windows.Forms.Panel();
-            this.lblT1 = new System.Windows.Forms.Label();
             this.lblT2 = new System.Windows.Forms.Label();
+            this.lblT1 = new System.Windows.Forms.Label();
+            this.panelValidacion = new System.Windows.Forms.Panel();
+            this.lblQR = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pctImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHoras)).BeginInit();
@@ -286,15 +286,23 @@
             this.panel1.Size = new System.Drawing.Size(294, 105);
             this.panel1.TabIndex = 23;
             // 
-            // lblQR
+            // lblT2
             // 
-            this.lblQR.AutoSize = true;
-            this.lblQR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQR.Location = new System.Drawing.Point(93, 7);
-            this.lblQR.Name = "lblQR";
-            this.lblQR.Size = new System.Drawing.Size(108, 16);
-            this.lblQR.TabIndex = 23;
-            this.lblQR.Text = "Ocupar butaca";
+            this.lblT2.AutoSize = true;
+            this.lblT2.Location = new System.Drawing.Point(0, 62);
+            this.lblT2.Name = "lblT2";
+            this.lblT2.Size = new System.Drawing.Size(71, 13);
+            this.lblT2.TabIndex = 26;
+            this.lblT2.Text = "TextChanged";
+            // 
+            // lblT1
+            // 
+            this.lblT1.AutoSize = true;
+            this.lblT1.Location = new System.Drawing.Point(0, 21);
+            this.lblT1.Name = "lblT1";
+            this.lblT1.Size = new System.Drawing.Size(53, 13);
+            this.lblT1.TabIndex = 25;
+            this.lblT1.Text = "KeyDown";
             // 
             // panelValidacion
             // 
@@ -304,23 +312,15 @@
             this.panelValidacion.Size = new System.Drawing.Size(106, 63);
             this.panelValidacion.TabIndex = 24;
             // 
-            // lblT1
+            // lblQR
             // 
-            this.lblT1.AutoSize = true;
-            this.lblT1.Location = new System.Drawing.Point(0, 21);
-            this.lblT1.Name = "lblT1";
-            this.lblT1.Size = new System.Drawing.Size(39, 13);
-            this.lblT1.TabIndex = 25;
-            this.lblT1.Text = "KeyUp";
-            // 
-            // lblT2
-            // 
-            this.lblT2.AutoSize = true;
-            this.lblT2.Location = new System.Drawing.Point(0, 62);
-            this.lblT2.Name = "lblT2";
-            this.lblT2.Size = new System.Drawing.Size(71, 13);
-            this.lblT2.TabIndex = 26;
-            this.lblT2.Text = "TextChanged";
+            this.lblQR.AutoSize = true;
+            this.lblQR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQR.Location = new System.Drawing.Point(93, 7);
+            this.lblQR.Name = "lblQR";
+            this.lblQR.Size = new System.Drawing.Size(108, 16);
+            this.lblQR.TabIndex = 23;
+            this.lblQR.Text = "Ocupar butaca";
             // 
             // timer1
             // 
