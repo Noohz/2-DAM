@@ -147,6 +147,7 @@ namespace CinesNavalmoral
             return listaFacturacion;
         }
 
+        // Método para realizar la compra de una bútaca.
         internal void InsertarFacturacion(int idSala, int fila, int columna, string sesion)
         {
             conexion.Open();
@@ -163,6 +164,7 @@ namespace CinesNavalmoral
             conexion.Close();
         }
 
+        // Mñetodo para programar una nueva película.
         internal int programarNuevaSesion(string titulo, string sesion, int sala, byte[] bloque)
         {
             conexion.Open();
@@ -181,6 +183,7 @@ namespace CinesNavalmoral
             return codigo;
         }
 
+        // Método para comprobar si la sala y la hora de la película no están ya ocupadas.
         internal bool comprobarSalaHoraLibre(string sesion, int sala)
         {
             conexion.Open();
@@ -206,6 +209,7 @@ namespace CinesNavalmoral
             }
         }
 
+        // Método para obtener el número total de salas que hay para usarlo en un comboBox del FormularioBack.
         internal List<ClaseSalaCine> obtenerIdSala()
         {
             List<ClaseSalaCine> numSalas = new List<ClaseSalaCine>();
@@ -232,6 +236,7 @@ namespace CinesNavalmoral
             return numSalas;
         }
 
+        // Método para crear una sala.
         internal int generarSala(int filas, int columnas)
         {
             conexion.Open();
@@ -240,6 +245,25 @@ namespace CinesNavalmoral
             comando = new MySqlCommand(cadenaSql, conexion);
             comando.Parameters.AddWithValue("?fila", filas);
             comando.Parameters.AddWithValue("?columna", columnas);
+
+            int codigo = comando.ExecuteNonQuery();
+
+            conexion.Close();
+
+            return codigo;
+        }
+
+        // (Método Temporal) Lo recomendable es ocupar la butaca mediante el ID de la facturación.
+        internal int OcuparButaca(string sesion, String fila, string columna, string sala)
+        {
+            conexion.Open();
+
+            String cadenaSql = "update facturacioncine set ocupado = 1 where sesion = ?sesion and fila = ?fila and columna = ?columna and idSala = ?idSala and ocupado = 0";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?sesion", sesion);
+            comando.Parameters.AddWithValue("?fila", Convert.ToInt16(fila));
+            comando.Parameters.AddWithValue("?columna", Convert.ToInt16(columna));
+            comando.Parameters.AddWithValue("?idSala", Convert.ToInt16(sala));
 
             int codigo = comando.ExecuteNonQuery();
 

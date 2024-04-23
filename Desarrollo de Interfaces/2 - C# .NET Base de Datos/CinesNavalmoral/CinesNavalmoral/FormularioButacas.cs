@@ -146,8 +146,10 @@ namespace CinesNavalmoral
                     string columna = butaca[1];
 
                     cnx.InsertarFacturacion(Convert.ToInt16(lblNSala.Text), Convert.ToInt16(butaca[0]), Convert.ToInt16(butaca[1]), lblSesion.Text);
-
-                    claveQR = lblSesion.Text.Replace(":", "_") + fila + columna + lblNSala.Text;
+                    cnx.buscarUltimoID();
+                    claveQR = lblSesion.Text.Replace(":", "_") + "x" + fila + "x" + columna + "x" + lblNSala.Text; // Esto hay que reemplazarlo para que solo use el idSala.
+                    // Una consulta después de insertar busquemos el último elemento de la tabla.
+                    // No hay que usar el ID en el nombre del QR, usar un random.
 
                     generarCodigoQR(claveQR);
                 }
@@ -182,7 +184,7 @@ namespace CinesNavalmoral
             }
 
             // Save the QR code as a PNG image file inside the specified folder
-            string fileName = Path.Combine(folderPath, claveQR + "_" + "QRCode.png");
+            string fileName = Path.Combine(folderPath, claveQR + ".png");
             qrCodeImage.Save(fileName, ImageFormat.Png);
 
             DialogResult email = MessageBox.Show("¿Deseas recibir un correo con el código QR de tu entrada?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

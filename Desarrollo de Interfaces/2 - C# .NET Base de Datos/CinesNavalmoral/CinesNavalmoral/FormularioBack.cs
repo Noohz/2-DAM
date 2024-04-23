@@ -12,6 +12,8 @@ namespace CinesNavalmoral
         List<ClaseSalaCine> numSalas = new List<ClaseSalaCine>();
 
         String nombreImagen;
+        int segundos = 0;
+
         public FormularioBack()
         {
             InitializeComponent();
@@ -60,10 +62,11 @@ namespace CinesNavalmoral
                     }
 
                 }
-            } else
+            }
+            else
             {
                 MessageBox.Show("Debes completar todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }            
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -107,7 +110,8 @@ namespace CinesNavalmoral
                 tBsesion.Text = resultadoDTP_sesion;
                 numHoras.Enabled = true;
                 numMin.Enabled = true;
-            } else
+            }
+            else
             {
                 MessageBox.Show("Fecha no válida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -132,10 +136,90 @@ namespace CinesNavalmoral
                     {
                         cBSala.Items.Add(item.IdSala);
                     }
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Error al crear la sala.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void tBQREnter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                String cadenaBuscada = tBQREnter.Text;
+                String[] vector = cadenaBuscada.Split('x');
+                String sesion = vector[0];
+
+                // Estos replaces son para usar el escanner.
+                sesion = sesion.Replace("'", "-");
+                sesion = sesion.Replace("?", ":");
+
+                // Este es para poder introducirlo a mano.
+                sesion = sesion.Replace('_', ':');
+
+                int codigo = cnx.OcuparButaca(sesion, vector[1], vector[2], vector[3]);
+
+                if (codigo == 1)
+                {
+                    panelValidacion.BackColor = Color.Green;
+                    MessageBox.Show("Butaca ocupada con éxito", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                else
+                {
+                    panelValidacion.BackColor = Color.Red;
+                    MessageBox.Show("No se ha podido ocupar la butaca", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                tBQREnter.Focus();
+                tBQREnter.Text = "";
+                panelValidacion.BackColor = Color.White;
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (tBQRAuto.Text.Length > 0)
+                timer1.Enabled = true;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            segundos++;
+            if (segundos == 3)
+            {
+                timer1.Enabled = false;
+                segundos = 0;
+                String cadenaBuscar = tBQRAuto.Text;
+                String[] vector = cadenaBuscar.Split('x');
+                String sesion = vector[0];
+
+                // Estos replaces son para usar el escanner.
+                sesion = sesion.Replace("'", "-");
+                sesion = sesion.Replace("?", ":");
+
+                // Este es para poder introducirlo a mano.
+                sesion = sesion.Replace('_', ':');
+
+                int codigo = cnx.OcuparButaca(sesion, vector[1], vector[2], vector[3]);
+
+                if (codigo == 1)
+                {
+                    panelValidacion.BackColor = Color.Green;
+                    MessageBox.Show("Butaca ocupada con éxito", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                else
+                {
+                    panelValidacion.BackColor = Color.Red;
+                    MessageBox.Show("No se ha podido ocupar la butaca", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                tBQRAuto.Focus();
+                tBQRAuto.Text = "";
+                panelValidacion.BackColor = Color.White;
             }
         }
     }

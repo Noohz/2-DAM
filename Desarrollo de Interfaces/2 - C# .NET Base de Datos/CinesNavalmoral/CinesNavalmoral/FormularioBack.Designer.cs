@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tBTitulo = new System.Windows.Forms.TextBox();
             this.btnProgramarSesion = new System.Windows.Forms.Button();
             this.lblPelicula = new System.Windows.Forms.Label();
@@ -47,11 +48,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.numFilas = new System.Windows.Forms.NumericUpDown();
             this.numColumnas = new System.Windows.Forms.NumericUpDown();
+            this.tBQREnter = new System.Windows.Forms.TextBox();
+            this.tBQRAuto = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblQR = new System.Windows.Forms.Label();
+            this.panelValidacion = new System.Windows.Forms.Panel();
+            this.lblT1 = new System.Windows.Forms.Label();
+            this.lblT2 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pctImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHoras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numFilas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numColumnas)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tBTitulo
@@ -114,9 +124,9 @@
             // btnVolver
             // 
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.Location = new System.Drawing.Point(427, 395);
+            this.btnVolver.Location = new System.Drawing.Point(167, 439);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(83, 28);
+            this.btnVolver.Size = new System.Drawing.Size(166, 28);
             this.btnVolver.TabIndex = 8;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
@@ -245,11 +255,83 @@
             this.numColumnas.Size = new System.Drawing.Size(88, 20);
             this.numColumnas.TabIndex = 20;
             // 
+            // tBQREnter
+            // 
+            this.tBQREnter.Location = new System.Drawing.Point(3, 37);
+            this.tBQREnter.Name = "tBQREnter";
+            this.tBQREnter.Size = new System.Drawing.Size(153, 20);
+            this.tBQREnter.TabIndex = 21;
+            this.tBQREnter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBQREnter_KeyDown);
+            // 
+            // tBQRAuto
+            // 
+            this.tBQRAuto.Location = new System.Drawing.Point(3, 78);
+            this.tBQRAuto.Name = "tBQRAuto";
+            this.tBQRAuto.Size = new System.Drawing.Size(153, 20);
+            this.tBQRAuto.TabIndex = 22;
+            this.tBQRAuto.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.NavajoWhite;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lblT2);
+            this.panel1.Controls.Add(this.lblT1);
+            this.panel1.Controls.Add(this.panelValidacion);
+            this.panel1.Controls.Add(this.lblQR);
+            this.panel1.Controls.Add(this.tBQREnter);
+            this.panel1.Controls.Add(this.tBQRAuto);
+            this.panel1.Location = new System.Drawing.Point(216, 321);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(294, 105);
+            this.panel1.TabIndex = 23;
+            // 
+            // lblQR
+            // 
+            this.lblQR.AutoSize = true;
+            this.lblQR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQR.Location = new System.Drawing.Point(93, 7);
+            this.lblQR.Name = "lblQR";
+            this.lblQR.Size = new System.Drawing.Size(108, 16);
+            this.lblQR.TabIndex = 23;
+            this.lblQR.Text = "Ocupar butaca";
+            // 
+            // panelValidacion
+            // 
+            this.panelValidacion.BackColor = System.Drawing.SystemColors.Control;
+            this.panelValidacion.Location = new System.Drawing.Point(176, 35);
+            this.panelValidacion.Name = "panelValidacion";
+            this.panelValidacion.Size = new System.Drawing.Size(106, 63);
+            this.panelValidacion.TabIndex = 24;
+            // 
+            // lblT1
+            // 
+            this.lblT1.AutoSize = true;
+            this.lblT1.Location = new System.Drawing.Point(0, 21);
+            this.lblT1.Name = "lblT1";
+            this.lblT1.Size = new System.Drawing.Size(39, 13);
+            this.lblT1.TabIndex = 25;
+            this.lblT1.Text = "KeyUp";
+            // 
+            // lblT2
+            // 
+            this.lblT2.AutoSize = true;
+            this.lblT2.Location = new System.Drawing.Point(0, 62);
+            this.lblT2.Name = "lblT2";
+            this.lblT2.Size = new System.Drawing.Size(71, 13);
+            this.lblT2.TabIndex = 26;
+            this.lblT2.Text = "TextChanged";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // FormularioBack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(518, 435);
+            this.ClientSize = new System.Drawing.Size(518, 473);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.numColumnas);
             this.Controls.Add(this.numFilas);
             this.Controls.Add(this.label2);
@@ -277,6 +359,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numFilas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numColumnas)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,5 +387,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numFilas;
         private System.Windows.Forms.NumericUpDown numColumnas;
+        private System.Windows.Forms.TextBox tBQREnter;
+        private System.Windows.Forms.TextBox tBQRAuto;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblQR;
+        private System.Windows.Forms.Panel panelValidacion;
+        private System.Windows.Forms.Label lblT2;
+        private System.Windows.Forms.Label lblT1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
