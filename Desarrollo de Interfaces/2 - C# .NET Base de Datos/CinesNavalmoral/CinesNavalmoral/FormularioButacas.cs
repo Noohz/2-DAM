@@ -151,7 +151,7 @@ namespace CinesNavalmoral
                     Random random = new Random();
                     int numAleatorio = random.Next(1000000, 9999999 + 1);
                     char letraAleatoria = (char)random.Next('A', 'Z' + 1);
-                    claveQR = numAleatorio.ToString() + letraAleatoria;
+                    claveQR = id + "x" + numAleatorio.ToString() + letraAleatoria;
 
                     generarCodigoQR(claveQR);
                 }

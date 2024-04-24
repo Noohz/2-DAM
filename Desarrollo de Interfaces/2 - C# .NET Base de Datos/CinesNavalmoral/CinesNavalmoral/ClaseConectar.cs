@@ -254,16 +254,13 @@ namespace CinesNavalmoral
         }
 
         // (Método Temporal) Lo recomendable es ocupar la butaca mediante el ID de la facturación.
-        internal int OcuparButaca(string sesion, String fila, string columna, string sala)
+        internal int OcuparButaca(string iQR)
         {
             conexion.Open();
 
-            String cadenaSql = "update facturacioncine set ocupado = 1 where sesion = ?sesion and fila = ?fila and columna = ?columna and idSala = ?idSala and ocupado = 0";
+            String cadenaSql = "update facturacioncine set ocupado = 1 where id = ?id and ocupado = 0";
             comando = new MySqlCommand(cadenaSql, conexion);
-            comando.Parameters.AddWithValue("?sesion", sesion);
-            comando.Parameters.AddWithValue("?fila", Convert.ToInt16(fila));
-            comando.Parameters.AddWithValue("?columna", Convert.ToInt16(columna));
-            comando.Parameters.AddWithValue("?idSala", Convert.ToInt16(sala));
+            comando.Parameters.AddWithValue("?id", iQR);
 
             int codigo = comando.ExecuteNonQuery();
 

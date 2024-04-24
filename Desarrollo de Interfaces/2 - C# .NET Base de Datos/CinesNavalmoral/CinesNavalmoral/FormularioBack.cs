@@ -150,16 +150,16 @@ namespace CinesNavalmoral
             {
                 String cadenaBuscada = tBQREnter.Text;
                 String[] vector = cadenaBuscada.Split('x');
-                String sesion = vector[0];
+                String idQR = vector[0];
 
                 // Estos replaces son para usar el escanner.
-                sesion = sesion.Replace("'", "-");
-                sesion = sesion.Replace("?", ":");
+                //sesion = sesion.Replace("'", "-");
+                //sesion = sesion.Replace("?", ":");
 
                 // Este es para poder introducirlo a mano.
-                sesion = sesion.Replace('_', ':');
+                //sesion = sesion.Replace('_', ':');
 
-                int codigo = cnx.OcuparButaca(sesion, vector[1], vector[2], vector[3]);
+                int codigo = cnx.OcuparButaca(idQR);
 
                 if (codigo == 1)
                 {
@@ -194,16 +194,16 @@ namespace CinesNavalmoral
                 segundos = 0;
                 String cadenaBuscar = tBQRAuto.Text;
                 String[] vector = cadenaBuscar.Split('x');
-                String sesion = vector[0];
+                String idQR = vector[0];
 
                 // Estos replaces son para usar el escanner.
-                sesion = sesion.Replace("'", "-");
-                sesion = sesion.Replace("?", ":");
+                //sesion = sesion.Replace("'", "-");
+                //sesion = sesion.Replace("?", ":");
 
                 // Este es para poder introducirlo a mano.
-                sesion = sesion.Replace('_', ':');
+                //sesion = sesion.Replace('_', ':');
 
-                int codigo = cnx.OcuparButaca(sesion, vector[1], vector[2], vector[3]);
+                int codigo = cnx.OcuparButaca(idQR);
 
                 if (codigo == 1)
                 {
