@@ -18,6 +18,8 @@ namespace CinesNavalmoral
         {
             InitializeComponent();
 
+            this.Text = "Administración";
+
             numSalas = cnx.obtenerIdSala();
 
             foreach (var sala in numSalas)
@@ -165,7 +167,6 @@ namespace CinesNavalmoral
                 {
                     panelValidacion.BackColor = Color.Green;
                     MessageBox.Show("Butaca ocupada con éxito", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 }
                 else
                 {

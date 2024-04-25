@@ -75,6 +75,7 @@
             this.tBAdmin.Size = new System.Drawing.Size(181, 20);
             this.tBAdmin.TabIndex = 2;
             this.tBAdmin.TextChanged += new System.EventHandler(this.tBAdmin_TextChanged);
+            this.tBAdmin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBAdmin_KeyDown);
             // 
             // Form1
             // 

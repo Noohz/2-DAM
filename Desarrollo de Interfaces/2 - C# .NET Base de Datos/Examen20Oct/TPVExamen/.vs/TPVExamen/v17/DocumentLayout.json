@@ -1,0 +1,131 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3C45AA35-D5C2-4C46-9239-353A675DD330}|TPVExamen\\TPVExamen.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\examen20oct\\tpvexamen\\tpvexamen\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3C45AA35-D5C2-4C46-9239-353A675DD330}|TPVExamen\\TPVExamen.csproj|solutionrelative:tpvexamen\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C45AA35-D5C2-4C46-9239-353A675DD330}|TPVExamen\\TPVExamen.csproj|C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\tpvexamen\\claseconectarbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C45AA35-D5C2-4C46-9239-353A675DD330}|TPVExamen\\TPVExamen.csproj|solutionrelative:tpvexamen\\claseconectarbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C45AA35-D5C2-4C46-9239-353A675DD330}|TPVExamen\\TPVExamen.csproj|C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\tpvexamen\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C45AA35-D5C2-4C46-9239-353A675DD330}|TPVExamen\\TPVExamen.csproj|solutionrelative:tpvexamen\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C45AA35-D5C2-4C46-9239-353A675DD330}|TPVExamen\\TPVExamen.csproj|C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\tpvexamen\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3C45AA35-D5C2-4C46-9239-353A675DD330}|TPVExamen\\TPVExamen.csproj|solutionrelative:tpvexamen\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C45AA35-D5C2-4C46-9239-353A675DD330}|TPVExamen\\TPVExamen.csproj|C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\tpvexamen\\backend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3C45AA35-D5C2-4C46-9239-353A675DD330}|TPVExamen\\TPVExamen.csproj|solutionrelative:tpvexamen\\backend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C45AA35-D5C2-4C46-9239-353A675DD330}|TPVExamen\\TPVExamen.csproj|C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\tpvexamen\\backend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C45AA35-D5C2-4C46-9239-353A675DD330}|TPVExamen\\TPVExamen.csproj|solutionrelative:tpvexamen\\backend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C45AA35-D5C2-4C46-9239-353A675DD330}|TPVExamen\\TPVExamen.csproj|C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\tpvexamen\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C45AA35-D5C2-4C46-9239-353A675DD330}|TPVExamen\\TPVExamen.csproj|solutionrelative:tpvexamen\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BackEnd.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\TPVExamen\\BackEnd.cs",
+              "RelativeDocumentMoniker": "TPVExamen\\BackEnd.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\TPVExamen\\BackEnd.cs",
+              "RelativeToolTip": "TPVExamen\\BackEnd.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAmwAsBAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-25T10:48:39.879Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BackEnd.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\TPVExamen\\BackEnd.cs",
+              "RelativeDocumentMoniker": "TPVExamen\\BackEnd.cs",
+              "ToolTip": "C:\\Users\\Aitor\\Desktop\\2DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\TPVExamen\\BackEnd.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Users\\Aitor\\Desktop\\2DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\TPVExamen\\BackEnd.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-25T10:48:39.91Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\TPVExamen\\Form1.cs",
+              "RelativeDocumentMoniker": "TPVExamen\\Form1.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\TPVExamen\\Form1.cs",
+              "RelativeToolTip": "TPVExamen\\Form1.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAA5wBgAAADjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T10:48:39.91Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\TPVExamen\\Form1.cs",
+              "RelativeDocumentMoniker": "TPVExamen\\Form1.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\TPVExamen\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "TPVExamen\\Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T10:48:39.973Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\TPVExamen\\Login.cs",
+              "RelativeDocumentMoniker": "TPVExamen\\Login.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\TPVExamen\\Login.cs",
+              "RelativeToolTip": "TPVExamen\\Login.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAowCcAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-25T10:48:39.973Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\TPVExamen\\Login.cs",
+              "RelativeDocumentMoniker": "TPVExamen\\Login.cs",
+              "ToolTip": "C:\\Users\\Aitor\\Desktop\\2DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\TPVExamen\\Login.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Users\\Aitor\\Desktop\\2DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\TPVExamen\\Login.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-25T10:48:39.973Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "claseConectarBD.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\TPVExamen\\claseConectarBD.cs",
+              "RelativeDocumentMoniker": "TPVExamen\\claseConectarBD.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen20Oct\\TPVExamen\\TPVExamen\\claseConectarBD.cs",
+              "RelativeToolTip": "TPVExamen\\claseConectarBD.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADkAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T10:48:39.973Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

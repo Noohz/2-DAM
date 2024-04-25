@@ -1,9 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CinesNavalmoral
@@ -253,14 +250,14 @@ namespace CinesNavalmoral
             return codigo;
         }
 
-        // (Método Temporal) Lo recomendable es ocupar la butaca mediante el ID de la facturación.
-        internal int OcuparButaca(string iQR)
+        // Lo recomendable es ocupar la butaca mediante el ID de la facturación.
+        internal int OcuparButaca(string idQR)
         {
             conexion.Open();
 
             String cadenaSql = "update facturacioncine set ocupado = 1 where id = ?id and ocupado = 0";
             comando = new MySqlCommand(cadenaSql, conexion);
-            comando.Parameters.AddWithValue("?id", iQR);
+            comando.Parameters.AddWithValue("?id", idQR);
 
             int codigo = comando.ExecuteNonQuery();
 
@@ -269,6 +266,7 @@ namespace CinesNavalmoral
             return codigo;
         }
 
+        // Método para buscar el último ID de la reserva de la butaca para usarlo en el QR.
         internal int buscarUltimoID()
         {
             int codigo = 0;

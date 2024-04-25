@@ -1,0 +1,10 @@
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Juego1-Abril25\Juego1-Abril25\bin\Debug\Juego1-Abril25.exe.config
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Juego1-Abril25\Juego1-Abril25\bin\Debug\Juego1-Abril25.exe
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Juego1-Abril25\Juego1-Abril25\bin\Debug\Juego1-Abril25.pdb
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Juego1-Abril25\Juego1-Abril25\obj\Debug\Juego1-Abril25.csproj.AssemblyReference.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Juego1-Abril25\Juego1-Abril25\obj\Debug\Juego1_Abril25.Form1.resources
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Juego1-Abril25\Juego1-Abril25\obj\Debug\Juego1_Abril25.Properties.Resources.resources
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Juego1-Abril25\Juego1-Abril25\obj\Debug\Juego1-Abril25.csproj.GenerateResource.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Juego1-Abril25\Juego1-Abril25\obj\Debug\Juego1-Abril25.csproj.CoreCompileInputs.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Juego1-Abril25\Juego1-Abril25\obj\Debug\Juego1-Abril25.exe
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Juego1-Abril25\Juego1-Abril25\obj\Debug\Juego1-Abril25.pdb

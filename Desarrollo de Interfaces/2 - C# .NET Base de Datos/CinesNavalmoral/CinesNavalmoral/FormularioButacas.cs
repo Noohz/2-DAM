@@ -7,6 +7,7 @@ using System.IO;
 using System.Net.Mail;
 using System.Net;
 using System.Windows.Forms;
+using System.Drawing.Printing;
 
 namespace CinesNavalmoral
 {
@@ -137,7 +138,7 @@ namespace CinesNavalmoral
             DialogResult confirmacion = MessageBox.Show(mensaje, "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (confirmacion == DialogResult.Yes)
-            {
+            {   
                 foreach (string compra in listaReservas)
                 {
                     butaca = compra.Split(',');
@@ -201,6 +202,7 @@ namespace CinesNavalmoral
                     emailCliente = fmE.textoTB;
                 }
 
+                imprimir(qrCodeImage);
                 mandarMail(fileName, emailCliente);
             }
         }
@@ -243,6 +245,18 @@ namespace CinesNavalmoral
             catch (Exception)
             {
             }
+        }
+
+        private void imprimir(Bitmap qrCodeImage)
+        {
+            PrintDocument printDocument = new PrintDocument();
+            printDocument.PrintPage += (sender, e) =>
+            {
+                e.Graphics.DrawImage(qrCodeImage, new Point(100, 100)); // Dibujar el código QR en la página
+            };
+
+            // Imprimir el documento
+            printDocument.Print();
         }
     }
 }

@@ -1,45 +1,45 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\",
+  "WorkspaceRootPath": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\",
   "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\rayuela\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|solutionrelative:rayuela\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\rayuela\\crearalumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|solutionrelative:rayuela\\crearalumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
     {
       "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\rayuela\\rayuela\\imagenurl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|solutionrelative:rayuela\\imagenurl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\rayuela\\rayuela\\crearalumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|solutionrelative:rayuela\\crearalumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\rayuela\\crearalumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\rayuela\\crearalumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|solutionrelative:rayuela\\crearalumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\rayuela\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|solutionrelative:rayuela\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\rayuela\\clase_conectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\rayuela\\clase_conectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|solutionrelative:rayuela\\clase_conectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\rayuela\\informacionalumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\rayuela\\informacionalumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|solutionrelative:rayuela\\informacionalumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\rayuela\\informacionalumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\rayuela\\informacionalumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|solutionrelative:rayuela\\informacionalumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\rayuela\\datosusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\rayuela\\datosusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|solutionrelative:rayuela\\datosusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\rayuela\\datosusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\rayuela\\datosusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|solutionrelative:rayuela\\datosusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\rayuela\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\rayuela\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C14F96C1-08D4-4B56-8DB4-DDB12461B9CC}|Rayuela\\Rayuela.csproj|solutionrelative:rayuela\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -50,15 +50,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ImagenURL.cs",
-              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\ImagenURL.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\ImagenURL.cs",
               "RelativeDocumentMoniker": "Rayuela\\ImagenURL.cs",
-              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\ImagenURL.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\ImagenURL.cs",
               "RelativeToolTip": "Rayuela\\ImagenURL.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -69,9 +69,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "CrearAlumno.cs",
-              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\CrearAlumno.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\CrearAlumno.cs",
               "RelativeDocumentMoniker": "Rayuela\\CrearAlumno.cs",
-              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\CrearAlumno.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\CrearAlumno.cs",
               "RelativeToolTip": "Rayuela\\CrearAlumno.cs",
               "ViewState": "AQIAABAAAAAAAAAAAAAgwCQAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -80,11 +80,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CrearAlumno.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\CrearAlumno.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\CrearAlumno.cs",
               "RelativeDocumentMoniker": "Rayuela\\CrearAlumno.cs",
-              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\CrearAlumno.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\CrearAlumno.cs [Dise\u00F1o]",
               "RelativeToolTip": "Rayuela\\CrearAlumno.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-08T07:04:43.088Z",
@@ -92,23 +92,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\Form1.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\Form1.cs",
               "RelativeDocumentMoniker": "Rayuela\\Form1.cs",
-              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\Form1.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\Form1.cs",
               "RelativeToolTip": "Rayuela\\Form1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAE4AAAAUAAAA",
+              "ViewState": "AQIAADUAAAAAAAAAAAAwwE4AAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T08:30:42.692Z"
+              "WhenOpened": "2024-04-02T08:30:42.692Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "DatosUsuario.cs",
-              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\DatosUsuario.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\DatosUsuario.cs",
               "RelativeDocumentMoniker": "Rayuela\\DatosUsuario.cs",
-              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\DatosUsuario.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\DatosUsuario.cs",
               "RelativeToolTip": "Rayuela\\DatosUsuario.cs",
               "ViewState": "AQIAACgAAAAAAAAAAAAnwFkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
@@ -118,7 +119,7 @@
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "DatosUsuario.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\DatosUsuario.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\DatosUsuario.cs",
               "RelativeDocumentMoniker": "Rayuela\\DatosUsuario.cs",
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\DatosUsuario.cs [Dise\u00F1o]",
               "RelativeToolTip": "Rayuela\\DatosUsuario.cs [Dise\u00F1o]",
@@ -129,9 +130,9 @@
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "InformacionAlumno.cs",
-              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\InformacionAlumno.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\InformacionAlumno.cs",
               "RelativeDocumentMoniker": "Rayuela\\InformacionAlumno.cs",
-              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\InformacionAlumno.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\InformacionAlumno.cs",
               "RelativeToolTip": "Rayuela\\InformacionAlumno.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAUwKYAAABPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
@@ -141,7 +142,7 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "InformacionAlumno.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\InformacionAlumno.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\InformacionAlumno.cs",
               "RelativeDocumentMoniker": "Rayuela\\InformacionAlumno.cs",
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\InformacionAlumno.cs [Dise\u00F1o]",
               "RelativeToolTip": "Rayuela\\InformacionAlumno.cs [Dise\u00F1o]",
@@ -152,9 +153,9 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "Clase_Conectar.cs",
-              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\Clase_Conectar.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\Clase_Conectar.cs",
               "RelativeDocumentMoniker": "Rayuela\\Clase_Conectar.cs",
-              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\Clase_Conectar.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\Clase_Conectar.cs",
               "RelativeToolTip": "Rayuela\\Clase_Conectar.cs",
               "ViewState": "AQIAANoAAAAAAAAAAAAIwPIAAABqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -164,12 +165,13 @@
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\Form1.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\Form1.cs",
               "RelativeDocumentMoniker": "Rayuela\\Form1.cs",
               "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Rayuela\\Rayuela\\Form1.cs [Dise\u00F1o]",
               "RelativeToolTip": "Rayuela\\Form1.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T08:31:38.189Z"
+              "WhenOpened": "2024-04-02T08:31:38.189Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }

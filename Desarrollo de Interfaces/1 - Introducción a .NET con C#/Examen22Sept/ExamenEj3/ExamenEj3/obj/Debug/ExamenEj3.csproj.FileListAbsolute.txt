@@ -8,3 +8,13 @@ C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\ExamenEj3\ExamenEj3\obj\Deb
 C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\ExamenEj3\ExamenEj3\obj\Debug\ExamenEj3.csproj.CoreCompileInputs.cache
 C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\ExamenEj3\ExamenEj3\obj\Debug\ExamenEj3.exe
 C:\Users\Aitor\Desktop\2DAM\Desarrollo de Interfaces\ExamenEj3\ExamenEj3\obj\Debug\ExamenEj3.pdb
+C:\Github\2-DAM\Desarrollo de Interfaces\1 - Introducción a .NET con C#\Examen22Sept\ExamenEj3\ExamenEj3\bin\Debug\ExamenEj3.exe.config
+C:\Github\2-DAM\Desarrollo de Interfaces\1 - Introducción a .NET con C#\Examen22Sept\ExamenEj3\ExamenEj3\bin\Debug\ExamenEj3.exe
+C:\Github\2-DAM\Desarrollo de Interfaces\1 - Introducción a .NET con C#\Examen22Sept\ExamenEj3\ExamenEj3\bin\Debug\ExamenEj3.pdb
+C:\Github\2-DAM\Desarrollo de Interfaces\1 - Introducción a .NET con C#\Examen22Sept\ExamenEj3\ExamenEj3\obj\Debug\ExamenEj3.csproj.AssemblyReference.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\1 - Introducción a .NET con C#\Examen22Sept\ExamenEj3\ExamenEj3\obj\Debug\ExamenEj3.Form1.resources
+C:\Github\2-DAM\Desarrollo de Interfaces\1 - Introducción a .NET con C#\Examen22Sept\ExamenEj3\ExamenEj3\obj\Debug\ExamenEj3.Properties.Resources.resources
+C:\Github\2-DAM\Desarrollo de Interfaces\1 - Introducción a .NET con C#\Examen22Sept\ExamenEj3\ExamenEj3\obj\Debug\ExamenEj3.csproj.GenerateResource.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\1 - Introducción a .NET con C#\Examen22Sept\ExamenEj3\ExamenEj3\obj\Debug\ExamenEj3.csproj.CoreCompileInputs.cache
+C:\Github\2-DAM\Desarrollo de Interfaces\1 - Introducción a .NET con C#\Examen22Sept\ExamenEj3\ExamenEj3\obj\Debug\ExamenEj3.exe
+C:\Github\2-DAM\Desarrollo de Interfaces\1 - Introducción a .NET con C#\Examen22Sept\ExamenEj3\ExamenEj3\obj\Debug\ExamenEj3.pdb

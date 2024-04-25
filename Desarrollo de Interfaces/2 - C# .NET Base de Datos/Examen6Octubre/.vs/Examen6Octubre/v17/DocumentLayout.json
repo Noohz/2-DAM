@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen6Octubre\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9AF4EEB0-6E61-4D93-8608-B68B2360651A}|Examen6Octubre\\Examen6Octubre.csproj|C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen6Octubre\\examen6octubre\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9AF4EEB0-6E61-4D93-8608-B68B2360651A}|Examen6Octubre\\Examen6Octubre.csproj|solutionrelative:examen6octubre\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AF4EEB0-6E61-4D93-8608-B68B2360651A}|Examen6Octubre\\Examen6Octubre.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\examen6octubre\\examen6octubre\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AF4EEB0-6E61-4D93-8608-B68B2360651A}|Examen6Octubre\\Examen6Octubre.csproj|solutionrelative:examen6octubre\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AF4EEB0-6E61-4D93-8608-B68B2360651A}|Examen6Octubre\\Examen6Octubre.csproj|C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen6Octubre\\examen6octubre\\claseconectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AF4EEB0-6E61-4D93-8608-B68B2360651A}|Examen6Octubre\\Examen6Octubre.csproj|solutionrelative:examen6octubre\\claseconectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClaseConectar.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen6Octubre\\Examen6Octubre\\ClaseConectar.cs",
+              "RelativeDocumentMoniker": "Examen6Octubre\\ClaseConectar.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen6Octubre\\Examen6Octubre\\ClaseConectar.cs",
+              "RelativeToolTip": "Examen6Octubre\\ClaseConectar.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwCQAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T10:48:22.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen6Octubre\\Examen6Octubre\\Form1.cs",
+              "RelativeDocumentMoniker": "Examen6Octubre\\Form1.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen6Octubre\\Examen6Octubre\\Form1.cs",
+              "RelativeToolTip": "Examen6Octubre\\Form1.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAowDsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T10:48:22.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen6Octubre\\Examen6Octubre\\Form1.cs",
+              "RelativeDocumentMoniker": "Examen6Octubre\\Form1.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Examen6Octubre\\Examen6Octubre\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Examen6Octubre\\Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T10:48:22.351Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

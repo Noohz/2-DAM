@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\1 - Introducci\u00F3n a .NET con C#\\Examen22Sept\\ExamenEj1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6A988138-5CC5-4E1B-B611-FECDE5AE3380}|Examen\\Examen.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\1 - introducci\u00F3n a .net con c#\\examen22sept\\examenej1\\examen\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A988138-5CC5-4E1B-B611-FECDE5AE3380}|Examen\\Examen.csproj|solutionrelative:examen\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A988138-5CC5-4E1B-B611-FECDE5AE3380}|Examen\\Examen.csproj|C:\\Github\\2-DAM\\Desarrollo de Interfaces\\1 - Introducci\u00F3n a .NET con C#\\Examen22Sept\\ExamenEj1\\examen\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6A988138-5CC5-4E1B-B611-FECDE5AE3380}|Examen\\Examen.csproj|solutionrelative:examen\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\1 - Introducci\u00F3n a .NET con C#\\Examen22Sept\\ExamenEj1\\Examen\\Form1.cs",
+              "RelativeDocumentMoniker": "Examen\\Form1.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\1 - Introducci\u00F3n a .NET con C#\\Examen22Sept\\ExamenEj1\\Examen\\Form1.cs",
+              "RelativeToolTip": "Examen\\Form1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T10:49:10.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\1 - Introducci\u00F3n a .NET con C#\\Examen22Sept\\ExamenEj1\\Examen\\Form1.cs",
+              "RelativeDocumentMoniker": "Examen\\Form1.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\1 - Introducci\u00F3n a .NET con C#\\Examen22Sept\\ExamenEj1\\Examen\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Examen\\Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T10:49:10.93Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

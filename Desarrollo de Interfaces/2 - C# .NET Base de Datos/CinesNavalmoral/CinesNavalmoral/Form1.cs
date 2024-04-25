@@ -14,7 +14,8 @@ namespace CinesNavalmoral
 
         public Form1()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            this.Text = "Cinesa Navalmoral";
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -107,6 +108,22 @@ namespace CinesNavalmoral
             listaPeliculas.Clear();
             listaPeliculas = cnx.listarCarteles();
             cargarCarteles(listaPeliculas);
+            tBAdmin.Clear();
+        }
+
+        private void tBAdmin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                FormularioBack fb = new FormularioBack();
+                fb.ShowDialog();
+
+                panelPrincipal.Controls.Clear();
+                listaPeliculas.Clear();
+                listaPeliculas = cnx.listarCarteles();
+                cargarCarteles(listaPeliculas);
+                tBAdmin.Clear();
+            }
         }
     }
 }
