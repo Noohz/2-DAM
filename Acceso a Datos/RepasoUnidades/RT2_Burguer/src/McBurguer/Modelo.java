@@ -87,7 +87,6 @@ public class Modelo {
 			}
 
 		} catch (SQLException e) {
-
 			e.printStackTrace();
 		}
 
@@ -106,7 +105,6 @@ public class Modelo {
 			}
 
 		} catch (SQLException e) {
-
 			e.printStackTrace();
 		}
 
@@ -126,7 +124,6 @@ public class Modelo {
 			}
 
 		} catch (SQLException e) {
-
 			e.printStackTrace();
 		}
 
@@ -159,12 +156,49 @@ public class Modelo {
 
 						if (existe != null) {
 							// Update
-
+							pS = conexion.prepareStatement("UPDATE detalle SET cantidad = cantidad + ? WHERE pedido = ? AND producto = ?");
+							pS.setInt(1, d.getCantidad());
+							pS.setInt(2, d.getPedido());
+							pS.setInt(3, d.getProducto());					
+							
+							num = pS.executeUpdate();
+							
+							if (num != 1) {
+								conexion.rollback();
+								
+								return false;
+							}
+							
 						} else {
 							// Insert
-
+							pS = conexion.prepareStatement("INSERT INTO detalle VALUES(?, ?, ?, ?)");
+							pS.setInt(1, d.getPedido());
+							pS.setInt(2, d.getProducto());
+							pS.setInt(3, d.getCantidad());
+							pS.setFloat(4, d.getPrecioUnitario());
+							
+							num = pS.executeUpdate();
+							
+							if (num != 1) {
+								conexion.rollback();
+								
+								return false;
+							}
 						}
 
+					}
+					
+					pS = conexion.prepareStatement("UPDATE empleado SET valoracion = valoracion + 1 WHERE codigo = ?");
+					pS.setInt(1, p.getCodEmpleado());
+					
+					num = pS.executeUpdate();
+					
+					if (num != 1) {
+						conexion.rollback();
+					} else {
+						conexion.commit();					
+						
+						return true;
 					}
 				}
 			}
@@ -175,8 +209,14 @@ public class Modelo {
 				conexion.rollback();
 				e.printStackTrace();
 			} catch (SQLException e1) {
-
 				e1.printStackTrace();
+			}
+		} finally {
+			try {
+				conexion.setAutoCommit(true);
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 
@@ -198,10 +238,112 @@ public class Modelo {
 			}
 
 		} catch (SQLException e) {
-
 			e.printStackTrace();
 		}
 
+		return resultado;
+	}
+
+	public ArrayList<Pedido> obtenePedidosEmpleado(int codEmpleado) {
+		ArrayList<Pedido> resultado = new ArrayList<Pedido>();
+		
+		try {
+			PreparedStatement pS = conexion.prepareStatement("SELECT * FROM pedido WHERE empleado = ? ORDER BY fecha DESC");
+			pS.setInt(1, codEmpleado);
+			
+			ResultSet datos = pS.executeQuery();
+			
+			while (datos.next()) {
+				resultado.add(new Pedido(datos.getInt(1), datos.getDate(2), datos.getInt(3), datos.getInt(4)));
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return resultado;
+	}
+
+	public Pedido obtenerPedido(int codigo) {
+		Pedido resultado = null;
+		
+		try {
+			PreparedStatement pS = conexion.prepareStatement("SELECT * FROM pedido WHERE codigo = ?");
+			pS.setInt(1, codigo);
+			
+			ResultSet datos = pS.executeQuery();
+			
+			if (datos.next()) {
+				resultado = new Pedido(datos.getInt(1), datos.getDate(2), datos.getInt(3), datos.getInt(4));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return resultado;
+	}
+
+	public boolean borrarPedido(int codigo) {
+		boolean resultado = false;
+		
+		try {
+			conexion.setAutoCommit(false);
+			
+			PreparedStatement pS = conexion.prepareStatement("DELETE FROM detalle WHERE pedido = ?");
+			pS.setInt(1, codigo);
+			int num = pS.executeUpdate();
+			
+			if (num >= 1) {
+				pS = conexion.prepareStatement("DELETE FROM pedido WHERE codigo = ?");
+				pS.setInt(1, codigo);
+				num = pS.executeUpdate();
+				
+				if (num == 1) {
+					conexion.commit();
+					
+					return true;
+				} else {
+					conexion.rollback();
+				}
+			}
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		} finally {
+			try {
+				conexion.setAutoCommit(true);
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return resultado;
+	}
+
+	public ArrayList<Object[]> obtenerInforme(int codEmpleado) {
+		ArrayList<Object[]> resultado = new ArrayList<Object[]>();
+		
+		try {
+			PreparedStatement pS = conexion.prepareStatement("SELECT producto, sum(cantidad), sum(cantidad*precioU) FROM pedido INNER JOIN detalle on codigo = pedido WHERE empleado = ? GROUP BY producto");
+			pS.setInt(1, codEmpleado);
+			ResultSet datos = pS.executeQuery();
+			
+			while (datos.next()) {
+				resultado.add(new Object[] {datos.getInt(1), datos.getInt(2), datos.getFloat(3)});
+				
+				
+				
+			}
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
 		return resultado;
 	}
 

@@ -17,7 +17,7 @@ public class Principal {
 		if (modelo.getConexion() != null) {
 			do {
 				System.out.println("---------------MENU--------------");
-				System.out.println(" 0 - Salir del programa");
+				System.out.println("0 - Salir del programa");
 				System.out.println("1 - Login");
 				System.out.println("2 - Registrar Pedido");
 				System.out.println("3 - Borrar Pedido");
@@ -49,6 +49,17 @@ public class Principal {
 
 	private static void ejercicio4() {
 		if (e != null) {
+			System.out.println("Ventas del empleado nº " + e.getCodEmpleado() + " de nombre: " + e.getNombre());
+
+			ArrayList<Object[]> informe = modelo.obtenerInforme(e.getCodEmpleado());
+
+			float total = 0;
+
+			for (Object[] objects : informe) {
+				total += (Float)objects[2];
+
+				System.out.println("Código del producto " + objects[0] + "\tCantidad: " + objects[1] + "\tImporte: " + objects[2]);
+			}
 
 		} else {
 			System.err.println("No has iniciado sesión.");
@@ -58,6 +69,36 @@ public class Principal {
 
 	private static void ejercicio3() {
 		if (e != null) {
+
+			ArrayList<Pedido> pedidos = modelo.obtenePedidosEmpleado(e.getCodEmpleado());
+
+			for (Pedido pedido : pedidos) {
+				System.out.println(pedido);
+			}
+
+			System.out.println("\nIntroduce un código de pedido para eliminar: ");
+			int codigo = tec.nextInt();
+			tec.nextLine();
+
+			Pedido p = modelo.obtenerPedido(codigo);
+
+			if (p != null && p.getCodEmpleado() == e.getCodEmpleado()) {
+				if (modelo.borrarPedido(codigo)) {
+					System.out.println("Pedido " + p.getCodigo() + " borrado.");
+
+					pedidos = modelo.obtenePedidosEmpleado(e.getCodEmpleado());
+
+					for (Pedido pedido : pedidos) {
+						System.out.println(pedido);
+					}
+
+				} else {
+					System.err.println("Error, no se ha podido eliminar el pedido.");
+				}
+
+			} else {
+				System.err.println("Error, el pedido no existe.");
+			}
 
 		} else {
 			System.err.println("No has iniciado sesión.");
@@ -102,13 +143,22 @@ public class Principal {
 				tec.nextLine();
 
 			} while (opcion != 0);
-			
+
 			if (modelo.crearPedido(p, detalle)) {
 				System.out.println("Pedido número " + p.getCodigo() + " creado.");
+
+				System.out.println("\n#* Pedidos del Empleado *#");
+
+				ArrayList<Pedido> pedidos = modelo.obtenePedidosEmpleado(p.getCodEmpleado());
+
+				for (Pedido pedido : pedidos) {
+					System.out.println(pedido);
+				}
+
 			} else {
 				System.err.println("Ha ocurrido un error al crear un pedido.");
 			}
-			
+
 		} else {
 			System.err.println("No has iniciado sesión.");
 		}
