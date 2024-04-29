@@ -7,7 +7,7 @@ public class SalaEspera {
 		pacientes = new Paciente[numPacientes];
 	}
 
-	public void aniadirPaciente(Paciente nuevoPaciente) {
+	public synchronized void aniadirPaciente(Paciente nuevoPaciente) {
 
 		for (Paciente paciente : pacientes) {
 			if (paciente == null) {
@@ -18,7 +18,7 @@ public class SalaEspera {
 
 	}
 
-	public Paciente seleccionarPaciente() {
+	public synchronized Paciente seleccionarPaciente() {
 		Paciente pacienteSeleccionado = null;
 
 		for (Paciente paciente : pacientes) {
@@ -31,7 +31,19 @@ public class SalaEspera {
 				}
 			}
 		}
-
+		// Sacamos al paciente de la sala de espera.
+		eliminarPaciente(pacienteSeleccionado);
+		
 		return pacienteSeleccionado;
+	}
+
+	public synchronized void eliminarPaciente(Paciente pacienteTratado) {
+		for (int i = 0; i < pacientes.length; i++) {
+			if (pacientes[i] == pacienteTratado) {
+				pacientes[i] = null;
+				break;
+			}
+		}
+
 	}
 }

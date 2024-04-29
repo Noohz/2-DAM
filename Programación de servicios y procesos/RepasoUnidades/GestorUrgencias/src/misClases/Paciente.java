@@ -5,10 +5,13 @@ import java.util.Random;
 public class Paciente {
 	private int nivelUrgencia;
 	private long momentoLlegada;
-	
-	public Paciente() {
+	private int idPaciente;
+
+	public Paciente(int idPaciente) {
 		Random numAleatorio = new Random();
-		
+
+		this.idPaciente = idPaciente;
+
 		nivelUrgencia = numAleatorio.nextInt(1, 101);
 		momentoLlegada = System.currentTimeMillis();
 	}
@@ -25,9 +28,16 @@ public class Paciente {
 		return momentoLlegada;
 	}
 
+	public int getIdPaciente() {
+		return idPaciente;
+	}
+
+	public void setIdPaciente(int idPaciente) {
+		this.idPaciente = idPaciente;
+	}
+
 	public void setMomentoLlegada(long momentoLlegada) {
 		this.momentoLlegada = momentoLlegada;
 	}
-	
-	
+
 }

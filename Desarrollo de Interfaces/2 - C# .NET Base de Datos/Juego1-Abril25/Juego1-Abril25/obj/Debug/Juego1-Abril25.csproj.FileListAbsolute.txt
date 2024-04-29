@@ -8,3 +8,5 @@ C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Juego1-Abril2
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Juego1-Abril25\Juego1-Abril25\obj\Debug\Juego1-Abril25.csproj.CoreCompileInputs.cache
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Juego1-Abril25\Juego1-Abril25\obj\Debug\Juego1-Abril25.exe
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Juego1-Abril25\Juego1-Abril25\obj\Debug\Juego1-Abril25.pdb
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Juego1-Abril25\Juego1-Abril25\bin\Debug\MySql.Data.dll
+C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Juego1-Abril25\Juego1-Abril25\obj\Debug\Juego1-A.D5FF0E77.Up2Date
