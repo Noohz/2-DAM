@@ -1,14 +1,14 @@
 package skills;
 
-public class Modalidad {
+public class Modalidades {
+
 	private int id;
 	private String modalidad;
 
-	public Modalidad() {
-
+	public Modalidades() {
 	}
 
-	public Modalidad(int id, String modalidad) {
+	public Modalidades(int id, String modalidad) {
 		this.id = id;
 		this.modalidad = modalidad;
 	}
@@ -31,6 +31,7 @@ public class Modalidad {
 
 	@Override
 	public String toString() {
-		return "Modalidad [id=" + id + ", modalidad=" + modalidad + "]";
+		return "Modalidades [id=" + id + ", modalidad=" + modalidad + "]";
 	}
+
 }
