@@ -54,6 +54,7 @@
             this.lblIdAvion = new System.Windows.Forms.Label();
             this.lblTIdAvion = new System.Windows.Forms.Label();
             this.gBDatosVuelos = new System.Windows.Forms.GroupBox();
+            this.fLPrincipal = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBoxLeyenda.SuspendLayout();
             this.gBDatosVuelos.SuspendLayout();
             this.SuspendLayout();
@@ -98,6 +99,7 @@
             this.groupBoxLeyenda.Controls.Add(this.buttonPrimera);
             this.groupBoxLeyenda.Controls.Add(this.buttonBussines);
             this.groupBoxLeyenda.Enabled = false;
+            this.groupBoxLeyenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxLeyenda.Location = new System.Drawing.Point(736, 405);
             this.groupBoxLeyenda.Name = "groupBoxLeyenda";
             this.groupBoxLeyenda.Size = new System.Drawing.Size(200, 197);
@@ -114,7 +116,7 @@
             this.buttonReservadoPriopio.Name = "buttonReservadoPriopio";
             this.buttonReservadoPriopio.Size = new System.Drawing.Size(188, 23);
             this.buttonReservadoPriopio.TabIndex = 5;
-            this.buttonReservadoPriopio.Text = "Reservado Priopio";
+            this.buttonReservadoPriopio.Text = "Seleccionados";
             this.buttonReservadoPriopio.UseVisualStyleBackColor = false;
             // 
             // buttonBilletesPropios
@@ -137,7 +139,7 @@
             this.buttonSeleccionado.Name = "buttonSeleccionado";
             this.buttonSeleccionado.Size = new System.Drawing.Size(188, 23);
             this.buttonSeleccionado.TabIndex = 3;
-            this.buttonSeleccionado.Text = "Seleccionado";
+            this.buttonSeleccionado.Text = "Reservado";
             this.buttonSeleccionado.UseVisualStyleBackColor = false;
             // 
             // buttonTurista
@@ -338,12 +340,19 @@
             this.gBDatosVuelos.Controls.Add(this.lblFechaSalida);
             this.gBDatosVuelos.Controls.Add(this.lblTPrecioTurista);
             this.gBDatosVuelos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBDatosVuelos.Location = new System.Drawing.Point(516, 89);
+            this.gBDatosVuelos.Location = new System.Drawing.Point(516, 97);
             this.gBDatosVuelos.Name = "gBDatosVuelos";
             this.gBDatosVuelos.Size = new System.Drawing.Size(420, 207);
             this.gBDatosVuelos.TabIndex = 25;
             this.gBDatosVuelos.TabStop = false;
             this.gBDatosVuelos.Text = "Datos del vuelo";
+            // 
+            // fLPrincipal
+            // 
+            this.fLPrincipal.Location = new System.Drawing.Point(18, 105);
+            this.fLPrincipal.Name = "fLPrincipal";
+            this.fLPrincipal.Size = new System.Drawing.Size(482, 447);
+            this.fLPrincipal.TabIndex = 26;
             // 
             // ReservarVuelo
             // 
@@ -351,6 +360,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(948, 614);
+            this.Controls.Add(this.fLPrincipal);
             this.Controls.Add(this.gBDatosVuelos);
             this.Controls.Add(this.lblBienvenidaMail);
             this.Controls.Add(this.comboBoxVuelos);
@@ -397,5 +407,6 @@
         private System.Windows.Forms.Label lblIdAvion;
         private System.Windows.Forms.Label lblTIdAvion;
         private System.Windows.Forms.GroupBox gBDatosVuelos;
+        private System.Windows.Forms.FlowLayoutPanel fLPrincipal;
     }
 }

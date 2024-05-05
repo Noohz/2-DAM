@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Aerolineas
@@ -27,7 +21,9 @@ namespace Aerolineas
             foreach (var horarios in listaHorarios)
             {
                 comboBoxVuelos.Items.Add(horarios.IdVuelo + " " + horarios.Ruta + " " + horarios.FechaSalida);
-            }            
+            }
+
+
         }
 
         private void btnCerrarReserva_Click(object sender, EventArgs e)
