@@ -9,6 +9,7 @@ namespace Aerolineas
     public partial class Form1 : Form
     {
         ClaseConectar cnx = new ClaseConectar();
+
         List<Usuariosavion> listaUsuario = new List<Usuariosavion>();
 
         public Form1()
@@ -95,6 +96,14 @@ namespace Aerolineas
         private void btnCerrarLogeo_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tBContraseniaLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnAcceder_Click(sender, e);
+            }
         }
     }
 }

@@ -30,21 +30,21 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lblTUsuario = new System.Windows.Forms.Label();
-            this.tBUsuario = new System.Windows.Forms.TextBox();
+            this.btnCerrarLogeo = new System.Windows.Forms.Button();
+            this.btnAcceder = new System.Windows.Forms.Button();
             this.tBContraseniaLogin = new System.Windows.Forms.TextBox();
             this.lblTContrasenia = new System.Windows.Forms.Label();
-            this.btnAcceder = new System.Windows.Forms.Button();
-            this.btnCerrarLogeo = new System.Windows.Forms.Button();
+            this.tBUsuario = new System.Windows.Forms.TextBox();
+            this.lblTUsuario = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tBEmail = new System.Windows.Forms.TextBox();
+            this.lblTEmail = new System.Windows.Forms.Label();
+            this.btnCerrarRegistro = new System.Windows.Forms.Button();
             this.btnRegistro = new System.Windows.Forms.Button();
             this.tBContraseniaRegistro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tBUsuarioRegistro = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tBEmail = new System.Windows.Forms.TextBox();
-            this.lblTEmail = new System.Windows.Forms.Label();
-            this.btnCerrarRegistro = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -76,6 +76,67 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Iniciar Sesión";
             // 
+            // btnCerrarLogeo
+            // 
+            this.btnCerrarLogeo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarLogeo.Location = new System.Drawing.Point(353, 270);
+            this.btnCerrarLogeo.Name = "btnCerrarLogeo";
+            this.btnCerrarLogeo.Size = new System.Drawing.Size(117, 36);
+            this.btnCerrarLogeo.TabIndex = 6;
+            this.btnCerrarLogeo.Text = "Cerrar";
+            this.btnCerrarLogeo.UseVisualStyleBackColor = true;
+            this.btnCerrarLogeo.Click += new System.EventHandler(this.btnCerrarLogeo_Click);
+            // 
+            // btnAcceder
+            // 
+            this.btnAcceder.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcceder.Location = new System.Drawing.Point(175, 270);
+            this.btnAcceder.Name = "btnAcceder";
+            this.btnAcceder.Size = new System.Drawing.Size(117, 36);
+            this.btnAcceder.TabIndex = 5;
+            this.btnAcceder.Text = "Acceder";
+            this.btnAcceder.UseVisualStyleBackColor = true;
+            this.btnAcceder.Click += new System.EventHandler(this.btnAcceder_Click);
+            // 
+            // tBContraseniaLogin
+            // 
+            this.tBContraseniaLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBContraseniaLogin.Location = new System.Drawing.Point(248, 153);
+            this.tBContraseniaLogin.Name = "tBContraseniaLogin";
+            this.tBContraseniaLogin.PasswordChar = '*';
+            this.tBContraseniaLogin.Size = new System.Drawing.Size(372, 38);
+            this.tBContraseniaLogin.TabIndex = 4;
+            this.tBContraseniaLogin.UseSystemPasswordChar = true;
+            this.tBContraseniaLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBContraseniaLogin_KeyDown);
+            // 
+            // lblTContrasenia
+            // 
+            this.lblTContrasenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTContrasenia.Location = new System.Drawing.Point(29, 156);
+            this.lblTContrasenia.Name = "lblTContrasenia";
+            this.lblTContrasenia.Size = new System.Drawing.Size(220, 35);
+            this.lblTContrasenia.TabIndex = 3;
+            this.lblTContrasenia.Text = "Contraseña";
+            this.lblTContrasenia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tBUsuario
+            // 
+            this.tBUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBUsuario.Location = new System.Drawing.Point(248, 43);
+            this.tBUsuario.Name = "tBUsuario";
+            this.tBUsuario.Size = new System.Drawing.Size(372, 38);
+            this.tBUsuario.TabIndex = 2;
+            // 
+            // lblTUsuario
+            // 
+            this.lblTUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTUsuario.Location = new System.Drawing.Point(22, 46);
+            this.lblTUsuario.Name = "lblTUsuario";
+            this.lblTUsuario.Size = new System.Drawing.Size(220, 35);
+            this.lblTUsuario.TabIndex = 0;
+            this.lblTUsuario.Text = "Usuario";
+            this.lblTUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.DarkSalmon;
@@ -94,65 +155,34 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Registrar Usuario";
             // 
-            // lblTUsuario
+            // tBEmail
             // 
-            this.lblTUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTUsuario.Location = new System.Drawing.Point(22, 46);
-            this.lblTUsuario.Name = "lblTUsuario";
-            this.lblTUsuario.Size = new System.Drawing.Size(220, 35);
-            this.lblTUsuario.TabIndex = 0;
-            this.lblTUsuario.Text = "Usuario";
-            this.lblTUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tBEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBEmail.Location = new System.Drawing.Point(252, 170);
+            this.tBEmail.Name = "tBEmail";
+            this.tBEmail.Size = new System.Drawing.Size(372, 38);
+            this.tBEmail.TabIndex = 14;
             // 
-            // tBUsuario
+            // lblTEmail
             // 
-            this.tBUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBUsuario.Location = new System.Drawing.Point(248, 43);
-            this.tBUsuario.Name = "tBUsuario";
-            this.tBUsuario.Size = new System.Drawing.Size(372, 38);
-            this.tBUsuario.TabIndex = 2;
+            this.lblTEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTEmail.Location = new System.Drawing.Point(33, 171);
+            this.lblTEmail.Name = "lblTEmail";
+            this.lblTEmail.Size = new System.Drawing.Size(220, 35);
+            this.lblTEmail.TabIndex = 13;
+            this.lblTEmail.Text = "Mail";
+            this.lblTEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tBContraseniaLogin
+            // btnCerrarRegistro
             // 
-            this.tBContraseniaLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBContraseniaLogin.Location = new System.Drawing.Point(248, 153);
-            this.tBContraseniaLogin.Name = "tBContraseniaLogin";
-            this.tBContraseniaLogin.PasswordChar = '*';
-            this.tBContraseniaLogin.Size = new System.Drawing.Size(372, 38);
-            this.tBContraseniaLogin.TabIndex = 4;
-            this.tBContraseniaLogin.UseSystemPasswordChar = true;
-            // 
-            // lblTContrasenia
-            // 
-            this.lblTContrasenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTContrasenia.Location = new System.Drawing.Point(29, 156);
-            this.lblTContrasenia.Name = "lblTContrasenia";
-            this.lblTContrasenia.Size = new System.Drawing.Size(220, 35);
-            this.lblTContrasenia.TabIndex = 3;
-            this.lblTContrasenia.Text = "Contraseña";
-            this.lblTContrasenia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnAcceder
-            // 
-            this.btnAcceder.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAcceder.Location = new System.Drawing.Point(175, 270);
-            this.btnAcceder.Name = "btnAcceder";
-            this.btnAcceder.Size = new System.Drawing.Size(117, 36);
-            this.btnAcceder.TabIndex = 5;
-            this.btnAcceder.Text = "Acceder";
-            this.btnAcceder.UseVisualStyleBackColor = true;
-            this.btnAcceder.Click += new System.EventHandler(this.btnAcceder_Click);
-            // 
-            // btnCerrarLogeo
-            // 
-            this.btnCerrarLogeo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarLogeo.Location = new System.Drawing.Point(353, 270);
-            this.btnCerrarLogeo.Name = "btnCerrarLogeo";
-            this.btnCerrarLogeo.Size = new System.Drawing.Size(117, 36);
-            this.btnCerrarLogeo.TabIndex = 6;
-            this.btnCerrarLogeo.Text = "Cerrar";
-            this.btnCerrarLogeo.UseVisualStyleBackColor = true;
-            this.btnCerrarLogeo.Click += new System.EventHandler(this.btnCerrarLogeo_Click);
+            this.btnCerrarRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarRegistro.Location = new System.Drawing.Point(357, 268);
+            this.btnCerrarRegistro.Name = "btnCerrarRegistro";
+            this.btnCerrarRegistro.Size = new System.Drawing.Size(117, 36);
+            this.btnCerrarRegistro.TabIndex = 12;
+            this.btnCerrarRegistro.Text = "Cerrar";
+            this.btnCerrarRegistro.UseVisualStyleBackColor = true;
+            this.btnCerrarRegistro.Click += new System.EventHandler(this.btnCerrarRegistro_Click);
             // 
             // btnRegistro
             // 
@@ -202,35 +232,6 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Usuario";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tBEmail
-            // 
-            this.tBEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBEmail.Location = new System.Drawing.Point(252, 170);
-            this.tBEmail.Name = "tBEmail";
-            this.tBEmail.Size = new System.Drawing.Size(372, 38);
-            this.tBEmail.TabIndex = 14;
-            // 
-            // lblTEmail
-            // 
-            this.lblTEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTEmail.Location = new System.Drawing.Point(33, 171);
-            this.lblTEmail.Name = "lblTEmail";
-            this.lblTEmail.Size = new System.Drawing.Size(220, 35);
-            this.lblTEmail.TabIndex = 13;
-            this.lblTEmail.Text = "Mail";
-            this.lblTEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnCerrarRegistro
-            // 
-            this.btnCerrarRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarRegistro.Location = new System.Drawing.Point(357, 268);
-            this.btnCerrarRegistro.Name = "btnCerrarRegistro";
-            this.btnCerrarRegistro.Size = new System.Drawing.Size(117, 36);
-            this.btnCerrarRegistro.TabIndex = 12;
-            this.btnCerrarRegistro.Text = "Cerrar";
-            this.btnCerrarRegistro.UseVisualStyleBackColor = true;
-            this.btnCerrarRegistro.Click += new System.EventHandler(this.btnCerrarRegistro_Click);
             // 
             // Form1
             // 

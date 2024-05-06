@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Aerolineas
 {
@@ -16,6 +12,9 @@ namespace Aerolineas
 
         List<Usuariosavion> listaUsuario = new List<Usuariosavion>();
         List<Horariosaviones> listaHorarios = new List<Horariosaviones>();
+        List<ModeloAvion> butacasAvion = new List<ModeloAvion>();
+        List<Billeteavion> listaFacturacion = new List<Billeteavion>();
+
 
         public ClaseConectar()
         {
@@ -48,6 +47,44 @@ namespace Aerolineas
             conexion.Close();
 
             return listaUsuario;
+        }
+
+        internal List<ModeloAvion> obtenerButacasAvion(string idAvion)
+        {
+            conexion.Open();
+
+            string cadenaSql = "SELECT * FROM modeloavion WHERE idAvion = ?idAvion";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?idAvion", idAvion);
+
+            datos = comando.ExecuteReader();
+
+            while (datos.Read())
+            {
+                ModeloAvion mV = new ModeloAvion();
+                mV.IdAvion = (string)datos["idAvion"];
+                mV.Modelo = (string)datos["Modelo"];
+                mV.FBussines = (int)datos["FBussines"];
+                mV.FPrimera = (int)datos["FPrimera"];
+                mV.FTurista = (int)datos["FTurista"];
+
+                butacasAvion.Add(mV);
+            }
+
+            conexion.Close();
+
+            return butacasAvion;
+        }
+
+        internal List<Billeteavion> obtenerButacasOcupadas(string idAvion)
+        {
+            conexion.Open();
+
+            string cadenaSql = "SELECT * FROM billeteavion WHERE idVuelo = ?idAvion";
+
+            conexion.Close();
+
+            return listaFacturacion;
         }
 
         // Método para almacenar en una lista los datos de la tabla horariosaviones.
