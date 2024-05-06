@@ -55,6 +55,8 @@
             this.lblTIdAvion = new System.Windows.Forms.Label();
             this.gBDatosVuelos = new System.Windows.Forms.GroupBox();
             this.fLPrincipal = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblTPrecioTotal = new System.Windows.Forms.Label();
+            this.lblPrecioTotal = new System.Windows.Forms.Label();
             this.groupBoxLeyenda.SuspendLayout();
             this.gBDatosVuelos.SuspendLayout();
             this.SuspendLayout();
@@ -357,12 +359,35 @@
             this.fLPrincipal.Size = new System.Drawing.Size(520, 447);
             this.fLPrincipal.TabIndex = 26;
             // 
+            // lblTPrecioTotal
+            // 
+            this.lblTPrecioTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTPrecioTotal.Location = new System.Drawing.Point(544, 327);
+            this.lblTPrecioTotal.Name = "lblTPrecioTotal";
+            this.lblTPrecioTotal.Size = new System.Drawing.Size(159, 29);
+            this.lblTPrecioTotal.TabIndex = 25;
+            this.lblTPrecioTotal.Text = "Precio total:";
+            this.lblTPrecioTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPrecioTotal
+            // 
+            this.lblPrecioTotal.AutoSize = true;
+            this.lblPrecioTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioTotal.Location = new System.Drawing.Point(696, 329);
+            this.lblPrecioTotal.Name = "lblPrecioTotal";
+            this.lblPrecioTotal.Size = new System.Drawing.Size(24, 25);
+            this.lblPrecioTotal.TabIndex = 27;
+            this.lblPrecioTotal.Text = "0";
+            this.lblPrecioTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // ReservarVuelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(970, 614);
+            this.Controls.Add(this.lblPrecioTotal);
+            this.Controls.Add(this.lblTPrecioTotal);
             this.Controls.Add(this.fLPrincipal);
             this.Controls.Add(this.gBDatosVuelos);
             this.Controls.Add(this.lblBienvenidaMail);
@@ -411,5 +436,7 @@
         private System.Windows.Forms.Label lblTIdAvion;
         private System.Windows.Forms.GroupBox gBDatosVuelos;
         private System.Windows.Forms.FlowLayoutPanel fLPrincipal;
+        private System.Windows.Forms.Label lblTPrecioTotal;
+        private System.Windows.Forms.Label lblPrecioTotal;
     }
 }

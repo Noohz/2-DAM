@@ -49,6 +49,27 @@ namespace Aerolineas
             return listaUsuario;
         }
 
+        // Metodo para insertar la compra del usuario en la tabla billeteavion.
+        internal int insertarFacturacion(int idVuelo, string idAsiento, string usuarioActivo, DateTime fechaActual, string precioTotal)
+        {
+            conexion.Open();
+
+            string cadenaSql = "INSERT INTO billeteavion VALUES(?idVuelo, ?idAsiento, ?usuario, ?fecha, ?precioTotal, 0)";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?idVuelo", idVuelo);
+            comando.Parameters.AddWithValue("?idAsiento", idAsiento);
+            comando.Parameters.AddWithValue("?usuario", usuarioActivo);
+            comando.Parameters.AddWithValue("?fecha", fechaActual);
+            comando.Parameters.AddWithValue("?precioTotal", precioTotal);
+
+            int codigo = comando.ExecuteNonQuery();
+
+            conexion.Close();
+
+            return codigo;
+        }
+
+        // Método para obtener el número de butacas de cada tipo que tiene el avión.
         internal List<ModeloAvion> obtenerButacasAvion(string idAvion)
         {
             conexion.Open();
@@ -76,11 +97,29 @@ namespace Aerolineas
             return butacasAvion;
         }
 
-        internal List<Billeteavion> obtenerButacasOcupadas(string idAvion)
+        // Método para obtener´las butacas ocupadas
+        internal List<Billeteavion> obtenerButacasOcupadas(int idVuelo)
         {
             conexion.Open();
 
-            string cadenaSql = "SELECT * FROM billeteavion WHERE idVuelo = ?idAvion";
+            string cadenaSql = "SELECT * FROM billeteavion WHERE idVuelo = ?idVuelo";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?idVuelo", idVuelo);
+
+            datos = comando.ExecuteReader();
+
+            while (datos.Read())
+            {
+                Billeteavion bV = new Billeteavion();
+                bV.IdVuelo = (int)datos["idVuelo"];
+                bV.IdAsiento = (string)datos["idAsiento"];
+                bV.Comprador = (string)datos["comprador"];
+                bV.FechaReserva = (DateTime)datos["fechaReserva"];
+                bV.PrecioFinalBillete = (int)datos["precioFinalBillete"];
+                bV.Ocupado = (bool)datos["ocupado"];
+
+                listaFacturacion.Add(bV);
+            }
 
             conexion.Close();
 

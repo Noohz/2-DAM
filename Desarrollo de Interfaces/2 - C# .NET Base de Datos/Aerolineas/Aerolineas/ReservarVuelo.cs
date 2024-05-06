@@ -9,16 +9,19 @@ namespace Aerolineas
     {
         ClaseConectar cnx = new ClaseConectar();
 
-        List<Horariosaviones> listaHorarios = new List<Horariosaviones>();
-        List<ModeloAvion> butacasAvion = new List<ModeloAvion>();
-        List<String> listaReservas = new List<string>();
-        List<Billeteavion> listaFacturacion = new List<Billeteavion>();
+        List<Horariosaviones> listaHorarios = new List<Horariosaviones>(); // Lista que contiene los horarios de los aviones.
+        List<ModeloAvion> butacasAvion = new List<ModeloAvion>(); // Lista que contiene la cantidad de butacas de cada tipo.
+        List<String> listaReservas = new List<string>(); // Lista que contiene las butacas que se han hecho click.
+        List<Billeteavion> listaFacturacion = new List<Billeteavion>(); // Lista que contiene las bútacas vendidas.
+
+        string usuarioActivo; // Variable que contiene el usuario de la sesión activo.
 
         public ReservarVuelo(List<Usuariosavion> listaUsuario)
         {
             InitializeComponent();
             this.Text = "Reservar Vuelo";
             lblBienvenida.Text = "Bienvenido/a: " + listaUsuario[0].Nombre;
+            usuarioActivo = listaUsuario[0].Nombre;
             lblBienvenidaMail.Text = "Correo: " + listaUsuario[0].Mail;
 
             listaHorarios = cnx.obtenerSesionAviones();
@@ -32,6 +35,7 @@ namespace Aerolineas
 
         private void btnCerrarReserva_Click(object sender, EventArgs e)
         {
+            usuarioActivo = "";
             this.Close();
         }
 
@@ -55,7 +59,7 @@ namespace Aerolineas
             fLPrincipal.Controls.Clear();
             butacasAvion.Clear();
 
-            listaFacturacion = cnx.obtenerButacasOcupadas(listaHorarios[seleccion].IdVuelo); // IDVUELO = IDAVION?
+            listaFacturacion = cnx.obtenerButacasOcupadas(listaHorarios[seleccion].IdVuelo);
 
             // Guardo en una lista el resultado de la consulta pasandole el ID del avión para que me devuelva los datos del avión.
             butacasAvion = cnx.obtenerButacasAvion(listaHorarios[seleccion].IdAvion);
@@ -137,7 +141,8 @@ namespace Aerolineas
                     contador++;
                 }
 
-                boton.Tag = boton.Name;
+                // En este punto el nombre del boton sería algo como: V/C/P_I/D_Fila
+                boton.Tag = boton.Text;
                 boton.Click += Boton_Click;
 
                 columna++;
@@ -147,6 +152,15 @@ namespace Aerolineas
                     fila += 1;
                 }
 
+                foreach (var item in listaFacturacion)
+                {
+                    if (item.IdAsiento == boton.Name)
+                    {
+                        boton.BackColor = Color.Red;
+                        boton.Enabled = false;
+                    }
+                }
+
                 tlp.Controls.Add(boton);
             }
         }
@@ -154,11 +168,26 @@ namespace Aerolineas
         private void Boton_Click(object sender, EventArgs e)
         {
             Button btnX = (Button)sender;
-            Console.WriteLine(btnX.Tag);
+            int precioTotal = int.Parse(lblPrecioTotal.Text);
+
             if (btnX.BackColor == Color.Green || btnX.BackColor == Color.Yellow || btnX.BackColor == Color.Orange)
             {
                 btnX.BackColor = Color.Pink;
                 listaReservas.Add(btnX.Tag.ToString());
+
+                if (btnX.Text.StartsWith("B"))
+                {
+                    precioTotal += int.Parse(lblPrecioBussines.Text);
+                }
+                else if (btnX.Text.StartsWith("P"))
+                {
+                    precioTotal += int.Parse(lblPrecioPrimera.Text);
+                }
+                else
+                {
+                    precioTotal += int.Parse(lblPrecioTurista.Text);
+                }
+
                 btnComprarVuelo.Enabled = true;
             }
             else if (btnX.BackColor == Color.Pink)
@@ -166,14 +195,17 @@ namespace Aerolineas
                 if (btnX.Text.StartsWith("B"))
                 {
                     btnX.BackColor = Color.Green;
+                    precioTotal -= int.Parse(lblPrecioBussines.Text);
                 }
                 else if (btnX.Text.StartsWith("P"))
                 {
                     btnX.BackColor = Color.Yellow;
+                    precioTotal -= int.Parse(lblPrecioPrimera.Text);
                 }
                 else
                 {
                     btnX.BackColor = Color.Orange;
+                    precioTotal -= int.Parse(lblPrecioTurista.Text);
                 }
                 listaReservas.RemoveAt(listaReservas.IndexOf(btnX.Tag.ToString()));
             }
@@ -182,11 +214,51 @@ namespace Aerolineas
             {
                 btnComprarVuelo.Enabled = false;
             }
+
+            lblPrecioTotal.Text = precioTotal.ToString();
         }
 
         private void btnComprarVuelo_Click(object sender, EventArgs e)
         {
-            // Implementar la gestion de pagar como en cine.
+            string mensaje = "¿Deseas realizar la compra de las siguientes butacas?\n";
+
+            for (int i = 0; i < listaReservas.Count; i++)
+            {
+                mensaje += listaReservas[i] + "\n";
+            }
+
+            DialogResult confirmacion = MessageBox.Show(mensaje, "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmacion == DialogResult.Yes)
+            {
+                int seleccion = comboBoxVuelos.SelectedIndex;
+                int idVuelo = listaHorarios[seleccion].IdVuelo;
+
+                for (int i = 0; i < listaReservas.Count; i++)
+                {
+                    String nombreBoton = listaReservas[i];
+                    String idAsiento = nombreBoton.Replace("B_", "").Replace("P_", "").Replace("T_", "");
+
+                    int codigo = cnx.insertarFacturacion(idVuelo, idAsiento, usuarioActivo, DateTime.Now, lblPrecioTotal.Text);
+
+                    if (codigo == 1)
+                    {
+                        MessageBox.Show("Compra realizada con éxito.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    } else
+                    {
+                        MessageBox.Show("Error, no se ha podido realizar la compra...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                listaReservas.Clear();
+                btnComprarVuelo.Enabled = false;
+                usuarioActivo = "";
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Operación cancelada", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }
