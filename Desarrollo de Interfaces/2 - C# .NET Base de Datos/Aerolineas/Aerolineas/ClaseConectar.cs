@@ -38,7 +38,10 @@ namespace Aerolineas
             {
                 Usuariosavion uS = new Usuariosavion();
                 uS.Nombre = (string)datos["nombre"];
-                uS.Mail = (string)datos["correo"];
+                if (datos["correo"] != DBNull.Value)
+                {
+                    uS.Mail = (string)datos["correo"];
+                }
                 uS.Clave = (string)datos["clave"];
 
                 listaUsuario.Add(uS);

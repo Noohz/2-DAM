@@ -18,20 +18,49 @@ namespace Aerolineas
             this.Text = "Iniciar / Registrar usuario";
         }
 
-        private void btnRegistro_Click(object sender, EventArgs e)
+        private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            if (tBUsuarioRegistro.Text != "" || tBContraseniaRegistro.Text != "" || tBEmail.Text != "")
+            // Primero compruebo que los campos no estén vacios.
+            if (tBUsuarioRegistro.Text != "" && tBContraseniaRegistro.Text != "")
             {
-                string contraseniaCifrada = cifrar(tBContraseniaRegistro.Text);
-
-                int codigo = cnx.registrarUsuario(tBUsuarioRegistro.Text, tBEmail.Text, contraseniaCifrada);
-
-                if (codigo == 1)
+                // Obtengo el nombre y lo modifico a minúsculas.
+                string nombreUsuario = tBUsuarioRegistro.Text.ToLower();
+                // Si el nombre del usuario es admin, si el usuario no ha introducido un email se le preguntará si desea introducirlo o dejarlo a NULL.
+                if (nombreUsuario.Equals("admin") && tBEmailRegistro.Text == "")
                 {
-                    MessageBox.Show("Usuario registrado correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    tBUsuarioRegistro.Text = "";
-                    tBContraseniaRegistro.Text = "";
-                    tBEmail.Text = "";
+                    DialogResult dR = MessageBox.Show("¿Deseas dejar el campo de email vacío?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    if (dR == DialogResult.Yes)
+                    {
+                        string contraseniaCifrada = cifrar(tBContraseniaRegistro.Text);
+
+                        int codigo = cnx.registrarUsuario(tBUsuarioRegistro.Text, null, contraseniaCifrada);
+
+                        if (codigo == 1)
+                        {
+                            MessageBox.Show("Usuario registrado correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            tBUsuarioRegistro.Text = "";
+                            tBContraseniaRegistro.Text = "";
+                            tBEmailRegistro.Text = "";
+                        }
+                    }
+                 // En cambio, si el usuario no es admin se le obligará a introducir un email.
+                } else if (tBEmailRegistro.Text != "") 
+                {
+                    string contraseniaCifrada = cifrar(tBContraseniaRegistro.Text);
+
+                    int codigo = cnx.registrarUsuario(tBUsuarioRegistro.Text, tBEmailRegistro.Text, contraseniaCifrada);
+
+                    if (codigo == 1)
+                    {
+                        MessageBox.Show("Usuario registrado correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tBUsuarioRegistro.Text = "";
+                        tBContraseniaRegistro.Text = "";
+                        tBEmailRegistro.Text = "";
+                    }
+                } else
+                {
+                    MessageBox.Show("Error, debes de introducir un email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -44,19 +73,37 @@ namespace Aerolineas
         {
             if (tBUsuario.Text != "" || tBContraseniaLogin.Text != "")
             {
+                // Obtengo el usuario y la contraseña cifrada.
                 string usuario = tBUsuario.Text;
                 string contraseniaCifrada = cifrar(tBContraseniaLogin.Text);
 
+                // Una lista que contiene los datos del usuario.
                 listaUsuario = cnx.iniciarSesion(usuario, contraseniaCifrada);
 
-                if (listaUsuario[0].Nombre.ToLower() == usuario.ToLower() && listaUsuario[0].Clave == contraseniaCifrada)
+                // Si el nombre y la contraseña (después de cifrar) que introduce el usuario coincide con los datos de la base de datos se accederá a la pantalla adecuada.
+                if (listaUsuario.Count != 0)
                 {
-                    MessageBox.Show("Sesión iniciada correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    tBUsuario.Text = "";
-                    tBContraseniaLogin.Text = "";
+                    if (usuario.ToLower().Equals("admin"))
+                    {
+                        MessageBox.Show("¡Has iniciado sesión como administrador!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        tBUsuario.Text = "";
+                        tBContraseniaLogin.Text = "";
 
-                    ReservarVuelo rV = new ReservarVuelo(listaUsuario);
-                    rV.ShowDialog();
+                        Administracion admin = new Administracion();
+                        admin.ShowDialog();
+                        listaUsuario.Clear();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sesión iniciada correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tBUsuario.Text = "";
+                        tBContraseniaLogin.Text = "";
+
+                        ReservarVuelo rV = new ReservarVuelo(listaUsuario);
+                        rV.ShowDialog();
+                        listaUsuario.Clear();
+                    }
                 }
                 else
                 {
@@ -88,11 +135,6 @@ namespace Aerolineas
             return sb.ToString();
         }
 
-        private void btnCerrarRegistro_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btnCerrarLogeo_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -103,6 +145,19 @@ namespace Aerolineas
             if (e.KeyCode == Keys.Enter)
             {
                 btnAcceder_Click(sender, e);
+            }
+        }
+
+        private void btnCerrarRegistro_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void tBEmailRegistro_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnRegistrar_Click(sender, e);
             }
         }
     }
