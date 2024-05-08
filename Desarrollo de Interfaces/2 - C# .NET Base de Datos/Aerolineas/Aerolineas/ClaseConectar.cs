@@ -14,6 +14,7 @@ namespace Aerolineas
         List<Horariosaviones> listaHorarios = new List<Horariosaviones>();
         List<ModeloAvion> butacasAvion = new List<ModeloAvion>();
         List<Billeteavion> listaFacturacion = new List<Billeteavion>();
+        List<ModeloAvion> listaIdAviones = new List<ModeloAvion>();
 
 
         public ClaseConectar()
@@ -36,6 +37,17 @@ namespace Aerolineas
             comando.Parameters.AddWithValue("?asientosTurista", asientosTurista);
 
             int codigo = comando.ExecuteNonQuery();
+
+            conexion.Close();
+
+            return codigo;
+        }
+
+        internal int crearNuevaRuta(int selectedIndex, string ruta, string fechaSalida, int precioBussines, int precioPrimera, int precioTurista)
+        {
+            conexion.Open();
+
+            string cadenaSql = "";
 
             conexion.Close();
 
@@ -181,6 +193,28 @@ namespace Aerolineas
             conexion.Close();
 
             return listaFacturacion;
+        }
+
+        // Método para obtener los ids de los aviones para usarlo en el comboBox de administración Crear Nueva Ruta.
+        internal List<ModeloAvion> obtenerIdsAviones()
+        {
+            conexion.Open();
+
+            string cadenaSql = "SELECT idAvion FROM modeloavion";
+            comando = new MySqlCommand(@cadenaSql, conexion);
+
+            datos = comando.ExecuteReader();
+
+            while (datos.Read())
+            {
+                ModeloAvion mV = new ModeloAvion();
+                mV.IdAvion = (string)datos["idAvion"];
+                listaIdAviones.Add(mV);
+            }
+
+            conexion.Close();
+
+            return listaIdAviones;
         }
 
         // Método para almacenar en una lista los datos de la tabla horariosaviones.
