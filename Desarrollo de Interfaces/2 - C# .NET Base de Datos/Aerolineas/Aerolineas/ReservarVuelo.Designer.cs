@@ -57,6 +57,7 @@
             this.fLPrincipal = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTPrecioTotal = new System.Windows.Forms.Label();
             this.lblPrecioTotal = new System.Windows.Forms.Label();
+            this.btnPerfil = new System.Windows.Forms.Button();
             this.groupBoxLeyenda.SuspendLayout();
             this.gBDatosVuelos.SuspendLayout();
             this.SuspendLayout();
@@ -203,7 +204,7 @@
             // 
             this.lblBienvenidaMail.AutoSize = true;
             this.lblBienvenidaMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBienvenidaMail.Location = new System.Drawing.Point(12, 61);
+            this.lblBienvenidaMail.Location = new System.Drawing.Point(13, 36);
             this.lblBienvenidaMail.Name = "lblBienvenidaMail";
             this.lblBienvenidaMail.Size = new System.Drawing.Size(189, 25);
             this.lblBienvenidaMail.TabIndex = 12;
@@ -380,12 +381,24 @@
             this.lblPrecioTotal.Text = "0";
             this.lblPrecioTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // btnPerfil
+            // 
+            this.btnPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPerfil.Location = new System.Drawing.Point(18, 64);
+            this.btnPerfil.Name = "btnPerfil";
+            this.btnPerfil.Size = new System.Drawing.Size(85, 28);
+            this.btnPerfil.TabIndex = 28;
+            this.btnPerfil.Text = "Perfil";
+            this.btnPerfil.UseVisualStyleBackColor = true;
+            this.btnPerfil.Click += new System.EventHandler(this.btnPerfil_Click);
+            // 
             // ReservarVuelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(970, 614);
+            this.Controls.Add(this.btnPerfil);
             this.Controls.Add(this.lblPrecioTotal);
             this.Controls.Add(this.lblTPrecioTotal);
             this.Controls.Add(this.fLPrincipal);
@@ -397,7 +410,7 @@
             this.Controls.Add(this.btnComprarVuelo);
             this.Controls.Add(this.btnCerrarReserva);
             this.Controls.Add(this.lblBienvenida);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ReservarVuelo";
             this.Text = "ReservarVuelo";
             this.groupBoxLeyenda.ResumeLayout(false);
@@ -438,5 +451,6 @@
         private System.Windows.Forms.FlowLayoutPanel fLPrincipal;
         private System.Windows.Forms.Label lblTPrecioTotal;
         private System.Windows.Forms.Label lblPrecioTotal;
+        private System.Windows.Forms.Button btnPerfil;
     }
 }

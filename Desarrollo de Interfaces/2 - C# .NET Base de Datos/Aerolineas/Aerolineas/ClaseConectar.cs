@@ -22,6 +22,26 @@ namespace Aerolineas
             conexion.ConnectionString = "server=localhost;Database=aerolineas2;Uid=root;pwd='';old guids=true";
         }
 
+        // Método para crear un nuevo modelo del avión en la base de datos.
+        internal int crearModeloAvion(string idAvion, string modelo, int asientosBussines, int asientosPrimera, int asientosTurista)
+        {
+            conexion.Open();
+
+            string cadenaSql = "INSERT INTO modeloavion VALUES(?idAvion, ?modelo, ?asientosBussines, ?asientosPrimera, ?asientosTurista)";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?idAvion", idAvion);
+            comando.Parameters.AddWithValue("?modelo", modelo);
+            comando.Parameters.AddWithValue("?asientosBussines", asientosBussines);
+            comando.Parameters.AddWithValue("?asientosPrimera", asientosPrimera);
+            comando.Parameters.AddWithValue("?asientosTurista", asientosTurista);
+
+            int codigo = comando.ExecuteNonQuery();
+
+            conexion.Close();
+
+            return codigo;
+        }
+
         // Método para comprobar si el usuario que introduce el cliente existe en la BD.
         internal List<Usuariosavion> iniciarSesion(string usuario, string contraseniaCifrada)
         {
@@ -64,6 +84,40 @@ namespace Aerolineas
             comando.Parameters.AddWithValue("?usuario", usuarioActivo);
             comando.Parameters.AddWithValue("?fecha", fechaActual);
             comando.Parameters.AddWithValue("?precioTotal", precioTotal);
+
+            int codigo = comando.ExecuteNonQuery();
+
+            conexion.Close();
+
+            return codigo;
+        }
+
+        // Método para modificar la clave del usuario en la BD.
+        internal int modificarContrasenia(string nombre, string contraseniaCifrada)
+        {
+            conexion.Open();
+
+            string cadenaSql = "UPDATE usuariosavion SET clave = ?contraseniaCifrada WHERE nombre = ?nombre ";
+            comando = new MySqlCommand (cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?contraseniaCifrada", contraseniaCifrada);
+            comando.Parameters.AddWithValue("?nombre", nombre);
+
+            int codigo = comando.ExecuteNonQuery();
+
+            conexion.Close();
+
+            return codigo;
+        }
+
+        // Método para modificar la dirección de correo del usuario en la BD.
+        internal int modificarCorreo(string nombre, string newEmail)
+        {
+            conexion.Open();
+
+            string cadenaSql = "UPDATE usuariosavion SET correo = ?newEmail WHERE nombre = ?nombre";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?newEmail", newEmail);
+            comando.Parameters.AddWithValue("?nombre", nombre);
 
             int codigo = comando.ExecuteNonQuery();
 

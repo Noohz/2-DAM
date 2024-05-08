@@ -13,6 +13,7 @@ namespace Aerolineas
         List<ModeloAvion> butacasAvion = new List<ModeloAvion>(); // Lista que contiene la cantidad de butacas de cada tipo.
         List<String> listaReservas = new List<string>(); // Lista que contiene las butacas que se han hecho click.
         List<Billeteavion> listaFacturacion = new List<Billeteavion>(); // Lista que contiene las bútacas vendidas.
+        List<Usuariosavion> datosUsuario = new List<Usuariosavion>(); // Lista que contiene los datos del usuario activo.
 
         string usuarioActivo; // Variable que contiene el usuario de la sesión activo.
 
@@ -20,9 +21,10 @@ namespace Aerolineas
         {
             InitializeComponent();
             this.Text = "Reservar Vuelo";
-            lblBienvenida.Text = "Bienvenido/a: " + listaUsuario[0].Nombre;
-            usuarioActivo = listaUsuario[0].Nombre;
-            lblBienvenidaMail.Text = "Correo: " + listaUsuario[0].Mail;
+            datosUsuario = listaUsuario; // IMPORTANTE
+            lblBienvenida.Text = "Bienvenido/a: " + datosUsuario[0].Nombre;
+            usuarioActivo = datosUsuario[0].Nombre;
+            lblBienvenidaMail.Text = "Correo: " + datosUsuario[0].Mail;
 
             listaHorarios = cnx.obtenerSesionAviones();
             listaFacturacion.Clear();
@@ -130,7 +132,7 @@ namespace Aerolineas
                 {
                     boton.BackColor = Color.Yellow;
                     boton.Name = boton.Text + "_" + fila;
-                    boton.Text = "P" + "_" + boton.Text + "_" + fila;
+                    boton.Text = "Pr" + "_" + boton.Text + "_" + fila;
                     contador++;
                 }
                 else
@@ -156,8 +158,15 @@ namespace Aerolineas
                 {
                     if (item.IdAsiento == boton.Name)
                     {
-                        boton.BackColor = Color.Red;
-                        boton.Enabled = false;
+                        if (item.Comprador.Equals(datosUsuario[0].Nombre))
+                        {
+                            boton.BackColor = Color.Blue;
+                            boton.Enabled = false;
+                        } else
+                        {
+                            boton.BackColor = Color.Red;
+                            boton.Enabled = false;
+                        }                       
                     }
                 }
 
@@ -237,14 +246,15 @@ namespace Aerolineas
                 for (int i = 0; i < listaReservas.Count; i++)
                 {
                     String nombreBoton = listaReservas[i];
-                    String idAsiento = nombreBoton.Replace("B_", "").Replace("P_", "").Replace("T_", "");
+                    String idAsiento = nombreBoton.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
 
                     int codigo = cnx.insertarFacturacion(idVuelo, idAsiento, usuarioActivo, DateTime.Now, lblPrecioTotal.Text);
 
                     if (codigo == 1)
                     {
                         MessageBox.Show("Compra realizada con éxito.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    } else
+                    }
+                    else
                     {
                         MessageBox.Show("Error, no se ha podido realizar la compra...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -258,6 +268,18 @@ namespace Aerolineas
             else
             {
                 MessageBox.Show("Operación cancelada", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btnPerfil_Click(object sender, EventArgs e)
+        {
+            PerfilUsuario pS = new PerfilUsuario(datosUsuario);
+            DialogResult modificar = pS.ShowDialog();
+
+            if (modificar == DialogResult.OK)
+            {
+                datosUsuario = cnx.iniciarSesion(datosUsuario[0].Nombre, datosUsuario[0].Clave);
+                lblBienvenidaMail.Text = "Correo: " + datosUsuario[0].Mail;
             }
         }
     }

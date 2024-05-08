@@ -37,14 +37,14 @@
             this.tBUsuario = new System.Windows.Forms.TextBox();
             this.lblTUsuario = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnCerrarRegistro = new System.Windows.Forms.Button();
+            this.btnRegistro = new System.Windows.Forms.Button();
+            this.tBEmailRegistro = new System.Windows.Forms.TextBox();
+            this.lblTEmailRegistro = new System.Windows.Forms.Label();
             this.tBContraseniaRegistro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tBUsuarioRegistro = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblTEmailRegistro = new System.Windows.Forms.Label();
-            this.tBEmailRegistro = new System.Windows.Forms.TextBox();
-            this.btnCerrarRegistro = new System.Windows.Forms.Button();
-            this.btnRegistro = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -155,6 +155,47 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Registrar Usuario";
             // 
+            // btnCerrarRegistro
+            // 
+            this.btnCerrarRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarRegistro.Location = new System.Drawing.Point(353, 270);
+            this.btnCerrarRegistro.Name = "btnCerrarRegistro";
+            this.btnCerrarRegistro.Size = new System.Drawing.Size(117, 36);
+            this.btnCerrarRegistro.TabIndex = 18;
+            this.btnCerrarRegistro.Text = "Cerrar";
+            this.btnCerrarRegistro.UseVisualStyleBackColor = true;
+            this.btnCerrarRegistro.Click += new System.EventHandler(this.btnCerrarRegistro_Click);
+            // 
+            // btnRegistro
+            // 
+            this.btnRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistro.Location = new System.Drawing.Point(175, 270);
+            this.btnRegistro.Name = "btnRegistro";
+            this.btnRegistro.Size = new System.Drawing.Size(117, 36);
+            this.btnRegistro.TabIndex = 17;
+            this.btnRegistro.Text = "Registrar";
+            this.btnRegistro.UseVisualStyleBackColor = true;
+            this.btnRegistro.Click += new System.EventHandler(this.btnRegistrar_Click);
+            // 
+            // tBEmailRegistro
+            // 
+            this.tBEmailRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
+            this.tBEmailRegistro.Location = new System.Drawing.Point(252, 171);
+            this.tBEmailRegistro.Name = "tBEmailRegistro";
+            this.tBEmailRegistro.Size = new System.Drawing.Size(372, 38);
+            this.tBEmailRegistro.TabIndex = 16;
+            this.tBEmailRegistro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBEmailRegistro_KeyDown);
+            // 
+            // lblTEmailRegistro
+            // 
+            this.lblTEmailRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold);
+            this.lblTEmailRegistro.Location = new System.Drawing.Point(68, 171);
+            this.lblTEmailRegistro.Name = "lblTEmailRegistro";
+            this.lblTEmailRegistro.Size = new System.Drawing.Size(144, 35);
+            this.lblTEmailRegistro.TabIndex = 15;
+            this.lblTEmailRegistro.Text = "Email";
+            this.lblTEmailRegistro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tBContraseniaRegistro
             // 
             this.tBContraseniaRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -193,47 +234,6 @@
             this.label2.Text = "Usuario";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblTEmailRegistro
-            // 
-            this.lblTEmailRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold);
-            this.lblTEmailRegistro.Location = new System.Drawing.Point(68, 171);
-            this.lblTEmailRegistro.Name = "lblTEmailRegistro";
-            this.lblTEmailRegistro.Size = new System.Drawing.Size(144, 35);
-            this.lblTEmailRegistro.TabIndex = 15;
-            this.lblTEmailRegistro.Text = "Email";
-            this.lblTEmailRegistro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tBEmailRegistro
-            // 
-            this.tBEmailRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.tBEmailRegistro.Location = new System.Drawing.Point(252, 171);
-            this.tBEmailRegistro.Name = "tBEmailRegistro";
-            this.tBEmailRegistro.Size = new System.Drawing.Size(372, 38);
-            this.tBEmailRegistro.TabIndex = 16;
-            this.tBEmailRegistro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBEmailRegistro_KeyDown);
-            // 
-            // btnCerrarRegistro
-            // 
-            this.btnCerrarRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarRegistro.Location = new System.Drawing.Point(353, 270);
-            this.btnCerrarRegistro.Name = "btnCerrarRegistro";
-            this.btnCerrarRegistro.Size = new System.Drawing.Size(117, 36);
-            this.btnCerrarRegistro.TabIndex = 18;
-            this.btnCerrarRegistro.Text = "Cerrar";
-            this.btnCerrarRegistro.UseVisualStyleBackColor = true;
-            this.btnCerrarRegistro.Click += new System.EventHandler(this.btnCerrarRegistro_Click);
-            // 
-            // btnRegistro
-            // 
-            this.btnRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistro.Location = new System.Drawing.Point(175, 270);
-            this.btnRegistro.Name = "btnRegistro";
-            this.btnRegistro.Size = new System.Drawing.Size(117, 36);
-            this.btnRegistro.TabIndex = 17;
-            this.btnRegistro.Text = "Registrar";
-            this.btnRegistro.UseVisualStyleBackColor = true;
-            this.btnRegistro.Click += new System.EventHandler(this.btnRegistrar_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -241,7 +241,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(687, 379);
             this.Controls.Add(this.tabControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
