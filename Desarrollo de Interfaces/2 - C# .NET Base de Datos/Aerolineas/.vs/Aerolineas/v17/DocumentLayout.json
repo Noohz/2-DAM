@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\aerolineas\\aerolineas\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|solutionrelative:aerolineas\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\aerolineas\\aerolineas\\perfilusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|solutionrelative:aerolineas\\perfilusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\aerolineas\\aerolineas\\perfilusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|solutionrelative:aerolineas\\perfilusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\aerolineas\\aerolineas\\reservarvuelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|solutionrelative:aerolineas\\reservarvuelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\aerolineas\\aerolineas\\reservarvuelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|solutionrelative:aerolineas\\reservarvuelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\aerolineas\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -13,6 +25,7 @@
     {
       "AbsoluteMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\aerolineas\\claseconectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|solutionrelative:aerolineas\\claseconectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+<<<<<<< Updated upstream
     },
     {
       "AbsoluteMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\aerolineas\\administracion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -21,6 +34,8 @@
     {
       "AbsoluteMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\aerolineas\\administracion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|solutionrelative:aerolineas\\administracion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+>>>>>>> Stashed changes
     }
   ],
   "DocumentGroupContainers": [
@@ -34,6 +49,7 @@
           "Children": [
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 4,
               "Title": "Administracion.cs",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\Administracion.cs",
@@ -41,36 +57,77 @@
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\Administracion.cs",
               "RelativeToolTip": "Aerolineas\\Administracion.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAtwBEAAAAwAAAA",
+=======
+              "DocumentIndex": 3,
+              "Title": "ReservarVuelo.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\ReservarVuelo.cs",
+              "RelativeDocumentMoniker": "Aerolineas\\ReservarVuelo.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\ReservarVuelo.cs",
+              "RelativeToolTip": "Aerolineas\\ReservarVuelo.cs",
+              "ViewState": "AQIAAI4AAAAAAAAAAAAowKIAAAA4AAAA",
+>>>>>>> Stashed changes
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T10:11:17.154Z"
+              "WhenOpened": "2024-05-08T11:13:26.526Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 3,
               "Title": "Administracion.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\Administracion.cs",
               "RelativeDocumentMoniker": "Aerolineas\\Administracion.cs",
               "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\Administracion.cs [Dise\u00F1o]",
               "RelativeToolTip": "Aerolineas\\Administracion.cs [Dise\u00F1o]",
+=======
+              "DocumentIndex": 2,
+              "Title": "ReservarVuelo.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\ReservarVuelo.cs",
+              "RelativeDocumentMoniker": "Aerolineas\\ReservarVuelo.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\ReservarVuelo.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Aerolineas\\ReservarVuelo.cs [Dise\u00F1o]",
+>>>>>>> Stashed changes
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T10:11:05.439Z"
+              "WhenOpened": "2024-05-08T11:13:25.281Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+<<<<<<< Updated upstream
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\Form1.cs",
               "RelativeDocumentMoniker": "Aerolineas\\Form1.cs",
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\Form1.cs",
               "RelativeToolTip": "Aerolineas\\Form1.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+=======
+              "Title": "PerfilUsuario.cs",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\PerfilUsuario.cs",
+              "RelativeDocumentMoniker": "Aerolineas\\PerfilUsuario.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\PerfilUsuario.cs",
+              "RelativeToolTip": "Aerolineas\\PerfilUsuario.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAnwE0AAABJAAAA",
+>>>>>>> Stashed changes
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-04T15:03:21.309Z",
+              "WhenOpened": "2024-05-08T09:57:46.813Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "PerfilUsuario.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\PerfilUsuario.cs",
+              "RelativeDocumentMoniker": "Aerolineas\\PerfilUsuario.cs",
+              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\PerfilUsuario.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Aerolineas\\PerfilUsuario.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-08T09:57:07.241Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Form1.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\Form1.cs",
               "RelativeDocumentMoniker": "Aerolineas\\Form1.cs",
@@ -81,13 +138,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ClaseConectar.cs",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\ClaseConectar.cs",
               "RelativeDocumentMoniker": "Aerolineas\\ClaseConectar.cs",
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\ClaseConectar.cs",
               "RelativeToolTip": "Aerolineas\\ClaseConectar.cs",
-              "ViewState": "AQIAAGUAAAAAAAAAAAAmwKEAAABeAAAA",
+              "ViewState": "AQIAAC0AAAAAAAAAAAA9wEsAAACHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-04T15:10:14.157Z"
             }
