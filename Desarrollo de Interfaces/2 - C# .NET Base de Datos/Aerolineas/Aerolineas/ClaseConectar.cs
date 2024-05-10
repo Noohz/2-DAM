@@ -43,11 +43,22 @@ namespace Aerolineas
             return codigo;
         }
 
-        internal int crearNuevaRuta(int selectedIndex, string ruta, string fechaSalida, int precioBussines, int precioPrimera, int precioTurista)
+        // Método para crear una nueva ruta en la tabla horariosavion.
+        internal int crearNuevaRuta(int ultimoIdVuelo, string ruta, DateTime fechaSalida, int precioBussines, int precioPrimera, int precioTurista, string idAvion)
         {
             conexion.Open();
 
-            string cadenaSql = "";
+            string cadenaSql = "INSERT INTO horariosaviones VALUES(?ultimoIdVuelo, ?ruta, ?fechaSalida, ?precioBussines, ?precioPrimera, ?precioTurista, ?idAvion)";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?ultimoIdVuelo", ultimoIdVuelo);
+            comando.Parameters.AddWithValue("?ruta", ruta);
+            comando.Parameters.AddWithValue("?fechaSalida", fechaSalida);
+            comando.Parameters.AddWithValue("?precioBussines", precioBussines);
+            comando.Parameters.AddWithValue("?precioPrimera", precioPrimera);
+            comando.Parameters.AddWithValue("?precioTurista", precioTurista);
+            comando.Parameters.AddWithValue("?idAvion", idAvion);
+
+            int codigo = comando.ExecuteNonQuery();
 
             conexion.Close();
 
@@ -244,6 +255,28 @@ namespace Aerolineas
             conexion.Close();
 
             return listaHorarios;
+        }
+
+        // Método para obtener el último idVuelo de la tabla horariosavion.
+        internal int obtenerUltimoIdVuelo()
+        {
+            int ultimoID = 0;
+
+            conexion.Open();
+
+            String cadenaSql = "SELECT idVuelo FROM horariosaviones ORDER BY idVuelo DESC LIMIT 1";
+            comando = new MySqlCommand(cadenaSql, conexion);
+
+            datos = comando.ExecuteReader();
+
+            while (datos.Read())
+            {
+                ultimoID = (int)datos["idVuelo"];
+            }
+
+            conexion.Close();
+
+            return ultimoID;
         }
 
         // Método para registrar un nuevo usuario.

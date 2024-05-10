@@ -58,6 +58,8 @@
             this.lblTPrecioTotal = new System.Windows.Forms.Label();
             this.lblPrecioTotal = new System.Windows.Forms.Label();
             this.btnPerfil = new System.Windows.Forms.Button();
+            this.lblPrecioTotalDTO = new System.Windows.Forms.Label();
+            this.lblTPrecioTotalDTO = new System.Windows.Forms.Label();
             this.groupBoxLeyenda.SuspendLayout();
             this.gBDatosVuelos.SuspendLayout();
             this.SuspendLayout();
@@ -392,12 +394,35 @@
             this.btnPerfil.UseVisualStyleBackColor = true;
             this.btnPerfil.Click += new System.EventHandler(this.btnPerfil_Click);
             // 
+            // lblPrecioTotalDTO
+            // 
+            this.lblPrecioTotalDTO.AutoSize = true;
+            this.lblPrecioTotalDTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioTotalDTO.Location = new System.Drawing.Point(741, 360);
+            this.lblPrecioTotalDTO.Name = "lblPrecioTotalDTO";
+            this.lblPrecioTotalDTO.Size = new System.Drawing.Size(24, 25);
+            this.lblPrecioTotalDTO.TabIndex = 30;
+            this.lblPrecioTotalDTO.Text = "0";
+            this.lblPrecioTotalDTO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblTPrecioTotalDTO
+            // 
+            this.lblTPrecioTotalDTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTPrecioTotalDTO.Location = new System.Drawing.Point(556, 356);
+            this.lblTPrecioTotalDTO.Name = "lblTPrecioTotalDTO";
+            this.lblTPrecioTotalDTO.Size = new System.Drawing.Size(188, 29);
+            this.lblTPrecioTotalDTO.TabIndex = 29;
+            this.lblTPrecioTotalDTO.Text = "Precio total (Dto):";
+            this.lblTPrecioTotalDTO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ReservarVuelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(970, 614);
+            this.Controls.Add(this.lblPrecioTotalDTO);
+            this.Controls.Add(this.lblTPrecioTotalDTO);
             this.Controls.Add(this.btnPerfil);
             this.Controls.Add(this.lblPrecioTotal);
             this.Controls.Add(this.lblTPrecioTotal);
@@ -452,5 +477,7 @@
         private System.Windows.Forms.Label lblTPrecioTotal;
         private System.Windows.Forms.Label lblPrecioTotal;
         private System.Windows.Forms.Button btnPerfil;
+        private System.Windows.Forms.Label lblPrecioTotalDTO;
+        private System.Windows.Forms.Label lblTPrecioTotalDTO;
     }
 }

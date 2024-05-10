@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace Aerolineas
@@ -77,11 +72,37 @@ namespace Aerolineas
             dateTPFechaCNR.CustomFormat = "yyyy-MM-dd";
 
             if (cbIdAvionCNR.SelectedIndex != -1)
-            {             
+            {
                 if (tBRutaCNR.Text != "" && numericUpDownPrecioBussinessCNR.Value != 0 && numericUpDownPrecioPrimeraCNR.Value != 0 && numericUpDownPrecioTuristaCNR.Value != 0)
                 {
-                   int codigo = cnx.crearNuevaRuta(cbIdAvionCNR.SelectedIndex, tBRutaCNR.Text, tBFechaSalidaTotalCNR.Text, (int)numericUpDownPrecioBussinessCNR.Value, (int)numericUpDownPrecioPrimeraCNR.Value, (int)numericUpDownPrecioTuristaCNR.Value);
+                    int ultimoIdVuelo = cnx.obtenerUltimoIdVuelo();
+                    DateTime fechaSalida = DateTime.ParseExact(tBFechaSalidaTotalCNR.Text, "yyyy-MM-dd-HH:mm", CultureInfo.CurrentCulture); // Hay que usar ParseExact en vez de Parse e indicarle CultureInfo por que le estaba añadiendo las horas de una zona horaria diferente.
+
+                    int codigo = cnx.crearNuevaRuta(ultimoIdVuelo + 1, tBRutaCNR.Text, fechaSalida, (int)numericUpDownPrecioBussinessCNR.Value, (int)numericUpDownPrecioPrimeraCNR.Value, (int)numericUpDownPrecioTuristaCNR.Value, cbIdAvionCNR.Text);
+
+                    if (codigo == 1)
+                    {
+                        MessageBox.Show("Ruta creada correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cbIdAvionCNR.SelectedIndex = -1;
+                        tBRutaCNR.Clear();
+                        numHoras.Value = 0;
+                        numMin.Value = 0;
+                        tBFechaSalidaTotalCNR.Clear();
+                        numericUpDownPrecioBussinessCNR.Value = 0;
+                        numericUpDownPrecioPrimeraCNR.Value = 0;
+                        numericUpDownPrecioTuristaCNR.Value = 0;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ha ocurrido un error al intentar crear la ruta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                } else
+                {
+                    MessageBox.Show("Error, debes completar todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            } else
+            {
+                MessageBox.Show("Error, debes seleccionar un módelo de avión válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
