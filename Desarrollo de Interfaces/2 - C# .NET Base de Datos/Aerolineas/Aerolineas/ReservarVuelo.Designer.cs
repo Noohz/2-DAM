@@ -60,6 +60,7 @@
             this.btnPerfil = new System.Windows.Forms.Button();
             this.lblPrecioTotalDTO = new System.Windows.Forms.Label();
             this.lblTPrecioTotalDTO = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBoxLeyenda.SuspendLayout();
             this.gBDatosVuelos.SuspendLayout();
             this.SuspendLayout();
@@ -365,18 +366,18 @@
             // lblTPrecioTotal
             // 
             this.lblTPrecioTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTPrecioTotal.Location = new System.Drawing.Point(544, 327);
+            this.lblTPrecioTotal.Location = new System.Drawing.Point(556, 327);
             this.lblTPrecioTotal.Name = "lblTPrecioTotal";
-            this.lblTPrecioTotal.Size = new System.Drawing.Size(159, 29);
+            this.lblTPrecioTotal.Size = new System.Drawing.Size(87, 29);
             this.lblTPrecioTotal.TabIndex = 25;
-            this.lblTPrecioTotal.Text = "Precio total:";
+            this.lblTPrecioTotal.Text = "Precio:";
             this.lblTPrecioTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPrecioTotal
             // 
             this.lblPrecioTotal.AutoSize = true;
             this.lblPrecioTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioTotal.Location = new System.Drawing.Point(696, 329);
+            this.lblPrecioTotal.Location = new System.Drawing.Point(640, 331);
             this.lblPrecioTotal.Name = "lblPrecioTotal";
             this.lblPrecioTotal.Size = new System.Drawing.Size(24, 25);
             this.lblPrecioTotal.TabIndex = 27;
@@ -398,7 +399,7 @@
             // 
             this.lblPrecioTotalDTO.AutoSize = true;
             this.lblPrecioTotalDTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioTotalDTO.Location = new System.Drawing.Point(741, 360);
+            this.lblPrecioTotalDTO.Location = new System.Drawing.Point(685, 360);
             this.lblPrecioTotalDTO.Name = "lblPrecioTotalDTO";
             this.lblPrecioTotalDTO.Size = new System.Drawing.Size(24, 25);
             this.lblPrecioTotalDTO.TabIndex = 30;
@@ -408,12 +409,23 @@
             // lblTPrecioTotalDTO
             // 
             this.lblTPrecioTotalDTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTPrecioTotalDTO.Location = new System.Drawing.Point(556, 356);
+            this.lblTPrecioTotalDTO.Location = new System.Drawing.Point(559, 358);
             this.lblTPrecioTotalDTO.Name = "lblTPrecioTotalDTO";
-            this.lblTPrecioTotalDTO.Size = new System.Drawing.Size(188, 29);
+            this.lblTPrecioTotalDTO.Size = new System.Drawing.Size(127, 29);
             this.lblTPrecioTotalDTO.TabIndex = 29;
-            this.lblTPrecioTotalDTO.Text = "Precio total (Dto):";
+            this.lblTPrecioTotalDTO.Text = "Precio total:";
             this.lblTPrecioTotalDTO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(618, 424);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(24, 25);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "0";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ReservarVuelo
             // 
@@ -421,6 +433,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(970, 614);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblPrecioTotalDTO);
             this.Controls.Add(this.lblTPrecioTotalDTO);
             this.Controls.Add(this.btnPerfil);
@@ -479,5 +492,6 @@
         private System.Windows.Forms.Button btnPerfil;
         private System.Windows.Forms.Label lblPrecioTotalDTO;
         private System.Windows.Forms.Label lblTPrecioTotalDTO;
+        private System.Windows.Forms.Label label1;
     }
 }

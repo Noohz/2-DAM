@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace Aerolineas
@@ -43,6 +44,10 @@ namespace Aerolineas
 
         private void comboBoxVuelos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            listaReservas.Clear();
+            lblPrecioTotal.Text = "0";
+            lblPrecioTotalDTO.Text = "0";
+
             // Obtener el item seleccionado del comboBox.
             ComboBox cB = (ComboBox)sender;
             int seleccion = cB.SelectedIndex;
@@ -178,6 +183,7 @@ namespace Aerolineas
         {
             Button btnX = (Button)sender;
             int precioTotal = int.Parse(lblPrecioTotal.Text);
+            int precioTotalDTO = 0;
 
             if (btnX.BackColor == Color.Green || btnX.BackColor == Color.Yellow || btnX.BackColor == Color.Orange)
             {
@@ -225,6 +231,63 @@ namespace Aerolineas
             }
 
             lblPrecioTotal.Text = precioTotal.ToString();
+
+            DateTime fechaActual = DateTime.Now; // Almaceno en la variable la fecha actual para usarla en el descuento.
+            DateTime fechaSalida = DateTime.Parse(lblFechaSalida.Text); // Casteo la fecha de salida a datetime para luego poder restarlo.
+
+            int dias = (fechaSalida - fechaActual).Days; // Resto ambas fechas usando .Days para que tenga en cuenta los días.
+
+            if (dias > 15)  // Decrementa un 20%
+            {
+                double pDto = double.Parse(lblPrecioTotal.Text) * 0.20;
+                double pTotalDto = double.Parse(lblPrecioTotal.Text) - pDto;
+
+                lblPrecioTotalDTO.Text = pTotalDto.ToString();
+            }
+            else if (dias >= 10 && dias <= 14) // Incrementa un 15%
+            {
+                double pDto = double.Parse(lblPrecioTotal.Text) * 0.15;
+                double pTotalDto = double.Parse(lblPrecioTotal.Text) + pDto;
+
+                lblPrecioTotalDTO.Text = pTotalDto.ToString();
+            }
+            else if (dias >= 2 && dias <= 9) // Incrementa un 20%
+            {
+                double pDto = double.Parse(lblPrecioTotal.Text) * 0.20;
+                double pTotalDto = double.Parse(lblPrecioTotal.Text) + pDto;
+
+                lblPrecioTotalDTO.Text = pTotalDto.ToString();
+            }
+            else if (dias == 1) // Decrementa un 50%
+            {
+                double pDto = double.Parse(lblPrecioTotal.Text) * 0.50;
+                double pTotalDto = double.Parse(lblPrecioTotal.Text) - pDto;
+
+                lblPrecioTotalDTO.Text = pTotalDto.ToString();
+            }
+
+            int butacasBussines = butacasAvion[0].FBussines * 6;
+            int butacasPrimera = butacasAvion[0].FPrimera * 6;
+            int butacasTurista = butacasAvion[0].FTurista * 6;
+            int totalButacas = butacasBussines + butacasPrimera + butacasTurista;
+            double cantidadVendida = ((double)listaFacturacion.Count / totalButacas) * 100;
+
+            if (cantidadVendida > 80) // Si se han vendido más del 80% de los billetes se incrementa un 50% el precio anterior.
+            {
+                double pDto = double.Parse(lblPrecioTotalDTO.Text) * 0.5;
+                double pFinal = double.Parse(lblPrecioTotalDTO.Text) + pDto;
+                label1.Text = pFinal.ToString();
+            } else if (cantidadVendida >= 50 && cantidadVendida <= 80) // Si se han vendido entre el 50% y 80% de los billetes se incrementan un 20% 
+            {
+                double pDto = double.Parse(lblPrecioTotalDTO.Text) * 0.2;
+                double pFinal = double.Parse(lblPrecioTotalDTO.Text) + pDto;
+                label1.Text = pFinal.ToString();
+            } else if (cantidadVendida < 10) // Si se han vendido menos del 10% el precio se decrementa un 10%
+            {
+                double pDto = double.Parse(lblPrecioTotalDTO.Text) * 0.1;
+                double pFinal = double.Parse(lblPrecioTotalDTO.Text) - pDto;
+                label1.Text = pFinal.ToString();
+            }
         }
 
         private void btnComprarVuelo_Click(object sender, EventArgs e)
@@ -242,22 +305,28 @@ namespace Aerolineas
             {
                 int seleccion = comboBoxVuelos.SelectedIndex;
                 int idVuelo = listaHorarios[seleccion].IdVuelo;
+                bool compraExitosa = false;
 
                 for (int i = 0; i < listaReservas.Count; i++)
                 {
                     String nombreBoton = listaReservas[i];
                     String idAsiento = nombreBoton.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
 
-                    int codigo = cnx.insertarFacturacion(idVuelo, idAsiento, usuarioActivo, DateTime.Now, lblPrecioTotal.Text);
+                    int codigo = cnx.insertarFacturacion(idVuelo, idAsiento, usuarioActivo, DateTime.Now, lblPrecioTotal.Text); // MODIFICAR ESTO PARA USAR EL PRECIO TOTAL CON DESCUENTO.
 
                     if (codigo == 1)
                     {
-                        MessageBox.Show("Compra realizada con éxito.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        compraExitosa = true;
                     }
-                    else
-                    {
-                        MessageBox.Show("Error, no se ha podido realizar la compra...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                }
+
+                if (compraExitosa)
+                {
+                    MessageBox.Show("Compra realizada con éxito.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error, no se ha podido realizar la compra...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 listaReservas.Clear();

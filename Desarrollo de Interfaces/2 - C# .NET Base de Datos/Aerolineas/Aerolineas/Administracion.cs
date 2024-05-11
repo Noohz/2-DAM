@@ -76,9 +76,7 @@ namespace Aerolineas
                 if (tBRutaCNR.Text != "" && numericUpDownPrecioBussinessCNR.Value != 0 && numericUpDownPrecioPrimeraCNR.Value != 0 && numericUpDownPrecioTuristaCNR.Value != 0)
                 {
                     int ultimoIdVuelo = cnx.obtenerUltimoIdVuelo();
-                    DateTime fechaSalida = DateTime.ParseExact(tBFechaSalidaTotalCNR.Text, "yyyy-MM-dd-HH:mm", CultureInfo.CurrentCulture); // Hay que usar ParseExact en vez de Parse e indicarle CultureInfo por que le estaba añadiendo las horas de una zona horaria diferente.
-
-                    int codigo = cnx.crearNuevaRuta(ultimoIdVuelo + 1, tBRutaCNR.Text, fechaSalida, (int)numericUpDownPrecioBussinessCNR.Value, (int)numericUpDownPrecioPrimeraCNR.Value, (int)numericUpDownPrecioTuristaCNR.Value, cbIdAvionCNR.Text);
+                    int codigo = cnx.crearNuevaRuta(ultimoIdVuelo + 1, tBRutaCNR.Text, tBFechaSalidaTotalCNR.Text, (int)numericUpDownPrecioBussinessCNR.Value, (int)numericUpDownPrecioPrimeraCNR.Value, (int)numericUpDownPrecioTuristaCNR.Value, cbIdAvionCNR.Text);
 
                     if (codigo == 1)
                     {

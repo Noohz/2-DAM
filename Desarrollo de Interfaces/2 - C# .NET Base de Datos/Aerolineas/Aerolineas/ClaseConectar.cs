@@ -44,15 +44,17 @@ namespace Aerolineas
         }
 
         // Método para crear una nueva ruta en la tabla horariosavion.
-        internal int crearNuevaRuta(int ultimoIdVuelo, string ruta, DateTime fechaSalida, int precioBussines, int precioPrimera, int precioTurista, string idAvion)
+        internal int crearNuevaRuta(int ultimoIdVuelo, string ruta, string fechaSalida, int precioBussines, int precioPrimera, int precioTurista, string idAvion)
         {
             conexion.Open();
+
+
 
             string cadenaSql = "INSERT INTO horariosaviones VALUES(?ultimoIdVuelo, ?ruta, ?fechaSalida, ?precioBussines, ?precioPrimera, ?precioTurista, ?idAvion)";
             comando = new MySqlCommand(cadenaSql, conexion);
             comando.Parameters.AddWithValue("?ultimoIdVuelo", ultimoIdVuelo);
             comando.Parameters.AddWithValue("?ruta", ruta);
-            comando.Parameters.AddWithValue("?fechaSalida", fechaSalida);
+            comando.Parameters.AddWithValue("?fechaSalida", DateTime.Parse(fechaSalida).ToUniversalTime()); // He tenido que usar .ToUniversalTime por que a la hora de realizar la inserción le estaba sumando 2 horas por la diferencia horaria.
             comando.Parameters.AddWithValue("?precioBussines", precioBussines);
             comando.Parameters.AddWithValue("?precioPrimera", precioPrimera);
             comando.Parameters.AddWithValue("?precioTurista", precioTurista);
