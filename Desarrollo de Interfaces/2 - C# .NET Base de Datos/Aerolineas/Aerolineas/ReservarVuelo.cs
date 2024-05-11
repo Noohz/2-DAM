@@ -22,7 +22,7 @@ namespace Aerolineas
         {
             InitializeComponent();
             this.Text = "Reservar Vuelo";
-            datosUsuario = listaUsuario; // IMPORTANTE
+            datosUsuario = listaUsuario;
             lblBienvenida.Text = "Bienvenido/a: " + datosUsuario[0].Nombre;
             usuarioActivo = datosUsuario[0].Nombre;
             lblBienvenidaMail.Text = "Correo: " + datosUsuario[0].Mail;
@@ -312,7 +312,7 @@ namespace Aerolineas
                     String nombreBoton = listaReservas[i];
                     String idAsiento = nombreBoton.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
 
-                    int codigo = cnx.insertarFacturacion(idVuelo, idAsiento, usuarioActivo, DateTime.Now, lblPrecioTotal.Text); // MODIFICAR ESTO PARA USAR EL PRECIO TOTAL CON DESCUENTO.
+                    int codigo = cnx.insertarFacturacion(idVuelo, idAsiento, usuarioActivo, DateTime.Now, lblPrecioTotalDTO.Text); 
 
                     if (codigo == 1)
                     {
