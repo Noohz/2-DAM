@@ -276,17 +276,17 @@ namespace Aerolineas
             {
                 double pDto = double.Parse(lblPrecioTotalDTO.Text) * 0.5;
                 double pFinal = double.Parse(lblPrecioTotalDTO.Text) + pDto;
-                label1.Text = pFinal.ToString();
+                lblPrecioTotalDTO.Text = pFinal.ToString();
             } else if (cantidadVendida >= 50 && cantidadVendida <= 80) // Si se han vendido entre el 50% y 80% de los billetes se incrementan un 20% 
             {
                 double pDto = double.Parse(lblPrecioTotalDTO.Text) * 0.2;
                 double pFinal = double.Parse(lblPrecioTotalDTO.Text) + pDto;
-                label1.Text = pFinal.ToString();
+                lblPrecioTotalDTO.Text = pFinal.ToString();
             } else if (cantidadVendida < 10) // Si se han vendido menos del 10% el precio se decrementa un 10%
             {
                 double pDto = double.Parse(lblPrecioTotalDTO.Text) * 0.1;
                 double pFinal = double.Parse(lblPrecioTotalDTO.Text) - pDto;
-                label1.Text = pFinal.ToString();
+                lblPrecioTotalDTO.Text = pFinal.ToString();
             }
         }
 
