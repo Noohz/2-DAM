@@ -1,6 +1,7 @@
 package hba;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -19,26 +20,19 @@ public class Capitulo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@ManyToOne
-	@JoinColumn(name = "serie" ,referencedColumnName = "id")
+	@ManyToOne()
+	@JoinColumn(name = "serie",referencedColumnName = "id")
 	private Serie serie;
-	
 	@Column(nullable = true)
 	private int numero;
-	
 	@Column(nullable = true)
 	private String titulo;
-	
 	@Column(nullable = true)
 	private int duracion;
-	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "clave.capitulo")
-	private ArrayList<Reproduccion> listaReproducciones = new ArrayList<Reproduccion>();
-
-	public Capitulo() {
-
-	}
+	private List<Reproduccion> listaReproducciones = new ArrayList();
+	
+	public Capitulo() {}
 
 	public Capitulo(int id, Serie serie, int numero, String titulo, int duracion) {
 		this.id = id;
@@ -88,17 +82,21 @@ public class Capitulo {
 		this.duracion = duracion;
 	}
 
-	public ArrayList<Reproduccion> getListaReproducciones() {
+	public List<Reproduccion> getListaReproducciones() {
 		return listaReproducciones;
 	}
 
-	public void setListaReproducciones(ArrayList<Reproduccion> listaReproducciones) {
+	public void setListaReproducciones(List<Reproduccion> listaReproducciones) {
 		this.listaReproducciones = listaReproducciones;
 	}
 
 	@Override
 	public String toString() {
-		return "Capitulo [id=" + id + ", serie=" + serie.getNombre() + ", numero=" + numero + ", titulo=" + titulo + ", duracion="
-				+ duracion + "]";
+		
+		return "Capitulo [id=" + id + ", serie=" + serie.getNombre() + ", numero=" + numero + ", titulo=" + titulo 
+				+ ", duracion=" + duracion + "]";
 	}
+	
+	
+	
 }

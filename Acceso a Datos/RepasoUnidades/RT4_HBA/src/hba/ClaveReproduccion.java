@@ -4,23 +4,20 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 public class ClaveReproduccion {
-	
-	@ManyToOne
-	@JoinColumn(name = "usuario", referencedColumnName = "nick")
+	@ManyToOne()
+	@JoinColumn(name ="usuario",referencedColumnName = "nick")
 	private Usuario usuario;
-	
-	@ManyToOne
-	@JoinColumn(name = "capitulo", referencedColumnName = "id")
+	@ManyToOne()
+	@JoinColumn(name = "capitulo",referencedColumnName = "id")
 	private Capitulo capitulo;
-
-	public ClaveReproduccion() {
-
-	}
+	
+	public ClaveReproduccion() {}
 
 	public ClaveReproduccion(Usuario usuario, Capitulo capitulo) {
 		this.usuario = usuario;
 		this.capitulo = capitulo;
 	}
+
 
 	public Usuario getUsuario() {
 		return usuario;
@@ -42,4 +39,6 @@ public class ClaveReproduccion {
 	public String toString() {
 		return "ClaveReproduccion [usuario=" + usuario + ", capitulo=" + capitulo + "]";
 	}
+	
+	
 }

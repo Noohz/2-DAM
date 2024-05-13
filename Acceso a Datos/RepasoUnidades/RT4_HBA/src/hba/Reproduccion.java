@@ -10,22 +10,17 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "reproducciones")
+@Table(name = "Reproducciones")
 public class Reproduccion {
-	
 	@EmbeddedId
 	private ClaveReproduccion clave;
-	
 	@Column(nullable = true)
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
-	
 	@Column(nullable = true)
 	private int minutoPausa;
-
-	public Reproduccion() {
-
-	}
+	
+	public Reproduccion() {}
 
 	public Reproduccion(ClaveReproduccion clave, Date fecha, int minutoPausa) {
 		this.clave = clave;
@@ -61,4 +56,7 @@ public class Reproduccion {
 	public String toString() {
 		return "Reproduccion [clave=" + clave + ", fecha=" + fecha + ", minutoPausa=" + minutoPausa + "]";
 	}
+	
+	
+	
 }

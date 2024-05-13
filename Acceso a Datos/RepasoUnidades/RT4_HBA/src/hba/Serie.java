@@ -1,6 +1,7 @@
 package hba;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -14,26 +15,20 @@ import jakarta.persistence.Table;
 @Entity
 @Table
 public class Serie {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name = "nombre", nullable = false)
+	@Column(name = "nombre",nullable = false)
 	private String nombre;
-	
 	@Column(nullable = false)
 	private String genero;
-	
 	@Column(nullable = true)
 	private int edad;
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "serie")
+	private List<Capitulo> listaCapitulos = new ArrayList();
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "serie")
-	private ArrayList<Capitulo> listaCapitulos = new ArrayList<Capitulo>();
-
-	public Serie() {
-
-	}
+	public Serie() {}
 
 	public Serie(int id, String nombre, String genero, int edad) {
 		this.id = id;
@@ -74,22 +69,23 @@ public class Serie {
 		this.edad = edad;
 	}
 
-	public ArrayList<Capitulo> getListaCapitulos() {
+	public List<Capitulo> getListaCapitulos() {
 		return listaCapitulos;
 	}
 
-	public void setListaCapitulos(ArrayList<Capitulo> listaCapitulos) {
+	public void setListaCapitulos(List<Capitulo> listaCapitulos) {
 		this.listaCapitulos = listaCapitulos;
 	}
 
 	@Override
 	public String toString() {
 		String resultado = "Serie [id=" + id + ", nombre=" + nombre + ", genero=" + genero + ", edad=" + edad + "]";
-		
 		for (Capitulo capitulo : listaCapitulos) {
-			resultado += "\n" + capitulo;
+			resultado += "\n"+capitulo;
 		}
-		
 		return resultado;
 	}
+	
+	
+	
 }
