@@ -17,6 +17,7 @@ namespace Aerolineas
         List<Usuariosavion> datosUsuario = new List<Usuariosavion>(); // Lista que contiene los datos del usuario activo.
 
         string usuarioActivo; // Variable que contiene el usuario de la sesión activo.
+        TableLayoutPanel tlp;
 
         public ReservarVuelo(List<Usuariosavion> listaUsuario)
         {
@@ -80,7 +81,7 @@ namespace Aerolineas
             int contador = 0;
 
             // Un tableLayoutPanel que contendrá los botones.
-            TableLayoutPanel tlp = new TableLayoutPanel();
+            tlp = new TableLayoutPanel();
             tlp.AutoSize = true;
             tlp.ColumnCount = 6;
             fLPrincipal.Controls.Add(tlp);
@@ -166,12 +167,13 @@ namespace Aerolineas
                         if (item.Comprador.Equals(datosUsuario[0].Nombre))
                         {
                             boton.BackColor = Color.Blue;
-                            boton.Enabled = false;
-                        } else
+
+                        }
+                        else
                         {
                             boton.BackColor = Color.Red;
                             boton.Enabled = false;
-                        }                       
+                        }
                     }
                 }
 
@@ -183,7 +185,6 @@ namespace Aerolineas
         {
             Button btnX = (Button)sender;
             int precioTotal = int.Parse(lblPrecioTotal.Text);
-            int precioTotalDTO = 0;
 
             if (btnX.BackColor == Color.Green || btnX.BackColor == Color.Yellow || btnX.BackColor == Color.Orange)
             {
@@ -223,6 +224,21 @@ namespace Aerolineas
                     precioTotal -= int.Parse(lblPrecioTurista.Text);
                 }
                 listaReservas.RemoveAt(listaReservas.IndexOf(btnX.Tag.ToString()));
+            }
+            else if (btnX.BackColor == Color.Blue)
+            {
+                DialogResult cancelarButaca = MessageBox.Show("¿Deseas cancelar tu reserva?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (cancelarButaca == DialogResult.Yes)
+                {
+                    int seleccion = comboBoxVuelos.SelectedIndex;
+                    int idVuelo = listaHorarios[seleccion].IdVuelo;
+
+                    String nombreBoton = listaReservas[i];
+                    String idAsiento = nombreBoton.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
+
+                    cnx.cancelarReservaButaca(idVuelo, idAsiento, usuarioActivo);
+                }
             }
 
             if (listaReservas.Count == 0)
@@ -277,12 +293,14 @@ namespace Aerolineas
                 double pDto = double.Parse(lblPrecioTotalDTO.Text) * 0.5;
                 double pFinal = double.Parse(lblPrecioTotalDTO.Text) + pDto;
                 lblPrecioTotalDTO.Text = pFinal.ToString();
-            } else if (cantidadVendida >= 50 && cantidadVendida <= 80) // Si se han vendido entre el 50% y 80% de los billetes se incrementan un 20% 
+            }
+            else if (cantidadVendida >= 50 && cantidadVendida <= 80) // Si se han vendido entre el 50% y 80% de los billetes se incrementan un 20% 
             {
                 double pDto = double.Parse(lblPrecioTotalDTO.Text) * 0.2;
                 double pFinal = double.Parse(lblPrecioTotalDTO.Text) + pDto;
                 lblPrecioTotalDTO.Text = pFinal.ToString();
-            } else if (cantidadVendida < 10) // Si se han vendido menos del 10% el precio se decrementa un 10%
+            }
+            else if (cantidadVendida < 10) // Si se han vendido menos del 10% el precio se decrementa un 10%
             {
                 double pDto = double.Parse(lblPrecioTotalDTO.Text) * 0.1;
                 double pFinal = double.Parse(lblPrecioTotalDTO.Text) - pDto;
@@ -292,6 +310,7 @@ namespace Aerolineas
 
         private void btnComprarVuelo_Click(object sender, EventArgs e)
         {
+
             string mensaje = "¿Deseas realizar la compra de las siguientes butacas?\n";
 
             for (int i = 0; i < listaReservas.Count; i++)
@@ -312,7 +331,7 @@ namespace Aerolineas
                     String nombreBoton = listaReservas[i];
                     String idAsiento = nombreBoton.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
 
-                    int codigo = cnx.insertarFacturacion(idVuelo, idAsiento, usuarioActivo, DateTime.Now, lblPrecioTotalDTO.Text); 
+                    int codigo = cnx.insertarFacturacion(idVuelo, idAsiento, usuarioActivo, DateTime.Now, lblPrecioTotalDTO.Text);
 
                     if (codigo == 1)
                     {
@@ -323,6 +342,20 @@ namespace Aerolineas
                 if (compraExitosa)
                 {
                     MessageBox.Show("Compra realizada con éxito.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    foreach (Control ctrl in tlp.Controls)
+                    {
+                        for (int i = 0; i < listaReservas.Count; i++)
+                        {
+                            if (ctrl.Tag.ToString().Equals(listaReservas[i]))
+                            {
+                                ctrl.BackColor = Color.Blue;                           
+                            }
+                        }
+                    }
+
+                    // Crear PDF
+                    // Mandar Mail
                 }
                 else
                 {
@@ -331,8 +364,6 @@ namespace Aerolineas
 
                 listaReservas.Clear();
                 btnComprarVuelo.Enabled = false;
-                usuarioActivo = "";
-                this.Close();
             }
             else
             {
