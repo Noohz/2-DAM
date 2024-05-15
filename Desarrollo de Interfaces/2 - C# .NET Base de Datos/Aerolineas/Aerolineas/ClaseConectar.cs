@@ -23,6 +23,24 @@ namespace Aerolineas
             conexion.ConnectionString = "server=localhost;Database=aerolineas2;Uid=root;pwd='';old guids=true";
         }
 
+        // Método para cancelar la butaca de un cliente.
+        internal int cancelarReservaButaca(int idVuelo, string idAsiento, string usuarioActivo)
+        {
+            conexion.Open();
+
+            string cadenaSql = "DELETE FROM billeteavion WHERE idVuelo = ?idVuelo AND idAsiento = ?idAsiento AND comprador = ?usuarioActivo";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?idVuelo", idVuelo);
+            comando.Parameters.AddWithValue("?idAsiento", idAsiento);
+            comando.Parameters.AddWithValue("?usuarioActivo", usuarioActivo);
+
+            int codigo = comando.ExecuteNonQuery();
+
+            conexion.Close();
+
+            return codigo;
+        }
+
         // Método para crear un nuevo modelo del avión en la base de datos.
         internal int crearModeloAvion(string idAvion, string modelo, int asientosBussines, int asientosPrimera, int asientosTurista)
         {

@@ -184,6 +184,10 @@ namespace Aerolineas
         private void Boton_Click(object sender, EventArgs e)
         {
             Button btnX = (Button)sender;
+
+            DateTime fechaActual = DateTime.Now; // Almaceno en la variable la fecha actual para usarla en el descuento.
+            DateTime fechaSalida = DateTime.Parse(lblFechaSalida.Text); // Casteo la fecha de salida a datetime para luego poder restarlo.
+
             int precioTotal = int.Parse(lblPrecioTotal.Text);
 
             if (btnX.BackColor == Color.Green || btnX.BackColor == Color.Yellow || btnX.BackColor == Color.Orange)
@@ -231,81 +235,106 @@ namespace Aerolineas
 
                 if (cancelarButaca == DialogResult.Yes)
                 {
-                    int seleccion = comboBoxVuelos.SelectedIndex;
-                    int idVuelo = listaHorarios[seleccion].IdVuelo;
+                    int diasHastaSalida = (fechaSalida - fechaActual).Days;
 
-                    String nombreBoton = listaReservas[i];
-                    String idAsiento = nombreBoton.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
+                    if (diasHastaSalida < 5)
+                    {
+                        MessageBox.Show("Lo sentimos, no puedes cancelar tu reserva debido a que quedan menos de 5 días para la salida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        int seleccion = comboBoxVuelos.SelectedIndex;
+                        int idVuelo = listaHorarios[seleccion].IdVuelo;
 
-                    cnx.cancelarReservaButaca(idVuelo, idAsiento, usuarioActivo);
+                        String idAsiento = btnX.Tag.ToString();
+                        idAsiento = idAsiento.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
+                        int codigo = cnx.cancelarReservaButaca(idVuelo, idAsiento, usuarioActivo);
+
+                        if (codigo == 1)
+                        {
+                            MessageBox.Show("Se ha cancelado tu reserva correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            if (btnX.Text.StartsWith("B"))
+                            {
+                                btnX.BackColor = Color.Green;
+                            }
+                            else if (btnX.Text.StartsWith("P"))
+                            {
+                                btnX.BackColor = Color.Yellow;
+                            }
+                            else
+                            {
+                                btnX.BackColor = Color.Orange;
+                            }
+                        }
+                    }
+                }
+
+                if (listaReservas.Count == 0)
+                {
+                    btnComprarVuelo.Enabled = false;
+                }
+
+                lblPrecioTotal.Text = precioTotal.ToString();
+
+                int dias = (fechaSalida - fechaActual).Days; // Resto ambas fechas usando .Days para que tenga en cuenta los días.
+
+                if (dias > 15)  // Decrementa un 20%
+                {
+                    double pDto = double.Parse(lblPrecioTotal.Text) * 0.20;
+                    double pTotalDto = double.Parse(lblPrecioTotal.Text) - pDto;
+
+                    lblPrecioTotalDTO.Text = pTotalDto.ToString();
+                }
+                else if (dias >= 10 && dias <= 14) // Incrementa un 15%
+                {
+                    double pDto = double.Parse(lblPrecioTotal.Text) * 0.15;
+                    double pTotalDto = double.Parse(lblPrecioTotal.Text) + pDto;
+
+                    lblPrecioTotalDTO.Text = pTotalDto.ToString();
+                }
+                else if (dias >= 2 && dias <= 9) // Incrementa un 20%
+                {
+                    double pDto = double.Parse(lblPrecioTotal.Text) * 0.20;
+                    double pTotalDto = double.Parse(lblPrecioTotal.Text) + pDto;
+
+                    lblPrecioTotalDTO.Text = pTotalDto.ToString();
+                }
+                else if (dias == 1) // Decrementa un 50%
+                {
+                    double pDto = double.Parse(lblPrecioTotal.Text) * 0.50;
+                    double pTotalDto = double.Parse(lblPrecioTotal.Text) - pDto;
+
+                    lblPrecioTotalDTO.Text = pTotalDto.ToString();
+                }
+
+                int butacasBussines = butacasAvion[0].FBussines * 6;
+                int butacasPrimera = butacasAvion[0].FPrimera * 6;
+                int butacasTurista = butacasAvion[0].FTurista * 6;
+                int totalButacas = butacasBussines + butacasPrimera + butacasTurista;
+                double cantidadVendida = ((double)listaFacturacion.Count / totalButacas) * 100;
+
+                if (cantidadVendida > 80) // Si se han vendido más del 80% de los billetes se incrementa un 50% el precio anterior.
+                {
+                    double pDto = double.Parse(lblPrecioTotalDTO.Text) * 0.5;
+                    double pFinal = double.Parse(lblPrecioTotalDTO.Text) + pDto;
+                    lblPrecioTotalDTO.Text = pFinal.ToString();
+                }
+                else if (cantidadVendida >= 50 && cantidadVendida <= 80) // Si se han vendido entre el 50% y 80% de los billetes se incrementan un 20% 
+                {
+                    double pDto = double.Parse(lblPrecioTotalDTO.Text) * 0.2;
+                    double pFinal = double.Parse(lblPrecioTotalDTO.Text) + pDto;
+                    lblPrecioTotalDTO.Text = pFinal.ToString();
+                }
+                else if (cantidadVendida < 10) // Si se han vendido menos del 10% el precio se decrementa un 10%
+                {
+                    double pDto = double.Parse(lblPrecioTotalDTO.Text) * 0.1;
+                    double pFinal = double.Parse(lblPrecioTotalDTO.Text) - pDto;
+                    lblPrecioTotalDTO.Text = pFinal.ToString();
                 }
             }
 
-            if (listaReservas.Count == 0)
-            {
-                btnComprarVuelo.Enabled = false;
-            }
-
-            lblPrecioTotal.Text = precioTotal.ToString();
-
-            DateTime fechaActual = DateTime.Now; // Almaceno en la variable la fecha actual para usarla en el descuento.
-            DateTime fechaSalida = DateTime.Parse(lblFechaSalida.Text); // Casteo la fecha de salida a datetime para luego poder restarlo.
-
-            int dias = (fechaSalida - fechaActual).Days; // Resto ambas fechas usando .Days para que tenga en cuenta los días.
-
-            if (dias > 15)  // Decrementa un 20%
-            {
-                double pDto = double.Parse(lblPrecioTotal.Text) * 0.20;
-                double pTotalDto = double.Parse(lblPrecioTotal.Text) - pDto;
-
-                lblPrecioTotalDTO.Text = pTotalDto.ToString();
-            }
-            else if (dias >= 10 && dias <= 14) // Incrementa un 15%
-            {
-                double pDto = double.Parse(lblPrecioTotal.Text) * 0.15;
-                double pTotalDto = double.Parse(lblPrecioTotal.Text) + pDto;
-
-                lblPrecioTotalDTO.Text = pTotalDto.ToString();
-            }
-            else if (dias >= 2 && dias <= 9) // Incrementa un 20%
-            {
-                double pDto = double.Parse(lblPrecioTotal.Text) * 0.20;
-                double pTotalDto = double.Parse(lblPrecioTotal.Text) + pDto;
-
-                lblPrecioTotalDTO.Text = pTotalDto.ToString();
-            }
-            else if (dias == 1) // Decrementa un 50%
-            {
-                double pDto = double.Parse(lblPrecioTotal.Text) * 0.50;
-                double pTotalDto = double.Parse(lblPrecioTotal.Text) - pDto;
-
-                lblPrecioTotalDTO.Text = pTotalDto.ToString();
-            }
-
-            int butacasBussines = butacasAvion[0].FBussines * 6;
-            int butacasPrimera = butacasAvion[0].FPrimera * 6;
-            int butacasTurista = butacasAvion[0].FTurista * 6;
-            int totalButacas = butacasBussines + butacasPrimera + butacasTurista;
-            double cantidadVendida = ((double)listaFacturacion.Count / totalButacas) * 100;
-
-            if (cantidadVendida > 80) // Si se han vendido más del 80% de los billetes se incrementa un 50% el precio anterior.
-            {
-                double pDto = double.Parse(lblPrecioTotalDTO.Text) * 0.5;
-                double pFinal = double.Parse(lblPrecioTotalDTO.Text) + pDto;
-                lblPrecioTotalDTO.Text = pFinal.ToString();
-            }
-            else if (cantidadVendida >= 50 && cantidadVendida <= 80) // Si se han vendido entre el 50% y 80% de los billetes se incrementan un 20% 
-            {
-                double pDto = double.Parse(lblPrecioTotalDTO.Text) * 0.2;
-                double pFinal = double.Parse(lblPrecioTotalDTO.Text) + pDto;
-                lblPrecioTotalDTO.Text = pFinal.ToString();
-            }
-            else if (cantidadVendida < 10) // Si se han vendido menos del 10% el precio se decrementa un 10%
-            {
-                double pDto = double.Parse(lblPrecioTotalDTO.Text) * 0.1;
-                double pFinal = double.Parse(lblPrecioTotalDTO.Text) - pDto;
-                lblPrecioTotalDTO.Text = pFinal.ToString();
-            }
+            timerButacaReservada.Start();
         }
 
         private void btnComprarVuelo_Click(object sender, EventArgs e)
@@ -349,7 +378,7 @@ namespace Aerolineas
                         {
                             if (ctrl.Tag.ToString().Equals(listaReservas[i]))
                             {
-                                ctrl.BackColor = Color.Blue;                           
+                                ctrl.BackColor = Color.Blue;
                             }
                         }
                     }
@@ -381,6 +410,13 @@ namespace Aerolineas
                 datosUsuario = cnx.iniciarSesion(datosUsuario[0].Nombre, datosUsuario[0].Clave);
                 lblBienvenidaMail.Text = "Correo: " + datosUsuario[0].Mail;
             }
+        }
+
+        private void timerButacaReservada_Tick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Atención: Llevas más de 10 minutos ausente. Tus butacas ya no están reservadas.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            // Implementar eliminar las reservas de la lista y poner el boton a su color.
         }
     }
 }

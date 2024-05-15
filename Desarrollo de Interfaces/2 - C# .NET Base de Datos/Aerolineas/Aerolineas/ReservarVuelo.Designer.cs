@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblBienvenida = new System.Windows.Forms.Label();
             this.btnCerrarReserva = new System.Windows.Forms.Button();
             this.btnComprarVuelo = new System.Windows.Forms.Button();
@@ -60,6 +61,7 @@
             this.btnPerfil = new System.Windows.Forms.Button();
             this.lblPrecioTotalDTO = new System.Windows.Forms.Label();
             this.lblTPrecioTotalDTO = new System.Windows.Forms.Label();
+            this.timerButacaReservada = new System.Windows.Forms.Timer(this.components);
             this.groupBoxLeyenda.SuspendLayout();
             this.gBDatosVuelos.SuspendLayout();
             this.SuspendLayout();
@@ -415,6 +417,11 @@
             this.lblTPrecioTotalDTO.Text = "Precio total:";
             this.lblTPrecioTotalDTO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // timerButacaReservada
+            // 
+            this.timerButacaReservada.Interval = 10000;
+            this.timerButacaReservada.Tick += new System.EventHandler(this.timerButacaReservada_Tick);
+            // 
             // ReservarVuelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -479,5 +486,6 @@
         private System.Windows.Forms.Button btnPerfil;
         private System.Windows.Forms.Label lblPrecioTotalDTO;
         private System.Windows.Forms.Label lblTPrecioTotalDTO;
+        private System.Windows.Forms.Timer timerButacaReservada;
     }
 }
