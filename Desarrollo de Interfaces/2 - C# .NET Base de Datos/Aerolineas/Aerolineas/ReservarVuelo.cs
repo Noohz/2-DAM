@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Globalization;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Windows.Forms;
+using QRCoder;
 
 namespace Aerolineas
 {
@@ -339,7 +341,8 @@ namespace Aerolineas
 
         private void btnComprarVuelo_Click(object sender, EventArgs e)
         {
-
+            timerButacaReservada.Stop();
+            string claveQR = "";
             string mensaje = "¿Deseas realizar la compra de las siguientes butacas?\n";
 
             for (int i = 0; i < listaReservas.Count; i++)
@@ -354,11 +357,12 @@ namespace Aerolineas
                 int seleccion = comboBoxVuelos.SelectedIndex;
                 int idVuelo = listaHorarios[seleccion].IdVuelo;
                 bool compraExitosa = false;
+                String idAsiento = "";
 
                 for (int i = 0; i < listaReservas.Count; i++)
                 {
                     String nombreBoton = listaReservas[i];
-                    String idAsiento = nombreBoton.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
+                    idAsiento = nombreBoton.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
 
                     int codigo = cnx.insertarFacturacion(idVuelo, idAsiento, usuarioActivo, DateTime.Now, lblPrecioTotalDTO.Text);
 
@@ -383,8 +387,12 @@ namespace Aerolineas
                         }
                     }
 
-                    // Crear PDF
-                    // Mandar Mail
+                    // Crear QR
+                    Random random = new Random();
+                    int numAleatorio = random.Next(1000000, 9999999 + 1);
+                    char letraAleatoria = (char)random.Next('A', 'Z' + 1);
+                    claveQR = idVuelo + "x" + idAsiento + "x" + numAleatorio.ToString() + letraAleatoria;
+                    generarCodigoQR(claveQR);
                 }
                 else
                 {
@@ -398,6 +406,33 @@ namespace Aerolineas
             {
                 MessageBox.Show("Operación cancelada", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void generarCodigoQR(string claveQR)
+        {
+            string emailCliente = lblBienvenidaMail.Text;
+
+            // Generate the QR code
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(claveQR, QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+            Bitmap qrCodeImage = qrCode.GetGraphic(20);
+
+            // Specify the folder path to save the QR code image
+            string folderPath = @"C:\AerolineasQR";
+
+            // Create the folder if it doesn't exist
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            // Save the QR code as a PNG image file inside the specified folder
+            string fileName = Path.Combine(folderPath, claveQR + ".png");
+            qrCodeImage.Save(fileName, ImageFormat.Png);
+
+            /*imprimir(qrCodeImage);
+            mandarMail(fileName, emailCliente);*/
         }
 
         private void btnPerfil_Click(object sender, EventArgs e)
@@ -414,9 +449,32 @@ namespace Aerolineas
 
         private void timerButacaReservada_Tick(object sender, EventArgs e)
         {
-            MessageBox.Show("Atención: Llevas más de 10 minutos ausente. Tus butacas ya no están reservadas.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            foreach (Control ctrl in tlp.Controls)
+            {
+                for (int i = 0; i < listaReservas.Count; i++)
+                {
+                    if (ctrl.Tag.ToString().Equals(listaReservas[i]))
+                    {
+                        if (ctrl.Text.StartsWith("B"))
+                        {
+                            ctrl.BackColor = Color.Green;
+                        }
+                        else if (ctrl.Text.StartsWith("P"))
+                        {
+                            ctrl.BackColor = Color.Yellow;
+                        }
+                        else
+                        {
+                            ctrl.BackColor = Color.Orange;
+                        }
+                    }
+                }
+            }
 
-            // Implementar eliminar las reservas de la lista y poner el boton a su color.
+            listaReservas.Clear();
+            timerButacaReservada.Stop();
+
+            MessageBox.Show("Atención: Llevas más de 10 minutos ausente. Tus butacas ya no están reservadas.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

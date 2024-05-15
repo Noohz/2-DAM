@@ -419,7 +419,7 @@
             // 
             // timerButacaReservada
             // 
-            this.timerButacaReservada.Interval = 10000;
+            this.timerButacaReservada.Interval = 100000;
             this.timerButacaReservada.Tick += new System.EventHandler(this.timerButacaReservada_Tick);
             // 
             // ReservarVuelo

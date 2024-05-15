@@ -5,8 +5,6 @@ C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Ae
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Aerolineas\bin\Debug\MySql.Data.dll
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Aerolineas\bin\Debug\mysqlbackup.dll
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Aerolineas\obj\Debug\Aerolineas.csproj.AssemblyReference.cache
-C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Aerolineas\obj\Debug\Aerolineas.csproj.SuggestedBindingRedirects.cache
-C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Aerolineas\obj\Debug\Aerolineas.exe.config
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Aerolineas\obj\Debug\Aerolineas.Form1.resources
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Aerolineas\obj\Debug\Aerolineas.Properties.Resources.resources
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Aerolineas\obj\Debug\Aerolineas.csproj.GenerateResource.cache
@@ -17,3 +15,4 @@ C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Ae
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Aerolineas\obj\Debug\Aerolineas.ReservarVuelo.resources
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Aerolineas\obj\Debug\Aerolineas.Administracion.resources
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Aerolineas\obj\Debug\Aerolineas.PerfilUsuario.resources
+C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Aerolineas\bin\Debug\QRCoder.dll
