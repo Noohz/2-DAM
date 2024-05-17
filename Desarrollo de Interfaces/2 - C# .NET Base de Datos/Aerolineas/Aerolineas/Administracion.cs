@@ -10,12 +10,14 @@ namespace Aerolineas
         ClaseConectar cnx = new ClaseConectar();
 
         List<ModeloAvion> idAviones = new List<ModeloAvion>();
+        List<Aeropuertos> datosAeropuertos = new List<Aeropuertos>();
 
         public Administracion()
         {
             InitializeComponent();
             this.Text = "Panel de Administración";
             idAviones = cnx.obtenerIdsAviones();
+            datosAeropuertos = cnx.obtenerDatosAeropuertos();
         }
 
         private void btnCrearModeloAvion_Click(object sender, EventArgs e)
@@ -45,11 +47,13 @@ namespace Aerolineas
                     {
                         MessageBox.Show("Ha ocurrido un error al crear el modelo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Error, no se puede crear un modelo sin indicar al menos 1 asiento en alguna categoría.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            } else
+            }
+            else
             {
                 MessageBox.Show("Error, los campos IdAvion y Modelo deben estar completos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -64,6 +68,12 @@ namespace Aerolineas
             {
                 cbIdAvionCNR.Items.Add(ids.IdAvion);
             }
+
+            foreach (var aeropuertos in datosAeropuertos)
+            {
+                cBRuta1CNR.Items.Add(aeropuertos.Id);
+                cBRuta2CNR.Items.Add(aeropuertos.Id);
+            }
         }
 
         private void btnCrearNuevaRutaCNR_Click(object sender, EventArgs e)
@@ -73,32 +83,42 @@ namespace Aerolineas
 
             if (cbIdAvionCNR.SelectedIndex != -1)
             {
-                if (tBRutaCNR.Text != "" && numericUpDownPrecioBussinessCNR.Value != 0 && numericUpDownPrecioPrimeraCNR.Value != 0 && numericUpDownPrecioTuristaCNR.Value != 0)
+                if (cBRuta1CNR.SelectedIndex != -1 && cBRuta2CNR.SelectedIndex != -1)
                 {
-                    int ultimoIdVuelo = cnx.obtenerUltimoIdVuelo();
-                    int codigo = cnx.crearNuevaRuta(ultimoIdVuelo + 1, tBRutaCNR.Text, tBFechaSalidaTotalCNR.Text, (int)numericUpDownPrecioBussinessCNR.Value, (int)numericUpDownPrecioPrimeraCNR.Value, (int)numericUpDownPrecioTuristaCNR.Value, cbIdAvionCNR.Text);
+                    if (numericUpDownPrecioBussinessCNR.Value != 0 && numericUpDownPrecioPrimeraCNR.Value != 0 && numericUpDownPrecioTuristaCNR.Value != 0)
+                    {
+                        int ultimoIdVuelo = cnx.obtenerUltimoIdVuelo();
+                        string ruta = cBRuta1CNR.Text + "-" + cBRuta2CNR.Text;
+                        int codigo = cnx.crearNuevaRuta(ultimoIdVuelo + 1, ruta, tBFechaSalidaTotalCNR.Text, (int)numericUpDownPrecioBussinessCNR.Value, (int)numericUpDownPrecioPrimeraCNR.Value, (int)numericUpDownPrecioTuristaCNR.Value, cbIdAvionCNR.Text);
 
-                    if (codigo == 1)
+                        if (codigo == 1)
+                        {
+                            MessageBox.Show("Ruta creada correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            cbIdAvionCNR.SelectedIndex = -1;
+                            cBRuta1CNR.SelectedIndex = -1;
+                            cBRuta2CNR.SelectedIndex = -1;
+                            numHoras.Value = 0;
+                            numMin.Value = 0;
+                            tBFechaSalidaTotalCNR.Clear();
+                            numericUpDownPrecioBussinessCNR.Value = 0;
+                            numericUpDownPrecioPrimeraCNR.Value = 0;
+                            numericUpDownPrecioTuristaCNR.Value = 0;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ha ocurrido un error al intentar crear la ruta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    } else
                     {
-                        MessageBox.Show("Ruta creada correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        cbIdAvionCNR.SelectedIndex = -1;
-                        tBRutaCNR.Clear();
-                        numHoras.Value = 0;
-                        numMin.Value = 0;
-                        tBFechaSalidaTotalCNR.Clear();
-                        numericUpDownPrecioBussinessCNR.Value = 0;
-                        numericUpDownPrecioPrimeraCNR.Value = 0;
-                        numericUpDownPrecioTuristaCNR.Value = 0;
+                        MessageBox.Show("Error, debes introducir un precio para las butacas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    else
-                    {
-                        MessageBox.Show("Ha ocurrido un error al intentar crear la ruta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                } else
-                {
-                    MessageBox.Show("Error, debes completar todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            } else
+                else
+                {
+                    MessageBox.Show("Error, debes de seleccionar la ruta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
             {
                 MessageBox.Show("Error, debes seleccionar un módelo de avión válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -134,6 +154,35 @@ namespace Aerolineas
             String nuevaCadena = cadenaDateTime.Substring(0, 11);
             nuevaCadena += numHoras.Value + ":" + numMin.Value;
             tBFechaSalidaTotalCNR.Text = nuevaCadena;
+        }
+
+        private void cBRuta1CNR_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cBRuta1CNR.SelectedIndex != -1)
+            {
+                if (cBRuta1CNR.Text.Equals(cBRuta2CNR.Text))
+                {
+                    MessageBox.Show("Error, no puedes seleccionar la misma ruta para salida y destino.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cBRuta1CNR.SelectedIndex = -1;
+                }
+            }            
+        }
+
+        private void cBRuta2CNR_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cBRuta2CNR.SelectedIndex != -1)
+            {
+                if (cBRuta2CNR.Text.Equals(cBRuta1CNR.Text))
+                {
+                    MessageBox.Show("Error, no puedes seleccionar la misma ruta para salida y destino.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cBRuta2CNR.SelectedIndex = -1;
+                }
+            }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

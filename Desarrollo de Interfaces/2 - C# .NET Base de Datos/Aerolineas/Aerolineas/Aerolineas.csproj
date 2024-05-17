@@ -67,6 +67,7 @@
     <Compile Include="Administracion.Designer.cs">
       <DependentUpon>Administracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aeropuertos.cs" />
     <Compile Include="Billeteavion.cs" />
     <Compile Include="ClaseConectar.cs" />
     <Compile Include="Form1.cs">

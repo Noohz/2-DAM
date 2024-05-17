@@ -15,7 +15,7 @@ namespace Aerolineas
         List<ModeloAvion> butacasAvion = new List<ModeloAvion>();
         List<Billeteavion> listaFacturacion = new List<Billeteavion>();
         List<ModeloAvion> listaIdAviones = new List<ModeloAvion>();
-
+        List<Aeropuertos> datosAeropuertos = new List<Aeropuertos>();
 
         public ClaseConectar()
         {
@@ -224,6 +224,31 @@ namespace Aerolineas
             conexion.Close();
 
             return listaFacturacion;
+        }
+
+        // Método para obtener todos los datos de la tabla aeropuertos.
+        internal List<Aeropuertos> obtenerDatosAeropuertos()
+        {
+            conexion.Open();
+
+            string cadenaSql = "SELECT * FROM aeropuertos";
+            comando = new MySqlCommand(cadenaSql, conexion);
+
+            datos = comando.ExecuteReader();
+
+            while (datos.Read())
+            {
+                Aeropuertos aP = new Aeropuertos();
+                aP.Id = (string)datos["id"];
+                aP.Ciudad = (string)datos["Ciudad"];
+                aP.Pais = (string)datos["Pais"];
+
+                datosAeropuertos.Add(aP);
+            }
+
+            conexion.Close();
+
+            return datosAeropuertos;
         }
 
         // Método para obtener los ids de los aviones para usarlo en el comboBox de administración Crear Nueva Ruta.
