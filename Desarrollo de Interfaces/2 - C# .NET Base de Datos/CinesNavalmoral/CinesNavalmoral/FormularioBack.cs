@@ -183,7 +183,13 @@ namespace CinesNavalmoral
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             if (tBQRAuto.Text.Length > 0)
+            {
                 timer1.Enabled = true;
+            } else
+            {
+                timer1.Enabled = false;
+            }
+                
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -222,6 +228,16 @@ namespace CinesNavalmoral
                 tBQRAuto.Text = "";
                 panelValidacion.BackColor = Color.White;
             }
+        }
+
+        private void lblT2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelValidacion_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

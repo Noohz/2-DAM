@@ -4,7 +4,7 @@ using MySql.Data.MySqlClient;
 
 namespace Aerolineas
 {
-    internal class ClaseConectar
+    public class ClaseConectar
     {
         MySqlConnection conexion;
         MySqlCommand comando;
@@ -322,6 +322,23 @@ namespace Aerolineas
             conexion.Close();
 
             return ultimoID;
+        }
+
+        // Método para ocupar la butaca reservada.
+        internal int OcuparButaca(string idVueloQR, string idAsientoQR)
+        {
+            conexion.Open();
+
+            string cadenaSql = "UPDATE billeteavion SET ocupado = 1 WHERE idVuelo = ?idVueloQR AND idAsiento = ?idAsientoQR AND ocupado = 0";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?idVueloQR", idVueloQR);
+            comando.Parameters.AddWithValue("idAsientoQR", idAsientoQR);
+
+            int codigo = comando.ExecuteNonQuery();
+
+            conexion.Close();
+
+            return codigo;
         }
 
         // Método para registrar un nuevo usuario.

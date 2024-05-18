@@ -16,3 +16,4 @@ C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Ae
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Aerolineas\obj\Debug\Aerolineas.Administracion.resources
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Aerolineas\obj\Debug\Aerolineas.PerfilUsuario.resources
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Aerolineas\bin\Debug\QRCoder.dll
+C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\Aerolineas\Aerolineas\obj\Debug\Aerolineas.Embarque.resources

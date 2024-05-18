@@ -70,6 +70,12 @@
     <Compile Include="Aeropuertos.cs" />
     <Compile Include="Billeteavion.cs" />
     <Compile Include="ClaseConectar.cs" />
+    <Compile Include="Embarque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Embarque.Designer.cs">
+      <DependentUpon>Embarque.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     <Compile Include="Usuariosavion.cs" />
     <EmbeddedResource Include="Administracion.resx">
       <DependentUpon>Administracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Embarque.resx">
+      <DependentUpon>Embarque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

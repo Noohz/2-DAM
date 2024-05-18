@@ -44,8 +44,9 @@ namespace Aerolineas
                             tBEmailRegistro.Text = "";
                         }
                     }
-                 // En cambio, si el usuario no es admin se le obligará a introducir un email.
-                } else if (tBEmailRegistro.Text != "") 
+                    // En cambio, si el usuario no es admin se le obligará a introducir un email.
+                }
+                else if (tBEmailRegistro.Text != "")
                 {
                     string contraseniaCifrada = cifrar(tBContraseniaRegistro.Text);
 
@@ -58,7 +59,8 @@ namespace Aerolineas
                         tBContraseniaRegistro.Text = "";
                         tBEmailRegistro.Text = "";
                     }
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Error, debes de introducir un email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -93,6 +95,16 @@ namespace Aerolineas
                         admin.ShowDialog();
                         listaUsuario.Clear();
 
+                    }
+                    else if (usuario.ToLower().Equals("acceso"))
+                    {
+                        MessageBox.Show("¡Has accedido a la interfaz de embarque!.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tBUsuario.Text = "";
+                        tBContraseniaLogin.Text = "";
+
+                        Embarque emb = new Embarque(cnx);
+                        emb.ShowDialog();
+                        listaUsuario.Clear();
                     }
                     else
                     {

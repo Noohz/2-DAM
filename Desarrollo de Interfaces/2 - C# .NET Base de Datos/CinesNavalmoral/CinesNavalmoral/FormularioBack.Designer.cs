@@ -295,6 +295,7 @@
             this.lblT2.Size = new System.Drawing.Size(71, 13);
             this.lblT2.TabIndex = 26;
             this.lblT2.Text = "TextChanged";
+            this.lblT2.Click += new System.EventHandler(this.lblT2_Click);
             // 
             // lblT1
             // 
@@ -312,6 +313,7 @@
             this.panelValidacion.Name = "panelValidacion";
             this.panelValidacion.Size = new System.Drawing.Size(106, 63);
             this.panelValidacion.TabIndex = 24;
+            this.panelValidacion.Paint += new System.Windows.Forms.PaintEventHandler(this.panelValidacion_Paint);
             // 
             // lblQR
             // 

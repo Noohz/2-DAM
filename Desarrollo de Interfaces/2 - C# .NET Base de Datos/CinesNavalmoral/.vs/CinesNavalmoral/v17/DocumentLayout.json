@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9BCC26EA-1757-47E3-9A80-6109FCF59533}|CinesNavalmoral\\CinesNavalmoral.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\cinesnavalmoral\\claseconectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BCC26EA-1757-47E3-9A80-6109FCF59533}|CinesNavalmoral\\CinesNavalmoral.csproj|solutionrelative:cinesnavalmoral\\claseconectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9BCC26EA-1757-47E3-9A80-6109FCF59533}|CinesNavalmoral\\CinesNavalmoral.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\cinesnavalmoral\\cinesnavalmoral\\formularioback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9BCC26EA-1757-47E3-9A80-6109FCF59533}|CinesNavalmoral\\CinesNavalmoral.csproj|solutionrelative:cinesnavalmoral\\formularioback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,6 +13,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{9BCC26EA-1757-47E3-9A80-6109FCF59533}|CinesNavalmoral\\CinesNavalmoral.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\cinesnavalmoral\\formulariobutacas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9BCC26EA-1757-47E3-9A80-6109FCF59533}|CinesNavalmoral\\CinesNavalmoral.csproj|solutionrelative:cinesnavalmoral\\formulariobutacas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BCC26EA-1757-47E3-9A80-6109FCF59533}|CinesNavalmoral\\CinesNavalmoral.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\cinesnavalmoral\\claseconectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BCC26EA-1757-47E3-9A80-6109FCF59533}|CinesNavalmoral\\CinesNavalmoral.csproj|solutionrelative:cinesnavalmoral\\claseconectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9BCC26EA-1757-47E3-9A80-6109FCF59533}|CinesNavalmoral\\CinesNavalmoral.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\cinesnavalmoral\\formulariobutacas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,32 +30,31 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "FormularioBack.cs",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\CinesNavalmoral\\FormularioBack.cs",
               "RelativeDocumentMoniker": "CinesNavalmoral\\FormularioBack.cs",
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\CinesNavalmoral\\FormularioBack.cs",
               "RelativeToolTip": "CinesNavalmoral\\FormularioBack.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAvwDAAAAA0AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAOUAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-08T12:09:36.019Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "FormularioBack.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\CinesNavalmoral\\FormularioBack.cs",
               "RelativeDocumentMoniker": "CinesNavalmoral\\FormularioBack.cs",
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\CinesNavalmoral\\FormularioBack.cs [Dise\u00F1o]",
               "RelativeToolTip": "CinesNavalmoral\\FormularioBack.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-08T11:44:26.284Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-05-08T11:44:26.284Z"
             },
             {
               "$type": "Document",
@@ -71,27 +70,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "FormularioButacas.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\CinesNavalmoral\\FormularioButacas.cs",
               "RelativeDocumentMoniker": "CinesNavalmoral\\FormularioButacas.cs",
-              "ToolTip": "C:\\Github\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\CinesNavalmoral\\FormularioButacas.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\CinesNavalmoral\\FormularioButacas.cs [Dise\u00F1o]",
               "RelativeToolTip": "CinesNavalmoral\\FormularioButacas.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-05T09:20:47.29Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "ClaseConectar.cs",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\CinesNavalmoral\\ClaseConectar.cs",
               "RelativeDocumentMoniker": "CinesNavalmoral\\ClaseConectar.cs",
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CinesNavalmoral\\CinesNavalmoral\\ClaseConectar.cs",
               "RelativeToolTip": "CinesNavalmoral\\ClaseConectar.cs",
-              "ViewState": "AQIAAEoAAAAAAAAAAAAnwKQAAAApAAAA",
+              "ViewState": "AQIAADIAAAAAAAAAAAAYwKQAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-18T10:58:58.05Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-18T10:58:58.05Z"
             }
           ]
         }
