@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace Aerolineas
 {
@@ -11,6 +12,7 @@ namespace Aerolineas
 
         List<ModeloAvion> idAviones = new List<ModeloAvion>();
         List<Aeropuertos> datosAeropuertos = new List<Aeropuertos>();
+        List<ModeloAvion> datosModeloAvion = new List<ModeloAvion>();
 
         public Administracion()
         {
@@ -23,6 +25,7 @@ namespace Aerolineas
         private void btnCrearModeloAvion_Click(object sender, EventArgs e)
         {
             gBOpcionCrearModeloAvion.Visible = true;
+            gBOpcionModificarAvion.Visible = false;
             gBOpcionCrearNuevaRuta.Visible = false;
         }
 
@@ -62,8 +65,10 @@ namespace Aerolineas
         private void btnCrearRuta_Click(object sender, EventArgs e)
         {
             gBOpcionCrearModeloAvion.Visible = false;
+            gBOpcionModificarAvion.Visible = false;
             gBOpcionCrearNuevaRuta.Visible = true;
 
+            cbIdAvionCNR.Items.Clear();
             foreach (var ids in idAviones)
             {
                 cbIdAvionCNR.Items.Add(ids.IdAvion);
@@ -108,7 +113,8 @@ namespace Aerolineas
                         {
                             MessageBox.Show("Ha ocurrido un error al intentar crear la ruta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                    } else
+                    }
+                    else
                     {
                         MessageBox.Show("Error, debes introducir un precio para las butacas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -165,7 +171,7 @@ namespace Aerolineas
                     MessageBox.Show("Error, no puedes seleccionar la misma ruta para salida y destino.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     cBRuta1CNR.SelectedIndex = -1;
                 }
-            }            
+            }
         }
 
         private void cBRuta2CNR_SelectedIndexChanged(object sender, EventArgs e)
@@ -183,6 +189,48 @@ namespace Aerolineas
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnModificarAvion_Click(object sender, EventArgs e)
+        {
+            gBOpcionCrearModeloAvion.Visible = false;
+            gBOpcionCrearNuevaRuta.Visible = false;
+            gBOpcionModificarAvion.Visible = true;
+
+            cBMAIdAvion.Items.Clear();
+            foreach (var ids in idAviones)
+            {
+                cBMAIdAvion.Items.Add(ids.IdAvion);
+            }
+        }
+
+        private void cBMAIdAvion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            datosModeloAvion.Clear();
+
+            datosModeloAvion = cnx.obtenerButacasAvion(cBMAIdAvion.Text);
+            tBMAModelo.Text = datosModeloAvion[0].Modelo;
+            tBMAFBussines.Text = datosModeloAvion[0].FBussines.ToString();
+            tBMAFPrimera.Text = datosModeloAvion[0].FPrimera.ToString();
+            tBMAFTurista.Text = datosModeloAvion[0].FTurista.ToString();
+            btnModAvion.Visible = true;
+        }
+
+        private void btnModAvion_Click(object sender, EventArgs e)
+        {
+            if (tBMAFBussines.Text != "" && tBMAFPrimera.Text != "" && tBMAFTurista.Text != "")
+            {
+                int codigo = cnx.modificarAvion(cBMAIdAvion.Text, tBMAFBussines.Text, tBMAFPrimera.Text, tBMAFTurista.Text);
+
+                if (codigo == 1)
+                {
+                    MessageBox.Show("Se ha modificado el avión correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error al modificar el avión.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

@@ -135,6 +135,25 @@ namespace Aerolineas
             return codigo;
         }
 
+        // Método para modificar un avión de la tabla Modeloavion.
+        internal int modificarAvion(string idAvion, string FBussines, string FPrimera, string FTurista)
+        {
+            conexion.Open();
+
+            string cadenaSql = "UPDATE modeloavion SET FBussines = ?FBussines, FPrimera = ?FPrimera, FTurista = ?FTurista WHERE idAvion = ?idAvion";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?idAvion", idAvion);
+            comando.Parameters.AddWithValue("?FBussines", FBussines);
+            comando.Parameters.AddWithValue("?FPrimera", FPrimera);
+            comando.Parameters.AddWithValue("?FTurista", FTurista);
+
+            int codigo = comando.ExecuteNonQuery();
+
+            conexion.Close();
+
+            return codigo;
+        }
+
         // Método para modificar la clave del usuario en la BD.
         internal int modificarContrasenia(string nombre, string contraseniaCifrada)
         {

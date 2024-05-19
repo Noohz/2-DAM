@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\aerolineas\\aerolineas\\embarque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|solutionrelative:aerolineas\\embarque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\aerolineas\\aerolineas\\administracion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|solutionrelative:aerolineas\\administracion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\aerolineas\\aerolineas\\embarque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|solutionrelative:aerolineas\\embarque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\aerolineas\\administracion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|solutionrelative:aerolineas\\administracion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,26 +23,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Embarque.cs",
-              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\Embarque.cs",
-              "RelativeDocumentMoniker": "Aerolineas\\Embarque.cs",
-              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\Embarque.cs",
-              "RelativeToolTip": "Aerolineas\\Embarque.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAQAAAA",
+              "Title": "Administracion.cs",
+              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\Administracion.cs",
+              "RelativeDocumentMoniker": "Aerolineas\\Administracion.cs",
+              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\Administracion.cs",
+              "RelativeToolTip": "Aerolineas\\Administracion.cs",
+              "ViewState": "AQIAAJsAAAAAAAAAAAAcwNoAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T10:03:43.405Z",
+              "WhenOpened": "2024-05-19T10:01:05.583Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Embarque.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\Embarque.cs",
-              "RelativeDocumentMoniker": "Aerolineas\\Embarque.cs",
-              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\Embarque.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Aerolineas\\Embarque.cs [Dise\u00F1o]",
+              "Title": "Administracion.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\Administracion.cs",
+              "RelativeDocumentMoniker": "Aerolineas\\Administracion.cs",
+              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\Administracion.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Aerolineas\\Administracion.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T09:35:09.009Z",
+              "WhenOpened": "2024-05-19T10:00:59.836Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]
