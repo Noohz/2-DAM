@@ -69,6 +69,7 @@
     </Compile>
     <Compile Include="Aeropuertos.cs" />
     <Compile Include="Billeteavion.cs" />
+    <Compile Include="Billetereservado.cs" />
     <Compile Include="ClaseConectar.cs" />
     <Compile Include="Embarque.cs">
       <SubType>Form</SubType>

@@ -43,6 +43,22 @@ namespace Aerolineas
 
         private void btnCerrarReserva_Click(object sender, EventArgs e)
         {
+            int seleccion = comboBoxVuelos.SelectedIndex;
+            int idVuelo = listaHorarios[seleccion].IdVuelo;
+
+            foreach (Control ctrl in tlp.Controls)
+            {
+                for (int i = 0; i < listaReservas.Count; i++)
+                {
+                    if (ctrl.Tag.ToString().Equals(listaReservas[i]))
+                    {
+                        String idAsiento = ctrl.Tag.ToString();
+                        idAsiento = idAsiento.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
+                        cnx.cancelarButacaTemporal(idVuelo, idAsiento, usuarioActivo);
+                    }
+                }
+            }
+
             usuarioActivo = "";
             this.Close();
         }
@@ -189,6 +205,9 @@ namespace Aerolineas
         {
             Button btnX = (Button)sender;
 
+            int seleccion = comboBoxVuelos.SelectedIndex;
+            int idVuelo = listaHorarios[seleccion].IdVuelo;
+
             if (listaReservas.Count < 5)
             {
                 DateTime fechaActual = DateTime.Now; // Almaceno en la variable la fecha actual para usarla en el descuento.
@@ -201,20 +220,31 @@ namespace Aerolineas
                     btnX.BackColor = Color.Pink;
                     listaReservas.Add(btnX.Tag.ToString());
 
-                    if (btnX.Text.StartsWith("B"))
+                    if (cnx.comprobarButacaReservadaTemporal(idVuelo, btnX.Tag.ToString()))
                     {
-                        precioTotal += int.Parse(lblPrecioBussines.Text);
-                    }
-                    else if (btnX.Text.StartsWith("P"))
+                        MessageBox.Show("Error, la butaca seleccionada está reservada por otro usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    } else
                     {
-                        precioTotal += int.Parse(lblPrecioPrimera.Text);
-                    }
-                    else
-                    {
-                        precioTotal += int.Parse(lblPrecioTurista.Text);
-                    }
+                        String idAsiento = btnX.Tag.ToString();
+                        idAsiento = idAsiento.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
+                        cnx.reservarButacaTemporal(idVuelo, idAsiento, usuarioActivo);
+                        timerButacaReservada.Start();
 
-                    btnComprarVuelo.Enabled = true;
+                        if (btnX.Text.StartsWith("B"))
+                        {
+                            precioTotal += int.Parse(lblPrecioBussines.Text);
+                        }
+                        else if (btnX.Text.StartsWith("P"))
+                        {
+                            precioTotal += int.Parse(lblPrecioPrimera.Text);
+                        }
+                        else
+                        {
+                            precioTotal += int.Parse(lblPrecioTurista.Text);
+                        }
+
+                        btnComprarVuelo.Enabled = true;
+                    }                    
                 }
                 else if (btnX.BackColor == Color.Pink)
                 {
@@ -234,6 +264,10 @@ namespace Aerolineas
                         precioTotal -= int.Parse(lblPrecioTurista.Text);
                     }
                     listaReservas.RemoveAt(listaReservas.IndexOf(btnX.Tag.ToString()));
+                    String idAsiento = btnX.Tag.ToString();
+                    idAsiento = idAsiento.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
+                    cnx.cancelarButacaTemporal(idVuelo, idAsiento, usuarioActivo);
+                    timerButacaReservada.Stop();
                 }
                 else if (btnX.BackColor == Color.Blue)
                 {
@@ -249,9 +283,6 @@ namespace Aerolineas
                         }
                         else
                         {
-                            int seleccion = comboBoxVuelos.SelectedIndex;
-                            int idVuelo = listaHorarios[seleccion].IdVuelo;
-
                             String idAsiento = btnX.Tag.ToString();
                             idAsiento = idAsiento.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
                             int codigo = cnx.cancelarReservaButaca(idVuelo, idAsiento, usuarioActivo);
@@ -339,9 +370,8 @@ namespace Aerolineas
                         lblPrecioTotalDTO.Text = pFinal.ToString();
                     }
                 }
-
-                timerButacaReservada.Start();
-            } else
+            }
+            else
             {
                 MessageBox.Show("Error, no puedes reservas más de 5 butacas a la vez.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -377,6 +407,21 @@ namespace Aerolineas
                     if (codigo == 1)
                     {
                         compraExitosa = true;
+
+                        foreach (Control ctrl in tlp.Controls)
+                        {
+                            if (ctrl.Tag.ToString().Equals(listaReservas[i]))
+                            {
+                                cnx.cancelarButacaTemporal(idVuelo, ctrl.Tag.ToString(), usuarioActivo);
+                            }
+                        }
+
+                        // Crear QR
+                        Random random = new Random();
+                        int numAleatorio = random.Next(1000000, 9999999 + 1);
+                        char letraAleatoria = (char)random.Next('A', 'Z' + 1);
+                        claveQR = idVuelo + "x" + idAsiento + "x" + numAleatorio.ToString() + letraAleatoria;
+                        generarCodigoQR(claveQR);
                     }
                 }
 
@@ -394,13 +439,6 @@ namespace Aerolineas
                             }
                         }
                     }
-
-                    // Crear QR
-                    Random random = new Random();
-                    int numAleatorio = random.Next(1000000, 9999999 + 1);
-                    char letraAleatoria = (char)random.Next('A', 'Z' + 1);
-                    claveQR = idVuelo + "x" + idAsiento + "x" + numAleatorio.ToString() + letraAleatoria;
-                    generarCodigoQR(claveQR);
                 }
                 else
                 {
@@ -495,6 +533,9 @@ namespace Aerolineas
 
         private void timerButacaReservada_Tick(object sender, EventArgs e)
         {
+            int seleccion = comboBoxVuelos.SelectedIndex;
+            int idVuelo = listaHorarios[seleccion].IdVuelo;
+
             foreach (Control ctrl in tlp.Controls)
             {
                 for (int i = 0; i < listaReservas.Count; i++)
@@ -513,6 +554,10 @@ namespace Aerolineas
                         {
                             ctrl.BackColor = Color.Orange;
                         }
+
+                        String idAsiento = ctrl.Tag.ToString();
+                        idAsiento = idAsiento.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
+                        cnx.cancelarButacaTemporal(idVuelo, idAsiento, usuarioActivo);
                     }
                 }
             }

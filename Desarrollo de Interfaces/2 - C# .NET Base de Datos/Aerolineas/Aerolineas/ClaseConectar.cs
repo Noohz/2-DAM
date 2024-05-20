@@ -21,6 +21,7 @@ namespace Aerolineas
         {
             conexion = new MySqlConnection();
             conexion.ConnectionString = "server=localhost;Database=aerolineas2;Uid=root;pwd='';old guids=true";
+            //conexion.ConnectionString = "Server=servidoraws.c5s9z61ogvyq.us-east-1.rds.amazonaws.com;Database=aerolineas2;Uid=admin;pwd=Pilukina_2024;old guids=true";
         }
 
         // Método para cancelar la butaca de un cliente.
@@ -160,7 +161,7 @@ namespace Aerolineas
             conexion.Open();
 
             string cadenaSql = "UPDATE usuariosavion SET clave = ?contraseniaCifrada WHERE nombre = ?nombre ";
-            comando = new MySqlCommand (cadenaSql, conexion);
+            comando = new MySqlCommand(cadenaSql, conexion);
             comando.Parameters.AddWithValue("?contraseniaCifrada", contraseniaCifrada);
             comando.Parameters.AddWithValue("?nombre", nombre);
 
@@ -235,7 +236,7 @@ namespace Aerolineas
                 bV.Comprador = (string)datos["comprador"];
                 bV.FechaReserva = (DateTime)datos["fechaReserva"];
                 bV.PrecioFinalBillete = (int)datos["precioFinalBillete"];
-                bV.Ocupado = (bool)datos["ocupado"];
+                bV.Ocupado = (int)datos["ocupado"];
 
                 listaFacturacion.Add(bV);
             }
@@ -376,6 +377,68 @@ namespace Aerolineas
             conexion.Close();
 
             return codigo;
+        }
+
+        // Método que reserva temporalmente la butaca que el usuario selecciona en la tabla billetereservado.
+        internal void reservarButacaTemporal(int idVuelo, string idAsiento, string usuarioActivo)
+        {
+            conexion.Open();
+
+            string cadenaSql = "INSERT INTO billetereservado VALUES (?idVuelo, ?idAsiento, ?usuarioActivo)";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?idVuelo", idVuelo);
+            comando.Parameters.AddWithValue("?idAsiento", idAsiento);
+            comando.Parameters.AddWithValue("?usuarioActivo", usuarioActivo);
+
+            datos = comando.ExecuteReader();
+
+            while (datos.Read())
+            {
+                Billetereservado bR = new Billetereservado();
+                bR.IdVuelo = (int)datos["idVuelo"];
+                bR.IdAsiento = (string)datos["idAsiento"];
+                bR.Comprador = (string)datos["comprador"];
+            }
+
+            conexion.Close();
+        }
+
+        // Método que elimina la reserva que hizo el usuario temporalmente en la tabla billetereservado.
+        internal void cancelarButacaTemporal(int idVuelo, string idAsiento, string usuarioActivo)
+        {
+            conexion.Open();
+
+            string cadenaSql = "DELETE FROM billetereservado WHERE idVuelo = ?idVuelo AND idAsiento = ?idAsiento AND comprador = ?usuarioActivo";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?idVuelo", idVuelo);
+            comando.Parameters.AddWithValue("?idAsiento", idAsiento);
+            comando.Parameters.AddWithValue("?usuarioActivo", usuarioActivo);
+
+            comando.ExecuteNonQuery();
+
+            conexion.Close();
+        }
+
+        // Método para comprobar si una butaca ya está siendo reservada temporalmente por alguien.
+        internal bool comprobarButacaReservadaTemporal(int idVuelo, string idAsiento)
+        {
+            conexion.Open();
+
+            string cadenaSql = "SELECT COUNT(*) FROM billetereservado WHERE idVuelo = ?idVuelo AND idAsiento = ?idAsiento";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?idVuelo", idVuelo);
+            comando.Parameters.AddWithValue("?idAsiento", idAsiento);
+
+            int count = comando.ExecuteNonQuery();
+
+            if (count > 0)
+            {
+                return true;
+            }
+
+            conexion.Close();
+
+            return false;
         }
     }
 }

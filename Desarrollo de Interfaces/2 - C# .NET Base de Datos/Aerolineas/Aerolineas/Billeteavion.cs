@@ -13,13 +13,13 @@ namespace Aerolineas
         private string comprador;
         private DateTime fechaReserva;
         private int precioFinalBillete;
-        private bool ocupado;
+        private int ocupado;
 
         public Billeteavion()
         {
         }
 
-        public Billeteavion(int idVuelo, string idAsiento, string comprador, DateTime fechaReserva, int precioFinalBillete, bool ocupado)
+        public Billeteavion(int idVuelo, string idAsiento, string comprador, DateTime fechaReserva, int precioFinalBillete, int ocupado)
         {
             this.idVuelo = idVuelo;
             this.idAsiento = idAsiento;
@@ -34,6 +34,6 @@ namespace Aerolineas
         public string Comprador { get => comprador; set => comprador = value; }
         public DateTime FechaReserva { get => fechaReserva; set => fechaReserva = value; }
         public int PrecioFinalBillete { get => precioFinalBillete; set => precioFinalBillete = value; }
-        public bool Ocupado { get => ocupado; set => ocupado = value; }
+        public int Ocupado { get => ocupado; set => ocupado = value; }
     }
 }
