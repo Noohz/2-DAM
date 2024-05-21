@@ -66,4 +66,5 @@ public class Prueba {
 		return "Prueba [id=" + id + ", modalidad=" + modalidad + ", fecha=" + fecha + ", info=" + info + ", puntuacion="
 				+ puntuacion + "]";
 	}
+
 }

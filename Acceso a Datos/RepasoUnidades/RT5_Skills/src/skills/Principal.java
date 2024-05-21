@@ -35,7 +35,7 @@ public class Principal {
 					ejercicio3();
 					break;
 				case 4:
-
+					
 					break;
 				}
 
@@ -47,62 +47,55 @@ public class Principal {
 	}
 
 	private static void ejercicio3() {
-		
+		// TODO Auto-generated method stub
 		
 	}
 
 	private static void ejercicio2() {
+		// TODO Auto-generated method stub
 		mostrarPruebasModalidad(null);
-
-		System.out.println("Introduce el código de una prueba: ");
-		Prueba p = bd.obtenerPrueba(t.nextInt());
-		t.nextLine();
-
+		System.out.println("Introduce el código de la prueba a modificar");
+		Prueba p = bd.obtenerPrueba(t.nextInt());t.nextLine();
 		try {
 			if (p != null) {
-				System.out.println("Introduce nueva fecha (ddMMyyyy): ");
+				System.out.println("Introduce nueva fecha (ddmmyyyy):");
 				p.setFecha(formato.parse(t.nextLine()));
-
-				System.out.println("Introduce un nuevo título: ");
+				System.out.println("Introduce el nuevo título:");
 				p.getInfo().setTitulo(t.nextLine());
-
-				System.out.println("Introduce la nueva descripción: ");
+				System.out.println("Introduce la nueva descripción:");
 				p.getInfo().setDescripcion(t.nextLine());
-				
-				System.out.println("Introduce la nueva puntuacion: ");
-				int nuevaPuntuacion = t.nextInt();
-				t.nextLine();
-				
-				if (bd.obtenerPuntuacion(p.getModalidad() - p.getPuntuacion()) + nuevaPuntuacion > 10) {
-					System.err.println("Error, la suma de las notas es mayor de 10.");
+				System.out.println("Introduce la nueva puntuación");
+				int nuevaNota =  t.nextInt();t.nextLine();
+				if (bd.obtenerPuntuacion(p.getModalidad()) - p.getPuntuacion() + nuevaNota > 10) {
+					System.err.println("La suma total de la nota es mayor que 10");
 				} else {
-					p.setPuntuacion(nuevaPuntuacion);
+					p.setPuntuacion(nuevaNota);
 					if (bd.modificarPrueba(p)) {
 						mostrarPruebasModalidad(bd.obtenerModalidad(p.getModalidad()));
-					} else {
-						System.err.println("Error, ha ocurrido un error al modificar la prueba...");
 					}
 				}
 			} else {
-				System.err.println("Error, no existe ninguna prueba con el código introducido...");
+				System.err.println("Error, no existe la prueba");
 			}
 		} catch (ParseException e) {
-			System.err.println("Error, el formato de la fecha es incorrecto...");
+			// TODO: handle exception
+			System.err.println("Fecha con formato incorrecto");
 		}
+		
 	}
 
 	private static void ejercicio1() {
 		mostrarModalidades();
-
+		
 		System.out.println("Introduce el código de una módalidad: ");
 		Modalidad m = bd.obtenerModalidad(t.nextInt());
 		t.nextLine();
-
+		
 		if (m != null) {
 			Prueba p = new Prueba();
 			p.setModalidad(m.getId());
 			p.setFecha(new Date());
-
+			
 			System.out.println("Introduce el título de la prueba: ");
 			p.setInfo(new Infoprueba(t.nextLine(), null));
 			System.out.println("Introduce la descripción de la prueba: ");
@@ -110,7 +103,7 @@ public class Principal {
 			System.out.println("Introduce la puntuación de la prueba: ");
 			p.setPuntuacion(t.nextInt());
 			t.nextLine();
-
+			
 			if (bd.obtenerPuntuacion(m.getId()) + p.getPuntuacion() <= 10) {
 				if (bd.crearPrueba(p)) {
 					System.out.println("Prueba creada correctamente.");
@@ -127,17 +120,17 @@ public class Principal {
 	}
 
 	private static void mostrarPruebasModalidad(Modalidad m) {
-		ArrayList<Prueba> listaPruebas = bd.obtenerPruebas(m);
-
-		for (Prueba prueba : listaPruebas) {
+		// TODO Auto-generated method stub
+		ArrayList<Prueba> listapruebas = bd.obtenerPruebas(m);
+		for (Prueba prueba : listapruebas) {
 			System.out.println(prueba);
 		}
-
 	}
+
 
 	private static void mostrarModalidades() {
 		ArrayList<Modalidad> m = bd.obtenerModalidades();
-
+		
 		for (Modalidad modalidad : m) {
 			System.out.println(modalidad);
 		}

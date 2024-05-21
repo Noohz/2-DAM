@@ -45,152 +45,142 @@ public class Modelo {
 	}
 
 	public int obtenerPuntuacion(int id) {
+		// TODO Auto-generated method stub
 		int resultado = 0;
-
 		try {
-			PreparedStatement pS = conexion.prepareStatement("SELECT SUM(puntuacion) FROM prueba WHERE modalidad = ?");
-			pS.setInt(1, id);
-			ResultSet datos = pS.executeQuery();
-
-			if (datos.next()) {
-				resultado = datos.getInt(1);
+			PreparedStatement ps = conexion.prepareStatement("SELECT SUM (puntuacion) FROM prueba WHERE modalidad = ?");
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				resultado = rs.getInt(1);
 			}
-
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return resultado;
 	}
 
 	public boolean crearPrueba(Prueba p) {
+		// TODO Auto-generated method stub
 		boolean resultado = false;
-
 		try {
-			PreparedStatement pS = conexion.prepareStatement("INSERT INTO prueba VALUES(default, ?, ?, (?, ?), ?)");
-			pS.setInt(1, p.getModalidad());
-			pS.setDate(2, new Date(p.getFecha().getTime()));
-			pS.setString(3, p.getInfo().getTitulo());
-			pS.setString(4, p.getInfo().getDescripcion());
-			pS.setInt(5, p.getPuntuacion());
-
-			if (pS.executeUpdate() == 1) {
+			PreparedStatement ps = conexion.prepareStatement("INSERT INTO prueba VALUES(default, ?, ?, (?, ?), ?)");
+			ps.setInt(1, p.getModalidad());
+			ps.setDate(2, new Date(p.getFecha().getTime()));
+			ps.setString(3, p.getInfo().getTitulo());
+			ps.setString(4, p.getInfo().getDescripcion());
+			ps.setInt(5, p.getPuntuacion());
+			int filas = ps.executeUpdate();
+			if (filas == 1) {
 				resultado = true;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return resultado;
-	}
-
-	public ArrayList<Prueba> obtenerPruebas(Modalidad m) {
-		ArrayList<Prueba> resultado = new ArrayList<Prueba>();
-
-		try {
-			if (m != null) {
-				PreparedStatement pS = conexion.prepareStatement(
-						"SELECT id, fecha, (info).titulo, (info).descripcion, puntuacion FROM prueba WHERE modalidad = ?");
-				pS.setInt(1, m.getId());
-				ResultSet datos = pS.executeQuery();
-
-				while (datos.next()) {
-					resultado.add(new Prueba(datos.getInt(1), m.getId(), datos.getDate(2),
-							new Infoprueba(datos.getString(3), datos.getString(4)), datos.getInt(5)));
-				}
-			} else {
-				Statement s = conexion.createStatement();
-				ResultSet datos = s.executeQuery(
-						"SELECT id, fecha, (info).titulo, (info).descripcion, puntuacion, modalidad FROM prueba");
-
-				while (datos.next()) {
-					resultado.add(new Prueba(datos.getInt(1), datos.getInt(6), datos.getDate(2),
-							new Infoprueba(datos.getString(3), datos.getString(4)), datos.getInt(5)));
-				}
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return resultado;
-	}
-
-	public ArrayList<Modalidad> obtenerModalidades() {
-		ArrayList<Modalidad> resultado = new ArrayList<Modalidad>();
-		try {
-			Statement s = conexion.createStatement();
-			ResultSet datos = s.executeQuery("SELECT * FROM modalidad");
-			while (datos.next()) {
-				resultado.add(new Modalidad(datos.getInt(1), datos.getString(2)));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return resultado;
 	}
 
-	public Modalidad obtenerModalidad(int codigo) {
+	public ArrayList<Prueba> obtenerPruebas(Modalidad m) {
+		// TODO Auto-generated method stub
+		ArrayList<Prueba> resultado = new ArrayList();
+		try {
+			if (m != null) {
+				PreparedStatement ps = conexion.prepareStatement("SELECT id, fecha, (info).titulo, (info).descripcion, puntuacion "
+						+ "FROM prueba WHERE modalidad = ?");
+				ps.setInt(1, m.getId());
+				ResultSet rs = ps.executeQuery();
+				while (rs.next()) {
+					resultado.add(new Prueba(rs.getInt(1), m.getId(), rs.getDate(2), new Infoprueba(rs.getString(3), rs.getString(4)), rs.getInt(5)));
+				}
+			} else {
+				Statement s = conexion.createStatement();
+				ResultSet rs = s.executeQuery("SELECT id, fecha, (info).titulo, (info).descripcion, puntuacion, modalidad"
+						+ "	FROM prueba");
+				while (rs.next()) {
+					resultado.add(new Prueba(rs.getInt(1), rs.getInt(6),rs.getDate(2), new Infoprueba(rs.getString(3), rs.getString(4)), rs.getInt(5)));
+				}
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return resultado;
+	}
+
+	public ArrayList<Modalidad> obtenerModalidades() {
+		// TODO Auto-generated method stub
+		ArrayList<Modalidad> resultado = new ArrayList();
+		try {
+			Statement s = conexion.createStatement();
+			ResultSet rs = s.executeQuery("SELECT * FROM modalidad");
+			while (rs.next()) {
+				resultado.add(new Modalidad(rs.getInt(1), rs.getString(2)));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return resultado;
+	}
+
+	public Modalidad obtenerModalidad(int id) {
 		Modalidad resultado = null;
-
 		try {
-			PreparedStatement pS = conexion.prepareStatement("SELECT * FROM modalidad WHERE id = ?");
-			pS.setInt(1, codigo);
-			ResultSet datos = pS.executeQuery();
-
-			if (datos.next()) {
-				resultado = new Modalidad(datos.getInt(1), datos.getString(2));
+			PreparedStatement ps = conexion.prepareStatement("SELECT * FROM modalidad WHERE id = ?");
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				resultado = new Modalidad(rs.getInt(1), rs.getString(2));
 			}
-
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
 		return resultado;
 	}
 
-	public Prueba obtenerPrueba(int codigo) {
+	public Prueba obtenerPrueba(int id) {
+		// TODO Auto-generated method stub
 		Prueba resultado = null;
-
 		try {
-			PreparedStatement pS = conexion.prepareStatement(
-					"SELECT id, fecha, (info).titulo, (info).descripcion, puntuacion, modalidad FROM prueba WHERE id = ?");
-			pS.setInt(1, codigo);
-			ResultSet datos = pS.executeQuery();
-
-			if (datos.next()) {
-				resultado = new Prueba(datos.getInt(1), datos.getInt(6), datos.getDate(2),
-						new Infoprueba(datos.getString(3), datos.getString(4)), datos.getInt(5));
+			PreparedStatement ps = conexion.prepareStatement("SELECT id, fecha, (info).titulo, (info).descripcion, puntuacion, modalidad"
+					+ "	FROM prueba WHERE id = ?");
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				resultado = new Prueba(rs.getInt(1), rs.getInt(6),rs.getDate(2), new Infoprueba(rs.getString(3), rs.getString(4)), rs.getInt(5));
 			}
-
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return resultado;
 	}
 
 	public boolean modificarPrueba(Prueba p) {
+		// TODO Auto-generated method stub
 		boolean resultado = false;
-
 		try {
-			PreparedStatement pS = conexion.prepareStatement(
-					"UPDATE prueba SET(fecha = ?, puntuacion = ?, info = (?, ?)) WHERE id = ?");
-			pS.setDate(1, new Date(p.getFecha().getTime()));
-			pS.setInt(2, p.getPuntuacion());
-			pS.setString(3, p.getInfo().getTitulo());
-			pS.setString(4, p.getInfo().getDescripcion());
-			pS.setInt(5, p.getId());
-
-			if (pS.executeUpdate() == 1) {
-				return true;
+			PreparedStatement ps = conexion.prepareStatement("UPDATE prueba SET fecha = ?, puntuacion = ?, info = (?, ?) WHERE id = ?");
+			ps.setDate(1, new Date(p.getFecha().getTime()));
+			ps.setInt(2, p.getPuntuacion());
+			ps.setString(3, p.getInfo().getTitulo());
+			ps.setString(4, p.getInfo().getDescripcion());
+			ps.setInt(5, p.getId());
+			if (ps.executeUpdate() == 1) {
+				resultado = true;
 			}
-
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
 		return resultado;
 	}
-
 }
