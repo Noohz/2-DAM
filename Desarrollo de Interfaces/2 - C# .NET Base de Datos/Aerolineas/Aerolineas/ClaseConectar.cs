@@ -16,12 +16,13 @@ namespace Aerolineas
         List<Billeteavion> listaFacturacion = new List<Billeteavion>();
         List<ModeloAvion> listaIdAviones = new List<ModeloAvion>();
         List<Aeropuertos> datosAeropuertos = new List<Aeropuertos>();
+        List<int> billetesCompradosUsr = new List<int>();
 
         public ClaseConectar()
         {
             conexion = new MySqlConnection();
-            conexion.ConnectionString = "server=localhost;Database=aerolineas2;Uid=root;pwd='';old guids=true";
-            //conexion.ConnectionString = "Server=servidoraws.c5s9z61ogvyq.us-east-1.rds.amazonaws.com;Database=aerolineas2;Uid=admin;pwd=Pilukina_2024;old guids=true";
+            //conexion.ConnectionString = "server=localhost;Database=aerolineas2;Uid=root;pwd='';old guids=true";
+            conexion.ConnectionString = "Server=servidoraws.c5s9z61ogvyq.us-east-1.rds.amazonaws.com;Database=aerolineas2;Uid=admin;pwd=Pilukina_2024;old guids=true";
         }
 
         // Método para cancelar la butaca de un cliente.
@@ -298,7 +299,7 @@ namespace Aerolineas
         {
             conexion.Open();
 
-            string cadenaSql = "SELECT * FROM horariosaviones";
+            string cadenaSql = "SELECT * FROM horariosaviones ORDER BY fechaSalida ASC";
             comando = new MySqlCommand(cadenaSql, conexion);
 
             datos = comando.ExecuteReader();
@@ -439,6 +440,30 @@ namespace Aerolineas
             conexion.Close();
 
             return false;
+        }
+
+        // Método para obtener las veces que un usuario a comprado billetes que ya han salido.
+        internal int obtenerBilletesComprados(int id, string usuarioActivo)
+        {
+            int billetes = 0;
+
+            conexion.Open();
+
+            string cadenaSql = "SELECT * FROM billeteavion WHERE idVuelo = ?id AND comprador = ?usuarioActivo";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?id", id);
+            comando.Parameters.AddWithValue("?usuarioActivo", usuarioActivo);
+
+            datos = comando.ExecuteReader();
+
+            while (datos.Read())
+            {
+                billetes++;
+            }
+
+            conexion.Close();
+
+            return billetes;
         }
     }
 }

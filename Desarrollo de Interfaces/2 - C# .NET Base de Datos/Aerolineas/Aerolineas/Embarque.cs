@@ -36,6 +36,7 @@ namespace Aerolineas
                 timer1.Enabled = false;
                 segundos = 0;
                 String cadenaBuscar = tBQRAuto.Text;
+                cadenaBuscar = cadenaBuscar.Replace("?", "_");
                 String[] vector = cadenaBuscar.Split('x');
                 String idVueloQR = vector[0];
                 String idAsientoQR = vector[1];

@@ -15,6 +15,7 @@ namespace Aerolineas
         ClaseConectar cnx = new ClaseConectar();
 
         List<Horariosaviones> listaHorarios = new List<Horariosaviones>(); // Lista que contiene los horarios de los aviones.
+        List<Horariosaviones> listaHorariosActivos = new List<Horariosaviones>(); // Lista que contiene los horarios activos de los aviones.
         List<ModeloAvion> butacasAvion = new List<ModeloAvion>(); // Lista que contiene la cantidad de butacas de cada tipo.
         List<String> listaReservas = new List<string>(); // Lista que contiene las butacas que se han hecho click.
         List<Billeteavion> listaFacturacion = new List<Billeteavion>(); // Lista que contiene las bútacas vendidas.
@@ -22,6 +23,7 @@ namespace Aerolineas
 
         string usuarioActivo; // Variable que contiene el usuario de la sesión activo.
         TableLayoutPanel tlp;
+        int puntosFidelidad;
 
         public ReservarVuelo(List<Usuariosavion> listaUsuario)
         {
@@ -37,24 +39,58 @@ namespace Aerolineas
 
             foreach (var horarios in listaHorarios)
             {
-                comboBoxVuelos.Items.Add(horarios.IdVuelo + " " + horarios.Ruta + " " + horarios.FechaSalida);
+                if (horarios.FechaSalida >= DateTime.Now)
+                {
+                    comboBoxVuelos.Items.Add(horarios.IdVuelo + " " + horarios.Ruta + " " + horarios.FechaSalida);
+                    listaHorariosActivos.Add(horarios);
+                }
             }
+
+            calcularPuntosFidelidadUsuario(listaHorarios);
+        }
+
+        private void calcularPuntosFidelidadUsuario(List<Horariosaviones> listaHorarios)
+        {
+            List<int> idVuelosAnteriores = new List<int>(); // Lista que contiene la id de los vuelos que ya han salido.
+            int billetesComprados = 0;
+
+            foreach (var horarios in listaHorarios)
+            {
+                if (horarios.FechaSalida < DateTime.Now)
+                {
+                    idVuelosAnteriores.Add(horarios.IdVuelo);
+                }
+            }
+
+            foreach (var ids in idVuelosAnteriores)
+            {
+                billetesComprados = cnx.obtenerBilletesComprados(ids, usuarioActivo);
+                puntosFidelidad += billetesComprados;
+            }
+
+            lblPuntosFidelidad.Text = puntosFidelidad.ToString();
         }
 
         private void btnCerrarReserva_Click(object sender, EventArgs e)
         {
-            int seleccion = comboBoxVuelos.SelectedIndex;
-            int idVuelo = listaHorarios[seleccion].IdVuelo;
+            int seleccion = 0;
+            int idVuelo = 0;
 
-            foreach (Control ctrl in tlp.Controls)
+            if (comboBoxVuelos.SelectedIndex != -1)
             {
-                for (int i = 0; i < listaReservas.Count; i++)
+                seleccion = comboBoxVuelos.SelectedIndex;
+                idVuelo = listaHorarios[seleccion].IdVuelo;
+
+                foreach (Control ctrl in tlp.Controls)
                 {
-                    if (ctrl.Tag.ToString().Equals(listaReservas[i]))
+                    for (int i = 0; i < listaReservas.Count; i++)
                     {
-                        String idAsiento = ctrl.Tag.ToString();
-                        idAsiento = idAsiento.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
-                        cnx.cancelarButacaTemporal(idVuelo, idAsiento, usuarioActivo);
+                        if (ctrl.Tag.ToString().Equals(listaReservas[i]))
+                        {
+                            String idAsiento = ctrl.Tag.ToString();
+                            idAsiento = idAsiento.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
+                            cnx.cancelarButacaTemporal(idVuelo, idAsiento, usuarioActivo);
+                        }
                     }
                 }
             }
@@ -87,10 +123,10 @@ namespace Aerolineas
             fLPrincipal.Controls.Clear();
             butacasAvion.Clear();
 
-            listaFacturacion = cnx.obtenerButacasOcupadas(listaHorarios[seleccion].IdVuelo);
+            listaFacturacion = cnx.obtenerButacasOcupadas(listaHorariosActivos[seleccion].IdVuelo);
 
             // Guardo en una lista el resultado de la consulta pasandole el ID del avión para que me devuelva los datos del avión.
-            butacasAvion = cnx.obtenerButacasAvion(listaHorarios[seleccion].IdAvion);
+            butacasAvion = cnx.obtenerButacasAvion(listaHorariosActivos[seleccion].IdAvion);
             // Guardo en una variable el contenido de cada butaca para usarlo a la hora de crear el TableLayoutPanel.
             int butacasBussines = butacasAvion[0].FBussines * 6;
             int butacasPrimera = butacasAvion[0].FPrimera * 6;
@@ -208,6 +244,9 @@ namespace Aerolineas
             int seleccion = comboBoxVuelos.SelectedIndex;
             int idVuelo = listaHorarios[seleccion].IdVuelo;
 
+            String idAsiento = btnX.Tag.ToString();
+            idAsiento = idAsiento.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
+
             if (listaReservas.Count < 5)
             {
                 DateTime fechaActual = DateTime.Now; // Almaceno en la variable la fecha actual para usarla en el descuento.
@@ -220,13 +259,25 @@ namespace Aerolineas
                     btnX.BackColor = Color.Pink;
                     listaReservas.Add(btnX.Tag.ToString());
 
-                    if (cnx.comprobarButacaReservadaTemporal(idVuelo, btnX.Tag.ToString()))
+                    if (cnx.comprobarButacaReservadaTemporal(idVuelo, idAsiento))
                     {
+                        if (btnX.Text.StartsWith("B"))
+                        {
+                            btnX.BackColor = Color.Green;
+                        }
+                        else if (btnX.Text.StartsWith("P"))
+                        {
+                            btnX.BackColor = Color.Yellow;
+                        }
+                        else
+                        {
+                            btnX.BackColor = Color.Orange;
+                        }
+
                         MessageBox.Show("Error, la butaca seleccionada está reservada por otro usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    } else
+                    }
+                    else
                     {
-                        String idAsiento = btnX.Tag.ToString();
-                        idAsiento = idAsiento.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
                         cnx.reservarButacaTemporal(idVuelo, idAsiento, usuarioActivo);
                         timerButacaReservada.Start();
 
@@ -244,7 +295,7 @@ namespace Aerolineas
                         }
 
                         btnComprarVuelo.Enabled = true;
-                    }                    
+                    }
                 }
                 else if (btnX.BackColor == Color.Pink)
                 {
@@ -264,8 +315,6 @@ namespace Aerolineas
                         precioTotal -= int.Parse(lblPrecioTurista.Text);
                     }
                     listaReservas.RemoveAt(listaReservas.IndexOf(btnX.Tag.ToString()));
-                    String idAsiento = btnX.Tag.ToString();
-                    idAsiento = idAsiento.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
                     cnx.cancelarButacaTemporal(idVuelo, idAsiento, usuarioActivo);
                     timerButacaReservada.Stop();
                 }
@@ -283,8 +332,6 @@ namespace Aerolineas
                         }
                         else
                         {
-                            String idAsiento = btnX.Tag.ToString();
-                            idAsiento = idAsiento.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
                             int codigo = cnx.cancelarReservaButaca(idVuelo, idAsiento, usuarioActivo);
 
                             if (codigo == 1)
@@ -412,7 +459,9 @@ namespace Aerolineas
                         {
                             if (ctrl.Tag.ToString().Equals(listaReservas[i]))
                             {
-                                cnx.cancelarButacaTemporal(idVuelo, ctrl.Tag.ToString(), usuarioActivo);
+                                String asientoReservado = ctrl.Tag.ToString();
+                                asientoReservado = asientoReservado.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
+                                cnx.cancelarButacaTemporal(idVuelo, asientoReservado, usuarioActivo);
                             }
                         }
 
@@ -565,7 +614,7 @@ namespace Aerolineas
             listaReservas.Clear();
             timerButacaReservada.Stop();
 
-            MessageBox.Show("Atención: Llevas más de 10 minutos ausente. Tus butacas ya no están reservadas.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show("Atención: Llevas más de 30 segundos ausente. Tus butacas ya no están reservadas.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

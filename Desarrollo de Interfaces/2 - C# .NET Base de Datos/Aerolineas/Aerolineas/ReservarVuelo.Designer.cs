@@ -62,6 +62,8 @@
             this.lblPrecioTotalDTO = new System.Windows.Forms.Label();
             this.lblTPrecioTotalDTO = new System.Windows.Forms.Label();
             this.timerButacaReservada = new System.Windows.Forms.Timer(this.components);
+            this.lblPuntosFidelidad = new System.Windows.Forms.Label();
+            this.lblTPuntosFidelidad = new System.Windows.Forms.Label();
             this.groupBoxLeyenda.SuspendLayout();
             this.gBDatosVuelos.SuspendLayout();
             this.SuspendLayout();
@@ -378,7 +380,7 @@
             // 
             this.lblPrecioTotal.AutoSize = true;
             this.lblPrecioTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioTotal.Location = new System.Drawing.Point(640, 331);
+            this.lblPrecioTotal.Location = new System.Drawing.Point(634, 329);
             this.lblPrecioTotal.Name = "lblPrecioTotal";
             this.lblPrecioTotal.Size = new System.Drawing.Size(24, 25);
             this.lblPrecioTotal.TabIndex = 27;
@@ -419,8 +421,29 @@
             // 
             // timerButacaReservada
             // 
-            this.timerButacaReservada.Interval = 10000;
+            this.timerButacaReservada.Interval = 30000;
             this.timerButacaReservada.Tick += new System.EventHandler(this.timerButacaReservada_Tick);
+            // 
+            // lblPuntosFidelidad
+            // 
+            this.lblPuntosFidelidad.AutoSize = true;
+            this.lblPuntosFidelidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPuntosFidelidad.Location = new System.Drawing.Point(930, 342);
+            this.lblPuntosFidelidad.Name = "lblPuntosFidelidad";
+            this.lblPuntosFidelidad.Size = new System.Drawing.Size(24, 25);
+            this.lblPuntosFidelidad.TabIndex = 32;
+            this.lblPuntosFidelidad.Text = "0";
+            this.lblPuntosFidelidad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblTPuntosFidelidad
+            // 
+            this.lblTPuntosFidelidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTPuntosFidelidad.Location = new System.Drawing.Point(753, 339);
+            this.lblTPuntosFidelidad.Name = "lblTPuntosFidelidad";
+            this.lblTPuntosFidelidad.Size = new System.Drawing.Size(180, 29);
+            this.lblTPuntosFidelidad.TabIndex = 31;
+            this.lblTPuntosFidelidad.Text = "Puntos fidelidad:";
+            this.lblTPuntosFidelidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ReservarVuelo
             // 
@@ -428,6 +451,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(970, 614);
+            this.Controls.Add(this.lblPuntosFidelidad);
+            this.Controls.Add(this.lblTPuntosFidelidad);
             this.Controls.Add(this.lblPrecioTotalDTO);
             this.Controls.Add(this.lblTPrecioTotalDTO);
             this.Controls.Add(this.btnPerfil);
@@ -487,5 +512,7 @@
         private System.Windows.Forms.Label lblPrecioTotalDTO;
         private System.Windows.Forms.Label lblTPrecioTotalDTO;
         private System.Windows.Forms.Timer timerButacaReservada;
+        private System.Windows.Forms.Label lblPuntosFidelidad;
+        private System.Windows.Forms.Label lblTPuntosFidelidad;
     }
 }
