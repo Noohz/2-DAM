@@ -22,6 +22,7 @@ public class Principal {
 				System.out.println("2 - Modificar prueba");
 				System.out.println("3 - Corregir prueba");
 				System.out.println("4 - Borrar prueba)");
+				System.out.println("5 - Mostrar notas más altas)");
 				opcion = t.nextInt();
 				t.nextLine();
 				switch (opcion) {
@@ -35,7 +36,10 @@ public class Principal {
 					ejercicio3();
 					break;
 				case 4:
-					
+					ejercicio4();
+					break;
+				case 5:
+					ejercicio5();
 					break;
 				}
 
@@ -46,8 +50,112 @@ public class Principal {
 		}
 	}
 
-	private static void ejercicio3() {
+	private static void ejercicio5() {
 		// TODO Auto-generated method stub
+		ArrayList<Modalidad> mod =bd.obtenerModalidades();
+		for (Modalidad m : mod) {
+			int notaMax = bd.obtenerNotaMax(m.getId());
+			ArrayList<Alumno> al = bd.obtenerAlumnosNota(m.getId(),notaMax);
+			for (Alumno a : al) {
+				System.out.println(a);
+			}
+		}
+	}
+
+	private static void ejercicio4() {
+		// TODO Auto-generated method stub
+		mostrarPruebasModalidad(null);
+		System.out.println("Introduce que puerba quieres borrar: ");
+		Prueba p = bd.obtenerPrueba(t.nextInt());t.nextLine();
+		if(p!=null) {
+			ArrayList<Alumno> al = bd.obtenerAlumnosModalidad(p.getModalidad());
+			boolean existe = false;
+			for (Alumno a : al) {
+				if(!existe) {
+					for (String[] c : a.getCorreccion()) {
+						if(c[0].equals(String.valueOf(p.getId()))) {
+							existe = true;
+							break;
+						}
+					}
+				}
+				else {
+					break;
+				}
+			}
+			if(!existe)
+				bd.borrarPrueba(p);
+			else 
+				System.out.println("No se puede borrar la prueba porque hay correcciones");
+			
+		}
+		else {
+			System.out.println("Error, prueba no existe");
+		}
+	}
+
+	private static void ejercicio3() {
+		
+		mostrarAlumnos();
+		System.out.println("Introduce un id de alumno");
+		int id = t.nextInt(); t.nextLine();
+		Alumno al = bd.obtenerAlumno(id);
+		if(al != null) {
+			mostrarPruebasModalidad(al.getModalidad());
+			System.out.println("Introduce que puerba quieres corregir: ");
+			int idPrueba = t.nextInt(); t.nextLine();
+			Prueba p = bd.obtenerPrueba(idPrueba);
+			if(p != null && p.getModalidad() == al.getModalidad().getId() ) {
+				boolean corregida = false;
+				for (String[] c : al.getCorreccion()) {
+					
+					if(c[0].equalsIgnoreCase(String.valueOf(p.getId()))) {
+						corregida = true;
+						break;
+					}
+					
+				}
+				if(corregida) {System.err.println("!La prueba ya esta corregida!");}
+				else {
+					System.out.println("Introudce una puntuación: ");
+					int puntuacion = t.nextInt(); t.nextLine();
+					
+					
+					if(puntuacion > p.getPuntuacion()) {
+						System.err.println("!Error - Se excede el valor de la prueba!");
+					}
+					else {
+						System.out.println("Itroduce un comentario: ");
+						String comentario = t.nextLine();
+						
+						if(bd.anadirCorrecion(al,p,comentario,puntuacion)) {
+							System.out.println("Corrención creada.");
+							bd.actualizarPuntuacionAlumno(al,puntuacion);
+							if(bd.obtenerPruebas(al.getModalidad()).size()== al.getCorreccion().size()+1) {
+								bd.finalizarCorrecionAlumno(al);
+								mostrarAlumnos();
+							}
+						}
+						else {System.err.println("Error - Crear correción.");}
+					}
+				}
+			}
+			else {System.out.println("La prueba no existe o no corresponde a su modalidad");}
+		}
+		else {System.err.println("!El alumno no existe!");}
+		
+		
+	}
+
+	private static void mostrarAlumnos() {
+		ArrayList<Alumno> listaAlumnos = bd.obtenerAlumnos();
+		
+		for (Alumno alumno : listaAlumnos) {
+			System.out.println("--------ALUMNO---------");
+			System.out.println(alumno);
+			alumno.mostrarCorreciones();
+			System.out.println("-----------------");
+		}
 		
 	}
 
