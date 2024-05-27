@@ -20,6 +20,7 @@ namespace Aerolineas
         List<String> listaReservas = new List<string>(); // Lista que contiene las butacas que se han hecho click.
         List<Billeteavion> listaFacturacion = new List<Billeteavion>(); // Lista que contiene las bútacas vendidas.
         List<Usuariosavion> datosUsuario = new List<Usuariosavion>(); // Lista que contiene los datos del usuario activo.
+        List<Aeropuertos> datosAeropuertos = new List<Aeropuertos>(); // Lista que coaantiene los datos de los aeropuertos.
 
         string usuarioActivo; // Variable que contiene el usuario de la sesión activo.
         TableLayoutPanel tlp;
@@ -47,6 +48,14 @@ namespace Aerolineas
             }
 
             calcularPuntosFidelidadUsuario(listaHorarios);
+
+            datosAeropuertos = cnx.obtenerDatosAeropuertos();
+
+            foreach (var rutas in datosAeropuertos)
+            {
+                cBRuta1CNR.Items.Add(rutas.Id);
+                cBRuta2CNR.Items.Add(rutas.Id);
+            }
         }
 
         private void calcularPuntosFidelidadUsuario(List<Horariosaviones> listaHorarios)
@@ -615,6 +624,37 @@ namespace Aerolineas
             timerButacaReservada.Stop();
 
             MessageBox.Show("Atención: Llevas más de 30 segundos ausente. Tus butacas ya no están reservadas.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void dateTimePickerFechaSalidaVuelo_ValueChanged(object sender, EventArgs e)
+        {
+            if (cBRuta1CNR.SelectedIndex != -1 && cBRuta2CNR.SelectedIndex != -1)
+            {
+                string ruta = cBRuta1CNR.Text + "-" + cBRuta2CNR.Text;
+                DateTime fechaSalida = DateTime.Parse(dateTimePickerFechaSalidaVuelo.Text);
+                bool encontrado = false;
+                int cont = 0;
+
+                foreach (var datos in listaHorariosActivos)
+                {
+                    if (ruta == datos.Ruta && fechaSalida == datos.FechaSalida)
+                    {
+                        // PENDIENTE: Que se seleccione en el comboBox el vuelo.
+                        cont++;
+                        comboBoxVuelos.SelectedIndex = cont;
+                        encontrado = true;
+                    }
+                }
+
+                if (!encontrado)
+                {
+                    MessageBox.Show("No se ha encontrado un vuelo con salida " + cBRuta1CNR.Text + " y destino " + cBRuta2CNR.Text + " sobre la fecha " + dateTimePickerFechaSalidaVuelo.Text + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debes seleccionar la ruta de salida y destino.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

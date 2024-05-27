@@ -465,5 +465,30 @@ namespace Aerolineas
 
             return billetes;
         }
+
+        // Método para comprobar si existe algún vuelo en la fecha y ruta que introduce el usuario.
+        internal bool comprobarFechaSalidaAvion(string salida, string destino, string fecha)
+        {
+            string ruta = salida + "-" + destino;
+            DateTime fechaSalida = DateTime.Parse(fecha);
+
+            conexion.Open();
+
+            string cadenaSql = "SELECT * FROM horariosaviones WHERE ruta = ?ruta AND fechaSalida = ?fechaSalida";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?ruta", ruta);
+            comando.Parameters.AddWithValue("?fechaSalida", fechaSalida);
+
+            datos = comando.ExecuteReader();
+
+            while (datos.Read())
+            {
+                return true;
+            }
+
+            conexion.Close();
+
+            return false;
+        }
     }
 }

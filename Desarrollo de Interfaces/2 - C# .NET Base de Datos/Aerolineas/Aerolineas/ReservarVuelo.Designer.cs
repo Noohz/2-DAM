@@ -64,6 +64,11 @@
             this.timerButacaReservada = new System.Windows.Forms.Timer(this.components);
             this.lblPuntosFidelidad = new System.Windows.Forms.Label();
             this.lblTPuntosFidelidad = new System.Windows.Forms.Label();
+            this.cBRuta2CNR = new System.Windows.Forms.ComboBox();
+            this.cBRuta1CNR = new System.Windows.Forms.ComboBox();
+            this.dateTimePickerFechaSalidaVuelo = new System.Windows.Forms.DateTimePicker();
+            this.lblCBSalida = new System.Windows.Forms.Label();
+            this.lblCBDestino = new System.Windows.Forms.Label();
             this.groupBoxLeyenda.SuspendLayout();
             this.gBDatosVuelos.SuspendLayout();
             this.SuspendLayout();
@@ -190,7 +195,7 @@
             // 
             this.lblVuelos.AutoSize = true;
             this.lblVuelos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVuelos.Location = new System.Drawing.Point(533, 15);
+            this.lblVuelos.Location = new System.Drawing.Point(522, 12);
             this.lblVuelos.Name = "lblVuelos";
             this.lblVuelos.Size = new System.Drawing.Size(84, 25);
             this.lblVuelos.TabIndex = 10;
@@ -198,9 +203,10 @@
             // 
             // comboBoxVuelos
             // 
+            this.comboBoxVuelos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxVuelos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxVuelos.FormattingEnabled = true;
-            this.comboBoxVuelos.Location = new System.Drawing.Point(623, 13);
+            this.comboBoxVuelos.Location = new System.Drawing.Point(612, 10);
             this.comboBoxVuelos.Name = "comboBoxVuelos";
             this.comboBoxVuelos.Size = new System.Drawing.Size(335, 32);
             this.comboBoxVuelos.TabIndex = 11;
@@ -445,12 +451,63 @@
             this.lblTPuntosFidelidad.Text = "Puntos fidelidad:";
             this.lblTPuntosFidelidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cBRuta2CNR
+            // 
+            this.cBRuta2CNR.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBRuta2CNR.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBRuta2CNR.FormattingEnabled = true;
+            this.cBRuta2CNR.Location = new System.Drawing.Point(639, 57);
+            this.cBRuta2CNR.Name = "cBRuta2CNR";
+            this.cBRuta2CNR.Size = new System.Drawing.Size(119, 33);
+            this.cBRuta2CNR.TabIndex = 42;
+            // 
+            // cBRuta1CNR
+            // 
+            this.cBRuta1CNR.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBRuta1CNR.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBRuta1CNR.FormattingEnabled = true;
+            this.cBRuta1CNR.Location = new System.Drawing.Point(508, 57);
+            this.cBRuta1CNR.Name = "cBRuta1CNR";
+            this.cBRuta1CNR.Size = new System.Drawing.Size(119, 33);
+            this.cBRuta1CNR.TabIndex = 41;
+            // 
+            // dateTimePickerFechaSalidaVuelo
+            // 
+            this.dateTimePickerFechaSalidaVuelo.Location = new System.Drawing.Point(763, 63);
+            this.dateTimePickerFechaSalidaVuelo.Name = "dateTimePickerFechaSalidaVuelo";
+            this.dateTimePickerFechaSalidaVuelo.Size = new System.Drawing.Size(195, 20);
+            this.dateTimePickerFechaSalidaVuelo.TabIndex = 43;
+            this.dateTimePickerFechaSalidaVuelo.ValueChanged += new System.EventHandler(this.dateTimePickerFechaSalidaVuelo_ValueChanged);
+            // 
+            // lblCBSalida
+            // 
+            this.lblCBSalida.AutoSize = true;
+            this.lblCBSalida.Location = new System.Drawing.Point(553, 42);
+            this.lblCBSalida.Name = "lblCBSalida";
+            this.lblCBSalida.Size = new System.Drawing.Size(36, 13);
+            this.lblCBSalida.TabIndex = 44;
+            this.lblCBSalida.Text = "Salida";
+            // 
+            // lblCBDestino
+            // 
+            this.lblCBDestino.AutoSize = true;
+            this.lblCBDestino.Location = new System.Drawing.Point(681, 44);
+            this.lblCBDestino.Name = "lblCBDestino";
+            this.lblCBDestino.Size = new System.Drawing.Size(43, 13);
+            this.lblCBDestino.TabIndex = 45;
+            this.lblCBDestino.Text = "Destino";
+            // 
             // ReservarVuelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(970, 614);
+            this.Controls.Add(this.lblCBDestino);
+            this.Controls.Add(this.lblCBSalida);
+            this.Controls.Add(this.dateTimePickerFechaSalidaVuelo);
+            this.Controls.Add(this.cBRuta2CNR);
+            this.Controls.Add(this.cBRuta1CNR);
             this.Controls.Add(this.lblPuntosFidelidad);
             this.Controls.Add(this.lblTPuntosFidelidad);
             this.Controls.Add(this.lblPrecioTotalDTO);
@@ -514,5 +571,10 @@
         private System.Windows.Forms.Timer timerButacaReservada;
         private System.Windows.Forms.Label lblPuntosFidelidad;
         private System.Windows.Forms.Label lblTPuntosFidelidad;
+        private System.Windows.Forms.ComboBox cBRuta2CNR;
+        private System.Windows.Forms.ComboBox cBRuta1CNR;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFechaSalidaVuelo;
+        private System.Windows.Forms.Label lblCBSalida;
+        private System.Windows.Forms.Label lblCBDestino;
     }
 }

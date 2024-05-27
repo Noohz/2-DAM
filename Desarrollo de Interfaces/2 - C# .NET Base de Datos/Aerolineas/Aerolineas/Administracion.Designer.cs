@@ -43,18 +43,6 @@
             this.btnAñadirModeloAvion = new System.Windows.Forms.Button();
             this.btnCrearRuta = new System.Windows.Forms.Button();
             this.gBOpcionCrearNuevaRuta = new System.Windows.Forms.GroupBox();
-            this.gBOpcionModificarAvion = new System.Windows.Forms.GroupBox();
-            this.tBMAFTurista = new System.Windows.Forms.TextBox();
-            this.lblMAFTurista = new System.Windows.Forms.Label();
-            this.tBMAFPrimera = new System.Windows.Forms.TextBox();
-            this.lblMAFPrimera = new System.Windows.Forms.Label();
-            this.tBMAFBussines = new System.Windows.Forms.TextBox();
-            this.lblMAFBussines = new System.Windows.Forms.Label();
-            this.tBMAModelo = new System.Windows.Forms.TextBox();
-            this.lblMAModelo = new System.Windows.Forms.Label();
-            this.cBMAIdAvion = new System.Windows.Forms.ComboBox();
-            this.btnModAvion = new System.Windows.Forms.Button();
-            this.lblMAIdAvion = new System.Windows.Forms.Label();
             this.cBRuta2CNR = new System.Windows.Forms.ComboBox();
             this.cBRuta1CNR = new System.Windows.Forms.ComboBox();
             this.cbIdAvionCNR = new System.Windows.Forms.ComboBox();
@@ -75,6 +63,18 @@
             this.dateTPFechaCNR = new System.Windows.Forms.DateTimePicker();
             this.lblTRutaCNR = new System.Windows.Forms.Label();
             this.lblTIdVueloCNR = new System.Windows.Forms.Label();
+            this.gBOpcionModificarAvion = new System.Windows.Forms.GroupBox();
+            this.tBMAFTurista = new System.Windows.Forms.TextBox();
+            this.lblMAFTurista = new System.Windows.Forms.Label();
+            this.tBMAFPrimera = new System.Windows.Forms.TextBox();
+            this.lblMAFPrimera = new System.Windows.Forms.Label();
+            this.tBMAFBussines = new System.Windows.Forms.TextBox();
+            this.lblMAFBussines = new System.Windows.Forms.Label();
+            this.tBMAModelo = new System.Windows.Forms.TextBox();
+            this.lblMAModelo = new System.Windows.Forms.Label();
+            this.cBMAIdAvion = new System.Windows.Forms.ComboBox();
+            this.btnModAvion = new System.Windows.Forms.Button();
+            this.lblMAIdAvion = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnModificarAvion = new System.Windows.Forms.Button();
             this.gBOpcionCrearModeloAvion.SuspendLayout();
@@ -82,12 +82,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrimera)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBussines)).BeginInit();
             this.gBOpcionCrearNuevaRuta.SuspendLayout();
-            this.gBOpcionModificarAvion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrecioTuristaCNR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrecioPrimeraCNR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrecioBussinessCNR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHoras)).BeginInit();
+            this.gBOpcionModificarAvion.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCrearModeloAvion
@@ -276,132 +276,6 @@
             this.gBOpcionCrearNuevaRuta.TabIndex = 22;
             this.gBOpcionCrearNuevaRuta.TabStop = false;
             this.gBOpcionCrearNuevaRuta.Visible = false;
-            // 
-            // gBOpcionModificarAvion
-            // 
-            this.gBOpcionModificarAvion.Controls.Add(this.tBMAFTurista);
-            this.gBOpcionModificarAvion.Controls.Add(this.lblMAFTurista);
-            this.gBOpcionModificarAvion.Controls.Add(this.tBMAFPrimera);
-            this.gBOpcionModificarAvion.Controls.Add(this.lblMAFPrimera);
-            this.gBOpcionModificarAvion.Controls.Add(this.tBMAFBussines);
-            this.gBOpcionModificarAvion.Controls.Add(this.lblMAFBussines);
-            this.gBOpcionModificarAvion.Controls.Add(this.tBMAModelo);
-            this.gBOpcionModificarAvion.Controls.Add(this.lblMAModelo);
-            this.gBOpcionModificarAvion.Controls.Add(this.cBMAIdAvion);
-            this.gBOpcionModificarAvion.Controls.Add(this.btnModAvion);
-            this.gBOpcionModificarAvion.Controls.Add(this.lblMAIdAvion);
-            this.gBOpcionModificarAvion.Location = new System.Drawing.Point(267, 34);
-            this.gBOpcionModificarAvion.Name = "gBOpcionModificarAvion";
-            this.gBOpcionModificarAvion.Size = new System.Drawing.Size(547, 390);
-            this.gBOpcionModificarAvion.TabIndex = 40;
-            this.gBOpcionModificarAvion.TabStop = false;
-            this.gBOpcionModificarAvion.Visible = false;
-            // 
-            // tBMAFTurista
-            // 
-            this.tBMAFTurista.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBMAFTurista.Location = new System.Drawing.Point(174, 284);
-            this.tBMAFTurista.Name = "tBMAFTurista";
-            this.tBMAFTurista.Size = new System.Drawing.Size(199, 38);
-            this.tBMAFTurista.TabIndex = 45;
-            // 
-            // lblMAFTurista
-            // 
-            this.lblMAFTurista.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMAFTurista.Location = new System.Drawing.Point(174, 246);
-            this.lblMAFTurista.Name = "lblMAFTurista";
-            this.lblMAFTurista.Size = new System.Drawing.Size(199, 35);
-            this.lblMAFTurista.TabIndex = 44;
-            this.lblMAFTurista.Text = "Filas turista";
-            this.lblMAFTurista.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tBMAFPrimera
-            // 
-            this.tBMAFPrimera.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBMAFPrimera.Location = new System.Drawing.Point(320, 175);
-            this.tBMAFPrimera.Name = "tBMAFPrimera";
-            this.tBMAFPrimera.Size = new System.Drawing.Size(199, 38);
-            this.tBMAFPrimera.TabIndex = 43;
-            // 
-            // lblMAFPrimera
-            // 
-            this.lblMAFPrimera.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMAFPrimera.Location = new System.Drawing.Point(320, 137);
-            this.lblMAFPrimera.Name = "lblMAFPrimera";
-            this.lblMAFPrimera.Size = new System.Drawing.Size(199, 35);
-            this.lblMAFPrimera.TabIndex = 42;
-            this.lblMAFPrimera.Text = "Filas primera";
-            this.lblMAFPrimera.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tBMAFBussines
-            // 
-            this.tBMAFBussines.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBMAFBussines.Location = new System.Drawing.Point(40, 175);
-            this.tBMAFBussines.Name = "tBMAFBussines";
-            this.tBMAFBussines.Size = new System.Drawing.Size(199, 38);
-            this.tBMAFBussines.TabIndex = 41;
-            // 
-            // lblMAFBussines
-            // 
-            this.lblMAFBussines.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMAFBussines.Location = new System.Drawing.Point(40, 137);
-            this.lblMAFBussines.Name = "lblMAFBussines";
-            this.lblMAFBussines.Size = new System.Drawing.Size(199, 35);
-            this.lblMAFBussines.TabIndex = 40;
-            this.lblMAFBussines.Text = "Filas bussines";
-            this.lblMAFBussines.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tBMAModelo
-            // 
-            this.tBMAModelo.Enabled = false;
-            this.tBMAModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBMAModelo.Location = new System.Drawing.Point(320, 53);
-            this.tBMAModelo.Name = "tBMAModelo";
-            this.tBMAModelo.Size = new System.Drawing.Size(199, 38);
-            this.tBMAModelo.TabIndex = 39;
-            // 
-            // lblMAModelo
-            // 
-            this.lblMAModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMAModelo.Location = new System.Drawing.Point(344, 15);
-            this.lblMAModelo.Name = "lblMAModelo";
-            this.lblMAModelo.Size = new System.Drawing.Size(160, 35);
-            this.lblMAModelo.TabIndex = 38;
-            this.lblMAModelo.Text = "Modelo";
-            this.lblMAModelo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cBMAIdAvion
-            // 
-            this.cBMAIdAvion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBMAIdAvion.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBMAIdAvion.FormattingEnabled = true;
-            this.cBMAIdAvion.Location = new System.Drawing.Point(19, 54);
-            this.cBMAIdAvion.Name = "cBMAIdAvion";
-            this.cBMAIdAvion.Size = new System.Drawing.Size(254, 39);
-            this.cBMAIdAvion.TabIndex = 37;
-            this.cBMAIdAvion.SelectedIndexChanged += new System.EventHandler(this.cBMAIdAvion_SelectedIndexChanged);
-            // 
-            // btnModAvion
-            // 
-            this.btnModAvion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModAvion.Location = new System.Drawing.Point(162, 347);
-            this.btnModAvion.Name = "btnModAvion";
-            this.btnModAvion.Size = new System.Drawing.Size(226, 36);
-            this.btnModAvion.TabIndex = 18;
-            this.btnModAvion.Text = "Modificar";
-            this.btnModAvion.UseVisualStyleBackColor = true;
-            this.btnModAvion.Visible = false;
-            this.btnModAvion.Click += new System.EventHandler(this.btnModAvion_Click);
-            // 
-            // lblMAIdAvion
-            // 
-            this.lblMAIdAvion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMAIdAvion.Location = new System.Drawing.Point(64, 16);
-            this.lblMAIdAvion.Name = "lblMAIdAvion";
-            this.lblMAIdAvion.Size = new System.Drawing.Size(160, 35);
-            this.lblMAIdAvion.TabIndex = 7;
-            this.lblMAIdAvion.Text = "IdAvion";
-            this.lblMAIdAvion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cBRuta2CNR
             // 
@@ -618,6 +492,132 @@
             this.lblTIdVueloCNR.Text = "IdAvion";
             this.lblTIdVueloCNR.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // gBOpcionModificarAvion
+            // 
+            this.gBOpcionModificarAvion.Controls.Add(this.tBMAFTurista);
+            this.gBOpcionModificarAvion.Controls.Add(this.lblMAFTurista);
+            this.gBOpcionModificarAvion.Controls.Add(this.tBMAFPrimera);
+            this.gBOpcionModificarAvion.Controls.Add(this.lblMAFPrimera);
+            this.gBOpcionModificarAvion.Controls.Add(this.tBMAFBussines);
+            this.gBOpcionModificarAvion.Controls.Add(this.lblMAFBussines);
+            this.gBOpcionModificarAvion.Controls.Add(this.tBMAModelo);
+            this.gBOpcionModificarAvion.Controls.Add(this.lblMAModelo);
+            this.gBOpcionModificarAvion.Controls.Add(this.cBMAIdAvion);
+            this.gBOpcionModificarAvion.Controls.Add(this.btnModAvion);
+            this.gBOpcionModificarAvion.Controls.Add(this.lblMAIdAvion);
+            this.gBOpcionModificarAvion.Location = new System.Drawing.Point(267, 34);
+            this.gBOpcionModificarAvion.Name = "gBOpcionModificarAvion";
+            this.gBOpcionModificarAvion.Size = new System.Drawing.Size(547, 390);
+            this.gBOpcionModificarAvion.TabIndex = 40;
+            this.gBOpcionModificarAvion.TabStop = false;
+            this.gBOpcionModificarAvion.Visible = false;
+            // 
+            // tBMAFTurista
+            // 
+            this.tBMAFTurista.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBMAFTurista.Location = new System.Drawing.Point(174, 284);
+            this.tBMAFTurista.Name = "tBMAFTurista";
+            this.tBMAFTurista.Size = new System.Drawing.Size(199, 38);
+            this.tBMAFTurista.TabIndex = 45;
+            // 
+            // lblMAFTurista
+            // 
+            this.lblMAFTurista.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMAFTurista.Location = new System.Drawing.Point(174, 246);
+            this.lblMAFTurista.Name = "lblMAFTurista";
+            this.lblMAFTurista.Size = new System.Drawing.Size(199, 35);
+            this.lblMAFTurista.TabIndex = 44;
+            this.lblMAFTurista.Text = "Filas turista";
+            this.lblMAFTurista.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tBMAFPrimera
+            // 
+            this.tBMAFPrimera.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBMAFPrimera.Location = new System.Drawing.Point(320, 175);
+            this.tBMAFPrimera.Name = "tBMAFPrimera";
+            this.tBMAFPrimera.Size = new System.Drawing.Size(199, 38);
+            this.tBMAFPrimera.TabIndex = 43;
+            // 
+            // lblMAFPrimera
+            // 
+            this.lblMAFPrimera.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMAFPrimera.Location = new System.Drawing.Point(320, 137);
+            this.lblMAFPrimera.Name = "lblMAFPrimera";
+            this.lblMAFPrimera.Size = new System.Drawing.Size(199, 35);
+            this.lblMAFPrimera.TabIndex = 42;
+            this.lblMAFPrimera.Text = "Filas primera";
+            this.lblMAFPrimera.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tBMAFBussines
+            // 
+            this.tBMAFBussines.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBMAFBussines.Location = new System.Drawing.Point(40, 175);
+            this.tBMAFBussines.Name = "tBMAFBussines";
+            this.tBMAFBussines.Size = new System.Drawing.Size(199, 38);
+            this.tBMAFBussines.TabIndex = 41;
+            // 
+            // lblMAFBussines
+            // 
+            this.lblMAFBussines.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMAFBussines.Location = new System.Drawing.Point(40, 137);
+            this.lblMAFBussines.Name = "lblMAFBussines";
+            this.lblMAFBussines.Size = new System.Drawing.Size(199, 35);
+            this.lblMAFBussines.TabIndex = 40;
+            this.lblMAFBussines.Text = "Filas bussines";
+            this.lblMAFBussines.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tBMAModelo
+            // 
+            this.tBMAModelo.Enabled = false;
+            this.tBMAModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBMAModelo.Location = new System.Drawing.Point(320, 53);
+            this.tBMAModelo.Name = "tBMAModelo";
+            this.tBMAModelo.Size = new System.Drawing.Size(199, 38);
+            this.tBMAModelo.TabIndex = 39;
+            // 
+            // lblMAModelo
+            // 
+            this.lblMAModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMAModelo.Location = new System.Drawing.Point(344, 15);
+            this.lblMAModelo.Name = "lblMAModelo";
+            this.lblMAModelo.Size = new System.Drawing.Size(160, 35);
+            this.lblMAModelo.TabIndex = 38;
+            this.lblMAModelo.Text = "Modelo";
+            this.lblMAModelo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cBMAIdAvion
+            // 
+            this.cBMAIdAvion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBMAIdAvion.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBMAIdAvion.FormattingEnabled = true;
+            this.cBMAIdAvion.Location = new System.Drawing.Point(19, 54);
+            this.cBMAIdAvion.Name = "cBMAIdAvion";
+            this.cBMAIdAvion.Size = new System.Drawing.Size(254, 39);
+            this.cBMAIdAvion.TabIndex = 37;
+            this.cBMAIdAvion.SelectedIndexChanged += new System.EventHandler(this.cBMAIdAvion_SelectedIndexChanged);
+            // 
+            // btnModAvion
+            // 
+            this.btnModAvion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModAvion.Location = new System.Drawing.Point(162, 347);
+            this.btnModAvion.Name = "btnModAvion";
+            this.btnModAvion.Size = new System.Drawing.Size(226, 36);
+            this.btnModAvion.TabIndex = 18;
+            this.btnModAvion.Text = "Modificar";
+            this.btnModAvion.UseVisualStyleBackColor = true;
+            this.btnModAvion.Visible = false;
+            this.btnModAvion.Click += new System.EventHandler(this.btnModAvion_Click);
+            // 
+            // lblMAIdAvion
+            // 
+            this.lblMAIdAvion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMAIdAvion.Location = new System.Drawing.Point(64, 16);
+            this.lblMAIdAvion.Name = "lblMAIdAvion";
+            this.lblMAIdAvion.Size = new System.Drawing.Size(160, 35);
+            this.lblMAIdAvion.TabIndex = 7;
+            this.lblMAIdAvion.Text = "IdAvion";
+            this.lblMAIdAvion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btnCerrar
             // 
             this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -663,13 +663,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBussines)).EndInit();
             this.gBOpcionCrearNuevaRuta.ResumeLayout(false);
             this.gBOpcionCrearNuevaRuta.PerformLayout();
-            this.gBOpcionModificarAvion.ResumeLayout(false);
-            this.gBOpcionModificarAvion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrecioTuristaCNR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrecioPrimeraCNR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrecioBussinessCNR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHoras)).EndInit();
+            this.gBOpcionModificarAvion.ResumeLayout(false);
+            this.gBOpcionModificarAvion.PerformLayout();
             this.ResumeLayout(false);
 
         }
