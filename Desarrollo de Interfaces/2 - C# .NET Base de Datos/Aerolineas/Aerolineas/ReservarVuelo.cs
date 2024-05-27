@@ -631,16 +631,15 @@ namespace Aerolineas
             if (cBRuta1CNR.SelectedIndex != -1 && cBRuta2CNR.SelectedIndex != -1)
             {
                 string ruta = cBRuta1CNR.Text + "-" + cBRuta2CNR.Text;
-                DateTime fechaSalida = DateTime.Parse(dateTimePickerFechaSalidaVuelo.Text);
+                String fechaBuscada = dateTimePickerFechaSalidaVuelo.Value.ToString("yyyy-MM-dd-");
                 bool encontrado = false;
                 int cont = 0;
 
                 foreach (var datos in listaHorariosActivos)
                 {
-                    if (ruta == datos.Ruta && fechaSalida == datos.FechaSalida)
-                    {
-                        // PENDIENTE: Que se seleccione en el comboBox el vuelo.
-                        cont++;
+                    cont++;
+                    if (ruta == datos.Ruta)
+                    {                                              
                         comboBoxVuelos.SelectedIndex = cont;
                         encontrado = true;
                     }
