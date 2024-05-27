@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class Modelo {
-	final String URL = "jdbc:postgresql://postgres.cuiqyq8gvjr4.us-east-1.rds.amazonaws.com/skill";
+	final String URL = "jdbc:postgresql://postgres.cuiqyq8gvjr4.us-east-1.rds.amazonaws.com/skills";
 	final String USR = "postgres";
 	final String PS = "postgres";
 
