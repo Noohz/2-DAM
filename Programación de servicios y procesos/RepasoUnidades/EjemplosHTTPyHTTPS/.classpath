@@ -6,7 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/usuario/Downloads/jsoup-1.17.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/usuario/Downloads/gson-2.10.1.jar"/>
+	<classpathentry kind="lib" path="C:/Github/2-DAM/Programación de servicios y procesos/jsoup-1.17.2.jar"/>
+	<classpathentry kind="lib" path="C:/Github/2-DAM/Programación de servicios y procesos/gson-2.10.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
