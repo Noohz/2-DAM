@@ -35,13 +35,9 @@ namespace Aerolineas
             {
                 timer1.Enabled = false;
                 segundos = 0;
-                String cadenaBuscar = tBQRAuto.Text;
-                cadenaBuscar = cadenaBuscar.Replace("?", "_");
-                String[] vector = cadenaBuscar.Split('x');
-                String idVueloQR = vector[0];
-                String idAsientoQR = vector[1];
+                String codigoQR = tBQRAuto.Text;
 
-                int codigo = cnxE.OcuparButaca(idVueloQR, idAsientoQR);
+                int codigo = cnxE.OcuparButaca(codigoQR);
 
                 if (codigo == 1)
                 {
@@ -58,6 +54,11 @@ namespace Aerolineas
                 tBQRAuto.Text = "";
                 panelValidacion.BackColor = Color.White;
             }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

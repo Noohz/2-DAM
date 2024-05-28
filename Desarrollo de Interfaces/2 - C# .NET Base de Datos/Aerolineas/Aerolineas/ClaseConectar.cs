@@ -118,17 +118,18 @@ namespace Aerolineas
         }
 
         // Metodo para insertar la compra del usuario en la tabla billeteavion.
-        internal int insertarFacturacion(int idVuelo, string idAsiento, string usuarioActivo, DateTime fechaActual, string precioTotal)
+        internal int insertarFacturacion(int idVuelo, string idAsiento, string usuarioActivo, DateTime fechaActual, string precioTotal, string claveQR)
         {
             conexion.Open();
 
-            string cadenaSql = "INSERT INTO billeteavion VALUES(?idVuelo, ?idAsiento, ?usuario, ?fecha, ?precioTotal, 0)";
+            string cadenaSql = "INSERT INTO billeteavion VALUES(?idVuelo, ?idAsiento, ?usuario, ?fecha, ?precioTotal, 0, ?claveQR)";
             comando = new MySqlCommand(cadenaSql, conexion);
             comando.Parameters.AddWithValue("?idVuelo", idVuelo);
             comando.Parameters.AddWithValue("?idAsiento", idAsiento);
             comando.Parameters.AddWithValue("?usuario", usuarioActivo);
             comando.Parameters.AddWithValue("?fecha", fechaActual);
             comando.Parameters.AddWithValue("?precioTotal", precioTotal);
+            comando.Parameters.AddWithValue("?claveQR", claveQR);
 
             int codigo = comando.ExecuteNonQuery();
 
@@ -346,14 +347,13 @@ namespace Aerolineas
         }
 
         // Método para ocupar la butaca reservada.
-        internal int OcuparButaca(string idVueloQR, string idAsientoQR)
+        internal int OcuparButaca(string codigoQR)
         {
             conexion.Open();
 
-            string cadenaSql = "UPDATE billeteavion SET ocupado = 1 WHERE idVuelo = ?idVueloQR AND idAsiento = ?idAsientoQR AND ocupado = 0";
+            string cadenaSql = "UPDATE billeteavion SET ocupado = 1 WHERE codigoqr = ?codigoQR AND ocupado = 0";
             comando = new MySqlCommand(cadenaSql, conexion);
-            comando.Parameters.AddWithValue("?idVueloQR", idVueloQR);
-            comando.Parameters.AddWithValue("idAsientoQR", idAsientoQR);
+            comando.Parameters.AddWithValue("?codigoQR", codigoQR);
 
             int codigo = comando.ExecuteNonQuery();
 
@@ -478,6 +478,27 @@ namespace Aerolineas
             comando = new MySqlCommand(cadenaSql, conexion);
             comando.Parameters.AddWithValue("?ruta", ruta);
             comando.Parameters.AddWithValue("?fechaSalida", fechaSalida);
+
+            datos = comando.ExecuteReader();
+
+            while (datos.Read())
+            {
+                return true;
+            }
+
+            conexion.Close();
+
+            return false;
+        }
+
+        // Método para comprobar si el QR que se le pasa por parámetro ya existe en la BD.
+        internal bool comprobarQRExistente(string claveQR)
+        {
+            conexion.Open();
+
+            string cadenaSql = "SELECT * FROM billeteavion WHERE codigoqr = ?claveQR";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?claveQR", claveQR);
 
             datos = comando.ExecuteReader();
 

@@ -7,6 +7,9 @@ using System.Net.Mail;
 using System.Net;
 using System.Windows.Forms;
 using QRCoder;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System.Diagnostics;
 
 namespace Aerolineas
 {
@@ -458,7 +461,20 @@ namespace Aerolineas
                     String nombreBoton = listaReservas[i];
                     idAsiento = nombreBoton.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
 
-                    int codigo = cnx.insertarFacturacion(idVuelo, idAsiento, usuarioActivo, DateTime.Now, lblPrecioTotalDTO.Text);
+                    // Crear QR
+                    Random random = new Random();
+                    int numAleatorio = random.Next(100000000, 999999999 + 1);
+                    char letraAleatoria = (char)random.Next('A', 'Z' + 1);
+                    claveQR = numAleatorio.ToString() + letraAleatoria;
+
+                    while (cnx.comprobarQRExistente(claveQR)) {
+                        // Si está repetido en la bd se genera otro código.
+                        int nuevoNumAleatorio = random.Next(100000000, 999999999 + 1);
+                        char nuevaLetraAleatoria = (char)random.Next('A', 'Z' + 1);
+                        claveQR = nuevoNumAleatorio.ToString() + nuevaLetraAleatoria;
+                    }
+
+                    int codigo = cnx.insertarFacturacion(idVuelo, idAsiento, usuarioActivo, DateTime.Now, lblPrecioTotalDTO.Text, claveQR);
 
                     if (codigo == 1)
                     {
@@ -472,13 +488,7 @@ namespace Aerolineas
                                 asientoReservado = asientoReservado.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
                                 cnx.cancelarButacaTemporal(idVuelo, asientoReservado, usuarioActivo);
                             }
-                        }
-
-                        // Crear QR
-                        Random random = new Random();
-                        int numAleatorio = random.Next(1000000, 9999999 + 1);
-                        char letraAleatoria = (char)random.Next('A', 'Z' + 1);
-                        claveQR = idVuelo + "x" + idAsiento + "x" + numAleatorio.ToString() + letraAleatoria;
+                        }                        
                         generarCodigoQR(claveQR);
                     }
                 }
@@ -577,6 +587,114 @@ namespace Aerolineas
             }
         }
 
+        // PENDIENTE => Rayuela
+        // Que el método devuelva el pdf y que ese pdf contenga el qr que se le envía al correo.
+        private String generarPdf()
+        {
+            // Descargamos la imágen.
+            WebClient wc = new WebClient();
+            byte[] bytes = wc.DownloadData(nA.Foto1);
+            MemoryStream ms = new MemoryStream(bytes);
+            System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
+
+            // La convertimos de System.Drawing a iTextSharp para poder utilizarla en el pdf.
+            iTextSharp.text.Image png = iTextSharp.text.Image.GetInstance(img, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            String nombrePDF = "";
+            String fecha = DateTime.Now.ToString("dd-MM-yyyy");
+            String asunto = "";
+            bool pdfCreado = false;
+
+            if (dGV.Name.Equals("dGVCalif"))
+            {
+                nombrePDF = "Calificaciones " + fecha;
+                asunto = "Calificaciones";
+
+            }
+            else if (dGV.Name.Equals("dGVAsis"))
+            {
+                nombrePDF = "Faltas de Asistencia " + fecha;
+                asunto = "Faltas de Asistencia";
+            }
+
+            PdfPTable pdfTable = new PdfPTable(dGV.ColumnCount);
+
+            pdfTable.DefaultCell.Padding = 3;
+            pdfTable.WidthPercentage = 100;
+
+            pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
+
+            pdfTable.DefaultCell.BorderWidth = 1;
+
+            foreach (DataGridViewColumn column in dGV.Columns)
+            {
+                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                pdfTable.AddCell(cell);
+            }
+
+            foreach (DataGridViewRow row in dGV.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    try
+                    {
+                        pdfTable.AddCell(cell.Value.ToString());
+                    }
+                    catch { }
+                }
+            }
+
+            string folderPath = @"C:\AerolineasQR";
+
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            using (FileStream stream = new FileStream(folderPath + "" + nombrePDF + ".pdf", FileMode.Create))
+            {
+                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+                PdfWriter.GetInstance(pdfDoc, stream);
+                pdfDoc.Open();
+
+                pdfDoc.Add(png);
+
+                pdfDoc.Add(new Paragraph("Nombre: " + nA.Nombre1));
+                pdfDoc.Add(new Paragraph("Correo: " + nA.Mail1));
+                pdfDoc.Add(new Paragraph("Identificador: " + nA.Identificador1));
+                pdfDoc.Add(new Paragraph("Curso: " + nA.Curso1 + " " + nA.Ciclo1));
+                pdfDoc.Add(new Paragraph("\n"));
+
+                pdfDoc.Add(new Paragraph(asunto, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 18, iTextSharp.text.Font.BOLD)) { Alignment = Element.ALIGN_CENTER });
+                pdfDoc.Add(new Paragraph("\n"));
+
+                pdfDoc.Add(pdfTable);
+
+                pdfDoc.Close();
+                stream.Close();
+
+                pdfCreado = true;
+            }
+
+            String ruta = folderPath + "" + nombrePDF + ".pdf";
+
+            if (pdfCreado == true)
+            {
+                MessageBox.Show("PDF con el nombre: " + nombrePDF + " creado correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Process p1 = new Process();
+                p1.StartInfo.FileName = ruta;
+                p1.Start();
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error a la hora de crear el Pdf.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return ruta;
+        }
+
         private void btnPerfil_Click(object sender, EventArgs e)
         {
             PerfilUsuario pS = new PerfilUsuario(datosUsuario);
@@ -631,29 +749,18 @@ namespace Aerolineas
             if (cBRuta1CNR.SelectedIndex != -1 && cBRuta2CNR.SelectedIndex != -1)
             {
                 string ruta = cBRuta1CNR.Text + "-" + cBRuta2CNR.Text;
-                String fechaBuscada = dateTimePickerFechaSalidaVuelo.Value.ToString("yyyy-MM-dd-");
-                bool encontrado = false;
+                String fechaBuscada = dateTimePickerFechaSalidaVuelo.Value.ToString("yyyy-MM-dd");
                 int cont = 0;
 
                 foreach (var datos in listaHorariosActivos)
                 {
-                    cont++;
-                    if (ruta == datos.Ruta)
-                    {                                              
+                    if (ruta == datos.Ruta && fechaBuscada == datos.FechaSalida.ToString("yyyy-MM-dd"))
+                    {
                         comboBoxVuelos.SelectedIndex = cont;
-                        encontrado = true;
                     }
+                    cont++;
                 }
-
-                if (!encontrado)
-                {
-                    MessageBox.Show("No se ha encontrado un vuelo con salida " + cBRuta1CNR.Text + " y destino " + cBRuta2CNR.Text + " sobre la fecha " + dateTimePickerFechaSalidaVuelo.Text + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Debes seleccionar la ruta de salida y destino.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }            
         }
     }
 }
