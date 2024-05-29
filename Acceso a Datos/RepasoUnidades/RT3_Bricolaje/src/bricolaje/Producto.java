@@ -1,13 +1,13 @@
 package bricolaje;
 
 public class Producto {
+
 	private String codigo;
 	private String nombre;
 	private double precio;
 	private int stock;
 
 	public Producto() {
-
 	}
 
 	public Producto(String codigo, String nombre, double precio, int stock) {
@@ -53,4 +53,5 @@ public class Producto {
 	public String toString() {
 		return "Producto [codigo=" + codigo + ", nombre=" + nombre + ", precio=" + precio + ", stock=" + stock + "]";
 	}
+
 }

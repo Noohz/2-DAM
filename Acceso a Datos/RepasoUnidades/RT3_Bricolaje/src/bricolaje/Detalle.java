@@ -1,18 +1,18 @@
 package bricolaje;
 
 public class Detalle {
+
 	private String producto;
 	private int cantidad;
-	private double precio;
+	private double precioUnidad;
 
 	public Detalle() {
-
 	}
 
-	public Detalle(String producto, int cantidad, double precio) {
+	public Detalle(String producto, int cantidad, double precioUnidad) {
 		this.producto = producto;
 		this.cantidad = cantidad;
-		this.precio = precio;
+		this.precioUnidad = precioUnidad;
 	}
 
 	public String getProducto() {
@@ -31,16 +31,17 @@ public class Detalle {
 		this.cantidad = cantidad;
 	}
 
-	public double getPrecio() {
-		return precio;
+	public double getPrecioUnidad() {
+		return precioUnidad;
 	}
 
-	public void setPrecio(double precio) {
-		this.precio = precio;
+	public void setPrecioUnidad(double precioUnidad) {
+		this.precioUnidad = precioUnidad;
 	}
 
 	@Override
 	public String toString() {
-		return "Detalle [producto=" + producto + ", cantidad=" + cantidad + ", precio=" + precio + "]";
+		return "Detalle [producto=" + producto + ", cantidad=" + cantidad + ", precioUnidad=" + precioUnidad + "]";
 	}
+
 }

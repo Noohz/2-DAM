@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Factura {
+
 	private int numero;
 	private Date fecha;
 	private String cliente;
@@ -11,7 +12,6 @@ public class Factura {
 	private int facturaAnulacion;
 
 	public Factura() {
-
 	}
 
 	public Factura(int numero, Date fecha, String cliente, ArrayList<Detalle> listaDetalles, int facturaAnulacion) {
@@ -64,12 +64,12 @@ public class Factura {
 
 	@Override
 	public String toString() {
-		String r = "Factura [numero=" + numero + ", fecha=" + fecha + ", cliente=" + cliente + ", facturaAnulacion=" + facturaAnulacion + "]";
-		
-		for (Detalle detalle : listaDetalles) {
-			r += "\n" + detalle;
+		String r = "Factura [numero=" + numero + ", fecha=" + fecha + ", cliente=" + cliente + ", facturaAnulacion="
+				+ facturaAnulacion + "]";
+		for (Detalle d : listaDetalles) {
+			r += "\n" + d;
 		}
-		
 		return r;
 	}
+
 }

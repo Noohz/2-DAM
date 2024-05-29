@@ -14,20 +14,23 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Accumulators;
 import com.mongodb.client.model.Aggregates;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 import com.mongodb.client.result.InsertOneResult;
+import com.mongodb.client.result.UpdateResult;
 
 public class Modelo {
-	private MongoClient conexion = null;
-	private MongoDatabase bd = null;
+
+	MongoClient conexion = null;
+	MongoDatabase bd = null;
 
 	public Modelo() {
 		try {
 			conexion = MongoClients.create("mongodb://localhost");
 			bd = conexion.getDatabase("bricolaje");
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public MongoClient getConexion() {
@@ -36,27 +39,15 @@ public class Modelo {
 
 	public void setConexion(MongoClient conexion) {
 		this.conexion = conexion;
-
-	}
-
-	public void cerrar() {
-		try {
-			conexion.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
 	}
 
 	public Producto obtenerProducto(String codigo) {
 		Producto resultado = null;
-
 		try {
 			// Nos conectamos a la colección Producto
 			MongoCollection<Document> col = bd.getCollection("productos");
 			Bson filtro = Filters.eq("codigo", codigo);
 			Document d = col.find(filtro).first();
-
 			if (d != null) {
 				resultado = new Producto(d.getString("codigo"), d.getString("nombre"), d.getDouble("precio"),
 						d.getInteger("stock"));
@@ -70,12 +61,10 @@ public class Modelo {
 
 	public boolean crearProducto(Producto p) {
 		boolean resultado = false;
-
 		try {
 			MongoCollection<Document> col = bd.getCollection("productos");
 			InsertOneResult r = col.insertOne(new Document().append("codigo", p.getCodigo())
 					.append("nombre", p.getNombre()).append("stock", p.getStock()).append("precio", p.getPrecio()));
-
 			if (r.getInsertedId() != null) {
 				resultado = true;
 			}
@@ -87,39 +76,80 @@ public class Modelo {
 	}
 
 	public ArrayList<Producto> obtenerProductos() {
-		ArrayList<Producto> resultado = new ArrayList<Producto>();
-
+		ArrayList<Producto> resultado = new ArrayList<>();
 		try {
 			MongoCollection<Document> col = bd.getCollection("productos");
-			MongoCursor<Document> r = col.find().iterator(); // Si hacemos un SELECT * hay que usar el iterator.
-			
+			MongoCursor<Document> r = col.find().iterator();
 			while (r.hasNext()) {
 				Document d = r.next();
-				
 				resultado.add(new Producto(d.getString("codigo"), d.getString("nombre"), d.getDouble("precio"),
 						d.getInteger("stock")));
 			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return resultado;
 	}
 
-	
 	public int obtenerNumeroFactura() {
 		int resultado = 1;
-		
 		try {
 			MongoCollection<Document> col = bd.getCollection("facturas");
-			Document d = col.aggregate(Arrays.asList(Aggregates.group(null, Accumulators.max("N", "$numero")))).first(); // El "N" del Accumulators.Max se refiere al alias del campo.
-			
-			resultado = d.getInteger("N", 1) +1;
+			Document d = col.aggregate(Arrays.asList(Aggregates.group(null, Accumulators.max("n", "$numero")))).first();
+
+			if (d != null) {
+				resultado = d.getInteger("n", 1) + 1;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		return resultado;
 	}
+
+	public boolean crearFactura(Factura f) {
+		boolean resultado = false;
+
+		try {
+			MongoCollection<Document> col = bd.getCollection("facturas");
+			ArrayList<Document> datos = new ArrayList<Document>();
+
+			for (Detalle detalle : f.getListaDetalles()) {
+				Document d = new Document().append("producto", detalle.getProducto())
+						.append("cantidad", detalle.getCantidad()).append("precioUnidad", detalle.getPrecioUnidad());
+
+				datos.add(d);
+			}
+
+			InsertOneResult r = col.insertOne(new Document().append("numero", f.getNumero())
+					.append("fecha", f.getFecha()).append("cliente", f.getCliente())
+					.append("facturaAnulacion", f.getFacturaAnulacion()).append("detalle", datos));
+
+			if (r.getInsertedId() != null) {
+				resultado = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return resultado;
+	}
+
+	public boolean actualizarStock(Detalle i) {
+		boolean resultado = false;
+
+		try {
+			MongoCollection<Document> col = bd.getCollection("productos");
+			Bson filtro = Filters.eq("codigo", i.getProducto());
+			Bson modif = Updates.inc("stock", i.getCantidad() * -1);
+			UpdateResult r = col.updateOne(filtro, modif);
+
+			if (r.getModifiedCount() == 1) {
+				resultado = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return resultado;
+	}
+
 }
