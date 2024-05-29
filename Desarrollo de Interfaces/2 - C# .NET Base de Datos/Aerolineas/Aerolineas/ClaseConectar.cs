@@ -21,8 +21,8 @@ namespace Aerolineas
         public ClaseConectar()
         {
             conexion = new MySqlConnection();
-            //conexion.ConnectionString = "server=localhost;Database=aerolineas2;Uid=root;pwd='';old guids=true";
-            conexion.ConnectionString = "Server=servidoraws.c5s9z61ogvyq.us-east-1.rds.amazonaws.com;Database=aerolineas2;Uid=admin;pwd=Pilukina_2024;old guids=true";
+            conexion.ConnectionString = "server=localhost;Database=aerolineas2;Uid=root;pwd='';old guids=true";
+            //conexion.ConnectionString = "Server=servidoraws.c5s9z61ogvyq.us-east-1.rds.amazonaws.com;Database=aerolineas2;Uid=admin;pwd=Pilukina_2024;old guids=true";
         }
 
         // Método para cancelar la butaca de un cliente.
