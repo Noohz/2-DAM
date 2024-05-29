@@ -1,3 +1,0 @@
-<configuration>
-    <logger name="com.amazonaws.request" level="ERROR" />
-</configuration>
