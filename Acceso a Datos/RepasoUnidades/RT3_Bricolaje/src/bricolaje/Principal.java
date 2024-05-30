@@ -30,10 +30,10 @@ public class Principal {
 					ejercicio2();
 					break;
 				case 3:
-
+					ejercicio3();
 					break;
 				case 4:
-
+					ejercicio4();
 					break;
 
 				}
@@ -42,6 +42,65 @@ public class Principal {
 		} else {
 			System.out.println("Error de conexión");
 		}
+	}
+
+	private static void ejercicio4() {
+		ArrayList<Object[]> datos = bd.obtenerEstadisticas();
+
+		for (Object[] objects : datos) {
+			System.out.print("Productos: " + objects[0] + " - " + objects[1]);
+			System.out.print("Número de ventas: " + objects[2]);
+			System.out.print("Cantidades vendidas: " + objects[3]);
+			System.out.println("Importe recaudado: " + objects[4]);
+		}
+
+	}
+
+	private static void ejercicio3() {
+		mostrarFacturas();
+
+		System.out.println("Introduce un código de la factura a anular: ");
+		int num = t.nextInt();
+		t.nextLine();
+		Factura f = bd.obtenerFactura(num);
+
+		if (f != null) {
+			for (Detalle d : f.getListaDetalles()) {
+				d.setCantidad(d.getCantidad() * -1);
+			}
+			f.setNumero(bd.obtenerNumeroFactura());
+			f.setFecha(new Date());
+
+			if (bd.crearFactura(f)) {
+				for (Detalle d : f.getListaDetalles()) {
+					bd.actualizarStock(d);
+				}
+				if (bd.modificarFacturaOriginal(f.getNumero(), num)) {
+					System.out.println("Factura inicial:");
+					System.out.println(bd.obtenerFactura(num));
+
+					System.out.println("Factura de anulación:");
+					System.out.println(bd.obtenerFactura(f.getNumero()));
+
+				} else {
+					System.err.println("Error, no se ha podido anular la factura correctamente.");
+				}
+			} else {
+				System.err.println("Error, no se ha podido crear la factura.");
+			}
+		} else {
+			System.err.println("Error, no existe ninguna factura con el código indicado");
+		}
+
+	}
+
+	private static void mostrarFacturas() {
+		ArrayList<Factura> listaFacturas = bd.obtenerFacturas();
+
+		for (Factura factura : listaFacturas) {
+			System.out.println(factura);
+		}
+
 	}
 
 	private static void ejercicio2() {
@@ -73,8 +132,9 @@ public class Principal {
 			if (bd.crearFactura(f)) {
 				for (Detalle i : f.getListaDetalles()) {
 					if (!bd.actualizarStock(i)) {
-						System.err.println("Ha ocurrido un error al actualizar el producto...");
+						System.err.println("No se ha actualizado el stock del producto: " + i.getProducto());
 					}
+
 				}
 			} else {
 				System.err.println("Error al crear la factura.");

@@ -43,5 +43,4 @@ public class Detalle {
 	public String toString() {
 		return "Detalle [producto=" + producto + ", cantidad=" + cantidad + ", precioUnidad=" + precioUnidad + "]";
 	}
-
 }
