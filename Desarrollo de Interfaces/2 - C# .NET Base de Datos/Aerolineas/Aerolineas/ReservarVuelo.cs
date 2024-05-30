@@ -10,6 +10,7 @@ using QRCoder;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System.Diagnostics;
+using iTextSharp.text.html.simpleparser;
 
 namespace Aerolineas
 {
@@ -254,7 +255,7 @@ namespace Aerolineas
             Button btnX = (Button)sender;
 
             int seleccion = comboBoxVuelos.SelectedIndex;
-            int idVuelo = listaHorarios[seleccion].IdVuelo;
+            int idVuelo = listaHorariosActivos[seleccion].IdVuelo;
 
             String idAsiento = btnX.Tag.ToString();
             idAsiento = idAsiento.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
@@ -452,7 +453,7 @@ namespace Aerolineas
             if (confirmacion == DialogResult.Yes)
             {
                 int seleccion = comboBoxVuelos.SelectedIndex;
-                int idVuelo = listaHorarios[seleccion].IdVuelo;
+                int idVuelo = listaHorariosActivos[seleccion].IdVuelo;
                 bool compraExitosa = false;
                 String idAsiento = "";
 
@@ -467,7 +468,8 @@ namespace Aerolineas
                     char letraAleatoria = (char)random.Next('A', 'Z' + 1);
                     claveQR = numAleatorio.ToString() + letraAleatoria;
 
-                    while (cnx.comprobarQRExistente(claveQR)) {
+                    while (cnx.comprobarQRExistente(claveQR))
+                    {
                         // Si está repetido en la bd se genera otro código.
                         int nuevoNumAleatorio = random.Next(100000000, 999999999 + 1);
                         char nuevaLetraAleatoria = (char)random.Next('A', 'Z' + 1);
@@ -497,6 +499,8 @@ namespace Aerolineas
                 {
                     MessageBox.Show("Compra realizada con éxito.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    //mandarMail();
+
                     foreach (Control ctrl in tlp.Controls)
                     {
                         for (int i = 0; i < listaReservas.Count; i++)
@@ -524,28 +528,23 @@ namespace Aerolineas
 
         private void generarCodigoQR(string claveQR)
         {
-            string emailCliente = lblBienvenidaMail.Text;
-
-            // Generate the QR code
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(claveQR, QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
             Bitmap qrCodeImage = qrCode.GetGraphic(20);
 
-            // Specify the folder path to save the QR code image
             string folderPath = @"C:\AerolineasQR";
 
-            // Create the folder if it doesn't exist
+            // Crear la carpeta si no existe
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
             }
 
-            // Save the QR code as a PNG image file inside the specified folder
             string fileName = Path.Combine(folderPath, claveQR + ".png");
             qrCodeImage.Save(fileName, ImageFormat.Png);
 
-            mandarMail(fileName, emailCliente); // MandarMail tiene que recibir el pdf en vez del qr.
+            generarPdf(qrCodeImage, claveQR);
         }
 
         private void mandarMail(string archivoQR, string emailCliente)
@@ -587,12 +586,41 @@ namespace Aerolineas
             }
         }
 
-        // PENDIENTE => Rayuela
-        // Que el método devuelva el pdf y que ese pdf contenga el qr que se le envía al correo.
-        // Este método tiene que recibir el archivoQR y los demás datos relacionados con la butaca.
-        private String generarPdf()
+        // Le debe llegar al usuario 1 solo correo con los pdfs. Todos los pdfs a la vez. Añadirlos a un LIST y mandarlos todos.
+        // Que aparezca la imágen de la compañía..
+        private void generarPdf(Bitmap codigoQR, string claveQR)
         {
-            
+            iTextSharp.text.Image qrImage = iTextSharp.text.Image.GetInstance(codigoQR, ImageFormat.Png);
+            qrImage.ScaleToFit(150, 150);
+            qrImage.Alignment = Element.ALIGN_CENTER;
+
+            String nombrePDF = "CodigoQR " + DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss");
+            String asunto = "Código QR";
+
+            string folderPath = @"C:\AerolineasPDF";
+
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            using (FileStream stream = new FileStream(Path.Combine(folderPath, nombrePDF + ".pdf"), FileMode.Create))
+            {
+                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+                PdfWriter.GetInstance(pdfDoc, stream);
+                pdfDoc.Open();
+                              
+                pdfDoc.Add(new Paragraph(lblBienvenida.Text));
+                pdfDoc.Add(new Paragraph("Le adjuntamos el código QR para su próximo embarque."));
+                pdfDoc.Add(new Paragraph("\n"));
+
+                pdfDoc.Add(new Paragraph(asunto, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 18, iTextSharp.text.Font.BOLD)) { Alignment = Element.ALIGN_CENTER });
+                pdfDoc.Add(qrImage);
+                pdfDoc.Add(new Paragraph(claveQR) { Alignment = Element.ALIGN_CENTER });
+
+                pdfDoc.Close();
+                stream.Close();
+            }
         }
 
         private void btnPerfil_Click(object sender, EventArgs e)
@@ -660,7 +688,7 @@ namespace Aerolineas
                     }
                     cont++;
                 }
-            }            
+            }
         }
     }
 }
