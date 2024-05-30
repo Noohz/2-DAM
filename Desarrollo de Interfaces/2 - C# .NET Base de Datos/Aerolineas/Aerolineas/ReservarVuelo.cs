@@ -9,8 +9,6 @@ using System.Windows.Forms;
 using QRCoder;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
-using System.Diagnostics;
-using iTextSharp.text.html.simpleparser;
 
 namespace Aerolineas
 {
@@ -25,10 +23,13 @@ namespace Aerolineas
         List<Billeteavion> listaFacturacion = new List<Billeteavion>(); // Lista que contiene las bútacas vendidas.
         List<Usuariosavion> datosUsuario = new List<Usuariosavion>(); // Lista que contiene los datos del usuario activo.
         List<Aeropuertos> datosAeropuertos = new List<Aeropuertos>(); // Lista que coaantiene los datos de los aeropuertos.
+        List<String> listaPDFs = new List<string>();
 
         string usuarioActivo; // Variable que contiene el usuario de la sesión activo.
+        string emailCliente;
         TableLayoutPanel tlp;
         int puntosFidelidad;
+        string imgLogotipo = "./img/Iberia-logo.jpg";
 
         public ReservarVuelo(List<Usuariosavion> listaUsuario)
         {
@@ -38,6 +39,9 @@ namespace Aerolineas
             lblBienvenida.Text = "Bienvenido/a: " + datosUsuario[0].Nombre;
             usuarioActivo = datosUsuario[0].Nombre;
             lblBienvenidaMail.Text = "Correo: " + datosUsuario[0].Mail;
+            emailCliente = datosUsuario[0].Mail;
+
+            listaPDFs.Clear();
 
             listaHorarios = cnx.obtenerSesionAviones();
             listaFacturacion.Clear();
@@ -108,6 +112,7 @@ namespace Aerolineas
                 }
             }
 
+            listaPDFs.Clear();
             usuarioActivo = "";
             this.Close();
         }
@@ -455,7 +460,7 @@ namespace Aerolineas
                 int seleccion = comboBoxVuelos.SelectedIndex;
                 int idVuelo = listaHorariosActivos[seleccion].IdVuelo;
                 bool compraExitosa = false;
-                String idAsiento = "";
+                string idAsiento = "";
 
                 for (int i = 0; i < listaReservas.Count; i++)
                 {
@@ -490,16 +495,15 @@ namespace Aerolineas
                                 asientoReservado = asientoReservado.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
                                 cnx.cancelarButacaTemporal(idVuelo, asientoReservado, usuarioActivo);
                             }
-                        }                        
-                        generarCodigoQR(claveQR);
+                        }
+                        generarPdf(generarCodigoQR(claveQR), claveQR);
                     }
                 }
 
                 if (compraExitosa)
                 {
                     MessageBox.Show("Compra realizada con éxito.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    //mandarMail();
+                    mandarMail(listaPDFs, emailCliente);
 
                     foreach (Control ctrl in tlp.Controls)
                     {
@@ -517,6 +521,7 @@ namespace Aerolineas
                     MessageBox.Show("Error, no se ha podido realizar la compra...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
+                listaPDFs.Clear();
                 listaReservas.Clear();
                 btnComprarVuelo.Enabled = false;
             }
@@ -526,7 +531,7 @@ namespace Aerolineas
             }
         }
 
-        private void generarCodigoQR(string claveQR)
+        private Bitmap generarCodigoQR(string claveQR)
         {
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(claveQR, QRCodeGenerator.ECCLevel.Q);
@@ -544,10 +549,10 @@ namespace Aerolineas
             string fileName = Path.Combine(folderPath, claveQR + ".png");
             qrCodeImage.Save(fileName, ImageFormat.Png);
 
-            generarPdf(qrCodeImage, claveQR);
+            return qrCodeImage;
         }
 
-        private void mandarMail(string archivoQR, string emailCliente)
+        private void mandarMail(List<string> listaPDFs, string emailCliente)
         {
             try
             {
@@ -561,15 +566,15 @@ namespace Aerolineas
                 var smtpClient = new SmtpClient("smtp.gmail.com", 25);
 
                 msg.From = new MailAddress("aramoss27@educarex.es");
-
                 msg.To.Add(new MailAddress(emailCliente));
-
                 msg.Body = "Se adjunta el PDF con el codigo QR de tu butaca.";
-
-                System.Net.Mail.Attachment attachment;
-                attachment = new System.Net.Mail.Attachment(archivoQR);
-                msg.Attachments.Add(attachment);
                 msg.IsBodyHtml = true;
+
+                foreach (var pdf in listaPDFs)
+                {
+                    System.Net.Mail.Attachment attachmentPDF = new System.Net.Mail.Attachment(pdf);
+                    msg.Attachments.Add(attachmentPDF);
+                }
 
                 smtpClient.EnableSsl = true;
                 smtpClient.UseDefaultCredentials = false;
@@ -587,9 +592,13 @@ namespace Aerolineas
         }
 
         // Le debe llegar al usuario 1 solo correo con los pdfs. Todos los pdfs a la vez. Añadirlos a un LIST y mandarlos todos.
-        // Que aparezca la imágen de la compañía..
         private void generarPdf(Bitmap codigoQR, string claveQR)
         {
+            FileStream fs = new FileStream(this.imgLogotipo, FileMode.Open, FileAccess.Read);
+            iTextSharp.text.Image imgLogotipo = iTextSharp.text.Image.GetInstance(System.Drawing.Image.FromStream(fs), System.Drawing.Imaging.ImageFormat.Jpeg);
+            imgLogotipo.ScaleToFit(300, 300);
+            imgLogotipo.Alignment = Element.ALIGN_CENTER;
+
             iTextSharp.text.Image qrImage = iTextSharp.text.Image.GetInstance(codigoQR, ImageFormat.Png);
             qrImage.ScaleToFit(150, 150);
             qrImage.Alignment = Element.ALIGN_CENTER;
@@ -609,7 +618,9 @@ namespace Aerolineas
                 Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
                 PdfWriter.GetInstance(pdfDoc, stream);
                 pdfDoc.Open();
-                              
+
+                pdfDoc.Add(imgLogotipo);
+
                 pdfDoc.Add(new Paragraph(lblBienvenida.Text));
                 pdfDoc.Add(new Paragraph("Le adjuntamos el código QR para su próximo embarque."));
                 pdfDoc.Add(new Paragraph("\n"));
@@ -621,6 +632,9 @@ namespace Aerolineas
                 pdfDoc.Close();
                 stream.Close();
             }
+
+            String ruta = folderPath + "\\" + nombrePDF + ".pdf";
+            listaPDFs.Add(ruta);
         }
 
         private void btnPerfil_Click(object sender, EventArgs e)
