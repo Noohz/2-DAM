@@ -69,6 +69,7 @@
             this.dateTimePickerFechaSalidaVuelo = new System.Windows.Forms.DateTimePicker();
             this.lblCBSalida = new System.Windows.Forms.Label();
             this.lblCBDestino = new System.Windows.Forms.Label();
+            this.lBDescuentos = new System.Windows.Forms.ListBox();
             this.groupBoxLeyenda.SuspendLayout();
             this.gBDatosVuelos.SuspendLayout();
             this.SuspendLayout();
@@ -497,12 +498,22 @@
             this.lblCBDestino.TabIndex = 45;
             this.lblCBDestino.Text = "Destino";
             // 
+            // lBDescuentos
+            // 
+            this.lBDescuentos.FormattingEnabled = true;
+            this.lBDescuentos.Location = new System.Drawing.Point(566, 405);
+            this.lBDescuentos.Name = "lBDescuentos";
+            this.lBDescuentos.Size = new System.Drawing.Size(158, 147);
+            this.lBDescuentos.TabIndex = 46;
+            this.lBDescuentos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lBDescuentos_MouseClick);
+            // 
             // ReservarVuelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(970, 614);
+            this.Controls.Add(this.lBDescuentos);
             this.Controls.Add(this.lblCBDestino);
             this.Controls.Add(this.lblCBSalida);
             this.Controls.Add(this.dateTimePickerFechaSalidaVuelo);
@@ -576,5 +587,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerFechaSalidaVuelo;
         private System.Windows.Forms.Label lblCBSalida;
         private System.Windows.Forms.Label lblCBDestino;
+        private System.Windows.Forms.ListBox lBDescuentos;
     }
 }

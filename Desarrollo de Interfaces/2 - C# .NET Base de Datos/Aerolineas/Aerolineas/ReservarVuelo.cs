@@ -10,6 +10,7 @@ using QRCoder;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 
+
 namespace Aerolineas
 {
     public partial class ReservarVuelo : Form
@@ -24,6 +25,7 @@ namespace Aerolineas
         List<Usuariosavion> datosUsuario = new List<Usuariosavion>(); // Lista que contiene los datos del usuario activo.
         List<Aeropuertos> datosAeropuertos = new List<Aeropuertos>(); // Lista que coaantiene los datos de los aeropuertos.
         List<String> listaPDFs = new List<string>();
+        List<Horariosaviones> listaHorariosDescuento = new List<Horariosaviones>();
 
         string usuarioActivo; // Variable que contiene el usuario de la sesión activo.
         string emailCliente;
@@ -63,6 +65,12 @@ namespace Aerolineas
             {
                 cBRuta1CNR.Items.Add(rutas.Id);
                 cBRuta2CNR.Items.Add(rutas.Id);
+            }
+
+            listaHorariosDescuento = cnx.obtenerSesionAvionesDescuento();
+            foreach (var horario in listaHorariosDescuento)
+            {
+                lBDescuentos.Items.Add(horario.IdVuelo + "-" + horario.Ruta + "-" + horario.FechaSalida.ToString("dd-MM-yyyy"));
             }
         }
 
@@ -591,7 +599,6 @@ namespace Aerolineas
             }
         }
 
-        // Le debe llegar al usuario 1 solo correo con los pdfs. Todos los pdfs a la vez. Añadirlos a un LIST y mandarlos todos.
         private void generarPdf(Bitmap codigoQR, string claveQR)
         {
             FileStream fs = new FileStream(this.imgLogotipo, FileMode.Open, FileAccess.Read);
@@ -702,6 +709,33 @@ namespace Aerolineas
                     }
                     cont++;
                 }
+            }
+        }
+
+        private void lBDescuentos_MouseClick(object sender, MouseEventArgs e)
+        {
+            string s = lBDescuentos.SelectedItem.ToString();
+
+            string[] datos = s.Split('-');
+
+            string idVuelo = datos[0].Trim();
+            string rutaS = datos[1].Trim();
+            string rutaD = datos[2].Trim();
+            string rutaCompleta = datos[1] + "-" + datos[2];
+            string dia = datos[3].Trim();
+            string mes = datos[4].Trim();
+            string anio = datos[5].Trim();
+            string fechaSalida = datos[5] + "-" + datos[4] + "-" + datos[3];
+
+            int cont = 0;
+
+            foreach (var horarios in listaHorariosActivos)
+            {
+                if (idVuelo == horarios.IdVuelo.ToString() && rutaCompleta == horarios.Ruta && fechaSalida == horarios.FechaSalida.ToString("yyyy-MM-dd"))
+                {
+                    comboBoxVuelos.SelectedIndex = cont;
+                }
+                cont++;
             }
         }
     }

@@ -17,6 +17,7 @@ namespace Aerolineas
         List<ModeloAvion> listaIdAviones = new List<ModeloAvion>();
         List<Aeropuertos> datosAeropuertos = new List<Aeropuertos>();
         List<int> billetesCompradosUsr = new List<int>();
+        List<Horariosaviones> listaHorariosDescuento = new List<Horariosaviones>();
 
         public ClaseConectar()
         {
@@ -510,6 +511,34 @@ namespace Aerolineas
             conexion.Close();
 
             return false;
+        }
+
+        internal List<Horariosaviones> obtenerSesionAvionesDescuento()
+        {
+            conexion.Open();
+
+            string cadenaSql = "SELECT * FROM horariosaviones WHERE fechaSalida BETWEEN NOW() AND (NOW() + INTERVAL 12 HOUR)";
+            comando = new MySqlCommand(cadenaSql, conexion);
+
+            datos = comando.ExecuteReader();
+
+            while (datos.Read())
+            {
+                Horariosaviones hS = new Horariosaviones();
+                hS.IdVuelo = (int)datos["idVuelo"];
+                hS.Ruta = (string)datos["ruta"];
+                hS.FechaSalida = (DateTime)datos["fechaSalida"];
+                hS.PrecioBussines = (int)datos["precioBussines"];
+                hS.PrecioPrimera = (int)datos["precioPrimera"];
+                hS.PrecioTurista = (int)datos["precioTurista"];
+                hS.IdAvion = (string)datos["idAvion"];
+
+                listaHorariosDescuento.Add(hS);
+            }
+
+            conexion.Close();
+
+            return listaHorariosDescuento;
         }
     }
 }

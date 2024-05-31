@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CrudMedicamento\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F731957B-6059-4627-BE46-93F363904A15}|CrudMedicamento\\CrudMedicamento.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CrudMedicamento\\crudmedicamento\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F731957B-6059-4627-BE46-93F363904A15}|CrudMedicamento\\CrudMedicamento.csproj|solutionrelative:crudmedicamento\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F731957B-6059-4627-BE46-93F363904A15}|CrudMedicamento\\CrudMedicamento.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\crudmedicamento\\crudmedicamento\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F731957B-6059-4627-BE46-93F363904A15}|CrudMedicamento\\CrudMedicamento.csproj|solutionrelative:crudmedicamento\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F731957B-6059-4627-BE46-93F363904A15}|CrudMedicamento\\CrudMedicamento.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CrudMedicamento\\crudmedicamento\\conectarbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F731957B-6059-4627-BE46-93F363904A15}|CrudMedicamento\\CrudMedicamento.csproj|solutionrelative:crudmedicamento\\conectarbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F731957B-6059-4627-BE46-93F363904A15}|CrudMedicamento\\CrudMedicamento.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CrudMedicamento\\crudmedicamento\\clasemedicamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F731957B-6059-4627-BE46-93F363904A15}|CrudMedicamento\\CrudMedicamento.csproj|solutionrelative:crudmedicamento\\clasemedicamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClaseMedicamento.cs",
+              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CrudMedicamento\\CrudMedicamento\\ClaseMedicamento.cs",
+              "RelativeDocumentMoniker": "CrudMedicamento\\ClaseMedicamento.cs",
+              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CrudMedicamento\\CrudMedicamento\\ClaseMedicamento.cs",
+              "RelativeToolTip": "CrudMedicamento\\ClaseMedicamento.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-19T07:59:28.335Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ConectarBD.cs",
+              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CrudMedicamento\\CrudMedicamento\\ConectarBD.cs",
+              "RelativeDocumentMoniker": "CrudMedicamento\\ConectarBD.cs",
+              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CrudMedicamento\\CrudMedicamento\\ConectarBD.cs",
+              "RelativeToolTip": "CrudMedicamento\\ConectarBD.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwBYAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-19T07:59:28.351Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CrudMedicamento\\CrudMedicamento\\Form1.cs",
+              "RelativeDocumentMoniker": "CrudMedicamento\\Form1.cs",
+              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CrudMedicamento\\CrudMedicamento\\Form1.cs",
+              "RelativeToolTip": "CrudMedicamento\\Form1.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA0AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-19T07:59:28.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CrudMedicamento\\CrudMedicamento\\Form1.cs",
+              "RelativeDocumentMoniker": "CrudMedicamento\\Form1.cs",
+              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\CrudMedicamento\\CrudMedicamento\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "CrudMedicamento\\Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-19T07:59:28.461Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

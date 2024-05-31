@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|solutionrelative:aerolineas\\reservarvuelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\aerolineas\\claseconectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|solutionrelative:aerolineas\\claseconectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\aerolineas\\reservarvuelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|solutionrelative:aerolineas\\reservarvuelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\aerolineas\\claseconectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{592AE174-5FA8-4A09-95A3-6D8760DA6862}|Aerolineas\\Aerolineas.csproj|solutionrelative:aerolineas\\claseconectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,16 +26,15 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ClaseConectar.cs",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\ClaseConectar.cs",
               "RelativeDocumentMoniker": "Aerolineas\\ClaseConectar.cs",
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\ClaseConectar.cs",
               "RelativeToolTip": "Aerolineas\\ClaseConectar.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAYwMIAAAAjAAAA",
+              "ViewState": "AQIAAKgBAAAAAAAAAAAuwBcCAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T23:02:45.064Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-29T23:02:45.064Z"
             },
             {
               "$type": "Document",
@@ -45,22 +44,21 @@
               "RelativeDocumentMoniker": "Aerolineas\\ReservarVuelo.cs",
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\ReservarVuelo.cs",
               "RelativeToolTip": "Aerolineas\\ReservarVuelo.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAuwLwBAABGAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAkwMoCAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-28T10:31:41.111Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "ReservarVuelo.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\ReservarVuelo.cs",
               "RelativeDocumentMoniker": "Aerolineas\\ReservarVuelo.cs",
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Aerolineas\\Aerolineas\\ReservarVuelo.cs [Dise\u00F1o]",
               "RelativeToolTip": "Aerolineas\\ReservarVuelo.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T10:19:05.063Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-05-28T10:19:05.063Z"
             }
           ]
         }
