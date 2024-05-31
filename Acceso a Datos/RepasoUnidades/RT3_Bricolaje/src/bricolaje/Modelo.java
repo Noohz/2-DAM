@@ -43,7 +43,6 @@ public class Modelo {
 	}
 
 	public Producto obtenerProducto(String codigo) {
-		// TODO Auto-generated method stub
 		Producto resultado = null;
 		try {
 			// Nos conectamos a la colección Producto
