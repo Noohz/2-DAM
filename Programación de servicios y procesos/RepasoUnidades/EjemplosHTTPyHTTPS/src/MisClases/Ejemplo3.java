@@ -1,16 +1,21 @@
 package MisClases;
 
 
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
 /* 
 
 Para procesar el cuerpo de un HttpResponse y filtrar las etiquetas HTML 
-que cumplen con ciertas características, puedes utilizar una biblioteca 
-de análisis HTML como JSoup. 
-JSoup facilita la manipulación y búsqueda de elementos HTML en Java.
+que cumplen con ciertas caracterï¿½sticas, puedes utilizar una biblioteca 
+de anï¿½lisis HTML como JSoup. 
+JSoup facilita la manipulaciï¿½n y bï¿½squeda de elementos HTML en Java.
 
 Primero, debes asegurarte de incluir la biblioteca JSoup en tu proyecto. 
 Puedes descargarla desde el sitio web oficial de JSoup (https://jsoup.org/) 
-o utilizar una herramienta de gestión de dependencias como Maven o Gradle.
+o utilizar una herramienta de gestiï¿½n de dependencias como Maven o Gradle.
  */
 
 import org.jsoup.Jsoup;
@@ -18,19 +23,13 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.util.Scanner;
-
 public class Ejemplo3 {
 
 	// https://www.imdb.com/find/?q=paul+newman
 	
 	void ejecutar() {
 	
-		System.out.print("Escribe el término : ");
+		System.out.print("Escribe el tï¿½rmino : ");
 		String termino=Aplicacion.teclado.next();
 		mostrarDefiniciones(termino);
 	}
@@ -58,7 +57,7 @@ public class Ejemplo3 {
             // Parsear el cuerpo HTML utilizando JSoup
             Document document = Jsoup.parse(responseBody);
 
-            // Seleccionar elementos con una clase específica
+            // Seleccionar elementos con una clase especï¿½fica
             Elements elementosDefiniciones = document.select("ol.entry li");
 
             // Iterar sobre los elementos seleccionados
