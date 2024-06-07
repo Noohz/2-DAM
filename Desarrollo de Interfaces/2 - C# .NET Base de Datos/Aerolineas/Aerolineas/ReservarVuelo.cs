@@ -32,6 +32,10 @@ namespace Aerolineas
         TableLayoutPanel tlp;
         int puntosFidelidad;
         string imgLogotipo = "./img/Iberia-logo.jpg";
+        bool oferton = false;
+        DateTime fechaSalida;
+        bool compraExitosa = false;
+        int cont = 1;
 
         public ReservarVuelo(List<Usuariosavion> listaUsuario)
         {
@@ -42,6 +46,11 @@ namespace Aerolineas
             usuarioActivo = datosUsuario[0].Nombre;
             lblBienvenidaMail.Text = "Correo: " + datosUsuario[0].Mail;
             emailCliente = datosUsuario[0].Mail;
+
+            MemoryStream ms = new MemoryStream(datosUsuario[0].Imagen);
+            pBImgUser.BackgroundImage = System.Drawing.Image.FromStream(ms);
+            pBImgUser.BackgroundImageLayout = ImageLayout.Stretch;
+
 
             listaPDFs.Clear();
 
@@ -98,28 +107,6 @@ namespace Aerolineas
 
         private void btnCerrarReserva_Click(object sender, EventArgs e)
         {
-            int seleccion = 0;
-            int idVuelo = 0;
-
-            if (comboBoxVuelos.SelectedIndex != -1)
-            {
-                seleccion = comboBoxVuelos.SelectedIndex;
-                idVuelo = listaHorarios[seleccion].IdVuelo;
-
-                foreach (Control ctrl in tlp.Controls)
-                {
-                    for (int i = 0; i < listaReservas.Count; i++)
-                    {
-                        if (ctrl.Tag.ToString().Equals(listaReservas[i]))
-                        {
-                            String idAsiento = ctrl.Tag.ToString();
-                            idAsiento = idAsiento.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
-                            cnx.cancelarButacaTemporal(idVuelo, idAsiento, usuarioActivo);
-                        }
-                    }
-                }
-            }
-
             listaPDFs.Clear();
             usuarioActivo = "";
             this.Close();
@@ -127,9 +114,11 @@ namespace Aerolineas
 
         private void comboBoxVuelos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            btnSeguimientoVuelo.Visible = false;
             listaReservas.Clear();
             lblPrecioTotal.Text = "0";
             lblPrecioTotalDTO.Text = "0";
+            gBDatosTicket.Visible = true;
 
             // Obtener el item seleccionado del comboBox.
             ComboBox cB = (ComboBox)sender;
@@ -138,315 +127,79 @@ namespace Aerolineas
             listaFacturacion.Clear();
 
             // Uso el item para establecer las cantidades relacionadas con los datos del comboBox.
-            lblPrecioTurista.Text = listaHorarios[seleccion].PrecioTurista.ToString();
-            lblPrecioPrimera.Text = listaHorarios[seleccion].PrecioPrimera.ToString();
-            lblPrecioBussines.Text = listaHorarios[seleccion].PrecioBussines.ToString();
-            lblIdAvion.Text = listaHorarios[seleccion].IdAvion.ToString();
-            lblFechaSalida.Text = listaHorarios[seleccion].FechaSalida.ToString();
-            lblTrayecto.Text = listaHorarios[seleccion].Ruta.ToString();
+            lblPrecioTurista.Text = listaHorariosActivos[seleccion].PrecioTurista.ToString();
+            lblPrecioBussines.Text = listaHorariosActivos[seleccion].PrecioBussines.ToString();
+            lblIdAvion.Text = listaHorariosActivos[seleccion].IdAvion.ToString();
+            lblFechaSalida.Text = listaHorariosActivos[seleccion].FechaSalida.ToString();
+            fechaSalida = DateTime.Parse(listaHorariosActivos[seleccion].FechaSalida.ToString("yyyy-MM-dd"));
+            lblTrayecto.Text = listaHorariosActivos[seleccion].Ruta.ToString();
+            lblDuracion.Text = listaHorariosActivos[seleccion].MinutosVuelo.ToString();
 
             // Configuración del FlowLayoutPanel y los botones.
-            fLPrincipal.Controls.Clear();
             butacasAvion.Clear();
 
             listaFacturacion = cnx.obtenerButacasOcupadas(listaHorariosActivos[seleccion].IdVuelo);
+            lblAsientosVendidos.Text = listaFacturacion.Count.ToString();
 
             // Guardo en una lista el resultado de la consulta pasandole el ID del avión para que me devuelva los datos del avión.
             butacasAvion = cnx.obtenerButacasAvion(listaHorariosActivos[seleccion].IdAvion);
+            MemoryStream ms = new MemoryStream(butacasAvion[0].Imagen);
+            pBModeloAvion.BackgroundImage = System.Drawing.Image.FromStream(ms);
+            pBModeloAvion.BackgroundImageLayout = ImageLayout.Stretch;
+
+            string ruta = lblTrayecto.Text;
+            string[] datos = ruta.Split('-');
+            string salida = datos[0];
+            string destino = datos[1];
+
+            foreach (Aeropuertos s in datosAeropuertos)
+            {
+                if (s.Id.Equals(salida))
+                {
+                    MemoryStream imgSalida = new MemoryStream(s.Imagen);
+                    pBImgSalida.BackgroundImage = System.Drawing.Image.FromStream(imgSalida);
+                    pBImgSalida.BackgroundImageLayout = ImageLayout.Stretch;
+                }
+                else if (s.Id.Equals(destino))
+                {
+                    MemoryStream imgDestino = new MemoryStream(s.Imagen);
+                    pBImgDestino.BackgroundImage = System.Drawing.Image.FromStream(imgDestino);
+                    pBImgDestino.BackgroundImageLayout = ImageLayout.Stretch;
+                }
+            }
+
             // Guardo en una variable el contenido de cada butaca para usarlo a la hora de crear el TableLayoutPanel.
             int butacasBussines = butacasAvion[0].FBussines * 6;
-            int butacasPrimera = butacasAvion[0].FPrimera * 6;
+            lblAsientosBussines.Text = butacasBussines.ToString();
+            lblFilasBussines.Text = butacasAvion[0].FBussines.ToString();
             int butacasTurista = butacasAvion[0].FTurista * 6;
-            int totalButacas = butacasBussines + butacasPrimera + butacasTurista;
-            int columna = 0;
-            int fila = 0;
-            int contador = 0;
+            lblAsientosTurista.Text = butacasTurista.ToString();
+            lblFilasTuristas.Text = butacasAvion[0].FTurista.ToString();
+            int totalButacas = butacasBussines + butacasTurista;
+            lblAsientosTotales.Text = totalButacas.ToString();
 
-            // Un tableLayoutPanel que contendrá los botones.
-            tlp = new TableLayoutPanel();
-            tlp.AutoSize = true;
-            tlp.ColumnCount = 6;
-            fLPrincipal.Controls.Add(tlp);
+            DateTime fechaActual = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd"));
 
-            for (int i = 0; i < totalButacas; i++)
+            int dias = (fechaSalida - fechaActual).Days;
+
+            if (dias <= 3)
             {
-                Button boton = new Button();
-                boton.AutoSize = true;
-
-                // 3 if que se encargarán de comprobar en que posición está el botón para asignarle su Letra adecuada.
-                if (columna == 0 || columna == 5)
-                {
-                    if (columna == 0)
-                    {
-                        boton.Text += "V_I";
-                    }
-                    else
-                    {
-                        boton.Text += "V_D";
-                    }
-                }
-                if (columna == 1 || columna == 4)
-                {
-                    if (columna == 1)
-                    {
-                        boton.Text += "C_I";
-                    }
-                    else
-                    {
-                        boton.Text += "C_D";
-                    }
-                }
-                if (columna == 2 || columna == 3)
-                {
-                    if (columna == 2)
-                    {
-                        boton.Text += "P_I";
-                    }
-                    else
-                    {
-                        boton.Text += "P_D";
-                    }
-                }
-
-                // Otros 3 if que se encargan de concatenar al nombre del botón si es Bussines, Primera o turista.
-                if (contador < butacasBussines)
-                {
-                    boton.BackColor = Color.Green;
-                    boton.Name = boton.Text + "_" + fila;
-                    boton.Text = "B" + "_" + boton.Text + "_" + fila;
-                    contador++;
-                }
-                else if (contador < (butacasPrimera + butacasBussines))
-                {
-                    boton.BackColor = Color.Yellow;
-                    boton.Name = boton.Text + "_" + fila;
-                    boton.Text = "Pr" + "_" + boton.Text + "_" + fila;
-                    contador++;
-                }
-                else
-                {
-                    boton.BackColor = Color.Orange;
-                    boton.Name = boton.Text + "_" + fila;
-                    boton.Text = "T" + "_" + boton.Text + "_" + fila;
-                    contador++;
-                }
-
-                // En este punto el nombre del boton sería algo como: V/C/P_I/D_Fila
-                boton.Tag = boton.Text;
-                boton.Click += Boton_Click;
-
-                columna++;
-                if (columna == 6)
-                {
-                    columna = 0;
-                    fila += 1;
-                }
-
-                foreach (var item in listaFacturacion)
-                {
-                    if (item.IdAsiento == boton.Name)
-                    {
-                        if (item.Comprador.Equals(datosUsuario[0].Nombre))
-                        {
-                            boton.BackColor = Color.Blue;
-
-                        }
-                        else
-                        {
-                            boton.BackColor = Color.Red;
-                            boton.Enabled = false;
-                        }
-                    }
-                }
-
-                tlp.Controls.Add(boton);
+                btnSeguimientoVuelo.Visible = true;
             }
         }
 
-        private void Boton_Click(object sender, EventArgs e)
+        private void calcularPrecioFinal()
         {
-            Button btnX = (Button)sender;
+            DateTime fechaActual = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd"));
 
-            int seleccion = comboBoxVuelos.SelectedIndex;
-            int idVuelo = listaHorariosActivos[seleccion].IdVuelo;
+            int dias = (fechaSalida - fechaActual).Days;
 
-            String idAsiento = btnX.Tag.ToString();
-            idAsiento = idAsiento.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
-
-            if (listaReservas.Count < 5)
+            for (int i = 0; i < dias; i++)
             {
-                DateTime fechaActual = DateTime.Now; // Almaceno en la variable la fecha actual para usarla en el descuento.
-                DateTime fechaSalida = DateTime.Parse(lblFechaSalida.Text); // Casteo la fecha de salida a datetime para luego poder restarlo.
+                double pDto = double.Parse(lblPrecioTotal.Text) * 0.01;
+                double pTotalDto = double.Parse(lblPrecioTotal.Text) - pDto;
 
-                int precioTotal = int.Parse(lblPrecioTotal.Text);
-
-                if (btnX.BackColor == Color.Green || btnX.BackColor == Color.Yellow || btnX.BackColor == Color.Orange)
-                {
-                    btnX.BackColor = Color.Pink;
-                    listaReservas.Add(btnX.Tag.ToString());
-
-                    if (cnx.comprobarButacaReservadaTemporal(idVuelo, idAsiento))
-                    {
-                        if (btnX.Text.StartsWith("B"))
-                        {
-                            btnX.BackColor = Color.Green;
-                        }
-                        else if (btnX.Text.StartsWith("P"))
-                        {
-                            btnX.BackColor = Color.Yellow;
-                        }
-                        else
-                        {
-                            btnX.BackColor = Color.Orange;
-                        }
-
-                        MessageBox.Show("Error, la butaca seleccionada está reservada por otro usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        cnx.reservarButacaTemporal(idVuelo, idAsiento, usuarioActivo);
-                        timerButacaReservada.Start();
-
-                        if (btnX.Text.StartsWith("B"))
-                        {
-                            precioTotal += int.Parse(lblPrecioBussines.Text);
-                        }
-                        else if (btnX.Text.StartsWith("P"))
-                        {
-                            precioTotal += int.Parse(lblPrecioPrimera.Text);
-                        }
-                        else
-                        {
-                            precioTotal += int.Parse(lblPrecioTurista.Text);
-                        }
-
-                        btnComprarVuelo.Enabled = true;
-                    }
-                }
-                else if (btnX.BackColor == Color.Pink)
-                {
-                    if (btnX.Text.StartsWith("B"))
-                    {
-                        btnX.BackColor = Color.Green;
-                        precioTotal -= int.Parse(lblPrecioBussines.Text);
-                    }
-                    else if (btnX.Text.StartsWith("P"))
-                    {
-                        btnX.BackColor = Color.Yellow;
-                        precioTotal -= int.Parse(lblPrecioPrimera.Text);
-                    }
-                    else
-                    {
-                        btnX.BackColor = Color.Orange;
-                        precioTotal -= int.Parse(lblPrecioTurista.Text);
-                    }
-                    listaReservas.RemoveAt(listaReservas.IndexOf(btnX.Tag.ToString()));
-                    cnx.cancelarButacaTemporal(idVuelo, idAsiento, usuarioActivo);
-                    timerButacaReservada.Stop();
-                }
-                else if (btnX.BackColor == Color.Blue)
-                {
-                    DialogResult cancelarButaca = MessageBox.Show("¿Deseas cancelar tu reserva?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (cancelarButaca == DialogResult.Yes)
-                    {
-                        int diasHastaSalida = (fechaSalida - fechaActual).Days;
-
-                        if (diasHastaSalida < 5)
-                        {
-                            MessageBox.Show("Lo sentimos, no puedes cancelar tu reserva debido a que quedan menos de 5 días para la salida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        else
-                        {
-                            int codigo = cnx.cancelarReservaButaca(idVuelo, idAsiento, usuarioActivo);
-
-                            if (codigo == 1)
-                            {
-                                MessageBox.Show("Se ha cancelado tu reserva correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                if (btnX.Text.StartsWith("B"))
-                                {
-                                    btnX.BackColor = Color.Green;
-                                }
-                                else if (btnX.Text.StartsWith("P"))
-                                {
-                                    btnX.BackColor = Color.Yellow;
-                                }
-                                else
-                                {
-                                    btnX.BackColor = Color.Orange;
-                                }
-                            }
-                        }
-                    }
-
-                    if (listaReservas.Count == 0)
-                    {
-                        btnComprarVuelo.Enabled = false;
-                    }
-
-                    lblPrecioTotal.Text = precioTotal.ToString();
-
-                    int dias = (fechaSalida - fechaActual).Days; // Resto ambas fechas usando .Days para que tenga en cuenta los días.
-
-                    if (dias > 15)  // Decrementa un 20%
-                    {
-                        double pDto = double.Parse(lblPrecioTotal.Text) * 0.20;
-                        double pTotalDto = double.Parse(lblPrecioTotal.Text) - pDto;
-
-                        lblPrecioTotalDTO.Text = pTotalDto.ToString();
-                    }
-                    else if (dias >= 10 && dias <= 14) // Incrementa un 15%
-                    {
-                        double pDto = double.Parse(lblPrecioTotal.Text) * 0.15;
-                        double pTotalDto = double.Parse(lblPrecioTotal.Text) + pDto;
-
-                        lblPrecioTotalDTO.Text = pTotalDto.ToString();
-                    }
-                    else if (dias >= 2 && dias <= 9) // Incrementa un 20%
-                    {
-                        double pDto = double.Parse(lblPrecioTotal.Text) * 0.20;
-                        double pTotalDto = double.Parse(lblPrecioTotal.Text) + pDto;
-
-                        lblPrecioTotalDTO.Text = pTotalDto.ToString();
-                    }
-                    else if (dias == 1) // Decrementa un 50%
-                    {
-                        double pDto = double.Parse(lblPrecioTotal.Text) * 0.50;
-                        double pTotalDto = double.Parse(lblPrecioTotal.Text) - pDto;
-
-                        lblPrecioTotalDTO.Text = pTotalDto.ToString();
-                    }
-
-                    int butacasBussines = butacasAvion[0].FBussines * 6;
-                    int butacasPrimera = butacasAvion[0].FPrimera * 6;
-                    int butacasTurista = butacasAvion[0].FTurista * 6;
-                    int totalButacas = butacasBussines + butacasPrimera + butacasTurista;
-                    double cantidadVendida = ((double)listaFacturacion.Count / totalButacas) * 100;
-
-                    if (cantidadVendida > 80) // Si se han vendido más del 80% de los billetes se incrementa un 50% el precio anterior.
-                    {
-                        double pDto = double.Parse(lblPrecioTotalDTO.Text) * 0.5;
-                        double pFinal = double.Parse(lblPrecioTotalDTO.Text) + pDto;
-                        lblPrecioTotalDTO.Text = pFinal.ToString();
-                    }
-                    else if (cantidadVendida >= 50 && cantidadVendida <= 80) // Si se han vendido entre el 50% y 80% de los billetes se incrementan un 20% 
-                    {
-                        double pDto = double.Parse(lblPrecioTotalDTO.Text) * 0.2;
-                        double pFinal = double.Parse(lblPrecioTotalDTO.Text) + pDto;
-                        lblPrecioTotalDTO.Text = pFinal.ToString();
-                    }
-                    else if (cantidadVendida < 10) // Si se han vendido menos del 10% el precio se decrementa un 10%
-                    {
-                        double pDto = double.Parse(lblPrecioTotalDTO.Text) * 0.1;
-                        double pFinal = double.Parse(lblPrecioTotalDTO.Text) - pDto;
-                        lblPrecioTotalDTO.Text = pFinal.ToString();
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Error, no puedes reservas más de 5 butacas a la vez.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblPrecioTotalDTO.Text = pTotalDto.ToString();
             }
         }
 
@@ -454,84 +207,81 @@ namespace Aerolineas
         {
             timerButacaReservada.Stop();
             string claveQR = "";
-            string mensaje = "¿Deseas realizar la compra de las siguientes butacas?\n";
+            string mensaje = "¿Deseas realizar la compra de " + cBCantidad.Text + " butacas de la clase " + cBCategoria.Text + "?";
+            DialogResult confirmacion = DialogResult.No;
+            int cantidadAsientos = int.Parse(cBCantidad.Text);
 
-            for (int i = 0; i < listaReservas.Count; i++)
+            if (cBCantidad.SelectedIndex != -1 && cBCategoria.SelectedIndex != -1)
             {
-                mensaje += listaReservas[i] + "\n";
+                confirmacion = MessageBox.Show(mensaje, "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             }
-
-            DialogResult confirmacion = MessageBox.Show(mensaje, "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            else
+            {
+                MessageBox.Show("Error, debes de seleccionar el número de asientos y su categoría...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             if (confirmacion == DialogResult.Yes)
             {
-                int seleccion = comboBoxVuelos.SelectedIndex;
-                int idVuelo = listaHorariosActivos[seleccion].IdVuelo;
-                bool compraExitosa = false;
-                string idAsiento = "";
-
-                for (int i = 0; i < listaReservas.Count; i++)
+                int asientosVendidos = int.Parse(lblAsientosVendidos.Text);
+                if ((cantidadAsientos + asientosVendidos) > int.Parse(lblAsientosTotales.Text))
                 {
-                    String nombreBoton = listaReservas[i];
-                    idAsiento = nombreBoton.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
-
-                    // Crear QR
-                    Random random = new Random();
-                    int numAleatorio = random.Next(100000000, 999999999 + 1);
-                    char letraAleatoria = (char)random.Next('A', 'Z' + 1);
-                    claveQR = numAleatorio.ToString() + letraAleatoria;
-
-                    while (cnx.comprobarQRExistente(claveQR))
-                    {
-                        // Si está repetido en la bd se genera otro código.
-                        int nuevoNumAleatorio = random.Next(100000000, 999999999 + 1);
-                        char nuevaLetraAleatoria = (char)random.Next('A', 'Z' + 1);
-                        claveQR = nuevoNumAleatorio.ToString() + nuevaLetraAleatoria;
-                    }
-
-                    int codigo = cnx.insertarFacturacion(idVuelo, idAsiento, usuarioActivo, DateTime.Now, lblPrecioTotalDTO.Text, claveQR);
-
-                    if (codigo == 1)
-                    {
-                        compraExitosa = true;
-
-                        foreach (Control ctrl in tlp.Controls)
-                        {
-                            if (ctrl.Tag.ToString().Equals(listaReservas[i]))
-                            {
-                                String asientoReservado = ctrl.Tag.ToString();
-                                asientoReservado = asientoReservado.Replace("B_", "").Replace("Pr_", "").Replace("T_", "");
-                                cnx.cancelarButacaTemporal(idVuelo, asientoReservado, usuarioActivo);
-                            }
-                        }
-                        generarPdf(generarCodigoQR(claveQR), claveQR);
-                    }
-                }
-
-                if (compraExitosa)
-                {
-                    MessageBox.Show("Compra realizada con éxito.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    mandarMail(listaPDFs, emailCliente);
-
-                    foreach (Control ctrl in tlp.Controls)
-                    {
-                        for (int i = 0; i < listaReservas.Count; i++)
-                        {
-                            if (ctrl.Tag.ToString().Equals(listaReservas[i]))
-                            {
-                                ctrl.BackColor = Color.Blue;
-                            }
-                        }
-                    }
+                    MessageBox.Show("Error, no hay suficientes asientos libres para realizar la compra...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Error, no se ha podido realizar la compra...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                    int seleccion = comboBoxVuelos.SelectedIndex;
+                    int idVuelo = listaHorariosActivos[seleccion].IdVuelo;
+                    
 
-                listaPDFs.Clear();
-                listaReservas.Clear();
-                btnComprarVuelo.Enabled = false;
+                    for (int i = 0; i < cantidadAsientos; i++)
+                    {
+                        // Crear QR
+                        Random random = new Random();
+                        int numAleatorio = random.Next(100000000, 999999999 + 1);
+                        char letraAleatoria = (char)random.Next('A', 'Z' + 1);
+                        claveQR = numAleatorio.ToString() + letraAleatoria;
+
+                        while (cnx.comprobarQRExistente(claveQR))
+                        {
+                            // Si está repetido en la bd se genera otro código.
+                            int nuevoNumAleatorio = random.Next(100000000, 999999999 + 1);
+                            char nuevaLetraAleatoria = (char)random.Next('A', 'Z' + 1);
+                            claveQR = nuevoNumAleatorio.ToString() + nuevaLetraAleatoria;
+                        }
+                        calcularPrecioFinal();
+
+                        if (oferton)
+                        {
+                            double pDto = double.Parse(lblPrecioTotal.Text) * 0.50;
+                            lblPrecioTotalDTO.Text = pDto.ToString();
+                        }
+                        String idAsiento = claveQR.ToString();
+                        int codigo = cnx.insertarFacturacion(idVuelo, idAsiento, usuarioActivo, DateTime.Now, lblPrecioTotalDTO.Text, claveQR);
+
+                        if (codigo == 1)
+                        {
+                            compraExitosa = true;
+                        }
+
+                        if (compraExitosa) {
+                            generarPdf(generarCodigoQR(claveQR), claveQR);
+                        }
+                    }
+
+                    if (compraExitosa)
+                    {
+                        MessageBox.Show("Compra realizada con éxito.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        mandarMail(listaPDFs, emailCliente);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error, no se ha podido realizar la compra...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    listaPDFs.Clear();
+                    listaReservas.Clear();
+                    compraExitosa = false;
+                }
             }
             else
             {
@@ -601,16 +351,51 @@ namespace Aerolineas
 
         private void generarPdf(Bitmap codigoQR, string claveQR)
         {
+            // LOGOTIPO EMPRESA
             FileStream fs = new FileStream(this.imgLogotipo, FileMode.Open, FileAccess.Read);
             iTextSharp.text.Image imgLogotipo = iTextSharp.text.Image.GetInstance(System.Drawing.Image.FromStream(fs), System.Drawing.Imaging.ImageFormat.Jpeg);
             imgLogotipo.ScaleToFit(300, 300);
             imgLogotipo.Alignment = Element.ALIGN_CENTER;
 
+            // IMAGEN QR
             iTextSharp.text.Image qrImage = iTextSharp.text.Image.GetInstance(codigoQR, ImageFormat.Png);
             qrImage.ScaleToFit(150, 150);
             qrImage.Alignment = Element.ALIGN_CENTER;
 
-            String nombrePDF = "CodigoQR " + DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss");
+            // IMAGEN USUARIO
+            MemoryStream ms = new MemoryStream(datosUsuario[0].Imagen);
+            System.Drawing.Image imagen = System.Drawing.Image.FromStream(ms);
+            iTextSharp.text.Image usrImg = iTextSharp.text.Image.GetInstance(imagen, ImageFormat.Png);
+            usrImg.ScaleToFit(150, 150);
+
+            string rutaVuelo = lblTrayecto.Text;
+            string[] datos = rutaVuelo.Split('-');
+            string salida = datos[0];
+            string destino = datos[1];
+            iTextSharp.text.Image salidaImg = null;
+            iTextSharp.text.Image destinoImg = null;
+
+            foreach (Aeropuertos s in datosAeropuertos)
+            {
+                if (s.Id.Equals(salida))
+                {
+                    // IMAGEN SALIDA
+                    MemoryStream ms1 = new MemoryStream(s.Imagen);
+                    System.Drawing.Image imagenSalida = System.Drawing.Image.FromStream(ms1);
+                    salidaImg = iTextSharp.text.Image.GetInstance(imagenSalida, ImageFormat.Png);
+                    salidaImg.ScaleToFit(100, 100);
+                }
+                else if (s.Id.Equals(destino))
+                {
+                    // IMAGEN DESTINO
+                    MemoryStream ms2 = new MemoryStream(s.Imagen);
+                    System.Drawing.Image imagenDestino = System.Drawing.Image.FromStream(ms2);
+                    destinoImg = iTextSharp.text.Image.GetInstance(imagenDestino, ImageFormat.Png);
+                    destinoImg.ScaleToFit(100, 100);
+                }
+            }
+
+            String nombrePDF = "CodigoQR "+ cont + " " + DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss");
             String asunto = "Código QR";
 
             string folderPath = @"C:\AerolineasPDF";
@@ -628,9 +413,18 @@ namespace Aerolineas
 
                 pdfDoc.Add(imgLogotipo);
 
+                pdfDoc.Add(usrImg);
                 pdfDoc.Add(new Paragraph(lblBienvenida.Text));
                 pdfDoc.Add(new Paragraph("Le adjuntamos el código QR para su próximo embarque."));
                 pdfDoc.Add(new Paragraph("\n"));
+                pdfDoc.Add(new Paragraph("La fecha de salida programada para su vuelo es: " + fechaSalida.ToString("yyyy-MM-dd")));
+                pdfDoc.Add(new Paragraph("El importe ha pagar es de: " + lblPrecioTotalDTO.Text + " con una ruta " + lblTrayecto.Text));
+                pdfDoc.Add(new Paragraph("\n"));
+
+                pdfDoc.Add(new Paragraph("Salida: " + salida));
+                pdfDoc.Add(salidaImg);
+                pdfDoc.Add(new Paragraph("Destino: " + destino));
+                pdfDoc.Add(destinoImg);
 
                 pdfDoc.Add(new Paragraph(asunto, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 18, iTextSharp.text.Font.BOLD)) { Alignment = Element.ALIGN_CENTER });
                 pdfDoc.Add(qrImage);
@@ -642,6 +436,7 @@ namespace Aerolineas
 
             String ruta = folderPath + "\\" + nombrePDF + ".pdf";
             listaPDFs.Add(ruta);
+            cont++;
         }
 
         private void btnPerfil_Click(object sender, EventArgs e)
@@ -653,6 +448,10 @@ namespace Aerolineas
             {
                 datosUsuario = cnx.iniciarSesion(datosUsuario[0].Nombre, datosUsuario[0].Clave);
                 lblBienvenidaMail.Text = "Correo: " + datosUsuario[0].Mail;
+
+                MemoryStream ms = new MemoryStream(datosUsuario[0].Imagen);
+                pBImgUser.BackgroundImage = System.Drawing.Image.FromStream(ms);
+                pBImgUser.BackgroundImageLayout = ImageLayout.Stretch;
             }
         }
 
@@ -734,9 +533,16 @@ namespace Aerolineas
                 if (idVuelo == horarios.IdVuelo.ToString() && rutaCompleta == horarios.Ruta && fechaSalida == horarios.FechaSalida.ToString("yyyy-MM-dd"))
                 {
                     comboBoxVuelos.SelectedIndex = cont;
+                    oferton = true;
                 }
                 cont++;
             }
+        }
+
+        private void btnSeguimientoVuelo_Click(object sender, EventArgs e)
+        {
+            Embarque embarcar = new Embarque(cnx, listaFacturacion, listaHorariosActivos);
+            embarcar.ShowDialog();
         }
     }
 }

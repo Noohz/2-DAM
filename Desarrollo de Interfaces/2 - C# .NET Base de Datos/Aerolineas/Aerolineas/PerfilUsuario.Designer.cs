@@ -31,7 +31,7 @@
             this.lblBienvenida = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnModCorreo = new System.Windows.Forms.Button();
-            this.btnModCrontrasenia = new System.Windows.Forms.Button();
+            this.btnModContrasenia = new System.Windows.Forms.Button();
             this.gBOpcionesMail = new System.Windows.Forms.GroupBox();
             this.btnCerrarModEmail = new System.Windows.Forms.Button();
             this.btnModificarMail = new System.Windows.Forms.Button();
@@ -40,6 +40,10 @@
             this.lblTOldEmail = new System.Windows.Forms.Label();
             this.tBOldEmail = new System.Windows.Forms.TextBox();
             this.gBOpcionesPwd = new System.Windows.Forms.GroupBox();
+            this.gBOpcionesImg = new System.Windows.Forms.GroupBox();
+            this.pBImgModificarImgUsr = new System.Windows.Forms.PictureBox();
+            this.btnCerrarImg = new System.Windows.Forms.Button();
+            this.btnModificarImg = new System.Windows.Forms.Button();
             this.btnCerrarPwd = new System.Windows.Forms.Button();
             this.btnModificarPwd = new System.Windows.Forms.Button();
             this.lblTNewPwd = new System.Windows.Forms.Label();
@@ -47,8 +51,11 @@
             this.lblTOldPwd = new System.Windows.Forms.Label();
             this.tBOldPwd = new System.Windows.Forms.TextBox();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnModImagen = new System.Windows.Forms.Button();
             this.gBOpcionesMail.SuspendLayout();
             this.gBOpcionesPwd.SuspendLayout();
+            this.gBOpcionesImg.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBImgModificarImgUsr)).BeginInit();
             this.SuspendLayout();
             // 
             // lblBienvenida
@@ -74,7 +81,7 @@
             // btnModCorreo
             // 
             this.btnModCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModCorreo.Location = new System.Drawing.Point(145, 82);
+            this.btnModCorreo.Location = new System.Drawing.Point(72, 82);
             this.btnModCorreo.Name = "btnModCorreo";
             this.btnModCorreo.Size = new System.Drawing.Size(195, 36);
             this.btnModCorreo.TabIndex = 6;
@@ -82,16 +89,16 @@
             this.btnModCorreo.UseVisualStyleBackColor = true;
             this.btnModCorreo.Click += new System.EventHandler(this.btnModCorreo_Click);
             // 
-            // btnModCrontrasenia
+            // btnModContrasenia
             // 
-            this.btnModCrontrasenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModCrontrasenia.Location = new System.Drawing.Point(446, 82);
-            this.btnModCrontrasenia.Name = "btnModCrontrasenia";
-            this.btnModCrontrasenia.Size = new System.Drawing.Size(195, 36);
-            this.btnModCrontrasenia.TabIndex = 7;
-            this.btnModCrontrasenia.Text = "Modificar contraseña";
-            this.btnModCrontrasenia.UseVisualStyleBackColor = true;
-            this.btnModCrontrasenia.Click += new System.EventHandler(this.btnModCrontrasenia_Click);
+            this.btnModContrasenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModContrasenia.Location = new System.Drawing.Point(319, 82);
+            this.btnModContrasenia.Name = "btnModContrasenia";
+            this.btnModContrasenia.Size = new System.Drawing.Size(195, 36);
+            this.btnModContrasenia.TabIndex = 7;
+            this.btnModContrasenia.Text = "Modificar contraseña";
+            this.btnModContrasenia.UseVisualStyleBackColor = true;
+            this.btnModContrasenia.Click += new System.EventHandler(this.btnModCrontrasenia_Click);
             // 
             // gBOpcionesMail
             // 
@@ -170,6 +177,7 @@
             // 
             // gBOpcionesPwd
             // 
+            this.gBOpcionesPwd.Controls.Add(this.gBOpcionesImg);
             this.gBOpcionesPwd.Controls.Add(this.btnCerrarPwd);
             this.gBOpcionesPwd.Controls.Add(this.btnModificarPwd);
             this.gBOpcionesPwd.Controls.Add(this.lblTNewPwd);
@@ -182,6 +190,51 @@
             this.gBOpcionesPwd.TabIndex = 9;
             this.gBOpcionesPwd.TabStop = false;
             this.gBOpcionesPwd.Visible = false;
+            // 
+            // gBOpcionesImg
+            // 
+            this.gBOpcionesImg.Controls.Add(this.pBImgModificarImgUsr);
+            this.gBOpcionesImg.Controls.Add(this.btnCerrarImg);
+            this.gBOpcionesImg.Controls.Add(this.btnModificarImg);
+            this.gBOpcionesImg.Location = new System.Drawing.Point(0, 0);
+            this.gBOpcionesImg.Name = "gBOpcionesImg";
+            this.gBOpcionesImg.Size = new System.Drawing.Size(776, 314);
+            this.gBOpcionesImg.TabIndex = 16;
+            this.gBOpcionesImg.TabStop = false;
+            this.gBOpcionesImg.Visible = false;
+            // 
+            // pBImgModificarImgUsr
+            // 
+            this.pBImgModificarImgUsr.BackColor = System.Drawing.SystemColors.Control;
+            this.pBImgModificarImgUsr.Location = new System.Drawing.Point(218, 34);
+            this.pBImgModificarImgUsr.Name = "pBImgModificarImgUsr";
+            this.pBImgModificarImgUsr.Size = new System.Drawing.Size(332, 192);
+            this.pBImgModificarImgUsr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBImgModificarImgUsr.TabIndex = 47;
+            this.pBImgModificarImgUsr.TabStop = false;
+            this.pBImgModificarImgUsr.Click += new System.EventHandler(this.pBImgModificarImgUsr_Click);
+            // 
+            // btnCerrarImg
+            // 
+            this.btnCerrarImg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarImg.Location = new System.Drawing.Point(434, 272);
+            this.btnCerrarImg.Name = "btnCerrarImg";
+            this.btnCerrarImg.Size = new System.Drawing.Size(195, 36);
+            this.btnCerrarImg.TabIndex = 13;
+            this.btnCerrarImg.Text = "Cerrar";
+            this.btnCerrarImg.UseVisualStyleBackColor = true;
+            this.btnCerrarImg.Click += new System.EventHandler(this.btnCerrarImg_Click);
+            // 
+            // btnModificarImg
+            // 
+            this.btnModificarImg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarImg.Location = new System.Drawing.Point(133, 272);
+            this.btnModificarImg.Name = "btnModificarImg";
+            this.btnModificarImg.Size = new System.Drawing.Size(195, 36);
+            this.btnModificarImg.TabIndex = 9;
+            this.btnModificarImg.Text = "Modificar";
+            this.btnModificarImg.UseVisualStyleBackColor = true;
+            this.btnModificarImg.Click += new System.EventHandler(this.btnModificarImg_Click);
             // 
             // btnCerrarPwd
             // 
@@ -258,16 +311,28 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // btnModImagen
+            // 
+            this.btnModImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModImagen.Location = new System.Drawing.Point(560, 82);
+            this.btnModImagen.Name = "btnModImagen";
+            this.btnModImagen.Size = new System.Drawing.Size(195, 36);
+            this.btnModImagen.TabIndex = 15;
+            this.btnModImagen.Text = "Modificar imágen";
+            this.btnModImagen.UseVisualStyleBackColor = true;
+            this.btnModImagen.Click += new System.EventHandler(this.btnModImagen_Click);
+            // 
             // PerfilUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(800, 499);
+            this.Controls.Add(this.btnModImagen);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.gBOpcionesPwd);
             this.Controls.Add(this.gBOpcionesMail);
-            this.Controls.Add(this.btnModCrontrasenia);
+            this.Controls.Add(this.btnModContrasenia);
             this.Controls.Add(this.btnModCorreo);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblBienvenida);
@@ -278,6 +343,8 @@
             this.gBOpcionesMail.PerformLayout();
             this.gBOpcionesPwd.ResumeLayout(false);
             this.gBOpcionesPwd.PerformLayout();
+            this.gBOpcionesImg.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pBImgModificarImgUsr)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,7 +355,7 @@
         private System.Windows.Forms.Label lblBienvenida;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnModCorreo;
-        private System.Windows.Forms.Button btnModCrontrasenia;
+        private System.Windows.Forms.Button btnModContrasenia;
         private System.Windows.Forms.GroupBox gBOpcionesMail;
         private System.Windows.Forms.Label lblTOldEmail;
         private System.Windows.Forms.TextBox tBOldEmail;
@@ -304,5 +371,10 @@
         private System.Windows.Forms.Label lblTOldPwd;
         private System.Windows.Forms.TextBox tBOldPwd;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button btnModImagen;
+        private System.Windows.Forms.GroupBox gBOpcionesImg;
+        private System.Windows.Forms.PictureBox pBImgModificarImgUsr;
+        private System.Windows.Forms.Button btnCerrarImg;
+        private System.Windows.Forms.Button btnModificarImg;
     }
 }

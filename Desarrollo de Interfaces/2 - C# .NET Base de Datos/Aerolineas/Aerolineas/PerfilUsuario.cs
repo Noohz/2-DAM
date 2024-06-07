@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Aerolineas
     {
         ClaseConectar cnx = new ClaseConectar();
         List<Usuariosavion> usuario = new List<Usuariosavion>();
+        String nombreImagen;
 
         public PerfilUsuario(List<Usuariosavion> datosUsuario)
         {
@@ -22,6 +24,10 @@ namespace Aerolineas
             this.Text = "Perfil de " + datosUsuario[0].Nombre;
             lblBienvenida.Text = "Bienvenido/a: " + datosUsuario[0].Nombre;
             usuario = datosUsuario;
+
+            MemoryStream ms = new MemoryStream(datosUsuario[0].Imagen);
+            pBImgModificarImgUsr.BackgroundImage = System.Drawing.Image.FromStream(ms);
+            pBImgModificarImgUsr.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void tBOldEmail_TextChanged(object sender, EventArgs e)
@@ -66,6 +72,7 @@ namespace Aerolineas
             gBOpcionesMail.Visible = true;
             btnCerrar.Visible = false;
             gBOpcionesPwd.Visible = false;
+            gBOpcionesImg.Visible = false;
         }
 
         private void btnCerrarModEmail_Click(object sender, EventArgs e)
@@ -80,7 +87,15 @@ namespace Aerolineas
             gBOpcionesPwd.Visible = true;
             btnCerrar.Visible = false;
             gBOpcionesMail.Visible = false;
+            gBOpcionesImg.Visible = false;
+        }
 
+        private void btnModImagen_Click(object sender, EventArgs e)
+        {
+            gBOpcionesPwd.Visible = true;
+            btnCerrar.Visible = false;
+            gBOpcionesMail.Visible = false;
+            gBOpcionesImg.Visible = true;
         }
 
         private void tBOldPwd_TextChanged(object sender, EventArgs e)
@@ -153,6 +168,41 @@ namespace Aerolineas
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }  
+
+        private void btnCerrarImg_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btnModificarImg_Click(object sender, EventArgs e)
+        {
+            FileStream fs = new FileStream(nombreImagen, FileMode.Open, FileAccess.Read);
+            BinaryReader br = new BinaryReader(fs);
+            byte[] bloque = br.ReadBytes((int)fs.Length);
+
+            int codigo = cnx.modificarImgUsuario(usuario[0].Nombre, bloque);
+
+            if (codigo == 1)
+            {
+                MessageBox.Show("Imágen de usuario modificado con éxito", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error al modificar la imágen de usuario...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void pBImgModificarImgUsr_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog op1 = new OpenFileDialog();
+            op1.Filter = "imagenes|*.jpg;*.png";
+            if (op1.ShowDialog() == DialogResult.OK)
+            {
+                nombreImagen = op1.FileName;
+                pBImgModificarImgUsr.Image = Image.FromFile(nombreImagen);
+            }
         }
     }
 }

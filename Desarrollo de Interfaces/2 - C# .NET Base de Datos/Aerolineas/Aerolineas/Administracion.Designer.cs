@@ -34,22 +34,21 @@
             this.lblTModelo = new System.Windows.Forms.Label();
             this.tBModelo = new System.Windows.Forms.TextBox();
             this.lblTFBussines = new System.Windows.Forms.Label();
-            this.lblTFPrimera = new System.Windows.Forms.Label();
             this.lblTFTuristas = new System.Windows.Forms.Label();
             this.gBOpcionCrearModeloAvion = new System.Windows.Forms.GroupBox();
+            this.pBImgModeloAvion = new System.Windows.Forms.PictureBox();
             this.numericUpDownTuristas = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownPrimera = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownBussines = new System.Windows.Forms.NumericUpDown();
             this.btnAñadirModeloAvion = new System.Windows.Forms.Button();
             this.btnCrearRuta = new System.Windows.Forms.Button();
             this.gBOpcionCrearNuevaRuta = new System.Windows.Forms.GroupBox();
+            this.numericUpDownMinutosVuelo = new System.Windows.Forms.NumericUpDown();
+            this.lblTMinutosVueloCNR = new System.Windows.Forms.Label();
             this.cBRuta2CNR = new System.Windows.Forms.ComboBox();
             this.cBRuta1CNR = new System.Windows.Forms.ComboBox();
             this.cbIdAvionCNR = new System.Windows.Forms.ComboBox();
             this.numericUpDownPrecioTuristaCNR = new System.Windows.Forms.NumericUpDown();
             this.lblTPrecioTuristaCNR = new System.Windows.Forms.Label();
-            this.numericUpDownPrecioPrimeraCNR = new System.Windows.Forms.NumericUpDown();
-            this.lblTPrecioPrimeraCNR = new System.Windows.Forms.Label();
             this.btnCrearNuevaRutaCNR = new System.Windows.Forms.Button();
             this.numericUpDownPrecioBussinessCNR = new System.Windows.Forms.NumericUpDown();
             this.lblTPrecioBussinesCNR = new System.Windows.Forms.Label();
@@ -64,10 +63,9 @@
             this.lblTRutaCNR = new System.Windows.Forms.Label();
             this.lblTIdVueloCNR = new System.Windows.Forms.Label();
             this.gBOpcionModificarAvion = new System.Windows.Forms.GroupBox();
+            this.pBImgModificarAvion = new System.Windows.Forms.PictureBox();
             this.tBMAFTurista = new System.Windows.Forms.TextBox();
             this.lblMAFTurista = new System.Windows.Forms.Label();
-            this.tBMAFPrimera = new System.Windows.Forms.TextBox();
-            this.lblMAFPrimera = new System.Windows.Forms.Label();
             this.tBMAFBussines = new System.Windows.Forms.TextBox();
             this.lblMAFBussines = new System.Windows.Forms.Label();
             this.tBMAModelo = new System.Windows.Forms.TextBox();
@@ -78,16 +76,17 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnModificarAvion = new System.Windows.Forms.Button();
             this.gBOpcionCrearModeloAvion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBImgModeloAvion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTuristas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrimera)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBussines)).BeginInit();
             this.gBOpcionCrearNuevaRuta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinutosVuelo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrecioTuristaCNR)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrecioPrimeraCNR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrecioBussinessCNR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHoras)).BeginInit();
             this.gBOpcionModificarAvion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBImgModificarAvion)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCrearModeloAvion
@@ -147,20 +146,10 @@
             this.lblTFBussines.Text = "Nº Asientos bussines";
             this.lblTFBussines.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblTFPrimera
-            // 
-            this.lblTFPrimera.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTFPrimera.Location = new System.Drawing.Point(282, 115);
-            this.lblTFPrimera.Name = "lblTFPrimera";
-            this.lblTFPrimera.Size = new System.Drawing.Size(254, 35);
-            this.lblTFPrimera.TabIndex = 13;
-            this.lblTFPrimera.Text = "Nº Asientos primera";
-            this.lblTFPrimera.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblTFTuristas
             // 
             this.lblTFTuristas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTFTuristas.Location = new System.Drawing.Point(147, 205);
+            this.lblTFTuristas.Location = new System.Drawing.Point(282, 115);
             this.lblTFTuristas.Name = "lblTFTuristas";
             this.lblTFTuristas.Size = new System.Drawing.Size(254, 35);
             this.lblTFTuristas.TabIndex = 15;
@@ -169,8 +158,8 @@
             // 
             // gBOpcionCrearModeloAvion
             // 
+            this.gBOpcionCrearModeloAvion.Controls.Add(this.pBImgModeloAvion);
             this.gBOpcionCrearModeloAvion.Controls.Add(this.numericUpDownTuristas);
-            this.gBOpcionCrearModeloAvion.Controls.Add(this.numericUpDownPrimera);
             this.gBOpcionCrearModeloAvion.Controls.Add(this.numericUpDownBussines);
             this.gBOpcionCrearModeloAvion.Controls.Add(this.btnAñadirModeloAvion);
             this.gBOpcionCrearModeloAvion.Controls.Add(this.lblTModelo);
@@ -178,7 +167,6 @@
             this.gBOpcionCrearModeloAvion.Controls.Add(this.lblTFTuristas);
             this.gBOpcionCrearModeloAvion.Controls.Add(this.lblTIdAvion);
             this.gBOpcionCrearModeloAvion.Controls.Add(this.tBIdAvion);
-            this.gBOpcionCrearModeloAvion.Controls.Add(this.lblTFPrimera);
             this.gBOpcionCrearModeloAvion.Controls.Add(this.lblTFBussines);
             this.gBOpcionCrearModeloAvion.Location = new System.Drawing.Point(267, 34);
             this.gBOpcionCrearModeloAvion.Name = "gBOpcionCrearModeloAvion";
@@ -187,10 +175,21 @@
             this.gBOpcionCrearModeloAvion.TabStop = false;
             this.gBOpcionCrearModeloAvion.Visible = false;
             // 
+            // pBImgModeloAvion
+            // 
+            this.pBImgModeloAvion.BackColor = System.Drawing.SystemColors.Control;
+            this.pBImgModeloAvion.Location = new System.Drawing.Point(178, 197);
+            this.pBImgModeloAvion.Name = "pBImgModeloAvion";
+            this.pBImgModeloAvion.Size = new System.Drawing.Size(186, 123);
+            this.pBImgModeloAvion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBImgModeloAvion.TabIndex = 22;
+            this.pBImgModeloAvion.TabStop = false;
+            this.pBImgModeloAvion.Click += new System.EventHandler(this.pBImgModeloAvion_Click);
+            // 
             // numericUpDownTuristas
             // 
             this.numericUpDownTuristas.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownTuristas.Location = new System.Drawing.Point(147, 243);
+            this.numericUpDownTuristas.Location = new System.Drawing.Point(282, 153);
             this.numericUpDownTuristas.Maximum = new decimal(new int[] {
             9999999,
             0,
@@ -199,19 +198,6 @@
             this.numericUpDownTuristas.Name = "numericUpDownTuristas";
             this.numericUpDownTuristas.Size = new System.Drawing.Size(254, 38);
             this.numericUpDownTuristas.TabIndex = 21;
-            // 
-            // numericUpDownPrimera
-            // 
-            this.numericUpDownPrimera.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownPrimera.Location = new System.Drawing.Point(282, 153);
-            this.numericUpDownPrimera.Maximum = new decimal(new int[] {
-            9999999,
-            0,
-            0,
-            0});
-            this.numericUpDownPrimera.Name = "numericUpDownPrimera";
-            this.numericUpDownPrimera.Size = new System.Drawing.Size(254, 38);
-            this.numericUpDownPrimera.TabIndex = 20;
             // 
             // numericUpDownBussines
             // 
@@ -229,7 +215,7 @@
             // btnAñadirModeloAvion
             // 
             this.btnAñadirModeloAvion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAñadirModeloAvion.Location = new System.Drawing.Point(162, 318);
+            this.btnAñadirModeloAvion.Location = new System.Drawing.Point(159, 326);
             this.btnAñadirModeloAvion.Name = "btnAñadirModeloAvion";
             this.btnAñadirModeloAvion.Size = new System.Drawing.Size(226, 36);
             this.btnAñadirModeloAvion.TabIndex = 18;
@@ -250,13 +236,13 @@
             // 
             // gBOpcionCrearNuevaRuta
             // 
+            this.gBOpcionCrearNuevaRuta.Controls.Add(this.numericUpDownMinutosVuelo);
+            this.gBOpcionCrearNuevaRuta.Controls.Add(this.lblTMinutosVueloCNR);
             this.gBOpcionCrearNuevaRuta.Controls.Add(this.cBRuta2CNR);
             this.gBOpcionCrearNuevaRuta.Controls.Add(this.cBRuta1CNR);
             this.gBOpcionCrearNuevaRuta.Controls.Add(this.cbIdAvionCNR);
             this.gBOpcionCrearNuevaRuta.Controls.Add(this.numericUpDownPrecioTuristaCNR);
             this.gBOpcionCrearNuevaRuta.Controls.Add(this.lblTPrecioTuristaCNR);
-            this.gBOpcionCrearNuevaRuta.Controls.Add(this.numericUpDownPrecioPrimeraCNR);
-            this.gBOpcionCrearNuevaRuta.Controls.Add(this.lblTPrecioPrimeraCNR);
             this.gBOpcionCrearNuevaRuta.Controls.Add(this.btnCrearNuevaRutaCNR);
             this.gBOpcionCrearNuevaRuta.Controls.Add(this.numericUpDownPrecioBussinessCNR);
             this.gBOpcionCrearNuevaRuta.Controls.Add(this.lblTPrecioBussinesCNR);
@@ -276,6 +262,29 @@
             this.gBOpcionCrearNuevaRuta.TabIndex = 22;
             this.gBOpcionCrearNuevaRuta.TabStop = false;
             this.gBOpcionCrearNuevaRuta.Visible = false;
+            // 
+            // numericUpDownMinutosVuelo
+            // 
+            this.numericUpDownMinutosVuelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownMinutosVuelo.Location = new System.Drawing.Point(143, 361);
+            this.numericUpDownMinutosVuelo.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.numericUpDownMinutosVuelo.Name = "numericUpDownMinutosVuelo";
+            this.numericUpDownMinutosVuelo.Size = new System.Drawing.Size(254, 31);
+            this.numericUpDownMinutosVuelo.TabIndex = 41;
+            // 
+            // lblTMinutosVueloCNR
+            // 
+            this.lblTMinutosVueloCNR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTMinutosVueloCNR.Location = new System.Drawing.Point(143, 323);
+            this.lblTMinutosVueloCNR.Name = "lblTMinutosVueloCNR";
+            this.lblTMinutosVueloCNR.Size = new System.Drawing.Size(254, 35);
+            this.lblTMinutosVueloCNR.TabIndex = 40;
+            this.lblTMinutosVueloCNR.Text = "Precio Turista";
+            this.lblTMinutosVueloCNR.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cBRuta2CNR
             // 
@@ -310,7 +319,7 @@
             // numericUpDownPrecioTuristaCNR
             // 
             this.numericUpDownPrecioTuristaCNR.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownPrecioTuristaCNR.Location = new System.Drawing.Point(147, 359);
+            this.numericUpDownPrecioTuristaCNR.Location = new System.Drawing.Point(282, 284);
             this.numericUpDownPrecioTuristaCNR.Maximum = new decimal(new int[] {
             9999999,
             0,
@@ -323,35 +332,12 @@
             // lblTPrecioTuristaCNR
             // 
             this.lblTPrecioTuristaCNR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTPrecioTuristaCNR.Location = new System.Drawing.Point(147, 321);
+            this.lblTPrecioTuristaCNR.Location = new System.Drawing.Point(282, 246);
             this.lblTPrecioTuristaCNR.Name = "lblTPrecioTuristaCNR";
             this.lblTPrecioTuristaCNR.Size = new System.Drawing.Size(254, 35);
             this.lblTPrecioTuristaCNR.TabIndex = 35;
             this.lblTPrecioTuristaCNR.Text = "Precio Turista";
             this.lblTPrecioTuristaCNR.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numericUpDownPrecioPrimeraCNR
-            // 
-            this.numericUpDownPrecioPrimeraCNR.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownPrecioPrimeraCNR.Location = new System.Drawing.Point(283, 284);
-            this.numericUpDownPrecioPrimeraCNR.Maximum = new decimal(new int[] {
-            9999999,
-            0,
-            0,
-            0});
-            this.numericUpDownPrecioPrimeraCNR.Name = "numericUpDownPrecioPrimeraCNR";
-            this.numericUpDownPrecioPrimeraCNR.Size = new System.Drawing.Size(254, 31);
-            this.numericUpDownPrecioPrimeraCNR.TabIndex = 34;
-            // 
-            // lblTPrecioPrimeraCNR
-            // 
-            this.lblTPrecioPrimeraCNR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTPrecioPrimeraCNR.Location = new System.Drawing.Point(282, 243);
-            this.lblTPrecioPrimeraCNR.Name = "lblTPrecioPrimeraCNR";
-            this.lblTPrecioPrimeraCNR.Size = new System.Drawing.Size(254, 35);
-            this.lblTPrecioPrimeraCNR.TabIndex = 33;
-            this.lblTPrecioPrimeraCNR.Text = "Precio Primera";
-            this.lblTPrecioPrimeraCNR.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnCrearNuevaRutaCNR
             // 
@@ -494,10 +480,9 @@
             // 
             // gBOpcionModificarAvion
             // 
+            this.gBOpcionModificarAvion.Controls.Add(this.pBImgModificarAvion);
             this.gBOpcionModificarAvion.Controls.Add(this.tBMAFTurista);
             this.gBOpcionModificarAvion.Controls.Add(this.lblMAFTurista);
-            this.gBOpcionModificarAvion.Controls.Add(this.tBMAFPrimera);
-            this.gBOpcionModificarAvion.Controls.Add(this.lblMAFPrimera);
             this.gBOpcionModificarAvion.Controls.Add(this.tBMAFBussines);
             this.gBOpcionModificarAvion.Controls.Add(this.lblMAFBussines);
             this.gBOpcionModificarAvion.Controls.Add(this.tBMAModelo);
@@ -505,17 +490,28 @@
             this.gBOpcionModificarAvion.Controls.Add(this.cBMAIdAvion);
             this.gBOpcionModificarAvion.Controls.Add(this.btnModAvion);
             this.gBOpcionModificarAvion.Controls.Add(this.lblMAIdAvion);
-            this.gBOpcionModificarAvion.Location = new System.Drawing.Point(267, 34);
+            this.gBOpcionModificarAvion.Location = new System.Drawing.Point(267, 36);
             this.gBOpcionModificarAvion.Name = "gBOpcionModificarAvion";
             this.gBOpcionModificarAvion.Size = new System.Drawing.Size(547, 390);
             this.gBOpcionModificarAvion.TabIndex = 40;
             this.gBOpcionModificarAvion.TabStop = false;
             this.gBOpcionModificarAvion.Visible = false;
             // 
+            // pBImgModificarAvion
+            // 
+            this.pBImgModificarAvion.BackColor = System.Drawing.SystemColors.Control;
+            this.pBImgModificarAvion.Location = new System.Drawing.Point(182, 219);
+            this.pBImgModificarAvion.Name = "pBImgModificarAvion";
+            this.pBImgModificarAvion.Size = new System.Drawing.Size(186, 123);
+            this.pBImgModificarAvion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBImgModificarAvion.TabIndex = 46;
+            this.pBImgModificarAvion.TabStop = false;
+            this.pBImgModificarAvion.Click += new System.EventHandler(this.pBImgModificarAvion_Click);
+            // 
             // tBMAFTurista
             // 
             this.tBMAFTurista.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBMAFTurista.Location = new System.Drawing.Point(174, 284);
+            this.tBMAFTurista.Location = new System.Drawing.Point(320, 175);
             this.tBMAFTurista.Name = "tBMAFTurista";
             this.tBMAFTurista.Size = new System.Drawing.Size(199, 38);
             this.tBMAFTurista.TabIndex = 45;
@@ -523,30 +519,12 @@
             // lblMAFTurista
             // 
             this.lblMAFTurista.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMAFTurista.Location = new System.Drawing.Point(174, 246);
+            this.lblMAFTurista.Location = new System.Drawing.Point(320, 137);
             this.lblMAFTurista.Name = "lblMAFTurista";
             this.lblMAFTurista.Size = new System.Drawing.Size(199, 35);
             this.lblMAFTurista.TabIndex = 44;
             this.lblMAFTurista.Text = "Filas turista";
             this.lblMAFTurista.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tBMAFPrimera
-            // 
-            this.tBMAFPrimera.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBMAFPrimera.Location = new System.Drawing.Point(320, 175);
-            this.tBMAFPrimera.Name = "tBMAFPrimera";
-            this.tBMAFPrimera.Size = new System.Drawing.Size(199, 38);
-            this.tBMAFPrimera.TabIndex = 43;
-            // 
-            // lblMAFPrimera
-            // 
-            this.lblMAFPrimera.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMAFPrimera.Location = new System.Drawing.Point(320, 137);
-            this.lblMAFPrimera.Name = "lblMAFPrimera";
-            this.lblMAFPrimera.Size = new System.Drawing.Size(199, 35);
-            this.lblMAFPrimera.TabIndex = 42;
-            this.lblMAFPrimera.Text = "Filas primera";
-            this.lblMAFPrimera.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tBMAFBussines
             // 
@@ -658,18 +636,19 @@
             this.Text = " ";
             this.gBOpcionCrearModeloAvion.ResumeLayout(false);
             this.gBOpcionCrearModeloAvion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBImgModeloAvion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTuristas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrimera)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBussines)).EndInit();
             this.gBOpcionCrearNuevaRuta.ResumeLayout(false);
             this.gBOpcionCrearNuevaRuta.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinutosVuelo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrecioTuristaCNR)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrecioPrimeraCNR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrecioBussinessCNR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHoras)).EndInit();
             this.gBOpcionModificarAvion.ResumeLayout(false);
             this.gBOpcionModificarAvion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBImgModificarAvion)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -682,12 +661,10 @@
         private System.Windows.Forms.Label lblTModelo;
         private System.Windows.Forms.TextBox tBModelo;
         private System.Windows.Forms.Label lblTFBussines;
-        private System.Windows.Forms.Label lblTFPrimera;
         private System.Windows.Forms.Label lblTFTuristas;
         private System.Windows.Forms.GroupBox gBOpcionCrearModeloAvion;
         private System.Windows.Forms.Button btnAñadirModeloAvion;
         private System.Windows.Forms.NumericUpDown numericUpDownTuristas;
-        private System.Windows.Forms.NumericUpDown numericUpDownPrimera;
         private System.Windows.Forms.NumericUpDown numericUpDownBussines;
         private System.Windows.Forms.Button btnCrearRuta;
         private System.Windows.Forms.GroupBox gBOpcionCrearNuevaRuta;
@@ -704,8 +681,6 @@
         private System.Windows.Forms.Label lbFCNR;
         private System.Windows.Forms.NumericUpDown numericUpDownPrecioBussinessCNR;
         private System.Windows.Forms.Label lblTPrecioBussinesCNR;
-        private System.Windows.Forms.NumericUpDown numericUpDownPrecioPrimeraCNR;
-        private System.Windows.Forms.Label lblTPrecioPrimeraCNR;
         private System.Windows.Forms.NumericUpDown numericUpDownPrecioTuristaCNR;
         private System.Windows.Forms.Label lblTPrecioTuristaCNR;
         private System.Windows.Forms.ComboBox cbIdAvionCNR;
@@ -721,9 +696,11 @@
         private System.Windows.Forms.TextBox tBMAModelo;
         private System.Windows.Forms.TextBox tBMAFTurista;
         private System.Windows.Forms.Label lblMAFTurista;
-        private System.Windows.Forms.TextBox tBMAFPrimera;
-        private System.Windows.Forms.Label lblMAFPrimera;
         private System.Windows.Forms.TextBox tBMAFBussines;
         private System.Windows.Forms.Label lblMAFBussines;
+        private System.Windows.Forms.PictureBox pBImgModeloAvion;
+        private System.Windows.Forms.NumericUpDown numericUpDownMinutosVuelo;
+        private System.Windows.Forms.Label lblTMinutosVueloCNR;
+        private System.Windows.Forms.PictureBox pBImgModificarAvion;
     }
 }

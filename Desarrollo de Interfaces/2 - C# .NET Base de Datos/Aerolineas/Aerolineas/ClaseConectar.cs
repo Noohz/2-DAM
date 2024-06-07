@@ -22,7 +22,7 @@ namespace Aerolineas
         public ClaseConectar()
         {
             conexion = new MySqlConnection();
-            conexion.ConnectionString = "server=localhost;Database=aerolineas2;Uid=root;pwd='';old guids=true";
+            conexion.ConnectionString = "server=localhost;Database=aerolineas4;Uid=root;pwd='';old guids=true";
             //conexion.ConnectionString = "Server=servidoraws.c5s9z61ogvyq.us-east-1.rds.amazonaws.com;Database=aerolineas2;Uid=admin;pwd=Pilukina_2024;old guids=true";
         }
 
@@ -45,17 +45,17 @@ namespace Aerolineas
         }
 
         // Método para crear un nuevo modelo del avión en la base de datos.
-        internal int crearModeloAvion(string idAvion, string modelo, int asientosBussines, int asientosPrimera, int asientosTurista)
+        internal int crearModeloAvion(string idAvion, string modelo, int asientosBussines, int asientosTurista, byte[] bloque)
         {
             conexion.Open();
 
-            string cadenaSql = "INSERT INTO modeloavion VALUES(?idAvion, ?modelo, ?asientosBussines, ?asientosPrimera, ?asientosTurista)";
+            string cadenaSql = "INSERT INTO modeloavion VALUES(?idAvion, ?modelo, ?asientosBussines, ?asientosTurista, ?bloque)";
             comando = new MySqlCommand(cadenaSql, conexion);
             comando.Parameters.AddWithValue("?idAvion", idAvion);
             comando.Parameters.AddWithValue("?modelo", modelo);
             comando.Parameters.AddWithValue("?asientosBussines", asientosBussines);
-            comando.Parameters.AddWithValue("?asientosPrimera", asientosPrimera);
             comando.Parameters.AddWithValue("?asientosTurista", asientosTurista);
+            comando.Parameters.AddWithValue("?bloque", bloque);
 
             int codigo = comando.ExecuteNonQuery();
 
@@ -65,21 +65,19 @@ namespace Aerolineas
         }
 
         // Método para crear una nueva ruta en la tabla horariosavion.
-        internal int crearNuevaRuta(int ultimoIdVuelo, string ruta, string fechaSalida, int precioBussines, int precioPrimera, int precioTurista, string idAvion)
+        internal int crearNuevaRuta(int ultimoIdVuelo, string ruta, string fechaSalida, int precioBussines, int minutosVuelo, int precioTurista, string idAvion)
         {
             conexion.Open();
 
-
-
-            string cadenaSql = "INSERT INTO horariosaviones VALUES(?ultimoIdVuelo, ?ruta, ?fechaSalida, ?precioBussines, ?precioPrimera, ?precioTurista, ?idAvion)";
+            string cadenaSql = "INSERT INTO horariosaviones VALUES(?ultimoIdVuelo, ?ruta, ?fechaSalida, ?precioBussines, ?precioTurista, ?idAvion, ?minutosVuelo)";
             comando = new MySqlCommand(cadenaSql, conexion);
             comando.Parameters.AddWithValue("?ultimoIdVuelo", ultimoIdVuelo);
             comando.Parameters.AddWithValue("?ruta", ruta);
             comando.Parameters.AddWithValue("?fechaSalida", DateTime.Parse(fechaSalida).ToUniversalTime()); // He tenido que usar .ToUniversalTime por que a la hora de realizar la inserción le estaba sumando 2 horas por la diferencia horaria.
             comando.Parameters.AddWithValue("?precioBussines", precioBussines);
-            comando.Parameters.AddWithValue("?precioPrimera", precioPrimera);
             comando.Parameters.AddWithValue("?precioTurista", precioTurista);
             comando.Parameters.AddWithValue("?idAvion", idAvion);
+            comando.Parameters.AddWithValue("?minutosVuelo", minutosVuelo);
 
             int codigo = comando.ExecuteNonQuery();
 
@@ -109,6 +107,7 @@ namespace Aerolineas
                     uS.Mail = (string)datos["correo"];
                 }
                 uS.Clave = (string)datos["clave"];
+                uS.Imagen = (byte[])datos["imagen"];
 
                 listaUsuario.Add(uS);
             }
@@ -140,16 +139,16 @@ namespace Aerolineas
         }
 
         // Método para modificar un avión de la tabla Modeloavion.
-        internal int modificarAvion(string idAvion, string FBussines, string FPrimera, string FTurista)
+        internal int modificarAvion(string idAvion, string FBussines, string FTurista, byte[] bloque)
         {
             conexion.Open();
 
-            string cadenaSql = "UPDATE modeloavion SET FBussines = ?FBussines, FPrimera = ?FPrimera, FTurista = ?FTurista WHERE idAvion = ?idAvion";
+            string cadenaSql = "UPDATE modeloavion SET FBussines = ?FBussines, FTurista = ?FTurista, imagen = ?bloque WHERE idAvion = ?idAvion";
             comando = new MySqlCommand(cadenaSql, conexion);
             comando.Parameters.AddWithValue("?idAvion", idAvion);
             comando.Parameters.AddWithValue("?FBussines", FBussines);
-            comando.Parameters.AddWithValue("?FPrimera", FPrimera);
             comando.Parameters.AddWithValue("?FTurista", FTurista);
+            comando.Parameters.AddWithValue("?bloque", bloque);
 
             int codigo = comando.ExecuteNonQuery();
 
@@ -209,8 +208,8 @@ namespace Aerolineas
                 mV.IdAvion = (string)datos["idAvion"];
                 mV.Modelo = (string)datos["Modelo"];
                 mV.FBussines = (int)datos["FBussines"];
-                mV.FPrimera = (int)datos["FPrimera"];
                 mV.FTurista = (int)datos["FTurista"];
+                mV.Imagen = (byte[])datos["imagen"];
 
                 butacasAvion.Add(mV);
             }
@@ -265,6 +264,7 @@ namespace Aerolineas
                 aP.Id = (string)datos["id"];
                 aP.Ciudad = (string)datos["Ciudad"];
                 aP.Pais = (string)datos["Pais"];
+                aP.Imagen = (byte[])datos["imagen"];
 
                 datosAeropuertos.Add(aP);
             }
@@ -313,9 +313,9 @@ namespace Aerolineas
                 hS.Ruta = (string)datos["ruta"];
                 hS.FechaSalida = (DateTime)datos["fechaSalida"];
                 hS.PrecioBussines = (int)datos["precioBussines"];
-                hS.PrecioPrimera = (int)datos["precioPrimera"];
                 hS.PrecioTurista = (int)datos["precioTurista"];
                 hS.IdAvion = (string)datos["idAvion"];
+                hS.MinutosVuelo = (int)datos["minutosvuelo"];
 
                 listaHorarios.Add(hS);
             }
@@ -529,7 +529,6 @@ namespace Aerolineas
                 hS.Ruta = (string)datos["ruta"];
                 hS.FechaSalida = (DateTime)datos["fechaSalida"];
                 hS.PrecioBussines = (int)datos["precioBussines"];
-                hS.PrecioPrimera = (int)datos["precioPrimera"];
                 hS.PrecioTurista = (int)datos["precioTurista"];
                 hS.IdAvion = (string)datos["idAvion"];
 
@@ -539,6 +538,50 @@ namespace Aerolineas
             conexion.Close();
 
             return listaHorariosDescuento;
+        }
+
+        internal int modificarImgUsuario(string nombre, byte[] bloque)
+        {
+            conexion.Open();
+
+            string cadenaSql = "UPDATE usuariosavion SET imagen = ?bloque WHERE nombre = ?nombre";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?bloque", bloque);
+            comando.Parameters.AddWithValue("?nombre", nombre);
+
+            int codigo = comando.ExecuteNonQuery();
+
+            conexion.Close();
+
+            return codigo;
+        }
+
+        internal List<Billeteavion> obtenerDatosAsiento(string codigoQR)
+        {
+            conexion.Open();
+
+            string cadenaSql = "SELECT * FROM billeteavion WHERE idAsiento = ?codigoQR";
+            comando = new MySqlCommand(cadenaSql, conexion);
+            comando.Parameters.AddWithValue("?idAsiento", codigoQR);
+
+            datos = comando.ExecuteReader();
+
+            while (datos.Read())
+            {
+                Billeteavion bV = new Billeteavion();
+                bV.IdVuelo = (int)datos["idVuelo"];
+                bV.IdAsiento = (string)datos["idAsiento"];
+                bV.Comprador = (string)datos["comprador"];
+                bV.FechaReserva = (DateTime)datos["fechaReserva"];
+                bV.PrecioFinalBillete = (int)datos["precioFinalBillete"];
+                bV.Ocupado = (int)datos["ocupado"];
+
+                listaFacturacion.Add(bV);
+            }
+
+            conexion.Close();
+
+            return listaFacturacion;
         }
     }
 }

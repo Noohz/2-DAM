@@ -11,26 +11,26 @@ namespace Aerolineas
         private string idAvion;
         private string modelo;
         private int fBussines;
-        private int fPrimera;
         private int fTurista;
+        private byte[] imagen;
 
         public ModeloAvion()
         {
         }
 
-        public ModeloAvion(string idAvion, string modelo, int fBussines, int fPrimera, int fTurista)
+        public ModeloAvion(string idAvion, string modelo, int fBussines, int fTurista, byte[] imagen)
         {
             this.idAvion = idAvion;
             this.modelo = modelo;
             this.fBussines = fBussines;
-            this.fPrimera = fPrimera;
             this.fTurista = fTurista;
+            this.imagen = imagen;
         }
 
         public string IdAvion { get => idAvion; set => idAvion = value; }
         public string Modelo { get => modelo; set => modelo = value; }
         public int FBussines { get => fBussines; set => fBussines = value; }
-        public int FPrimera { get => fPrimera; set => fPrimera = value; }
         public int FTurista { get => fTurista; set => fTurista = value; }
+        public byte[] Imagen { get => imagen; set => imagen = value; }
     }
 }

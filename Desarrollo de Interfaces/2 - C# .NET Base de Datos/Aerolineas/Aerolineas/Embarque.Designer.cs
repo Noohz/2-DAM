@@ -35,6 +35,7 @@
             this.lblCodEmbarque = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.tBInformacionVuelo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblEmbarqueBienvenida
@@ -80,7 +81,7 @@
             // btnCerrar
             // 
             this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.Location = new System.Drawing.Point(270, 329);
+            this.btnCerrar.Location = new System.Drawing.Point(270, 452);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(108, 29);
             this.btnCerrar.TabIndex = 30;
@@ -88,12 +89,22 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // tBInformacionVuelo
+            // 
+            this.tBInformacionVuelo.Enabled = false;
+            this.tBInformacionVuelo.Location = new System.Drawing.Point(215, 329);
+            this.tBInformacionVuelo.Name = "tBInformacionVuelo";
+            this.tBInformacionVuelo.Size = new System.Drawing.Size(225, 20);
+            this.tBInformacionVuelo.TabIndex = 31;
+            this.tBInformacionVuelo.Visible = false;
+            // 
             // Embarque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
-            this.ClientSize = new System.Drawing.Size(651, 367);
+            this.ClientSize = new System.Drawing.Size(651, 483);
+            this.Controls.Add(this.tBInformacionVuelo);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.lblCodEmbarque);
             this.Controls.Add(this.panelValidacion);
@@ -115,5 +126,6 @@
         private System.Windows.Forms.Label lblCodEmbarque;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.TextBox tBInformacionVuelo;
     }
 }

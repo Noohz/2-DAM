@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 
@@ -13,6 +15,8 @@ namespace Aerolineas
         List<ModeloAvion> idAviones = new List<ModeloAvion>();
         List<Aeropuertos> datosAeropuertos = new List<Aeropuertos>();
         List<ModeloAvion> datosModeloAvion = new List<ModeloAvion>();
+
+        String nombreImagen;
 
         public Administracion()
         {
@@ -33,9 +37,13 @@ namespace Aerolineas
         {
             if (tBIdAvion.Text != "" && tBModelo.Text != "")
             {
-                if (numericUpDownBussines.Value != 0 || numericUpDownPrimera.Value != 0 || numericUpDownTuristas.Value != 0)
+                if (numericUpDownBussines.Value != 0 || numericUpDownTuristas.Value != 0 || pBImgModeloAvion != null)
                 {
-                    int codigo = cnx.crearModeloAvion(tBIdAvion.Text, tBModelo.Text, (int)numericUpDownBussines.Value, (int)numericUpDownPrimera.Value, (int)numericUpDownTuristas.Value);
+                    FileStream fs = new FileStream(nombreImagen, FileMode.Open, FileAccess.Read);
+                    BinaryReader br = new BinaryReader(fs);
+                    byte[] bloque = br.ReadBytes((int)fs.Length);
+
+                    int codigo = cnx.crearModeloAvion(tBIdAvion.Text, tBModelo.Text, (int)numericUpDownBussines.Value, (int)numericUpDownTuristas.Value, bloque);
 
                     if (codigo == 1)
                     {
@@ -43,8 +51,9 @@ namespace Aerolineas
                         tBIdAvion.Clear();
                         tBModelo.Clear();
                         numericUpDownBussines.Value = 0;
-                        numericUpDownPrimera.Value = 0;
                         numericUpDownTuristas.Value = 0;
+                        pBImgModeloAvion = null;
+                        nombreImagen = "";
                     }
                     else
                     {
@@ -90,11 +99,11 @@ namespace Aerolineas
             {
                 if (cBRuta1CNR.SelectedIndex != -1 && cBRuta2CNR.SelectedIndex != -1)
                 {
-                    if (numericUpDownPrecioBussinessCNR.Value != 0 && numericUpDownPrecioPrimeraCNR.Value != 0 && numericUpDownPrecioTuristaCNR.Value != 0)
+                    if (numericUpDownPrecioBussinessCNR.Value != 0 && numericUpDownMinutosVuelo.Value != 0 && numericUpDownPrecioTuristaCNR.Value != 0)
                     {
                         int ultimoIdVuelo = cnx.obtenerUltimoIdVuelo();
                         string ruta = cBRuta1CNR.Text + "-" + cBRuta2CNR.Text;
-                        int codigo = cnx.crearNuevaRuta(ultimoIdVuelo + 1, ruta, tBFechaSalidaTotalCNR.Text, (int)numericUpDownPrecioBussinessCNR.Value, (int)numericUpDownPrecioPrimeraCNR.Value, (int)numericUpDownPrecioTuristaCNR.Value, cbIdAvionCNR.Text);
+                        int codigo = cnx.crearNuevaRuta(ultimoIdVuelo + 1, ruta, tBFechaSalidaTotalCNR.Text, (int)numericUpDownPrecioBussinessCNR.Value, (int)numericUpDownMinutosVuelo.Value, (int)numericUpDownPrecioTuristaCNR.Value, cbIdAvionCNR.Text);
 
                         if (codigo == 1)
                         {
@@ -106,7 +115,7 @@ namespace Aerolineas
                             numMin.Value = 0;
                             tBFechaSalidaTotalCNR.Clear();
                             numericUpDownPrecioBussinessCNR.Value = 0;
-                            numericUpDownPrecioPrimeraCNR.Value = 0;
+                            numericUpDownMinutosVuelo.Value = 0;
                             numericUpDownPrecioTuristaCNR.Value = 0;
                         }
                         else
@@ -211,16 +220,24 @@ namespace Aerolineas
             datosModeloAvion = cnx.obtenerButacasAvion(cBMAIdAvion.Text);
             tBMAModelo.Text = datosModeloAvion[0].Modelo;
             tBMAFBussines.Text = datosModeloAvion[0].FBussines.ToString();
-            tBMAFPrimera.Text = datosModeloAvion[0].FPrimera.ToString();
             tBMAFTurista.Text = datosModeloAvion[0].FTurista.ToString();
+
+            MemoryStream ms = new MemoryStream(datosModeloAvion[0].Imagen);
+            pBImgModificarAvion.BackgroundImage = System.Drawing.Image.FromStream(ms);
+            pBImgModificarAvion.BackgroundImageLayout = ImageLayout.Stretch;
+
             btnModAvion.Visible = true;
         }
 
         private void btnModAvion_Click(object sender, EventArgs e)
         {
-            if (tBMAFBussines.Text != "" && tBMAFPrimera.Text != "" && tBMAFTurista.Text != "")
+            if (tBMAFBussines.Text != "" && pBImgModificarAvion != null && tBMAFTurista.Text != "")
             {
-                int codigo = cnx.modificarAvion(cBMAIdAvion.Text, tBMAFBussines.Text, tBMAFPrimera.Text, tBMAFTurista.Text);
+                FileStream fs = new FileStream(nombreImagen, FileMode.Open, FileAccess.Read);
+                BinaryReader br = new BinaryReader(fs);
+                byte[] bloque = br.ReadBytes((int)fs.Length);
+
+                int codigo = cnx.modificarAvion(cBMAIdAvion.Text, tBMAFBussines.Text, tBMAFTurista.Text, bloque);
 
                 if (codigo == 1)
                 {
@@ -230,6 +247,31 @@ namespace Aerolineas
                 {
                     MessageBox.Show("Ha ocurrido un error al modificar el avión.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            } else
+            {
+                MessageBox.Show("Error, debes completar todos los campos...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void pBImgModeloAvion_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog op1 = new OpenFileDialog(); 
+            op1.Filter = "imagenes|*.jpg;*.png";
+            if (op1.ShowDialog() == DialogResult.OK)
+            {
+                nombreImagen = op1.FileName;
+                pBImgModeloAvion.Image = Image.FromFile(nombreImagen);
+            }
+        }
+
+        private void pBImgModificarAvion_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog op1 = new OpenFileDialog();
+            op1.Filter = "imagenes|*.jpg;*.png";
+            if (op1.ShowDialog() == DialogResult.OK)
+            {
+                nombreImagen = op1.FileName;
+                pBImgModeloAvion.Image = Image.FromFile(nombreImagen);
             }
         }
     }

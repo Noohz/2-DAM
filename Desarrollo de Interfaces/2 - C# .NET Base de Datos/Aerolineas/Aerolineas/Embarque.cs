@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,12 +9,17 @@ namespace Aerolineas
     {
         int segundos = 0;
         ClaseConectar cnxE = null;
+        List<Billeteavion> datosFacturacion = new List<Billeteavion>();
+        List<Billeteavion> datosBillete = new List<Billeteavion>();
+        List<Horariosaviones> datosHorariosAviones = new List<Horariosaviones>();
 
-        public Embarque(ClaseConectar cnx)
+        public Embarque(ClaseConectar cnx, List<Billeteavion> listaFacturacion, List<Horariosaviones> listaHorariosActivos)
         {
             InitializeComponent();
             this.Text = "Ventana de embarque";
             cnxE = cnx;
+            datosFacturacion = listaFacturacion;
+            datosHorariosAviones = listaHorariosActivos;
         }
 
         private void tBQRAuto_TextChanged(object sender, EventArgs e)
@@ -37,17 +43,27 @@ namespace Aerolineas
                 segundos = 0;
                 String codigoQR = tBQRAuto.Text;
 
-                int codigo = cnxE.OcuparButaca(codigoQR);
+                //int codigo = cnxE.OcuparButaca(codigoQR);
+                datosBillete = cnxE.obtenerDatosAsiento(codigoQR);
 
-                if (codigo == 1)
+                if (datosBillete != null)
                 {
                     panelValidacion.BackColor = Color.Green;
-                    MessageBox.Show("Butaca ocupada con éxito", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    panelValidacion.Visible = false;
+                    tBInformacionVuelo.Visible = true;
+
+                    foreach (var id in datosHorariosAviones)
+                    {
+                        if (datosBillete[0].IdVuelo == id.IdVuelo)
+                        {
+                            DateTime fechaSalida = DateTime.Parse(id.FechaSalida).ToString("yyyy-MM-dd");
+                        }
+                    }
                 }
                 else
                 {
                     panelValidacion.BackColor = Color.Red;
-                    MessageBox.Show("No se ha podido ocupar la butaca", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ha ocurrido un error a la hora de procesar el código QR...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 tBQRAuto.Focus();

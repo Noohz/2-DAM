@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Aerolineas
 {
-    internal class Billeteavion
+    public class Billeteavion
     {
         private int idVuelo;
         private string idAsiento;
