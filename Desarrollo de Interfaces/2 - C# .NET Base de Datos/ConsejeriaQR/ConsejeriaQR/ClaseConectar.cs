@@ -14,7 +14,6 @@ namespace ConsejeriaQR
         List<usuarios> listaUsuario = new List<usuarios>();
 
         String CADENA_CONEXION = "server=localhost;Database=conserjeriaqr;Uid=root;pwd='';old guids=true";
-        //String CADENA_CONEXION = "server=sql.freedb.tech;Database=freedb_conserjeriaqr;Uid=freedb_Principal;pwd=Zf!cvty$3$!jqwB;old guids=true";
 
         // Método que utiliza la contraseña que introduce el usuario y la encripta utilizando PBKDF2. Si esta coincide con la contraseña encriptada de la BD podrá iniciar sesión.
         internal bool iniciarSesion(string correo, string contrasenia)
