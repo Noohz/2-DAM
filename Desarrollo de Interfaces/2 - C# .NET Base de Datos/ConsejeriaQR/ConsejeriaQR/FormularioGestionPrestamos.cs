@@ -31,14 +31,17 @@ namespace ConsejeriaQR
             panel3.Controls.Clear();
 
             InterfazAniadirArticulos iAA = new InterfazAniadirArticulos(cnxGP);
-            Panel panelArticulo = iAA.generarPanelArticulos();
-
+            Panel panelArticulo = iAA.generarPanelAniadirArticulos();
             panel3.Controls.Add(panelArticulo);
         }
 
         private void btnEliminarArticulo_Click(object sender, EventArgs e)
         {
-            // Que aparezca un comboBox que utilice los nombres de la bd articulos y que aparezcan en un table / flow laout panel
+            panel3.Controls.Clear();
+
+            InterfazEliminarArticulos iEA = new InterfazEliminarArticulos(cnxGP);
+            Panel panelArticulo = iEA.generarPanelEliminarArticulos();
+            panel3.Controls.Add(panelArticulo);
         }
     }
 }

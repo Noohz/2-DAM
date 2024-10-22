@@ -12,6 +12,7 @@ namespace ConsejeriaQR
         MySqlDataReader datos;
 
         List<usuarios> listaUsuario = new List<usuarios>();
+        List<articulos> listaArticulos = new List<articulos>();
 
         String CADENA_CONEXION = "server=localhost;Database=conserjeriaqr;Uid=root;pwd='';old guids=true";
 
@@ -160,6 +161,39 @@ namespace ConsejeriaQR
                 }
             }
             return codigo;
+        }
+
+        // Método que devuelve una lista con todos los datos de los artículos que hay en la tabla Articulos en la BD.
+        internal List<articulos> obtenerArticulos()
+        {
+            using (conexion = new MySqlConnection(CADENA_CONEXION))
+            {
+                conexion.Open();
+
+                string cadenaSql = "SELECT * FROM articulos";
+
+                using (comando = new MySqlCommand(cadenaSql, conexion))
+                {
+                    using (datos = comando.ExecuteReader())
+                    {
+                        while (datos.Read())
+                        {
+                            articulos articulo = new articulos();
+                            articulo.Id = (int)datos["id"];
+                            articulo.Nombre = (string)datos["nombre"];
+                            articulo.Descripcion = (string)datos["descripcion"];
+                            articulo.Codigo = (string)datos["codigo"];
+                            articulo.ClaveQR = (string)datos["claveQR"];
+                            articulo.ImagenQR = (byte[])datos["imagenQR"];
+                            articulo.Imagen = (byte[])datos["imagen"];
+                            articulo.Activo = (bool)datos["activo"];
+
+                            listaArticulos.Add(articulo);
+                        }
+                    }
+                }
+            }
+            return listaArticulos;
         }
 
         // Métodos para encriptar la contraseña...

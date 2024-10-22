@@ -39,13 +39,9 @@
             this.btnAniadirArticulo = new System.Windows.Forms.Button();
             this.pBLoginIcono = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBLoginIcono)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -141,7 +137,6 @@
             // btnEliminarArticulo
             // 
             this.btnEliminarArticulo.BackColor = System.Drawing.SystemColors.Control;
-            this.btnEliminarArticulo.Enabled = false;
             this.btnEliminarArticulo.FlatAppearance.BorderSize = 0;
             this.btnEliminarArticulo.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.btnEliminarArticulo.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
@@ -186,30 +181,11 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(103)))), ((int)(((byte)(73)))));
-            this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(248, 45);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1091, 717);
             this.panel3.TabIndex = 2;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.comboBox1);
-            this.panel4.Location = new System.Drawing.Point(149, 105);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(775, 496);
-            this.panel4.TabIndex = 0;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(60, 32);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(184, 27);
-            this.comboBox1.TabIndex = 0;
             // 
             // FormularioGestionPrestamos
             // 
@@ -228,8 +204,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBLoginIcono)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -247,7 +221,5 @@
         private System.Windows.Forms.Label lblNombreUsuario;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

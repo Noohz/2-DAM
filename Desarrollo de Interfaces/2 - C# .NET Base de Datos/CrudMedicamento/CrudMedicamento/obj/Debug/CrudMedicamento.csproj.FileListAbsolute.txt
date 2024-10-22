@@ -79,6 +79,6 @@ C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CrudMedicamen
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CrudMedicamento\CrudMedicamento\obj\Debug\CrudMedicamento.Properties.Resources.resources
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CrudMedicamento\CrudMedicamento\obj\Debug\CrudMedicamento.csproj.GenerateResource.cache
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CrudMedicamento\CrudMedicamento\obj\Debug\CrudMedicamento.csproj.CoreCompileInputs.cache
-C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CrudMedicamento\CrudMedicamento\obj\Debug\CrudMedicamento.csproj.CopyComplete
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CrudMedicamento\CrudMedicamento\obj\Debug\CrudMedicamento.exe
 C:\Github\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CrudMedicamento\CrudMedicamento\obj\Debug\CrudMedicamento.pdb
+C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\CrudMedicamento\CrudMedicamento\obj\Debug\CrudMedi.DF282769.Up2Date

@@ -20,7 +20,7 @@ namespace ConsejeriaQR
             cnxIA = cnxGP;
         }
 
-        public Panel generarPanelArticulos()
+        public Panel generarPanelAniadirArticulos()
         {
             // Todo esto se generará de forma programmatically.
             // Panel que contendrá los Controls para introducir los datos del artículo.
