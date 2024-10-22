@@ -3,11 +3,7 @@
   "WorkspaceRootPath": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\tpv\\tpv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|solutionrelative:tpv\\tpv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\tpv_v1\\tpv\\tpv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\tpv\\tpv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|solutionrelative:tpv\\tpv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -15,24 +11,28 @@
       "RelativeMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|solutionrelative:tpv\\claseaccesobd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\tpv\\clasecesta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|solutionrelative:tpv\\clasecesta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\tpv\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|solutionrelative:tpv\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\tpv\\backend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|solutionrelative:tpv\\backend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\tpv\\backend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|solutionrelative:tpv\\backend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\tpv\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|solutionrelative:tpv\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\tpv\\clasecesta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|solutionrelative:tpv\\clasecesta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\tpv\\backend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|solutionrelative:tpv\\backend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\tpv\\backend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|solutionrelative:tpv\\backend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\tpv_v1\\tpv\\tpv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99383FA9-F14E-4A88-9F80-276F84386F92}|TPV\\TPV.csproj|solutionrelative:tpv\\tpv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,36 +42,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "TPV.cs",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\TPV\\TPV.cs",
               "RelativeDocumentMoniker": "TPV\\TPV.cs",
-              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\TPV\\TPV.cs*",
-              "RelativeToolTip": "TPV\\TPV.cs*",
-              "ViewState": "AgIAABQAAAAAAAAAAAAQwLcBAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\TPV\\TPV.cs",
+              "RelativeToolTip": "TPV\\TPV.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAowLcBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-19T08:55:40.122Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "TPV.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\TPV\\TPV.cs",
               "RelativeDocumentMoniker": "TPV\\TPV.cs",
-              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\TPV\\TPV.cs [Dise\u00F1o]*",
-              "RelativeToolTip": "TPV\\TPV.cs [Dise\u00F1o]*",
+              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\TPV\\TPV.cs [Dise\u00F1o]",
+              "RelativeToolTip": "TPV\\TPV.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-19T08:55:40.137Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "claseAccesoBD.cs",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\TPV\\claseAccesoBD.cs",
               "RelativeDocumentMoniker": "TPV\\claseAccesoBD.cs",
@@ -84,14 +84,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "backEnd.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\TPV\\backEnd.cs",
               "RelativeDocumentMoniker": "TPV\\backEnd.cs",
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\TPV\\backEnd.cs [Dise\u00F1o]",
               "RelativeToolTip": "TPV\\backEnd.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-19T08:55:40.137Z"
+              "WhenOpened": "2024-02-19T08:55:40.137Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
@@ -101,21 +102,23 @@
               "RelativeDocumentMoniker": "TPV\\backEnd.cs",
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\TPV\\backEnd.cs",
               "RelativeToolTip": "TPV\\backEnd.cs",
-              "ViewState": "AQIAAIQAAAAAAAAAAAAYwJUAAAAoAAAA",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAYwJUAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-19T08:55:40.2Z"
+              "WhenOpened": "2024-02-19T08:55:40.2Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "Inicio.cs",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\TPV\\Inicio.cs",
               "RelativeDocumentMoniker": "TPV\\Inicio.cs",
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\TPV\\Inicio.cs",
               "RelativeToolTip": "TPV\\Inicio.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAqwA0AAAAVAAAA",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwA0AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-19T08:55:40.248Z"
+              "WhenOpened": "2024-02-19T08:55:40.248Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -126,19 +129,21 @@
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\TPV\\Inicio.cs [Dise\u00F1o]",
               "RelativeToolTip": "TPV\\Inicio.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-19T08:55:40.249Z"
+              "WhenOpened": "2024-02-19T08:55:40.249Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "claseCesta.cs",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\TPV\\claseCesta.cs",
               "RelativeDocumentMoniker": "TPV\\claseCesta.cs",
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\Tpv_v1\\TPV\\claseCesta.cs",
               "RelativeToolTip": "TPV\\claseCesta.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAUAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-19T08:55:40.25Z"
+              "WhenOpened": "2024-02-19T08:55:40.25Z",
+              "EditorCaption": ""
             }
           ]
         }

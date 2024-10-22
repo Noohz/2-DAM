@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Printing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ConsejeriaQR
@@ -9,6 +11,7 @@ namespace ConsejeriaQR
     {
         ClaseConectar cnxIEA;
         List<Control> listaControles;
+        List<articulos> listaNombreArticulos = new List<articulos>();
         List<articulos> listaArticulos = new List<articulos>();
 
         public InterfazEliminarArticulos(ClaseConectar cnxGP)
@@ -18,9 +21,7 @@ namespace ConsejeriaQR
 
         internal Panel generarPanelEliminarArticulos()
         {
-            listaArticulos.Clear();
-            listaArticulos = cnxIEA.obtenerArticulos();
-            HashSet<String> nombreArticulo = new HashSet<String>(); //Un hashSet para almacenar los nombres sin que se repitan y evitarme otra consulta a la BD.
+            listaNombreArticulos = cnxIEA.obtenerNombreArticulos();            
 
             // Todo esto se generará de forma programmatically.
             // Panel que contendrá los Controls para introducir los datos del artículo.
@@ -46,12 +47,9 @@ namespace ConsejeriaQR
             comboBoxArticulo.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxArticulo.SelectedIndexChanged += ComboBoxArticulo_SelectedIndexChanged;
 
-            foreach (var articulo in listaArticulos)
+            foreach (var articulo in listaNombreArticulos)
             {
-                if (nombreArticulo.Add(articulo.Nombre))
-                {
-                    comboBoxArticulo.Items.Add(articulo.Nombre);
-                }
+                comboBoxArticulo.Items.Add(articulo.Nombre);
             }
 
             // Un FlowLayoutPanel donde aparecerán los artículos con el nombre seleccionado en el comboBox.
@@ -61,6 +59,8 @@ namespace ConsejeriaQR
             fLPArticulos.Height = 342;
             fLPArticulos.BorderStyle = BorderStyle.FixedSingle;
             fLPArticulos.BackColor = Color.Silver;
+            fLPArticulos.AutoScroll = true;
+            
 
             listaControles = new List<Control> { lblTextoBusqueda, comboBoxArticulo, fLPArticulos };
             panelArticulo.Controls.AddRange(listaControles.ToArray());
@@ -70,14 +70,28 @@ namespace ConsejeriaQR
 
         private void ComboBoxArticulo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ComboBox cnx = (ComboBox)sender;
+            ComboBox cbX = (ComboBox)sender;
+            FlowLayoutPanel fLPArticulo = (FlowLayoutPanel)listaControles[2];
 
-            foreach (var articulos in listaArticulos)
+            listaArticulos = cnxIEA.obtenerArticulos(cbX.Text);
+            fLPArticulo.Controls.Clear();
+
+            foreach (var articulo in listaArticulos)
             {
-                if (articulos.Nombre.Equals(cnx.Text))
-                {
+                Button btn = new Button();
+                btn.Name = articulo.Codigo;
 
-                }
+                btn.Width = 95;
+                btn.Height = 95;
+                btn.Margin = new Padding(13, 5, 0, 5);
+
+                MemoryStream ms = new System.IO.MemoryStream(articulo.Imagen);
+                System.Drawing.Image imagen = System.Drawing.Image.FromStream(ms);
+                System.Drawing.Image imagenRedimensionada = new System.Drawing.Bitmap(imagen, new System.Drawing.Size(45, 45));
+                btn.Image = imagenRedimensionada;
+                btn.ImageAlign = ContentAlignment.TopCenter;
+
+                fLPArticulo.Controls.Add(btn);
             }
         }
     }

@@ -12,6 +12,7 @@ namespace ConsejeriaQR
         MySqlDataReader datos;
 
         List<usuarios> listaUsuario = new List<usuarios>();
+        List<articulos> listaNombreArticulos = new List<articulos>();
         List<articulos> listaArticulos = new List<articulos>();
 
         String CADENA_CONEXION = "server=localhost;Database=conserjeriaqr;Uid=root;pwd='';old guids=true";
@@ -163,17 +164,46 @@ namespace ConsejeriaQR
             return codigo;
         }
 
-        // Método que devuelve una lista con todos los datos de los artículos que hay en la tabla Articulos en la BD.
-        internal List<articulos> obtenerArticulos()
+        // Método que devuelve una lista con los nombres de los artículos que hay en la tabla Articulos en la BD sin repetirse.
+        internal List<articulos> obtenerNombreArticulos()
+        {
+            listaNombreArticulos.Clear();
+            using (conexion = new MySqlConnection(CADENA_CONEXION))
+            {
+                conexion.Open();
+
+                string cadenaSql = "SELECT DISTINCT nombre FROM articulos";
+
+                using (comando = new MySqlCommand(cadenaSql, conexion))
+                {
+                    using (datos = comando.ExecuteReader())
+                    {
+                        while (datos.Read())
+                        {
+                            articulos articulo = new articulos();
+                            articulo.Nombre = (string)datos["nombre"];
+
+                            listaNombreArticulos.Add(articulo);
+                        }
+                    }
+                }
+            }
+            return listaNombreArticulos;
+        }
+
+        // Método que devuelve una lista con todos los datos de los artículos que coincidan con el nombre que se le pasa por parámetros.
+        internal List<articulos> obtenerArticulos(string nombreArticulo)
         {
             using (conexion = new MySqlConnection(CADENA_CONEXION))
             {
                 conexion.Open();
 
-                string cadenaSql = "SELECT * FROM articulos";
+                string cadenaSql = "SELECT * FROM articulos WHERE nombre = @nombre";
 
                 using (comando = new MySqlCommand(cadenaSql, conexion))
                 {
+                    comando.Parameters.AddWithValue("@nombre", nombreArticulo);
+
                     using (datos = comando.ExecuteReader())
                     {
                         while (datos.Read())
@@ -193,6 +223,7 @@ namespace ConsejeriaQR
                     }
                 }
             }
+
             return listaArticulos;
         }
 
