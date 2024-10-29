@@ -31,8 +31,12 @@ namespace ConsejeriaQR
             panel3.Controls.Clear();
 
             InterfazAniadirArticulos iAA = new InterfazAniadirArticulos(cnxGP);
-            Panel panelArticulo = iAA.generarPanelAniadirArticulos();
-            panel3.Controls.Add(panelArticulo);
+            Panel panelArticulo = iAA.generarPanelAniadirArticulos(panel3.Width, panel3.Height);
+            Panel panelDatosBD = iAA.generarPanelDatosArticulosBD(panel3.Width, panel3.Height);
+
+            List<Control> paneles = new List<Control> { panelArticulo, panelDatosBD };
+
+            panel3.Controls.AddRange(paneles.ToArray());
         }
 
         private void btnEliminarArticulo_Click(object sender, EventArgs e)
@@ -40,7 +44,7 @@ namespace ConsejeriaQR
             panel3.Controls.Clear();
 
             InterfazEliminarArticulos iEA = new InterfazEliminarArticulos(cnxGP);
-            Panel panelArticulo = iEA.generarPanelEliminarArticulos();
+            Panel panelArticulo = iEA.generarPanelEliminarArticulos(panel3.Width, panel3.Height);
             panel3.Controls.Add(panelArticulo);
         }
     }

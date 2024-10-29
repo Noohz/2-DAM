@@ -52,7 +52,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1339, 45);
+            this.panel1.Size = new System.Drawing.Size(1431, 45);
             this.panel1.TabIndex = 0;
             // 
             // lblGestionPrestamoTitulo
@@ -67,15 +67,18 @@
             // 
             // btnVolverGestionPrestamos
             // 
+            this.btnVolverGestionPrestamos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnVolverGestionPrestamos.BackColor = System.Drawing.Color.Firebrick;
             this.btnVolverGestionPrestamos.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnVolverGestionPrestamos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolverGestionPrestamos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolverGestionPrestamos.ForeColor = System.Drawing.Color.White;
-            this.btnVolverGestionPrestamos.Location = new System.Drawing.Point(1283, 12);
+            this.btnVolverGestionPrestamos.Location = new System.Drawing.Point(1375, 12);
             this.btnVolverGestionPrestamos.Name = "btnVolverGestionPrestamos";
             this.btnVolverGestionPrestamos.Size = new System.Drawing.Size(44, 23);
             this.btnVolverGestionPrestamos.TabIndex = 12;
+            this.btnVolverGestionPrestamos.TabStop = false;
             this.btnVolverGestionPrestamos.Text = "->";
             this.btnVolverGestionPrestamos.UseVisualStyleBackColor = false;
             this.btnVolverGestionPrestamos.Click += new System.EventHandler(this.btnVolverGestionPrestamos_Click);
@@ -184,14 +187,14 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(248, 45);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1091, 717);
+            this.panel3.Size = new System.Drawing.Size(1183, 717);
             this.panel3.TabIndex = 2;
             // 
             // FormularioGestionPrestamos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1339, 762);
+            this.ClientSize = new System.Drawing.Size(1431, 762);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -199,6 +202,7 @@
             this.Name = "FormularioGestionPrestamos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormularioGestionPrestamos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

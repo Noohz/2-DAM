@@ -14,6 +14,7 @@ namespace ConsejeriaQR
         List<usuarios> listaUsuario = new List<usuarios>();
         List<articulos> listaNombreArticulos = new List<articulos>();
         List<articulos> listaArticulos = new List<articulos>();
+        List<articulosDGV> listaArticulosDGV = new List<articulosDGV>();
 
         String CADENA_CONEXION = "server=localhost;Database=conserjeriaqr;Uid=root;pwd='';old guids=true";
 
@@ -192,18 +193,18 @@ namespace ConsejeriaQR
         }
 
         // Método que devuelve una lista con todos los datos de los artículos que coincidan con el nombre que se le pasa por parámetros.
-        internal List<articulos> obtenerArticulos(string nombreArticulo)
+        internal List<articulos> obtenerArticulos()
         {
             using (conexion = new MySqlConnection(CADENA_CONEXION))
             {
+                listaArticulos.Clear();
+
                 conexion.Open();
 
-                string cadenaSql = "SELECT * FROM articulos WHERE nombre = @nombre";
+                string cadenaSql = "SELECT * FROM articulos";
 
                 using (comando = new MySqlCommand(cadenaSql, conexion))
                 {
-                    comando.Parameters.AddWithValue("@nombre", nombreArticulo);
-
                     using (datos = comando.ExecuteReader())
                     {
                         while (datos.Read())
@@ -225,6 +226,39 @@ namespace ConsejeriaQR
             }
 
             return listaArticulos;
+        }
+
+        // Método para almacenar en una lista los artículos activos en la BD para introducirselos al DataGridView.
+        internal List<articulosDGV> obtenerArticulosDGV()
+        {
+            using (conexion = new MySqlConnection(CADENA_CONEXION))
+            {
+                listaArticulosDGV.Clear();
+
+                conexion.Open();
+
+                string cadenaSql = "SELECT * FROM articulos";
+
+                using (comando = new MySqlCommand(cadenaSql, conexion))
+                {
+                    using (datos = comando.ExecuteReader())
+                    {
+                        while (datos.Read())
+                        {
+                            articulosDGV articuloDGV = new articulosDGV();
+                            articuloDGV.Id = (int)datos["id"];
+                            articuloDGV.Nombre = (string)datos["nombre"];
+                            articuloDGV.Descripcion = (string)datos["descripcion"];
+                            articuloDGV.Codigo = (string)datos["codigo"];
+                            articuloDGV.Activo = (bool)datos["activo"];
+
+                            listaArticulosDGV.Add(articuloDGV);
+                        }
+                    }
+                }
+            }
+
+            return listaArticulosDGV;
         }
 
         // Métodos para encriptar la contraseña...

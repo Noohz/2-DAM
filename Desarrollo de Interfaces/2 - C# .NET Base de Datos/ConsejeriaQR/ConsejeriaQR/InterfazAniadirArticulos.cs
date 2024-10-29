@@ -14,36 +14,37 @@ namespace ConsejeriaQR
         ClaseConectar cnxIA;
 
         List<Control> listaControles;
+        List<articulosDGV> listaArticulosDGV = new List<articulosDGV>();
 
         public InterfazAniadirArticulos(ClaseConectar cnxGP)
         {
             cnxIA = cnxGP;
         }
 
-        public Panel generarPanelAniadirArticulos()
+        public Panel generarPanelAniadirArticulos(int width, int height)
         {
             // Todo esto se generará de forma programmatically.
             // Panel que contendrá los Controls para introducir los datos del artículo.
             Panel panelArticulo = new Panel();
-            panelArticulo.Location = new Point(149, 105);
-            panelArticulo.Width = 775;
-            panelArticulo.Height = 496;
+            panelArticulo.Width = width - (width * 30 / 100);
+            panelArticulo.Height = height - (height * 45 / 100);
             panelArticulo.BackColor = Color.White;
+            panelArticulo.Location = new Point((width - panelArticulo.Width) / 2, 100);
 
             // Label simplemente para contener el texto.
             Label lblImagenArticulo = new Label();
             lblImagenArticulo.Text = "Imágen del artículo";
-            lblImagenArticulo.TextAlign = ContentAlignment.MiddleCenter;
-            lblImagenArticulo.Location = new Point(91, 91);
+            lblImagenArticulo.TextAlign = ContentAlignment.MiddleCenter;            
             lblImagenArticulo.Width = 153;
             lblImagenArticulo.Height = 19;
+            lblImagenArticulo.Location = new Point((int)(panelArticulo.Width * 0.15), 110);
             lblImagenArticulo.Font = new Font("Arial", 12, FontStyle.Bold);
 
             // PictureBox para que el usuario seleccione la imágen a añadir.
             PictureBox pBImagenArticulo = new PictureBox();
-            pBImagenArticulo.Width = 140;
-            pBImagenArticulo.Height = 93;
-            pBImagenArticulo.Location = new Point(351, 35);
+            pBImagenArticulo.Width = 200;
+            pBImagenArticulo.Height = 180;
+            pBImagenArticulo.Location = new Point((int)(panelArticulo.Width * 0.5), 35);
             pBImagenArticulo.BorderStyle = BorderStyle.FixedSingle;
             pBImagenArticulo.SizeMode = PictureBoxSizeMode.StretchImage;
             pBImagenArticulo.Click += PBImagenArticulo_Click;
@@ -51,59 +52,59 @@ namespace ConsejeriaQR
             // Label simplemente para señalizar donde hay que hacer click...
             Label lblIndicadorImagen = new Label();
             lblIndicadorImagen.Text = "Click en el cuadrado para introducir una imágen";
-            lblIndicadorImagen.TextAlign = ContentAlignment.MiddleCenter;
-            lblIndicadorImagen.Location = new Point(292, 136);
+            lblIndicadorImagen.TextAlign = ContentAlignment.MiddleCenter;            
             lblIndicadorImagen.Width = 269;
             lblIndicadorImagen.Height = 14;
+            lblIndicadorImagen.Location = new Point((int)(panelArticulo.Width * 0.47), 220);
             lblIndicadorImagen.Font = new Font("Arial", 8, FontStyle.Bold);
 
             // Label para contener el texto..
             Label lblNombreArticulo = new Label();
             lblNombreArticulo.Text = "Nombre del artículo";
-            lblNombreArticulo.TextAlign = ContentAlignment.MiddleCenter;
-            lblNombreArticulo.Location = new Point(91, 191);
+            lblNombreArticulo.TextAlign = ContentAlignment.MiddleCenter;            
             lblNombreArticulo.Width = 158;
             lblNombreArticulo.Height = 19;
+            lblNombreArticulo.Location = new Point((int)(panelArticulo.Width * 0.15), 245);
             lblNombreArticulo.Font = new Font("Arial", 12, FontStyle.Bold);
 
             // TextBox en el que el usuario puede escribir el nombre del artículo.
             TextBox tBNombre = new TextBox();
-            tBNombre.Multiline = true;
-            tBNombre.Location = new Point(295, 191);
+            tBNombre.Multiline = true;            
             tBNombre.Width = 442;
             tBNombre.Height = 26;
+            tBNombre.Location = new Point((int)(panelArticulo.Width * 0.40), 245);
 
             // Label para contener el texto..
             Label lblDescripcionArticulo = new Label();
             lblDescripcionArticulo.Text = "Descripción del artículo";
-            lblDescripcionArticulo.TextAlign = ContentAlignment.MiddleCenter;
-            lblDescripcionArticulo.Location = new Point(91, 273);
+            lblDescripcionArticulo.TextAlign = ContentAlignment.MiddleCenter;            
             lblDescripcionArticulo.Width = 189;
             lblDescripcionArticulo.Height = 19;
+            lblDescripcionArticulo.Location = new Point((int)(panelArticulo.Width * 0.15), 335);
             lblDescripcionArticulo.Font = new Font("Arial", 12, FontStyle.Bold);
 
             // TextBox en el que el usuario puede escribir la descripción del artículo.
             TextBox tBDescripcion = new TextBox();
-            tBDescripcion.Multiline = true;
-            tBDescripcion.Location = new Point(295, 243);
+            tBDescripcion.Multiline = true;            
             tBDescripcion.Width = 442;
             tBDescripcion.Height = 88;
+            tBDescripcion.Location = new Point((int)(panelArticulo.Width * 0.40), 300);
 
             // Último label para contener el texto..
             Label lblCodigoArticulo = new Label();
             lblCodigoArticulo.Text = "Código del artículo";
-            lblCodigoArticulo.TextAlign = ContentAlignment.MiddleCenter;
-            lblCodigoArticulo.Location = new Point(91, 363);
+            lblCodigoArticulo.TextAlign = ContentAlignment.MiddleCenter;            
             lblCodigoArticulo.Width = 153;
             lblCodigoArticulo.Height = 19;
+            lblCodigoArticulo.Location = new Point((int)(panelArticulo.Width * 0.15), 425);
             lblCodigoArticulo.Font = new Font("Arial", 12, FontStyle.Bold);
 
             // TextBox en el que el usuario puede escribir el codigo del artículo.
             TextBox tBCodigo = new TextBox();
-            tBCodigo.Multiline = true;
-            tBCodigo.Location = new Point(295, 356);
+            tBCodigo.Multiline = true;            
             tBCodigo.Width = 442;
             tBCodigo.Height = 26;
+            tBCodigo.Location = new Point((int)(panelArticulo.Width * 0.40), 420);
             tBCodigo.ForeColor = Color.FromKnownColor(KnownColor.GrayText);
             tBCodigo.Text = "PJ: Llave_A1";
             tBCodigo.Enter += TBCodigo_Enter;
@@ -115,10 +116,10 @@ namespace ConsejeriaQR
             btnCrearArticulo.FlatAppearance.MouseOverBackColor = Color.FromKnownColor(KnownColor.ControlDark);
             btnCrearArticulo.FlatAppearance.BorderSize = 1;
             btnCrearArticulo.FlatStyle = FlatStyle.Flat;
-            btnCrearArticulo.Font = new Font("Arial", 14, FontStyle.Bold);
-            btnCrearArticulo.Location = new Point(305, 433);
+            btnCrearArticulo.Font = new Font("Arial", 14, FontStyle.Bold);            
             btnCrearArticulo.Width = 221;
             btnCrearArticulo.Height = 43;
+            btnCrearArticulo.Location = new Point((int)(panelArticulo.Width * 0.40), 490);
             btnCrearArticulo.Text = "Crear artículo";
 
             listaControles = new List<Control> { lblImagenArticulo, pBImagenArticulo, lblIndicadorImagen, lblNombreArticulo, tBNombre, lblDescripcionArticulo, tBDescripcion, lblCodigoArticulo, tBCodigo, btnCrearArticulo };
@@ -128,6 +129,38 @@ namespace ConsejeriaQR
             panelArticulo.Controls.AddRange(listaControles.ToArray());
 
             return panelArticulo;
+        }
+
+        // Método que generará un Panel para almacenar un DataGridView que contendrá los artículos de la BD.
+        internal Panel generarPanelDatosArticulosBD(int width, int height)
+        {
+            Panel panelDatosBD = new Panel();
+            panelDatosBD.Width = width - (width * 30 / 100);
+            panelDatosBD.Height = height - (height * 70 / 100);
+            panelDatosBD.BackColor = Color.White;
+            panelDatosBD.Location = new Point((width - panelDatosBD.Width) / 2, 680);
+
+            Label lblTituloBD = new Label();
+            lblTituloBD.Font = new Font("Arial", 12, FontStyle.Bold);
+            lblTituloBD.Text = "Artículos actuales registrados";
+            lblTituloBD.AutoSize = true;
+            lblTituloBD.Location = new Point((int)(panelDatosBD.Width * 0.4), 5);
+
+            DataGridView dGVArticulos = new DataGridView();
+            dGVArticulos.Width = (int)(panelDatosBD.Width * 0.95);
+            dGVArticulos.Height = (int)(panelDatosBD.Height * 0.85);
+            dGVArticulos.Location = new Point((int)(panelDatosBD.Width * 0.03), 40);
+            dGVArticulos.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dGVArticulos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dGVArticulos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
+            panelDatosBD.Controls.Add(lblTituloBD);
+            panelDatosBD.Controls.Add(dGVArticulos);
+
+            listaArticulosDGV = cnxIA.obtenerArticulosDGV();
+            dGVArticulos.DataSource = listaArticulosDGV;
+
+            return panelDatosBD;
         }
 
         // Evento que se encarga de la funcionalidad de convertir la imágen que ha seleccionado el usuario a bytes, de crear tanto el codigo como la imágen QR y de insertarlo en la BD.
@@ -229,9 +262,8 @@ namespace ConsejeriaQR
             if (opf.ShowDialog() == DialogResult.OK)
             {
                 nombreImagen = opf.FileName;
-                pbX.Image = Image.FromFile(nombreImagen);
-                pbX.BackgroundImage = Image.FromFile(nombreImagen);
+                pbX.Image = Image.FromFile(nombreImagen);                
             }
-        }
+        }        
     }
 }

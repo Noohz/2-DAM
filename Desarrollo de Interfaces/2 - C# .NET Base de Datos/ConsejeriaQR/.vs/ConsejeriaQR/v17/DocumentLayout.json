@@ -3,11 +3,7 @@
   "WorkspaceRootPath": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\consejeriaqr\\consejeriaqr\\interfazeliminararticulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|solutionrelative:consejeriaqr\\interfazeliminararticulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\consejeriaqr\\consejeriaqr\\formulariogestionprestamos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\consejeriaqr\\formulariogestionprestamos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|solutionrelative:consejeriaqr\\formulariogestionprestamos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -27,32 +23,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "InterfazEliminarArticulos.cs",
-              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\InterfazEliminarArticulos.cs",
-              "RelativeDocumentMoniker": "ConsejeriaQR\\InterfazEliminarArticulos.cs",
-              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\InterfazEliminarArticulos.cs",
-              "RelativeToolTip": "ConsejeriaQR\\InterfazEliminarArticulos.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAwwFUAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T10:54:56.497Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "FormularioGestionPrestamos.cs",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\FormularioGestionPrestamos.cs",
               "RelativeDocumentMoniker": "ConsejeriaQR\\FormularioGestionPrestamos.cs",
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\FormularioGestionPrestamos.cs",
               "RelativeToolTip": "ConsejeriaQR\\FormularioGestionPrestamos.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAnwCoAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAC4AAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-22T17:44:38.172Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "FormularioGestionPrestamos.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\FormularioGestionPrestamos.cs",
               "RelativeDocumentMoniker": "ConsejeriaQR\\FormularioGestionPrestamos.cs",

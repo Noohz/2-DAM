@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ConsejeriaQR.exe" size="1109472">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ConsejeriaQR.exe" size="1113056">
       <assemblyIdentity name="ConsejeriaQR" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HbEV8w39oXlAXY5ZwZ3YdZGH7hqTVqfgCHKU4y1PgYk=</dsig:DigestValue>
+        <dsig:DigestValue>VbP4GKLYTEt1CE/pnb4H9tHAqg1+NVzRwrPek8/Ern0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
