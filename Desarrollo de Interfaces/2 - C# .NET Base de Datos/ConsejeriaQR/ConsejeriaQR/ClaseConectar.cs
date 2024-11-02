@@ -173,7 +173,7 @@ namespace ConsejeriaQR
             {
                 conexion.Open();
 
-                string cadenaSql = "SELECT DISTINCT nombre FROM articulos";
+                string cadenaSql = "SELECT DISTINCT nombre FROM articulos WHERE activo = 1";
 
                 using (comando = new MySqlCommand(cadenaSql, conexion))
                 {
@@ -201,7 +201,7 @@ namespace ConsejeriaQR
 
                 conexion.Open();
 
-                string cadenaSql = "SELECT * FROM articulos";
+                string cadenaSql = "SELECT * FROM articulos WHERE activo = 1";
 
                 using (comando = new MySqlCommand(cadenaSql, conexion))
                 {
@@ -228,7 +228,7 @@ namespace ConsejeriaQR
             return listaArticulos;
         }
 
-        // Método para almacenar en una lista los artículos activos en la BD para introducirselos al DataGridView.
+        // Método para almacenar en una lista los artículos activos en la BD para introducirselos al DataGridView. Esta lista si almacena los articulos que no estan activos.
         internal List<articulosDGV> obtenerArticulosDGV()
         {
             using (conexion = new MySqlConnection(CADENA_CONEXION))
@@ -261,6 +261,31 @@ namespace ConsejeriaQR
             return listaArticulosDGV;
         }
 
+        // Método que se encargará de eliminar el articulo que coincida con los parámetros.
+        internal int eliminarArticulo(articulos datosArticulo)
+        {
+            int codigo = 0;
+            int id = datosArticulo.Id;
+            string claveQR = datosArticulo.ClaveQR;
+
+            using (conexion = new MySqlConnection(CADENA_CONEXION))
+            {
+                conexion.Open();
+
+                string cadenaSql = "DELETE FROM articulos WHERE id = @id AND claveQR = @claveQR";
+
+                using (comando = new MySqlCommand(cadenaSql, conexion))
+                {
+                    comando.Parameters.AddWithValue("@id", id);
+                    comando.Parameters.AddWithValue("@claveQR", claveQR);
+
+                    codigo = comando.ExecuteNonQuery();
+                }
+            }
+
+            return codigo;
+        }
+
         // Métodos para encriptar la contraseña...
         private static byte[] GenerateSalt()
         {
@@ -278,6 +303,8 @@ namespace ConsejeriaQR
             {
                 return pbkdf2.GetBytes(32);
             }
-        }        
+        }
+
+        
     }
 }

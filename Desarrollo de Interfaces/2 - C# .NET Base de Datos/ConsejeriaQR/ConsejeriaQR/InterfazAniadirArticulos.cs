@@ -14,7 +14,9 @@ namespace ConsejeriaQR
         ClaseConectar cnxIA;
 
         List<Control> listaControles;
+        List<Control> listaControlesDB;
         List<articulosDGV> listaArticulosDGV = new List<articulosDGV>();
+        List<String> listaNombreArticulos = new List<string> { "Llaves de aula", "Llaves de armarios de ordenadores", "Mandos de proyectores", "Lápiz tablet", "Cables de tablet" };
 
         public InterfazAniadirArticulos(ClaseConectar cnxGP)
         {
@@ -68,11 +70,12 @@ namespace ConsejeriaQR
             lblNombreArticulo.Font = new Font("Arial", 12, FontStyle.Bold);
 
             // TextBox en el que el usuario puede escribir el nombre del artículo.
-            TextBox tBNombre = new TextBox();
-            tBNombre.Multiline = true;            
-            tBNombre.Width = 442;
-            tBNombre.Height = 26;
-            tBNombre.Location = new Point((int)(panelArticulo.Width * 0.40), 245);
+            ComboBox cBNombre = new ComboBox();
+            cBNombre.Width = 442;
+            cBNombre.Height = 26;
+            cBNombre.Location = new Point((int)(panelArticulo.Width * 0.40), 245);
+            cBNombre.Items.AddRange(listaNombreArticulos.ToArray());
+            cBNombre.DropDownStyle = ComboBoxStyle.DropDownList;
 
             // Label para contener el texto..
             Label lblDescripcionArticulo = new Label();
@@ -122,9 +125,9 @@ namespace ConsejeriaQR
             btnCrearArticulo.Location = new Point((int)(panelArticulo.Width * 0.40), 490);
             btnCrearArticulo.Text = "Crear artículo";
 
-            listaControles = new List<Control> { lblImagenArticulo, pBImagenArticulo, lblIndicadorImagen, lblNombreArticulo, tBNombre, lblDescripcionArticulo, tBDescripcion, lblCodigoArticulo, tBCodigo, btnCrearArticulo };
+            listaControles = new List<Control> { lblImagenArticulo, pBImagenArticulo, lblIndicadorImagen, lblNombreArticulo, cBNombre, lblDescripcionArticulo, tBDescripcion, lblCodigoArticulo, tBCodigo, btnCrearArticulo };
 
-            btnCrearArticulo.Click += (sender, e) => btnCrearArticulo_Click(tBNombre.Text, tBDescripcion.Text, tBCodigo.Text);
+            btnCrearArticulo.Click += (sender, e) => btnCrearArticulo_Click(cBNombre.Text, tBDescripcion.Text, tBCodigo.Text);
 
             panelArticulo.Controls.AddRange(listaControles.ToArray());
 
@@ -154,8 +157,9 @@ namespace ConsejeriaQR
             dGVArticulos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dGVArticulos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 
-            panelDatosBD.Controls.Add(lblTituloBD);
-            panelDatosBD.Controls.Add(dGVArticulos);
+            listaControlesDB = new List<Control> { lblTituloBD, dGVArticulos };
+
+            panelDatosBD.Controls.AddRange(listaControlesDB.ToArray());
 
             listaArticulosDGV = cnxIA.obtenerArticulosDGV();
             dGVArticulos.DataSource = listaArticulosDGV;
@@ -167,6 +171,7 @@ namespace ConsejeriaQR
         private void btnCrearArticulo_Click(string nombreArticulo, string descripcionArticulo, string codigoArticulo)
         {
             PictureBox pbImg = (PictureBox)listaControles[1];
+            DataGridView comboDGV = (DataGridView)listaControlesDB[1];
 
             if (pbImg.Image != null)
             {
@@ -200,6 +205,10 @@ namespace ConsejeriaQR
                         listaControles[6].Text = "";
                         listaControles[8].Text = "PJ: Llave_A1";
                         listaControles[8].ForeColor = Color.FromKnownColor(KnownColor.GrayText);
+
+                        listaArticulosDGV = cnxIA.obtenerArticulosDGV();
+                        comboDGV.DataSource = null;
+                        comboDGV.DataSource = listaArticulosDGV;
 
                     }
                     else

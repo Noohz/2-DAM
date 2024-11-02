@@ -94,10 +94,28 @@ namespace ConsejeriaQR
                     System.Drawing.Image imagenRedimensionada = new System.Drawing.Bitmap(imagen, new System.Drawing.Size(70, 70));
                     btn.Image = imagenRedimensionada;
                     btn.ImageAlign = ContentAlignment.TopCenter;
+                    btn.Tag = articulo;
+                    btn.Click += Btn_Click;
 
                     fLPArticulo.Controls.Add(btn);
                 }                
             }
+        }
+
+        private void Btn_Click(object sender, EventArgs e)
+        {
+            Button btnX = (Button)sender;
+
+            ComboBox comboBoxArticulo = (ComboBox)listaControles[1];
+
+            FormularioDatosBtn fDBtn = new FormularioDatosBtn(btnX.Tag, cnxIEA);
+            fDBtn.FormClosed += FDBtn_FormClosed;
+            fDBtn.ShowDialog();
+        }
+
+        private void FDBtn_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ComboBoxArticulo_SelectedIndexChanged(listaControles[1], EventArgs.Empty);
         }
     }
 }

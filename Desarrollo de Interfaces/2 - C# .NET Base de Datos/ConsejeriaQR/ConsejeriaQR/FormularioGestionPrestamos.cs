@@ -7,9 +7,6 @@ namespace ConsejeriaQR
     public partial class FormularioGestionPrestamos : Form
     {
         ClaseConectar cnxGP;
-        String nombreImagen;
-
-        List<Control> listaControles;
 
         public FormularioGestionPrestamos(List<usuarios> datosUsuario, ClaseConectar cnxC)
         {
