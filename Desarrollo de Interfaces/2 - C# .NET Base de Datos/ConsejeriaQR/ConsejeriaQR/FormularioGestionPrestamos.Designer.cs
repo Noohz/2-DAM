@@ -81,7 +81,7 @@
             this.btnVolverGestionPrestamos.TabStop = false;
             this.btnVolverGestionPrestamos.Text = "->";
             this.btnVolverGestionPrestamos.UseVisualStyleBackColor = false;
-            this.btnVolverGestionPrestamos.Click += new System.EventHandler(this.btnVolverGestionPrestamos_Click);
+            this.btnVolverGestionPrestamos.Click += new System.EventHandler(this.BtnVolverGestionPrestamos_Click);
             // 
             // panel2
             // 
@@ -123,7 +123,6 @@
             // btnPrestarArticulo
             // 
             this.btnPrestarArticulo.BackColor = System.Drawing.SystemColors.Control;
-            this.btnPrestarArticulo.Enabled = false;
             this.btnPrestarArticulo.FlatAppearance.BorderSize = 0;
             this.btnPrestarArticulo.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.btnPrestarArticulo.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
@@ -136,6 +135,7 @@
             this.btnPrestarArticulo.TabIndex = 8;
             this.btnPrestarArticulo.Text = "Prestar artículos";
             this.btnPrestarArticulo.UseVisualStyleBackColor = false;
+            this.btnPrestarArticulo.Click += new System.EventHandler(this.BtnPrestarArticulo_Click);
             // 
             // btnEliminarArticulo
             // 
@@ -152,7 +152,7 @@
             this.btnEliminarArticulo.TabIndex = 7;
             this.btnEliminarArticulo.Text = "Eliminar artículos";
             this.btnEliminarArticulo.UseVisualStyleBackColor = false;
-            this.btnEliminarArticulo.Click += new System.EventHandler(this.btnEliminarArticulo_Click);
+            this.btnEliminarArticulo.Click += new System.EventHandler(this.BtnEliminarArticulo_Click);
             // 
             // btnAniadirArticulo
             // 
@@ -169,7 +169,7 @@
             this.btnAniadirArticulo.TabIndex = 6;
             this.btnAniadirArticulo.Text = "Añadir artículos";
             this.btnAniadirArticulo.UseVisualStyleBackColor = false;
-            this.btnAniadirArticulo.Click += new System.EventHandler(this.btnAniadirArticulo_Click);
+            this.btnAniadirArticulo.Click += new System.EventHandler(this.BtnAniadirArticulo_Click);
             // 
             // pBLoginIcono
             // 

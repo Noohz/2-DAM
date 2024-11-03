@@ -6,21 +6,21 @@ using System.Windows.Forms;
 
 namespace ConsejeriaQR
 {
-    internal class InterfazEliminarArticulos
+    internal class InterfazPrestarArticulo
     {
-        ClaseConectar cnxIEA;
+        ClaseConectar cnxIPA;
         List<Control> listaControles;
         List<articulos> listaNombreArticulos = new List<articulos>();
         List<articulos> listaArticulos = new List<articulos>();
 
-        public InterfazEliminarArticulos(ClaseConectar cnxGP)
+        public InterfazPrestarArticulo(ClaseConectar cnxGP)
         {
-            cnxIEA = cnxGP;
+            cnxIPA = cnxGP;
         }
 
-        internal Panel GenerarPanelEliminarArticulos(int width, int height)
+        internal Panel GenerarPanelPrestarArticulos(int width, int height)
         {
-            listaNombreArticulos = cnxIEA.obtenerNombreArticulos();
+            listaNombreArticulos = cnxIPA.obtenerNombreArticulos();
 
             // Panel que contendrá los Controls para introducir los datos del artículo.
             Panel panelArticulo = new Panel
@@ -37,7 +37,7 @@ namespace ConsejeriaQR
                 Width = 348,
                 Height = 24,
                 Location = new Point((int)(panelArticulo.Width * 0.10), 38),
-                Text = "Selecciona el artículo a buscar =>"
+                Text = "Selecciona la categoría del artículo =>"
             };
 
             // ComboBox para que el usuario pueda elegir las opciones mediante los nombres que hay en la tabla Articulos > nombres.
@@ -78,7 +78,7 @@ namespace ConsejeriaQR
             ComboBox cbX = (ComboBox)sender;
             FlowLayoutPanel fLPArticulo = (FlowLayoutPanel)listaControles[2];
 
-            listaArticulos = cnxIEA.obtenerArticulos();
+            listaArticulos = cnxIPA.obtenerArticulos();
             fLPArticulo.Controls.Clear();
 
             foreach (var articulo in listaArticulos)
@@ -116,9 +116,9 @@ namespace ConsejeriaQR
 
             ComboBox comboBoxArticulo = (ComboBox)listaControles[1];
 
-            FormularioDatosBtn fDBtn = new FormularioDatosBtn(btnX.Tag, cnxIEA);
-            fDBtn.FormClosed += FDBtn_FormClosed;
-            fDBtn.ShowDialog();
+            FormularioPrestamoBtn fPBtn = new FormularioPrestamoBtn(btnX.Tag, cnxIPA);
+            fPBtn.FormClosed += FDBtn_FormClosed;
+            fPBtn.ShowDialog();
         }
 
         private void FDBtn_FormClosed(object sender, FormClosedEventArgs e)

@@ -64,7 +64,7 @@
             // pictureBoxImgArticulo
             // 
             this.pictureBoxImgArticulo.BackColor = System.Drawing.Color.White;
-            this.pictureBoxImgArticulo.Location = new System.Drawing.Point(204, 38);
+            this.pictureBoxImgArticulo.Location = new System.Drawing.Point(208, 38);
             this.pictureBoxImgArticulo.Name = "pictureBoxImgArticulo";
             this.pictureBoxImgArticulo.Size = new System.Drawing.Size(122, 90);
             this.pictureBoxImgArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

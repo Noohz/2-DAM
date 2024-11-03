@@ -17,32 +17,41 @@ namespace ConsejeriaQR
             cnxGP = cnxC;
         }
 
-        private void btnVolverGestionPrestamos_Click(object sender, EventArgs e)
+        private void BtnVolverGestionPrestamos_Click(object sender, EventArgs e)
         {
 
             this.Close();
         }
 
-        private void btnAniadirArticulo_Click(object sender, EventArgs e)
+        private void BtnAniadirArticulo_Click(object sender, EventArgs e)
         {
             panel3.Controls.Clear();
 
             InterfazAniadirArticulos iAA = new InterfazAniadirArticulos(cnxGP);
-            Panel panelArticulo = iAA.generarPanelAniadirArticulos(panel3.Width, panel3.Height);
-            Panel panelDatosBD = iAA.generarPanelDatosArticulosBD(panel3.Width, panel3.Height);
+            Panel panelAniadirArticulo = iAA.GenerarPanelAniadirArticulos(panel3.Width, panel3.Height);
+            Panel panelDatosBD = iAA.GenerarPanelDatosArticulosBD(panel3.Width, panel3.Height);
 
-            List<Control> paneles = new List<Control> { panelArticulo, panelDatosBD };
+            List<Control> paneles = new List<Control> { panelAniadirArticulo, panelDatosBD };
 
             panel3.Controls.AddRange(paneles.ToArray());
         }
 
-        private void btnEliminarArticulo_Click(object sender, EventArgs e)
+        private void BtnEliminarArticulo_Click(object sender, EventArgs e)
         {
             panel3.Controls.Clear();
 
             InterfazEliminarArticulos iEA = new InterfazEliminarArticulos(cnxGP);
-            Panel panelArticulo = iEA.generarPanelEliminarArticulos(panel3.Width, panel3.Height);
-            panel3.Controls.Add(panelArticulo);
+            Panel panelEliminarArticulo = iEA.GenerarPanelEliminarArticulos(panel3.Width, panel3.Height);
+            panel3.Controls.Add(panelEliminarArticulo);
+        }
+
+        private void BtnPrestarArticulo_Click(object sender, EventArgs e)
+        {
+            panel3.Controls.Clear();
+
+            InterfazPrestarArticulo iPA = new InterfazPrestarArticulo(cnxGP);
+            Panel panelPrestarArticulo = iPA.GenerarPanelPrestarArticulos(panel3.Width, panel3.Height);
+            panel3.Controls.Add(panelPrestarArticulo);
         }
     }
 }
