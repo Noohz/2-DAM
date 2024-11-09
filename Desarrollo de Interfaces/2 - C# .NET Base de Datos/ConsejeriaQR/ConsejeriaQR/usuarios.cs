@@ -1,6 +1,6 @@
 ﻿namespace ConsejeriaQR
 {
-    public class usuarios
+    public class Usuarios
     {
         private int id;
         private string nombre;
@@ -8,11 +8,11 @@
         private string salt;
         private string hash;
 
-        public usuarios()
+        public Usuarios()
         {
         }
 
-        public usuarios(int id, string nombre, string correo, string salt, string hash)
+        public Usuarios(int id, string nombre, string correo, string salt, string hash)
         {
             this.id = id;
             this.nombre = nombre;

@@ -19,7 +19,7 @@ namespace ConsejeriaQR
         {
             if (tBnombreRegistro.Text != "" && tBcontraseniaRegistro.Text != "" && tBcorreoRegistro.Text != "")
             {
-                if (cnxR.registrarProfesor(tBnombreRegistro.Text, tBcorreoRegistro.Text, tBcontraseniaRegistro.Text) == 1)
+                if (cnxR.RegistrarProfesor(tBnombreRegistro.Text, tBcorreoRegistro.Text, tBcontraseniaRegistro.Text) == 1)
                 {
                     MessageBox.Show("Profesor registrado correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     tBnombreRegistro.Text = "";

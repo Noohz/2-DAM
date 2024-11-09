@@ -11,15 +11,15 @@ namespace ConsejeriaQR
         MySqlCommand comando;
         MySqlDataReader datos;
 
-        List<usuarios> listaUsuario = new List<usuarios>();
-        List<articulos> listaNombreArticulos = new List<articulos>();
-        List<articulos> listaArticulos = new List<articulos>();
-        List<articulosDGV> listaArticulosDGV = new List<articulosDGV>();
+        List<Usuarios> listaUsuario = new List<Usuarios>();
+        List<Articulos> listaNombreArticulos = new List<Articulos>();
+        List<Articulos> listaArticulos = new List<Articulos>();
+        List<ArticulosDGV> listaArticulosDGV = new List<ArticulosDGV>();
 
         String CADENA_CONEXION = "server=localhost;Database=conserjeriaqr;Uid=root;pwd='';old guids=true";
 
         // Método que utiliza la contraseña que introduce el usuario y la encripta utilizando PBKDF2. Si esta coincide con la contraseña encriptada de la BD podrá iniciar sesión.
-        internal bool iniciarSesion(string correo, string contrasenia)
+        internal bool IniciarSesion(string correo, string contrasenia)
         {
             using (conexion = new MySqlConnection(CADENA_CONEXION))
             {
@@ -53,7 +53,7 @@ namespace ConsejeriaQR
         }
 
         // Método que encripta la contraseña que recibe utilizando PBKDF2. Después ejecuta el insert para almacenarlo en la base de datos. Si "codigo" devuelve 1 es que la operación se ha completado.
-        internal int registrarProfesor(string nombreUsuario, string correoUsuario, string contraseniaUsuario)
+        internal int RegistrarProfesor(string nombreUsuario, string correoUsuario, string contraseniaUsuario)
         {
             int codigo;
 
@@ -83,7 +83,7 @@ namespace ConsejeriaQR
         }
 
         // Método que devuelve una lista con los datos del usuario que ha iniciado sesión.
-        internal List<usuarios> obtenerDatosUsuario(string correo)
+        internal List<Usuarios> ObtenerDatosUsuario(string correo)
         {
             using (conexion = new MySqlConnection(CADENA_CONEXION))
             {
@@ -99,12 +99,14 @@ namespace ConsejeriaQR
                     {
                         while (datos.Read())
                         {
-                            usuarios usr = new usuarios();
-                            usr.Id = (int)datos["id"];
-                            usr.Nombre = (string)datos["nombre"];
-                            usr.Correo = (string)datos["correo"];
-                            usr.Salt = (string)datos["Salt"];
-                            usr.Hash = (string)datos["Hash"];
+                            Usuarios usr = new Usuarios
+                            {
+                                Id = (int)datos["id"],
+                                Nombre = (string)datos["nombre"],
+                                Correo = (string)datos["correo"],
+                                Salt = (string)datos["Salt"],
+                                Hash = (string)datos["Hash"]
+                            };
 
                             listaUsuario.Add(usr);
                         }
@@ -115,7 +117,7 @@ namespace ConsejeriaQR
         }
 
         // Método para comprobar si el QR que se le pasa por parámetro ya existe en la BD.
-        internal bool comprobarQRExistente(string claveQR)
+        internal bool ComprobarQRExistente(string claveQR)
         {
             using (conexion = new MySqlConnection(CADENA_CONEXION))
             {
@@ -140,7 +142,7 @@ namespace ConsejeriaQR
         }
 
         // Método que se encarga de insertar el artículo según los datos que recibe por los parámetros.
-        internal int insertarArticulo(string nombreArticulo, string descripcionArticulo, string codigoArticulo, string claveQR, byte[] imagenQR, byte[] imagenArticulo)
+        internal int InsertarArticulo(string nombreArticulo, string descripcionArticulo, string codigoArticulo, string claveQR, byte[] imagenQR, byte[] imagenArticulo)
         {
             int codigo;
 
@@ -166,7 +168,7 @@ namespace ConsejeriaQR
         }
 
         // Método que devuelve una lista con los nombres de los artículos que hay en la tabla Articulos en la BD sin repetirse.
-        internal List<articulos> obtenerNombreArticulos()
+        internal List<Articulos> ObtenerNombreArticulos()
         {
             listaNombreArticulos.Clear();
             using (conexion = new MySqlConnection(CADENA_CONEXION))
@@ -181,8 +183,10 @@ namespace ConsejeriaQR
                     {
                         while (datos.Read())
                         {
-                            articulos articulo = new articulos();
-                            articulo.Nombre = (string)datos["nombre"];
+                            Articulos articulo = new Articulos
+                            {
+                                Nombre = (string)datos["nombre"]
+                            };
 
                             listaNombreArticulos.Add(articulo);
                         }
@@ -193,7 +197,7 @@ namespace ConsejeriaQR
         }
 
         // Método que devuelve una lista con todos los datos de los artículos que coincidan con el nombre que se le pasa por parámetros.
-        internal List<articulos> obtenerArticulos()
+        internal List<Articulos> ObtenerArticulos()
         {
             using (conexion = new MySqlConnection(CADENA_CONEXION))
             {
@@ -209,15 +213,17 @@ namespace ConsejeriaQR
                     {
                         while (datos.Read())
                         {
-                            articulos articulo = new articulos();
-                            articulo.Id = (int)datos["id"];
-                            articulo.Nombre = (string)datos["nombre"];
-                            articulo.Descripcion = (string)datos["descripcion"];
-                            articulo.Codigo = (string)datos["codigo"];
-                            articulo.ClaveQR = (string)datos["claveQR"];
-                            articulo.ImagenQR = (byte[])datos["imagenQR"];
-                            articulo.Imagen = (byte[])datos["imagen"];
-                            articulo.Activo = (bool)datos["activo"];
+                            Articulos articulo = new Articulos
+                            {
+                                Id = (int)datos["id"],
+                                Nombre = (string)datos["nombre"],
+                                Descripcion = (string)datos["descripcion"],
+                                Codigo = (string)datos["codigo"],
+                                ClaveQR = (string)datos["claveQR"],
+                                ImagenQR = (byte[])datos["imagenQR"],
+                                Imagen = (byte[])datos["imagen"],
+                                Activo = (bool)datos["activo"]
+                            };
 
                             listaArticulos.Add(articulo);
                         }
@@ -229,7 +235,7 @@ namespace ConsejeriaQR
         }
 
         // Método para almacenar en una lista los artículos activos en la BD para introducirselos al DataGridView. Esta lista si almacena los articulos que no estan activos.
-        internal List<articulosDGV> obtenerArticulosDGV()
+        internal List<ArticulosDGV> ObtenerArticulosDGV()
         {
             using (conexion = new MySqlConnection(CADENA_CONEXION))
             {
@@ -245,12 +251,14 @@ namespace ConsejeriaQR
                     {
                         while (datos.Read())
                         {
-                            articulosDGV articuloDGV = new articulosDGV();
-                            articuloDGV.Id = (int)datos["id"];
-                            articuloDGV.Nombre = (string)datos["nombre"];
-                            articuloDGV.Descripcion = (string)datos["descripcion"];
-                            articuloDGV.Codigo = (string)datos["codigo"];
-                            articuloDGV.Activo = (bool)datos["activo"];
+                            ArticulosDGV articuloDGV = new ArticulosDGV
+                            {
+                                Id = (int)datos["id"],
+                                Nombre = (string)datos["nombre"],
+                                Descripcion = (string)datos["descripcion"],
+                                Codigo = (string)datos["codigo"],
+                                Activo = (bool)datos["activo"]
+                            };
 
                             listaArticulosDGV.Add(articuloDGV);
                         }
@@ -262,7 +270,7 @@ namespace ConsejeriaQR
         }
 
         // Método que se encargará de eliminar el articulo que coincida con los parámetros.
-        internal int eliminarArticulo(articulos datosArticulo)
+        internal int EliminarArticulo(Articulos datosArticulo)
         {
             int codigo = 0;
             int id = datosArticulo.Id;

@@ -7,13 +7,16 @@ namespace ConsejeriaQR
     public partial class FormularioGestionPrestamos : Form
     {
         ClaseConectar cnxGP;
+        List<Usuarios> datosUsuarioLogeado;
 
-        public FormularioGestionPrestamos(List<usuarios> datosUsuario, ClaseConectar cnxC)
+        public FormularioGestionPrestamos(List<Usuarios> datosUsuario, ClaseConectar cnxC)
         {
             InitializeComponent();
             this.Text = "Panel de Gestión de Préstamos";
 
-            lblNombreUsuario.Text = datosUsuario[0].Nombre;
+            datosUsuarioLogeado = datosUsuario;
+
+            lblNombreUsuario.Text = datosUsuarioLogeado[0].Nombre;
             cnxGP = cnxC;
         }
 
@@ -49,7 +52,7 @@ namespace ConsejeriaQR
         {
             panel3.Controls.Clear();
 
-            InterfazPrestarArticulo iPA = new InterfazPrestarArticulo(cnxGP);
+            InterfazPrestarArticulo iPA = new InterfazPrestarArticulo(cnxGP, datosUsuarioLogeado);
             Panel panelPrestarArticulo = iPA.GenerarPanelPrestarArticulos(panel3.Width, panel3.Height);
             panel3.Controls.Add(panelPrestarArticulo);
         }

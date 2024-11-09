@@ -7,9 +7,9 @@ namespace ConsejeriaQR
     public partial class FormularioCategorias : Form
     {
         ClaseConectar cnxC;       
-        List<usuarios> datosUsuario = new List<usuarios>();
+        List<Usuarios> datosUsuario = new List<Usuarios>();
 
-        public FormularioCategorias(List<usuarios> listaUsuario, ClaseConectar cnx)
+        public FormularioCategorias(List<Usuarios> listaUsuario, ClaseConectar cnx)
         {
             InitializeComponent();
             this.Text = "Selecciona una categoría";                      
@@ -23,18 +23,18 @@ namespace ConsejeriaQR
             }
         }
 
-        private void btnCerrarCategorias_Click(object sender, EventArgs e)
+        private void BtnCerrarCategorias_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void btnRegistrarProfesor_Click(object sender, EventArgs e)
+        private void BtnRegistrarProfesor_Click(object sender, EventArgs e)
         {
             FormularioRegistro fR = new FormularioRegistro(cnxC);
             fR.Show();
         }
 
-        private void btnGestionPrestamos_Click(object sender, EventArgs e)
+        private void BtnGestionPrestamos_Click(object sender, EventArgs e)
         {
             FormularioGestionPrestamos fGP = new FormularioGestionPrestamos(datosUsuario, cnxC);
             fGP.Show();

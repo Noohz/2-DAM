@@ -10,8 +10,8 @@ namespace ConsejeriaQR
     {
         ClaseConectar cnxIEA;
         List<Control> listaControles;
-        List<articulos> listaNombreArticulos = new List<articulos>();
-        List<articulos> listaArticulos = new List<articulos>();
+        List<Articulos> listaNombreArticulos = new List<Articulos>();
+        List<Articulos> listaArticulos = new List<Articulos>();
 
         public InterfazEliminarArticulos(ClaseConectar cnxGP)
         {
@@ -20,7 +20,7 @@ namespace ConsejeriaQR
 
         internal Panel GenerarPanelEliminarArticulos(int width, int height)
         {
-            listaNombreArticulos = cnxIEA.obtenerNombreArticulos();
+            listaNombreArticulos = cnxIEA.ObtenerNombreArticulos();
 
             // Panel que contendrá los Controls para introducir los datos del artículo.
             Panel panelArticulo = new Panel
@@ -78,7 +78,7 @@ namespace ConsejeriaQR
             ComboBox cbX = (ComboBox)sender;
             FlowLayoutPanel fLPArticulo = (FlowLayoutPanel)listaControles[2];
 
-            listaArticulos = cnxIEA.obtenerArticulos();
+            listaArticulos = cnxIEA.ObtenerArticulos();
             fLPArticulo.Controls.Clear();
 
             foreach (var articulo in listaArticulos)

@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ConsejeriaQR.exe" size="1119712">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ConsejeriaQR.exe" size="1130464">
       <assemblyIdentity name="ConsejeriaQR" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>lf1KGw8zI9X94kWjcsz+GLWWa3QIHXDOT+vL157b+lM=</dsig:DigestValue>
+        <dsig:DigestValue>Y92Uk86Jwunu/KLcHExnfW13fq9uxF0jmgCq1M9WwCs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -89,7 +89,16 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Assets\email.png" size="362">
+  <file name="ConsejeriaQR.exe.config" size="539">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>mO8WZuLrGnSICp/SA2rZw+O48a0SkVZv4NE6P+LO1+A=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\email.png" size="362">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -98,7 +107,7 @@
       <dsig:DigestValue>Bmkd7lAZBebVGlDhWol4VS+Rbqvl0VP0WuKeOlWVjQI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Assets\GestionPrestamos.png" size="148979">
+  <file name="Resources\GestionPrestamos.png" size="148979">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -107,7 +116,7 @@
       <dsig:DigestValue>yvmeA8KbepdzpM/Hv3L1+Cta3482jEnC8WpQKXsO15o=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Assets\loginIcon.png" size="470119">
+  <file name="Resources\loginIcon.png" size="470119">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -116,7 +125,7 @@
       <dsig:DigestValue>KpeRaSfT8XjD86SI5rj6UqgLK1+vL9SOKqwDdOMWH8g=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Assets\pass.png" size="5593">
+  <file name="Resources\pass.png" size="5593">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -125,22 +134,13 @@
       <dsig:DigestValue>Njju3b4Kgae9RlGlAu48QgX8/qmZHzErAm1XsY9KMVg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Assets\user.jpg" size="85520">
+  <file name="Resources\user.jpg" size="85520">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>TfVlAUkS1Hc3qN2rcssPL9lyf8E29nS9s0hgHCPSNZ0=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="ConsejeriaQR.exe.config" size="539">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>mO8WZuLrGnSICp/SA2rZw+O48a0SkVZv4NE6P+LO1+A=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

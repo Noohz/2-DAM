@@ -7,7 +7,7 @@ namespace ConsejeriaQR
     public partial class Form1 : Form
     {
         ClaseConectar cnx = new ClaseConectar();
-        List<usuarios> listaUsuario = new List<usuarios>();
+        List<Usuarios> listaUsuario = new List<Usuarios>();
 
         public Form1()
         {
@@ -23,9 +23,9 @@ namespace ConsejeriaQR
         // Después de que el usuario inicie sesión correctamente aparecerá el próximo formulario y este se ocultará.
         private void btniniciarSesion_Click(object sender, EventArgs e)
         {
-            if (cnx.iniciarSesion(tBcorreo.Text, tBcontrasenia.Text))
+            if (cnx.IniciarSesion(tBcorreo.Text, tBcontrasenia.Text))
             {
-                listaUsuario = cnx.obtenerDatosUsuario(tBcorreo.Text);
+                listaUsuario = cnx.ObtenerDatosUsuario(tBcorreo.Text);
                 FormularioCategorias fP = new FormularioCategorias(listaUsuario, cnx);
                 fP.Show();
                 this.Hide();

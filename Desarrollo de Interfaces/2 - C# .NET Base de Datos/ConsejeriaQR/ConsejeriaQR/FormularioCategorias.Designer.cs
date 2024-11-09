@@ -52,7 +52,7 @@
             this.btnCerrarCategorias.TabStop = false;
             this.btnCerrarCategorias.Text = "X";
             this.btnCerrarCategorias.UseVisualStyleBackColor = false;
-            this.btnCerrarCategorias.Click += new System.EventHandler(this.btnCerrarCategorias_Click);
+            this.btnCerrarCategorias.Click += new System.EventHandler(this.BtnCerrarCategorias_Click);
             // 
             // panel1
             // 
@@ -81,7 +81,7 @@
             this.btnRegistrarProfesor.Text = "Registrar profesor";
             this.btnRegistrarProfesor.UseVisualStyleBackColor = false;
             this.btnRegistrarProfesor.Visible = false;
-            this.btnRegistrarProfesor.Click += new System.EventHandler(this.btnRegistrarProfesor_Click);
+            this.btnRegistrarProfesor.Click += new System.EventHandler(this.BtnRegistrarProfesor_Click);
             // 
             // label2
             // 
@@ -136,7 +136,7 @@
             this.btnGestionPrestamos.Size = new System.Drawing.Size(115, 99);
             this.btnGestionPrestamos.TabIndex = 0;
             this.btnGestionPrestamos.UseVisualStyleBackColor = true;
-            this.btnGestionPrestamos.Click += new System.EventHandler(this.btnGestionPrestamos_Click);
+            this.btnGestionPrestamos.Click += new System.EventHandler(this.BtnGestionPrestamos_Click);
             // 
             // FormularioCategorias
             // 

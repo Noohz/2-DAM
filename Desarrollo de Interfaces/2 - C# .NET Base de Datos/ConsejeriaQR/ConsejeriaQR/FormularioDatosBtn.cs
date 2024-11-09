@@ -9,15 +9,16 @@ namespace ConsejeriaQR
     public partial class FormularioDatosBtn : Form
     {
         ClaseConectar cnxFDB;
-        articulos datosArticulo;
+        Articulos datosArticulo;
 
         public FormularioDatosBtn(object tag, ClaseConectar cnxIEA)
         {
             InitializeComponent();
+            this.Text = "Panel eliminar artículo";
 
             cnxFDB = cnxIEA;
 
-            datosArticulo = (articulos)tag;
+            datosArticulo = (Articulos)tag;
 
             MemoryStream ms = new System.IO.MemoryStream(datosArticulo.Imagen);
             System.Drawing.Image imagen = System.Drawing.Image.FromStream(ms);
@@ -44,7 +45,7 @@ namespace ConsejeriaQR
         private void btnEliminarArticulo_Click(object sender, EventArgs e)
         {
             // Llamar a la consulta para que cambie activo a 0.
-            if (cnxFDB.eliminarArticulo(datosArticulo) == 1)
+            if (cnxFDB.EliminarArticulo(datosArticulo) == 1)
             {
                 MessageBox.Show("Artículo eliminado correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.DialogResult = DialogResult.OK;

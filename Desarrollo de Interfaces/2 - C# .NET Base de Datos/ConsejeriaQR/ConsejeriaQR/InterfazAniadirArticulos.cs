@@ -15,7 +15,7 @@ namespace ConsejeriaQR
 
         List<Control> listaControles;
         List<Control> listaControlesDB;
-        List<articulosDGV> listaArticulosDGV = new List<articulosDGV>();
+        List<ArticulosDGV> listaArticulosDGV = new List<ArticulosDGV>();
         List<String> listaNombreArticulos = new List<string> { "Llaves de aula", "Llaves de armarios de ordenadores", "Mandos de proyectores", "Lápiz tablet", "Cables de tablet" };
 
         public InterfazAniadirArticulos(ClaseConectar cnxGP)
@@ -187,7 +187,7 @@ namespace ConsejeriaQR
 
             panelDatosBD.Controls.AddRange(listaControlesDB.ToArray());
 
-            listaArticulosDGV = cnxIA.obtenerArticulosDGV();
+            listaArticulosDGV = cnxIA.ObtenerArticulosDGV();
             dGVArticulos.DataSource = listaArticulosDGV;
 
             return panelDatosBD;
@@ -213,7 +213,7 @@ namespace ConsejeriaQR
                     char letraAleatoria = (char)random.Next('A', 'Z' + 1);
                     string claveQR = numAleatorio.ToString() + letraAleatoria;
 
-                    while (cnxIA.comprobarQRExistente(claveQR))
+                    while (cnxIA.ComprobarQRExistente(claveQR))
                     {
                         // Si está repetido en la bd se genera otro código.
                         int nuevoNumAleatorio = random.Next(100000000, 999999999 + 1);
@@ -223,7 +223,7 @@ namespace ConsejeriaQR
 
                     byte[] imagenQR = GenerarCodigoQR(claveQR);
 
-                    if (cnxIA.insertarArticulo(nombreArticulo, descripcionArticulo, codigoArticulo, claveQR, imagenQR, imagenArticulo) == 1)
+                    if (cnxIA.InsertarArticulo(nombreArticulo, descripcionArticulo, codigoArticulo, claveQR, imagenQR, imagenArticulo) == 1)
                     {
                         MessageBox.Show("El artículo se ha creado correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         pbImg.Image = null;
@@ -232,7 +232,7 @@ namespace ConsejeriaQR
                         listaControles[8].Text = "PJ: Llave_A1";
                         listaControles[8].ForeColor = Color.FromKnownColor(KnownColor.GrayText);
 
-                        listaArticulosDGV = cnxIA.obtenerArticulosDGV();
+                        listaArticulosDGV = cnxIA.ObtenerArticulosDGV();
                         comboDGV.DataSource = null;
                         comboDGV.DataSource = listaArticulosDGV;
 

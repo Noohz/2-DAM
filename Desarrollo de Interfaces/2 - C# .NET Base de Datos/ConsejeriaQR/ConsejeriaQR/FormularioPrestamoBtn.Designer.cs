@@ -87,6 +87,7 @@
             this.pictureBoxImagenQR.Location = new System.Drawing.Point(115, 239);
             this.pictureBoxImagenQR.Name = "pictureBoxImagenQR";
             this.pictureBoxImagenQR.Size = new System.Drawing.Size(311, 199);
+            this.pictureBoxImagenQR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxImagenQR.TabIndex = 10;
             this.pictureBoxImagenQR.TabStop = false;
             // 
@@ -105,7 +106,7 @@
             this.btnCancelar.TabIndex = 15;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // textBoxCodigoQR
             // 
@@ -113,11 +114,11 @@
             this.textBoxCodigoQR.Name = "textBoxCodigoQR";
             this.textBoxCodigoQR.Size = new System.Drawing.Size(188, 20);
             this.textBoxCodigoQR.TabIndex = 16;
-            this.textBoxCodigoQR.TextChanged += new System.EventHandler(this.textBoxCodigoQR_TextChanged);
+            this.textBoxCodigoQR.TextChanged += new System.EventHandler(this.TextBoxCodigoQR_TextChanged);
             // 
             // timer1
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // FormularioPrestamoBtn
             // 

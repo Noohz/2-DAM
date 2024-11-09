@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -8,15 +9,18 @@ namespace ConsejeriaQR
     {
         int segundos = 0;
         ClaseConectar cnxFPB;
-        articulos datosArticulo;
+        Articulos datosArticulo;
+        List<Usuarios> usuario;
 
-        public FormularioPrestamoBtn(object tag, ClaseConectar cnxIPA)
+        public FormularioPrestamoBtn(object tag, ClaseConectar cnxIPA, List<Usuarios> datosUser)
         {
             InitializeComponent();
+            this.Text = "Panel prestar artículo";
 
             cnxFPB = cnxIPA;
 
-            datosArticulo = (articulos)tag;
+            datosArticulo = (Articulos)tag;
+            usuario = datosUser;
 
             MemoryStream ms = new System.IO.MemoryStream(datosArticulo.Imagen);
             System.Drawing.Image imagen = System.Drawing.Image.FromStream(ms);
@@ -27,14 +31,16 @@ namespace ConsejeriaQR
             MemoryStream mst = new System.IO.MemoryStream(datosArticulo.ImagenQR);
             System.Drawing.Image imagenQR = System.Drawing.Image.FromStream(mst);
             pictureBoxImagenQR.Image = imagenQR;
+
+            textBoxCodigoQR.Focus();
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void BtnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void textBoxCodigoQR_TextChanged(object sender, EventArgs e)
+        private void TextBoxCodigoQR_TextChanged(object sender, EventArgs e)
         {
             if (textBoxCodigoQR.Text.Length > 0)
             {
@@ -46,9 +52,26 @@ namespace ConsejeriaQR
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
+            segundos++;
 
+            if (segundos == 2)
+            {
+                timer1.Enabled = false;
+                segundos = 0;
+
+                if (cnxFPB.ComprobarQRExistente(textBoxCodigoQR.Text))
+                {
+                    // Hacer un formulario que actue como MessageBox y que permita seleccionar la fecha de devolución?
+                    FormularioConfirmaciónPrestamo fCP = new FormularioConfirmaciónPrestamo();
+                    fCP.Show();
+                    this.Close();
+                } else
+                {
+                    MessageBox.Show("Ha ocurrido un error a la hora de procesar el código QR...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

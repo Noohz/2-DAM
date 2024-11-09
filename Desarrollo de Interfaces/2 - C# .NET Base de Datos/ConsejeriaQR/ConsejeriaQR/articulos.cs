@@ -2,7 +2,7 @@
 
 namespace ConsejeriaQR
 {
-    internal class articulos
+    internal class Articulos
     {
         private int id;
         private string nombre;
@@ -13,11 +13,11 @@ namespace ConsejeriaQR
         private byte[] imagen;
         private bool activo;
 
-        public articulos()
+        public Articulos()
         {
         }
 
-        public articulos(int id, string nombre, string descripcion, string codigo, string claveQR, byte[] imagenQR, byte[] imagen, bool activo)
+        public Articulos(int id, string nombre, string descripcion, string codigo, string claveQR, byte[] imagenQR, byte[] imagen, bool activo)
         {
             this.id = id;
             this.nombre = nombre;

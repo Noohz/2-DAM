@@ -2,7 +2,7 @@
 
 namespace ConsejeriaQR
 {
-    internal class articulosDGV
+    internal class ArticulosDGV
     {
         private int id;
         private string nombre;
@@ -10,11 +10,11 @@ namespace ConsejeriaQR
         private string codigo;
         private bool activo;
 
-        public articulosDGV()
+        public ArticulosDGV()
         {
         }
 
-        public articulosDGV(int id, string nombre, string descripcion, string codigo, bool activo)
+        public ArticulosDGV(int id, string nombre, string descripcion, string codigo, bool activo)
         {
             this.id = id;
             this.nombre = nombre;

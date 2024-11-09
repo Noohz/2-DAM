@@ -10,17 +10,19 @@ namespace ConsejeriaQR
     {
         ClaseConectar cnxIPA;
         List<Control> listaControles;
-        List<articulos> listaNombreArticulos = new List<articulos>();
-        List<articulos> listaArticulos = new List<articulos>();
+        List<Articulos> listaNombreArticulos = new List<Articulos>();
+        List<Articulos> listaArticulos = new List<Articulos>();
+        List<Usuarios> datosUser;
 
-        public InterfazPrestarArticulo(ClaseConectar cnxGP)
+        public InterfazPrestarArticulo(ClaseConectar cnxGP, List<Usuarios> datosUsuarioLogeado)
         {
             cnxIPA = cnxGP;
+            datosUser = datosUsuarioLogeado;
         }
 
         internal Panel GenerarPanelPrestarArticulos(int width, int height)
         {
-            listaNombreArticulos = cnxIPA.obtenerNombreArticulos();
+            listaNombreArticulos = cnxIPA.ObtenerNombreArticulos();
 
             // Panel que contendrá los Controls para introducir los datos del artículo.
             Panel panelArticulo = new Panel
@@ -78,7 +80,7 @@ namespace ConsejeriaQR
             ComboBox cbX = (ComboBox)sender;
             FlowLayoutPanel fLPArticulo = (FlowLayoutPanel)listaControles[2];
 
-            listaArticulos = cnxIPA.obtenerArticulos();
+            listaArticulos = cnxIPA.ObtenerArticulos();
             fLPArticulo.Controls.Clear();
 
             foreach (var articulo in listaArticulos)
@@ -116,7 +118,7 @@ namespace ConsejeriaQR
 
             ComboBox comboBoxArticulo = (ComboBox)listaControles[1];
 
-            FormularioPrestamoBtn fPBtn = new FormularioPrestamoBtn(btnX.Tag, cnxIPA);
+            FormularioPrestamoBtn fPBtn = new FormularioPrestamoBtn(btnX.Tag, cnxIPA, datosUser);
             fPBtn.FormClosed += FDBtn_FormClosed;
             fPBtn.ShowDialog();
         }
