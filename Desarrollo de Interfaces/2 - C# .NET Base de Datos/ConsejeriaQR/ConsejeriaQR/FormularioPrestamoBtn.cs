@@ -63,15 +63,18 @@ namespace ConsejeriaQR
 
                 if (cnxFPB.ComprobarQRExistente(textBoxCodigoQR.Text))
                 {
-                    // Hacer un formulario que actue como MessageBox y que permita seleccionar la fecha de devolución?
-                    FormularioConfirmaciónPrestamo fCP = new FormularioConfirmaciónPrestamo();
+                    cnxFPB.ActualizarArticulo(datosArticulo, 0);
+
+                    FormularioConfirmaciónPrestamo fCP = new FormularioConfirmaciónPrestamo(cnxFPB, datosArticulo, usuario);
                     fCP.Show();
                     this.Close();
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Ha ocurrido un error a la hora de procesar el código QR...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
     }
 }

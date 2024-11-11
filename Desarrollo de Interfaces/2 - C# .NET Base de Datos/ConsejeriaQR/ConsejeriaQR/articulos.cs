@@ -2,7 +2,7 @@
 
 namespace ConsejeriaQR
 {
-    internal class Articulos
+    public class Articulos
     {
         private int id;
         private string nombre;

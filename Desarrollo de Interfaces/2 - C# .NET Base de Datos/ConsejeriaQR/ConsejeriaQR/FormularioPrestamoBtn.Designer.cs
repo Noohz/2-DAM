@@ -84,9 +84,9 @@
             // 
             // pictureBoxImagenQR
             // 
-            this.pictureBoxImagenQR.Location = new System.Drawing.Point(115, 239);
+            this.pictureBoxImagenQR.Location = new System.Drawing.Point(145, 234);
             this.pictureBoxImagenQR.Name = "pictureBoxImagenQR";
-            this.pictureBoxImagenQR.Size = new System.Drawing.Size(311, 199);
+            this.pictureBoxImagenQR.Size = new System.Drawing.Size(250, 178);
             this.pictureBoxImagenQR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxImagenQR.TabIndex = 10;
             this.pictureBoxImagenQR.TabStop = false;
@@ -100,7 +100,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(115, 526);
+            this.btnCancelar.Location = new System.Drawing.Point(115, 483);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(311, 30);
             this.btnCancelar.TabIndex = 15;
@@ -110,7 +110,7 @@
             // 
             // textBoxCodigoQR
             // 
-            this.textBoxCodigoQR.Location = new System.Drawing.Point(170, 465);
+            this.textBoxCodigoQR.Location = new System.Drawing.Point(176, 427);
             this.textBoxCodigoQR.Name = "textBoxCodigoQR";
             this.textBoxCodigoQR.Size = new System.Drawing.Size(188, 20);
             this.textBoxCodigoQR.TabIndex = 16;
@@ -125,7 +125,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(103)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(547, 578);
+            this.ClientSize = new System.Drawing.Size(547, 533);
             this.Controls.Add(this.textBoxCodigoQR);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.pictureBoxImagenQR);

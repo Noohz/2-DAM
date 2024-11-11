@@ -16,7 +16,7 @@ namespace ConsejeriaQR
         List<Articulos> listaArticulos = new List<Articulos>();
         List<ArticulosDGV> listaArticulosDGV = new List<ArticulosDGV>();
 
-        String CADENA_CONEXION = "server=localhost;Database=conserjeriaqr;Uid=root;pwd='';old guids=true";
+        public String CADENA_CONEXION = "server=localhost;Database=conserjeriaqr;Uid=root;pwd='';old guids=true";
 
         // Método que utiliza la contraseña que introduce el usuario y la encripta utilizando PBKDF2. Si esta coincide con la contraseña encriptada de la BD podrá iniciar sesión.
         internal bool IniciarSesion(string correo, string contrasenia)
@@ -294,6 +294,66 @@ namespace ConsejeriaQR
             return codigo;
         }
 
+        // Método para introducir los datos del prestamo en la tabla prestamos
+        internal int PrestarArticulo(Articulos articulo, List<Usuarios> user, DateTime fecha)
+        {
+            
+            int codigo = 0;
+            int id = articulo.Id;
+            string nombreArticulo = articulo.Nombre;
+            string nombreProfesor = user[0].Nombre;
+            string codigoArticulo = articulo.Codigo;
+            DateTime fechaPestamo = DateTime.Now;
+            DateTime fechaDevolucion = fecha;
+            byte[] imagenArticulo = articulo.Imagen;
+
+            using (conexion = new MySqlConnection(CADENA_CONEXION))
+            {
+                conexion.Open();
+
+                string cadenaSql = "INSERT INTO prestamos VALUES (0, @id, @nombreArticulo, @nombreProfesor, @codigoArticulo, @fechaPestamo, @fechaDevolucion, @imagenArticulo)";
+
+                using (comando = new MySqlCommand(cadenaSql, conexion))
+                {
+                    comando.Parameters.AddWithValue("@id", id);
+                    comando.Parameters.AddWithValue("@nombreArticulo", nombreArticulo);
+                    comando.Parameters.AddWithValue("@nombreProfesor", nombreProfesor);
+                    comando.Parameters.AddWithValue("@codigoArticulo", codigoArticulo);
+                    comando.Parameters.AddWithValue("@fechaPestamo", fechaPestamo);
+                    comando.Parameters.AddWithValue("@fechaDevolucion", fechaDevolucion);
+                    comando.Parameters.AddWithValue("@imagenArticulo", imagenArticulo);
+
+                    codigo = comando.ExecuteNonQuery();
+                }
+            }
+
+            return codigo;
+        }
+
+        // Método para actualizar el activo de un producto a 0 para que ya no aparezca en las búsquedas.
+        internal int ActualizarArticulo(Articulos articulo, int activo)
+        {
+            int codigo = 0;
+            int idArticulo = articulo.Id;
+            string claveQR = articulo.ClaveQR;
+
+            using (conexion = new MySqlConnection(CADENA_CONEXION))
+            {
+                conexion.Open();
+                string cadenaSql = "UPDATE articulos SET activo = @activo WHERE id = @id AND claveQR = @claveQR";
+
+                using (comando = new MySqlCommand(cadenaSql, conexion))
+                {
+                    comando.Parameters.AddWithValue("@activo", activo);
+                    comando.Parameters.AddWithValue("@id", idArticulo);
+                    comando.Parameters.AddWithValue("@claveQR", claveQR);
+
+                    codigo = comando.ExecuteNonQuery();
+                }
+            }
+            return codigo;
+        }
+
         // Métodos para encriptar la contraseña...
         private static byte[] GenerateSalt()
         {
@@ -311,8 +371,6 @@ namespace ConsejeriaQR
             {
                 return pbkdf2.GetBytes(32);
             }
-        }
-
-        
+        }        
     }
 }
