@@ -12,12 +12,13 @@ namespace ConsejeriaQR
         private byte[] imagenQR;
         private byte[] imagen;
         private bool activo;
+        private bool mantenimiento;
 
         public Articulos()
         {
         }
 
-        public Articulos(int id, string nombre, string descripcion, string codigo, string claveQR, byte[] imagenQR, byte[] imagen, bool activo)
+        public Articulos(int id, string nombre, string descripcion, string codigo, string claveQR, byte[] imagenQR, byte[] imagen, bool activo, bool mantenimiento)
         {
             this.id = id;
             this.nombre = nombre;
@@ -27,6 +28,7 @@ namespace ConsejeriaQR
             this.imagenQR = imagenQR;
             this.imagen = imagen;
             this.activo = activo;
+            this.mantenimiento = mantenimiento;
         }
 
         public int Id { get => id; set => id = value; }
@@ -37,5 +39,6 @@ namespace ConsejeriaQR
         public byte[] ImagenQR { get => imagenQR; set => imagenQR = value; }
         public byte[] Imagen { get => imagen; set => imagen = value; }
         public bool Activo { get => activo; set => activo = value; }
+        public bool Mantenimiento { get => mantenimiento; set => mantenimiento = value; }
     }
 }

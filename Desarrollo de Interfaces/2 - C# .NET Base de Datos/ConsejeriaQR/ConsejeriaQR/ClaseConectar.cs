@@ -18,7 +18,12 @@ namespace ConsejeriaQR
 
         public String CADENA_CONEXION = "server=localhost;Database=conserjeriaqr;Uid=root;pwd='';old guids=true";
 
-        // Método que utiliza la contraseña que introduce el usuario y la encripta utilizando PBKDF2. Si esta coincide con la contraseña encriptada de la BD podrá iniciar sesión.
+        /// <summary>
+        /// Método que utiliza la contraseña que introduce el usuario y la encripta utilizando PBKDF2. Si esta coincide con la contraseña encriptada de la BD podrá iniciar sesión.
+        /// </summary>
+        /// <param name="correo"> Texto con el correo introducido por el usuario. </param>
+        /// <param name="contrasenia"> Texto con la contraseña introducida por el usuario. </param>
+        /// <returns> Verdadero / Falso => dependiendo de si encuentra el usuario en la BBDD o no. </returns>
         internal bool IniciarSesion(string correo, string contrasenia)
         {
             using (conexion = new MySqlConnection(CADENA_CONEXION))
@@ -52,7 +57,13 @@ namespace ConsejeriaQR
             return false;
         }
 
-        // Método que encripta la contraseña que recibe utilizando PBKDF2. Después ejecuta el insert para almacenarlo en la base de datos. Si "codigo" devuelve 1 es que la operación se ha completado.
+        /// <summary>
+        /// Método que encripta la contraseña que recibe utilizando PBKDF2. Después ejecuta el insert para almacenarlo en la base de datos. Si "codigo" devuelve 1 es que la operación se ha completado.
+        /// </summary>
+        /// <param name="nombreUsuario"> Texto con el nombre introducido por el usuario. </param>
+        /// <param name="correoUsuario"> Texto con el correo introducido por el usuario. </param>
+        /// <param name="contraseniaUsuario"> Texto con la contraseña introducido por el usuario. </param>
+        /// <returns> Codigo => 1 si se realiza la insercción en la BBDD o 0 si no. </returns>
         internal int RegistrarProfesor(string nombreUsuario, string correoUsuario, string contraseniaUsuario)
         {
             int codigo;
@@ -82,7 +93,11 @@ namespace ConsejeriaQR
             return codigo;
         }
 
-        // Método que devuelve una lista con los datos del usuario que ha iniciado sesión.
+        /// <summary>
+        /// Método que devuelve una lista con los datos del usuario que ha iniciado sesión.
+        /// </summary>
+        /// <param name="correo"> Texto con el correo del usuario a buscar. </param>
+        /// <returns> listaUsuario => Lista con los datos del usuario que ha encontrado. </returns>
         internal List<Usuarios> ObtenerDatosUsuario(string correo)
         {
             using (conexion = new MySqlConnection(CADENA_CONEXION))
@@ -116,7 +131,11 @@ namespace ConsejeriaQR
             return listaUsuario;
         }
 
-        // Método para comprobar si el QR que se le pasa por parámetro ya existe en la BD.
+        /// <summary>
+        /// Método para comprobar si el QR que se le pasa por parámetro ya existe en la BD.
+        /// </summary>
+        /// <param name="claveQR"> Texto con el código QR a buscar </param>
+        /// <returns> True / False => Dependiendo de si encuentra un QR con el código a buscar </returns>
         internal bool ComprobarQRExistente(string claveQR)
         {
             using (conexion = new MySqlConnection(CADENA_CONEXION))
@@ -141,7 +160,16 @@ namespace ConsejeriaQR
             return false;
         }
 
-        // Método que se encarga de insertar el artículo según los datos que recibe por los parámetros.
+        /// <summary>
+        /// Método que se encarga de insertar el artículo según los datos que recibe por los parámetros.
+        /// </summary>
+        /// <param name="nombreArticulo"> Texto con el nombre del artículo. </param>
+        /// <param name="descripcionArticulo"> Texto con la descripción del artículo. </param>
+        /// <param name="codigoArticulo"> Texto con el código del artículo. </param>
+        /// <param name="claveQR"> Texto con el código QR del artículo. </param>
+        /// <param name="imagenQR"> byte[] que contiene los datos de la imágen. </param>
+        /// <param name="imagenArticulo"> byte[] que contiene los datos de la imágen QR. </param>
+        /// <returns> Codigo => 1 si se realiza la insercción en la BBDD o 0 si no. </returns>
         internal int InsertarArticulo(string nombreArticulo, string descripcionArticulo, string codigoArticulo, string claveQR, byte[] imagenQR, byte[] imagenArticulo)
         {
             int codigo;
@@ -150,7 +178,7 @@ namespace ConsejeriaQR
             {
                 conexion.Open();                                
 
-                string cadenaSql = "INSERT INTO articulos VALUES (0, @nombre, @descripcion, @codigo, @claveQR, @imagenQR, @imagen, true)";
+                string cadenaSql = "INSERT INTO articulos VALUES (0, @nombre, @descripcion, @codigo, @claveQR, @imagenQR, @imagen, true, false)";
 
                 using (comando = new MySqlCommand(cadenaSql, conexion))
                 {
@@ -167,7 +195,10 @@ namespace ConsejeriaQR
             return codigo;
         }
 
-        // Método que devuelve una lista con los nombres de los artículos que hay en la tabla Articulos en la BD sin repetirse.
+        /// <summary>
+        /// Método que devuelve una lista con los nombres de los artículos que hay en la tabla Articulos en la BD sin repetirse.
+        /// </summary>
+        /// <returns> listaNombreArticulos => Una lista con los nombres de los artículos que hay en la BBDD. </returns>
         internal List<Articulos> ObtenerNombreArticulos()
         {
             listaNombreArticulos.Clear();
@@ -196,7 +227,10 @@ namespace ConsejeriaQR
             return listaNombreArticulos;
         }
 
-        // Método que devuelve una lista con todos los datos de los artículos que coincidan con el nombre que se le pasa por parámetros.
+        /// <summary>
+        /// Método que devuelve una lista con todos los datos de los artículos que coincidan con el nombre que se le pasa por parámetros.
+        /// </summary>
+        /// <returns> listaArticulos => Lista con la información de los artículos. </returns>
         internal List<Articulos> ObtenerArticulos()
         {
             using (conexion = new MySqlConnection(CADENA_CONEXION))
@@ -234,7 +268,10 @@ namespace ConsejeriaQR
             return listaArticulos;
         }
 
-        // Método para almacenar en una lista los artículos activos en la BD para introducirselos al DataGridView. Esta lista si almacena los articulos que no estan activos.
+        /// <summary>
+        /// Método para almacenar en una lista los artículos activos en la BD para introducirselos al DataGridView. Esta lista si almacena los articulos que no estan activos.
+        /// </summary>
+        /// <returns> listaArticulosDGV => Lista que contiene los datos de los artículos independientemente de si están activos o no.</returns>
         internal List<ArticulosDGV> ObtenerArticulosDGV()
         {
             using (conexion = new MySqlConnection(CADENA_CONEXION))
@@ -257,7 +294,8 @@ namespace ConsejeriaQR
                                 Nombre = (string)datos["nombre"],
                                 Descripcion = (string)datos["descripcion"],
                                 Codigo = (string)datos["codigo"],
-                                Activo = (bool)datos["activo"]
+                                Activo = (bool)datos["activo"],
+                                Mantenimiento = (bool)datos["mantenimiento"]
                             };
 
                             listaArticulosDGV.Add(articuloDGV);
@@ -269,7 +307,11 @@ namespace ConsejeriaQR
             return listaArticulosDGV;
         }
 
-        // Método que se encargará de eliminar el articulo que coincida con los parámetros.
+        /// <summary>
+        /// Método que se encargará de eliminar el articulo que coincida con los parámetros.
+        /// </summary>
+        /// <param name="datosArticulo"> Objeto de la clase Articulos que contiene los datos del artículo a eliminar. </param>
+        /// <returns> Codigo => 1 si se realiza la insercción en la BBDD o 0 si no. </returns>
         internal int EliminarArticulo(Articulos datosArticulo)
         {
             int codigo = 0;
@@ -294,7 +336,13 @@ namespace ConsejeriaQR
             return codigo;
         }
 
-        // Método para introducir los datos del prestamo en la tabla prestamos
+        /// <summary>
+        /// Método para introducir los datos del prestamo en la tabla prestamos.
+        /// </summary>
+        /// <param name="articulo"> Objeto de la clase Articulos que contiene la información del artículo a prestar. </param>
+        /// <param name="user"> Lista con los datos del usuario que va a prestar el artículo. </param>
+        /// <param name="fecha"> DateTime con la fecha de devolución aproximada. </param>
+        /// <returns> Codigo => 1 si se realiza la insercción en la BBDD o 0 si no. </returns>
         internal int PrestarArticulo(Articulos articulo, List<Usuarios> user, DateTime fecha)
         {
             
@@ -330,7 +378,12 @@ namespace ConsejeriaQR
             return codigo;
         }
 
-        // Método para actualizar el activo de un producto a 0 para que ya no aparezca en las búsquedas.
+        /// <summary>
+        /// Método para actualizar el activo de un producto a 0 para que ya no aparezca en las búsquedas.
+        /// </summary>
+        /// <param name="articulo"> Objeto de la clase Articulos que contiene la información del artículo. </param>
+        /// <param name="activo"> int el estado del articulo </param>
+        /// <returns> Codigo => 1 si se realiza la insercción en la BBDD o 0 si no. </returns>
         internal int ActualizarArticulo(Articulos articulo, int activo)
         {
             int codigo = 0;

@@ -62,9 +62,7 @@ namespace ConsejeriaQR
                 segundos = 0;
 
                 if (cnxFPB.ComprobarQRExistente(textBoxCodigoQR.Text))
-                {
-                    cnxFPB.ActualizarArticulo(datosArticulo, 0);
-
+                {                    
                     FormularioConfirmaciónPrestamo fCP = new FormularioConfirmaciónPrestamo(cnxFPB, datosArticulo, usuario);
                     fCP.Show();
                     this.Close();

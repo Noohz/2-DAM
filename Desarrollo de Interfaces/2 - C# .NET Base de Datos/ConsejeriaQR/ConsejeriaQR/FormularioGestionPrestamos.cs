@@ -41,11 +41,19 @@ namespace ConsejeriaQR
 
         private void BtnEliminarArticulo_Click(object sender, EventArgs e)
         {
-            panel3.Controls.Clear();
+            if (datosUsuarioLogeado[0].Nombre.Equals("admin"))
+            {
+                panel3.Controls.Clear();
 
-            InterfazEliminarArticulos iEA = new InterfazEliminarArticulos(cnxGP);
-            Panel panelEliminarArticulo = iEA.GenerarPanelEliminarArticulos(panel3.Width, panel3.Height);
-            panel3.Controls.Add(panelEliminarArticulo);
+                InterfazEliminarArticulos iEA = new InterfazEliminarArticulos(cnxGP);
+                Panel panelEliminarArticulo = iEA.GenerarPanelEliminarArticulos(panel3.Width, panel3.Height);
+                panel3.Controls.Add(panelEliminarArticulo);
+            } else
+            {
+                MessageBox.Show("Solo el administrador puede acceder a este módulo...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            
         }
 
         private void BtnPrestarArticulo_Click(object sender, EventArgs e)

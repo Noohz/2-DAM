@@ -85,7 +85,7 @@ namespace ConsejeriaQR
 
             foreach (var articulo in listaArticulos)
             {
-                if (articulo.Nombre.Equals(cbX.Text))
+                if (articulo.Nombre.Equals(cbX.Text) && articulo.Mantenimiento != false)
                 {
                     Button btn = new Button
                     {
@@ -117,6 +117,8 @@ namespace ConsejeriaQR
             Button btnX = (Button)sender;
 
             ComboBox comboBoxArticulo = (ComboBox)listaControles[1];
+
+            cnxIPA.ActualizarArticulo((Articulos)btnX.Tag, 0);
 
             FormularioPrestamoBtn fPBtn = new FormularioPrestamoBtn(btnX.Tag, cnxIPA, datosUser);
             fPBtn.FormClosed += FDBtn_FormClosed;
