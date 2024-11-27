@@ -32,6 +32,7 @@
             this.lblGestionPrestamoTitulo = new System.Windows.Forms.Label();
             this.btnVolverGestionPrestamos = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnArticulosPrestados = new System.Windows.Forms.Button();
             this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPrestarArticulo = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@
             this.btnAniadirArticulo = new System.Windows.Forms.Button();
             this.pBLoginIcono = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnArticulosMantenimiento = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBLoginIcono)).BeginInit();
@@ -86,6 +88,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(113)))), ((int)(((byte)(73)))));
+            this.panel2.Controls.Add(this.btnArticulosMantenimiento);
+            this.panel2.Controls.Add(this.btnArticulosPrestados);
             this.panel2.Controls.Add(this.lblNombreUsuario);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btnPrestarArticulo);
@@ -97,6 +101,23 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(248, 717);
             this.panel2.TabIndex = 1;
+            // 
+            // btnArticulosPrestados
+            // 
+            this.btnArticulosPrestados.BackColor = System.Drawing.SystemColors.Control;
+            this.btnArticulosPrestados.FlatAppearance.BorderSize = 0;
+            this.btnArticulosPrestados.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnArticulosPrestados.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnArticulosPrestados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArticulosPrestados.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArticulosPrestados.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnArticulosPrestados.Location = new System.Drawing.Point(12, 428);
+            this.btnArticulosPrestados.Name = "btnArticulosPrestados";
+            this.btnArticulosPrestados.Size = new System.Drawing.Size(221, 43);
+            this.btnArticulosPrestados.TabIndex = 15;
+            this.btnArticulosPrestados.Text = "Artículos prestados";
+            this.btnArticulosPrestados.UseVisualStyleBackColor = false;
+            this.btnArticulosPrestados.Click += new System.EventHandler(this.BtnArticulosPrestados_Click);
             // 
             // lblNombreUsuario
             // 
@@ -190,6 +211,23 @@
             this.panel3.Size = new System.Drawing.Size(1183, 717);
             this.panel3.TabIndex = 2;
             // 
+            // btnArticulosMantenimiento
+            // 
+            this.btnArticulosMantenimiento.BackColor = System.Drawing.SystemColors.Control;
+            this.btnArticulosMantenimiento.FlatAppearance.BorderSize = 0;
+            this.btnArticulosMantenimiento.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnArticulosMantenimiento.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnArticulosMantenimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArticulosMantenimiento.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArticulosMantenimiento.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnArticulosMantenimiento.Location = new System.Drawing.Point(12, 489);
+            this.btnArticulosMantenimiento.Name = "btnArticulosMantenimiento";
+            this.btnArticulosMantenimiento.Size = new System.Drawing.Size(221, 54);
+            this.btnArticulosMantenimiento.TabIndex = 16;
+            this.btnArticulosMantenimiento.Text = "Articulos en mantenimiento";
+            this.btnArticulosMantenimiento.UseVisualStyleBackColor = false;
+            this.btnArticulosMantenimiento.Click += new System.EventHandler(this.btnArticulosMantenimiento_Click);
+            // 
             // FormularioGestionPrestamos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,5 +263,7 @@
         private System.Windows.Forms.Label lblNombreUsuario;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnArticulosPrestados;
+        private System.Windows.Forms.Button btnArticulosMantenimiento;
     }
 }

@@ -2,6 +2,9 @@
 
 namespace ConsejeriaQR
 {
+    /// <summary>
+    /// Clase relacionada con la tabla Articulos de la BBDD
+    /// </summary>
     public class Articulos
     {
         private int id;

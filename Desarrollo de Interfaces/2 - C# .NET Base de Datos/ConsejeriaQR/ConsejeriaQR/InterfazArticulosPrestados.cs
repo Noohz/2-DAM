@@ -2,27 +2,33 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ConsejeriaQR
 {
-    internal class InterfazPrestarArticulo
+    /// <summary>
+    /// Clase encargada de la generación de la interfaz y la funcionalidad de consultar los artículos prestados por X profesor.
+    /// </summary>
+    internal class InterfazArticulosPrestados
     {
-        ClaseConectar cnxIPA;
+        ClaseConectar cnxIAP;
         List<Control> listaControles;
         List<Articulos> listaNombreArticulos = new List<Articulos>();
-        List<Articulos> listaArticulos = new List<Articulos>();
+        List<Prestamos> listaArticulosPrestados = new List<Prestamos>();
         List<Usuarios> datosUser;
 
-        public InterfazPrestarArticulo(ClaseConectar cnxGP, List<Usuarios> datosUsuarioLogeado)
+        public InterfazArticulosPrestados(ClaseConectar cnxGP, List<Usuarios> datosUsuarioLogeado)
         {
-            cnxIPA = cnxGP;
-            datosUser = datosUsuarioLogeado;
+            this.cnxIAP = cnxGP;
+            this.datosUser = datosUsuarioLogeado;
         }
 
-        internal Panel GenerarPanelPrestarArticulos(int width, int height)
+        internal Panel GenerarPanelArticulosPrestados(int width, int height)
         {
-            listaNombreArticulos = cnxIPA.ObtenerNombreArticulos();
+            listaNombreArticulos = cnxIAP.ObtenerNombreArticulos();
 
             // Panel que contendrá los Controls para introducir los datos del artículo.
             Panel panelArticulo = new Panel
@@ -80,12 +86,12 @@ namespace ConsejeriaQR
             ComboBox cbX = (ComboBox)sender;
             FlowLayoutPanel fLPArticulo = (FlowLayoutPanel)listaControles[2];
 
-            listaArticulos = cnxIPA.ObtenerArticulos();
+            listaArticulosPrestados = cnxIAP.ObtenerArticulosPrestados(datosUser);
             fLPArticulo.Controls.Clear();
 
-            foreach (var articulo in listaArticulos)
+            foreach (var articulo in listaArticulosPrestados)
             {
-                if (articulo.Nombre.Equals(cbX.Text) && articulo.Mantenimiento != true)
+                if (articulo.NombreArticulo.Equals(cbX.Text))
                 {
                     Button btn = new Button
                     {
@@ -114,18 +120,29 @@ namespace ConsejeriaQR
 
         private void Btn_Click(object sender, EventArgs e)
         {
-            Button btnX = (Button)sender;                       
+            Button btnX = (Button)sender;
+            Prestamos datosArticulo = (Prestamos)btnX.Tag;
 
-            cnxIPA.ActualizarArticulo((Articulos)btnX.Tag, 0);
+            int activo = 1;
+            int mantenimiento = 0;
 
-            FormularioPrestamoBtn fPBtn = new FormularioPrestamoBtn(btnX.Tag, cnxIPA, datosUser);
-            fPBtn.FormClosed += FDBtn_FormClosed;
-            fPBtn.ShowDialog();
-        }
+            if (MessageBox.Show("¿Deseas devolver el artículo " + datosArticulo.NombreArticulo + " y código " +datosArticulo.Codigo + "?", "Confirmar devolución", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                if (MessageBox.Show("¿El artículo tiene algún problema técnico?", "Confirmar devolución", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    mantenimiento = 1;
+                }
 
-        private void FDBtn_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            ComboBoxArticulo_SelectedIndexChanged(listaControles[1], EventArgs.Empty);
+                if (cnxIAP.devolverArticulo(datosArticulo, activo, mantenimiento) == 1)
+                {
+                    ComboBoxArticulo_SelectedIndexChanged(listaControles[1], EventArgs.Empty);
+                    MessageBox.Show("Se ha devuelto el artículo correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error al intentar devolver el artículo, por favor, vuelve a intentarlo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

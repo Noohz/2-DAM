@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace ConsejeriaQR
 {
+    /// <summary>
+    /// Clase relacionada con la tabla PrestamosHistoricos de la BBDD
+    /// </summary>
     internal static class Program
     {
         /// <summary>

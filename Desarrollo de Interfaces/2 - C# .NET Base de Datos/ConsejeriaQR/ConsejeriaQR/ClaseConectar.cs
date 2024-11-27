@@ -5,18 +5,23 @@ using MySql.Data.MySqlClient;
 
 namespace ConsejeriaQR
 {
+    /// <summary>
+    /// Clase utilizada de gestionar la conexión con la BBDD y de todas las respectivas consultas a ella.
+    /// </summary>
     public class ClaseConectar
     {
         MySqlConnection conexion;
         MySqlCommand comando;
         MySqlDataReader datos;
 
-        List<Usuarios> listaUsuario = new List<Usuarios>();
-        List<Articulos> listaNombreArticulos = new List<Articulos>();
-        List<Articulos> listaArticulos = new List<Articulos>();
-        List<ArticulosDGV> listaArticulosDGV = new List<ArticulosDGV>();
+        private List<Usuarios> listaUsuario = new List<Usuarios>();
+        private List<Articulos> listaNombreArticulos = new List<Articulos>();
+        private List<Articulos> listaArticulos = new List<Articulos>();
+        private List<ArticulosDGV> listaArticulosDGV = new List<ArticulosDGV>();
+        private List<Prestamos> listaArticulosPrestados = new List<Prestamos>();
 
         public String CADENA_CONEXION = "server=localhost;Database=conserjeriaqr;Uid=root;pwd='';old guids=true";
+        private List<Articulos> listaArticulosEnMantenimiento = new List<Articulos>();
 
         /// <summary>
         /// Método que utiliza la contraseña que introduce el usuario y la encripta utilizando PBKDF2. Si esta coincide con la contraseña encriptada de la BD podrá iniciar sesión.
@@ -176,7 +181,7 @@ namespace ConsejeriaQR
 
             using (conexion = new MySqlConnection(CADENA_CONEXION))
             {
-                conexion.Open();                                
+                conexion.Open();
 
                 string cadenaSql = "INSERT INTO articulos VALUES (0, @nombre, @descripcion, @codigo, @claveQR, @imagenQR, @imagen, true, false)";
 
@@ -256,7 +261,8 @@ namespace ConsejeriaQR
                                 ClaveQR = (string)datos["claveQR"],
                                 ImagenQR = (byte[])datos["imagenQR"],
                                 Imagen = (byte[])datos["imagen"],
-                                Activo = (bool)datos["activo"]
+                                Activo = (bool)datos["activo"],
+                                Mantenimiento = (bool)datos["mantenimiento"]
                             };
 
                             listaArticulos.Add(articulo);
@@ -345,7 +351,7 @@ namespace ConsejeriaQR
         /// <returns> Codigo => 1 si se realiza la insercción en la BBDD o 0 si no. </returns>
         internal int PrestarArticulo(Articulos articulo, List<Usuarios> user, DateTime fecha)
         {
-            
+
             int codigo = 0;
             int id = articulo.Id;
             string nombreArticulo = articulo.Nombre;
@@ -405,6 +411,168 @@ namespace ConsejeriaQR
                 }
             }
             return codigo;
+        }
+
+        /// <summary>
+        /// Método que devuelve una lista de la clase Pestamos con los artículos que pertenecen a X profesor.
+        /// </summary>
+        /// <param name="datosUser"> Lista que contiene los datos del usuario logeado actual </param>
+        /// <returns> listaArticulosPrestados => Lista con los articulos que tiene prestados el profesor </returns>
+        internal List<Prestamos> ObtenerArticulosPrestados(List<Usuarios> datosUser)
+        {
+            using (conexion = new MySqlConnection(CADENA_CONEXION))
+            {
+                listaArticulosPrestados.Clear();
+
+                string nombreUsuario = datosUser[0].Nombre;
+
+                conexion.Open();
+
+                string cadenaSql = "SELECT * FROM prestamos WHERE nombreProfesor = @nombreProfesor";
+
+                using (comando = new MySqlCommand(cadenaSql, conexion))
+                {
+                    comando.Parameters.AddWithValue("@nombreProfesor", nombreUsuario);
+
+                    using (datos = comando.ExecuteReader())
+                    {
+                        while (datos.Read())
+                        {
+                            Prestamos artPrestados = new Prestamos
+                            {
+                                Id = (int)datos["id"],
+                                IdArticulo = (int)datos["idArticulo"],
+                                NombreArticulo = (string)datos["nombreArticulo"],
+                                NombreProfesor = (string)datos["nombreProfesor"],
+                                Codigo = (string)datos["codigo"],
+                                FechaPrestamo = (DateTime)datos["fechaPrestamo"],
+                                FechaDevolucion = (DateTime)datos["fechaDevolucion"],
+                                Imagen = (byte[])datos["imagen"]
+                            };
+
+                            listaArticulosPrestados.Add(artPrestados);
+                        }
+                    }
+                }
+            }
+
+            return listaArticulosPrestados;
+        }
+
+        /// <summary>
+        /// Método que se encarga de realizar las consultas a la BBDD para devolver el artículo prestado, 
+        /// insertar el artículo en la tabla prestamosHistorico para tener un registro de los prestamos realizados
+        /// y actualizar los parámetros de activo y mantenmiento.
+        /// </summary>
+        /// <param name="datosArticulo"> Lista con los datos del artículo prestado. </param>
+        /// <param name="activo"> int que se utiliza para marcar el artículo como activo en el update. </param>
+        /// <param name="mantenimiento"> int que indica si el artículo deberá estar en mantenimiento o no, este parámetro dependerá de la respuesta del MessageBox. </param>
+        /// <returns> Resultado => 1 si se realizan correctamente todas las queries en la BBDD o 0 si no.</returns>
+        internal int devolverArticulo(Prestamos datosArticulo, int activo, int mantenimiento)
+        {
+            int resultado = 0;
+
+            using (MySqlConnection conexion = new MySqlConnection(CADENA_CONEXION))
+            {
+                conexion.Open();
+                using (MySqlTransaction transaccion = conexion.BeginTransaction())
+                {
+                    bool exito = true;
+
+                    string cadenaSqlDelete = "DELETE FROM prestamos WHERE idArticulo = @idArticulo AND nombreArticulo = @nombreArticulo";
+                    using (MySqlCommand comando = new MySqlCommand(cadenaSqlDelete, conexion, transaccion))
+                    {
+                        comando.Parameters.AddWithValue("@idArticulo", datosArticulo.IdArticulo);
+                        comando.Parameters.AddWithValue("@nombreArticulo", datosArticulo.NombreArticulo);
+
+                        exito = comando.ExecuteNonQuery() == 1;
+                    }
+
+                    if (exito)
+                    {
+                        string cadenaSqlInsert = "INSERT INTO prestamoshistorico VALUES (0, @idArticulo, @nombreArticulo, @nombreProfesor, @codigo, @fechaPrestamo, @fechaDevolucionInicial, @fechaDevolucionFinal, @imagen)";
+                        using (MySqlCommand insert = new MySqlCommand(cadenaSqlInsert, conexion, transaccion))
+                        {
+                            insert.Parameters.AddWithValue("@idArticulo", datosArticulo.IdArticulo);
+                            insert.Parameters.AddWithValue("@nombreArticulo", datosArticulo.NombreArticulo);
+                            insert.Parameters.AddWithValue("@nombreProfesor", datosArticulo.NombreProfesor);
+                            insert.Parameters.AddWithValue("@codigo", datosArticulo.Codigo);
+                            insert.Parameters.AddWithValue("@fechaPrestamo", datosArticulo.FechaPrestamo);
+                            insert.Parameters.AddWithValue("@fechaDevolucionInicial", datosArticulo.FechaDevolucion);
+                            insert.Parameters.AddWithValue("@fechaDevolucionFinal", DateTime.Now);
+                            insert.Parameters.AddWithValue("@imagen", datosArticulo.Imagen);
+
+                            exito = insert.ExecuteNonQuery() == 1;
+                        }
+                    }
+
+                    if (exito)
+                    {
+                        string cadenaSqlUpdate = "UPDATE articulos SET activo = @activo, mantenimiento = @mantenimiento WHERE id = @idArticulo";
+                        using (MySqlCommand update = new MySqlCommand(cadenaSqlUpdate, conexion, transaccion))
+                        {
+                            update.Parameters.AddWithValue("@activo", activo);
+                            update.Parameters.AddWithValue("@mantenimiento", mantenimiento);
+                            update.Parameters.AddWithValue("@idArticulo", datosArticulo.IdArticulo);
+
+                            exito = update.ExecuteNonQuery() == 1;
+                        }
+                    }
+
+                    if (exito)
+                    {
+                        transaccion.Commit();
+                        resultado = 1;
+                    }
+                    else
+                    {
+                        transaccion.Rollback();
+                        resultado = 0;
+                    }
+                }
+            }
+
+            return resultado;
+        }
+
+        /// <summary>
+        /// Método que obtiene todos los artículos que tengan Mantenimiento = 1 de la BBDD y los almacena en una lista.
+        /// </summary>
+        /// <returns> listaArticulosEnMantenimiento => Lista con los artículos que están en mantenimiento. </returns>
+        internal List<Articulos> ObtenerArticulosEnMantenimiento()
+        {
+            using (conexion = new MySqlConnection(CADENA_CONEXION))
+            {
+                conexion.Open();
+
+                string cadenaSql = "SELECT * FROM articulos WHERE mantenimiento = 1";
+
+                using (comando = new MySqlCommand(cadenaSql, conexion))
+                {
+                    using (datos = comando.ExecuteReader())
+                    {
+                        while (datos.Read())
+                        {
+                            Articulos articulo = new Articulos
+                            {
+                                Id = (int)datos["id"],
+                                Nombre = (string)datos["nombre"],
+                                Descripcion = (string)datos["descripcion"],
+                                Codigo = (string)datos["codigo"],
+                                ClaveQR = (string)datos["claveQR"],
+                                ImagenQR = (byte[])datos["imagenQR"],
+                                Imagen = (byte[])datos["imagen"],
+                                Activo = (bool)datos["activo"],
+                                Mantenimiento = (bool)datos["mantenimiento"]
+                            };
+
+                            listaArticulosEnMantenimiento.Add(articulo);
+                        }
+                    }
+                }
+            }
+
+            return listaArticulosEnMantenimiento;
         }
 
         // Métodos para encriptar la contraseña...

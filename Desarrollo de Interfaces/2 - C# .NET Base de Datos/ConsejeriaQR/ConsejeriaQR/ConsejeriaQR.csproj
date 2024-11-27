@@ -134,9 +134,13 @@
     <Compile Include="FormularioRegistro.Designer.cs">
       <DependentUpon>FormularioRegistro.cs</DependentUpon>
     </Compile>
+    <Compile Include="InterfarArticulosMantenimiento.cs" />
     <Compile Include="InterfazAniadirArticulos.cs" />
+    <Compile Include="InterfazArticulosPrestados.cs" />
     <Compile Include="InterfazEliminarArticulos.cs" />
     <Compile Include="InterfazPrestarArticulo.cs" />
+    <Compile Include="Prestamos.cs" />
+    <Compile Include="PrestamosHistorico.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuarios.cs" />

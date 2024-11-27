@@ -37,6 +37,7 @@ namespace ConsejeriaQR
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
+            cnxFPB.ActualizarArticulo(datosArticulo, 1);
             this.Close();
         }
 

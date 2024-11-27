@@ -2,6 +2,9 @@
 
 namespace ConsejeriaQR
 {
+    /// <summary>
+    /// Clase Articulos modificada para insertar los datos en el DataGridView de "Añadir artículos".
+    /// </summary>
     internal class ArticulosDGV
     {
         private int id;

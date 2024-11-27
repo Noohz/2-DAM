@@ -64,5 +64,24 @@ namespace ConsejeriaQR
             Panel panelPrestarArticulo = iPA.GenerarPanelPrestarArticulos(panel3.Width, panel3.Height);
             panel3.Controls.Add(panelPrestarArticulo);
         }
+
+        private void BtnArticulosPrestados_Click(object sender, EventArgs e)
+        {
+            panel3.Controls.Clear();
+
+            InterfazArticulosPrestados iAP = new InterfazArticulosPrestados(cnxGP, datosUsuarioLogeado);
+            Panel panelArticuloPrestado = iAP.GenerarPanelArticulosPrestados(panel3.Width, panel3.Height);
+            panel3.Controls.Add(panelArticuloPrestado);
+
+        }
+
+        private void btnArticulosMantenimiento_Click(object sender, EventArgs e)
+        {
+            panel3.Controls.Clear();
+
+            InterfarArticulosMantenimiento iAM = new InterfarArticulosMantenimiento(cnxGP);
+            Panel panelArticulosMantenimiento = iAM.GenerarPanelArticulosMantenimiento(panel3.Width, panel3.Height);
+            panel3.Controls.Add(panelArticulosMantenimiento);
+        }
     }
 }

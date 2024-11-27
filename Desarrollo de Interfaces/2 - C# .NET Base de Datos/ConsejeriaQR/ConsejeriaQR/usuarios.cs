@@ -1,5 +1,8 @@
 ﻿namespace ConsejeriaQR
 {
+    /// <summary>
+    /// Clase relacionada con la tabla Usuarios de la BBDD
+    /// </summary>
     public class Usuarios
     {
         private int id;
