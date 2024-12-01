@@ -62,9 +62,10 @@
             // 
             // lblInfoArticulo
             // 
+            this.lblInfoArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblInfoArticulo.AutoSize = true;
             this.lblInfoArticulo.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold);
-            this.lblInfoArticulo.Location = new System.Drawing.Point(111, 143);
+            this.lblInfoArticulo.Location = new System.Drawing.Point(139, 143);
             this.lblInfoArticulo.Name = "lblInfoArticulo";
             this.lblInfoArticulo.Size = new System.Drawing.Size(315, 24);
             this.lblInfoArticulo.TabIndex = 6;

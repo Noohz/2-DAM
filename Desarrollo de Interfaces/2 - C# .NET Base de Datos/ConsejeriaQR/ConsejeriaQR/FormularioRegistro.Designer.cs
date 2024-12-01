@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cBDepartamento = new System.Windows.Forms.ComboBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.tBcontraseniaRegistro = new System.Windows.Forms.TextBox();
-            this.tBcorreoRegistro = new System.Windows.Forms.TextBox();
             this.pBcorreoUsuarioIcono = new System.Windows.Forms.PictureBox();
             this.pBcontraseniaIcono = new System.Windows.Forms.PictureBox();
             this.pBnombreUsuarioIcono = new System.Windows.Forms.PictureBox();
@@ -49,9 +49,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.cBDepartamento);
             this.panel1.Controls.Add(this.btnRegistrar);
             this.panel1.Controls.Add(this.tBcontraseniaRegistro);
-            this.panel1.Controls.Add(this.tBcorreoRegistro);
             this.panel1.Controls.Add(this.pBcorreoUsuarioIcono);
             this.panel1.Controls.Add(this.pBcontraseniaIcono);
             this.panel1.Controls.Add(this.pBnombreUsuarioIcono);
@@ -63,6 +63,21 @@
             this.panel1.Size = new System.Drawing.Size(507, 353);
             this.panel1.TabIndex = 1;
             // 
+            // cBDepartamento
+            // 
+            this.cBDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cBDepartamento.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.cBDepartamento.FormattingEnabled = true;
+            this.cBDepartamento.Items.AddRange(new object[] {
+            "Administrador",
+            "Conserje",
+            "Profesor"});
+            this.cBDepartamento.Location = new System.Drawing.Point(177, 207);
+            this.cBDepartamento.Name = "cBDepartamento";
+            this.cBDepartamento.Size = new System.Drawing.Size(220, 28);
+            this.cBDepartamento.TabIndex = 2;
+            // 
             // btnRegistrar
             // 
             this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(113)))), ((int)(((byte)(73)))));
@@ -72,7 +87,7 @@
             this.btnRegistrar.Location = new System.Drawing.Point(139, 292);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(258, 43);
-            this.btnRegistrar.TabIndex = 3;
+            this.btnRegistrar.TabIndex = 4;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
@@ -80,19 +95,13 @@
             // tBcontraseniaRegistro
             // 
             this.tBcontraseniaRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBcontraseniaRegistro.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tBcontraseniaRegistro.Location = new System.Drawing.Point(177, 250);
             this.tBcontraseniaRegistro.Name = "tBcontraseniaRegistro";
             this.tBcontraseniaRegistro.Size = new System.Drawing.Size(220, 26);
-            this.tBcontraseniaRegistro.TabIndex = 2;
+            this.tBcontraseniaRegistro.TabIndex = 3;
+            this.tBcontraseniaRegistro.Text = "Contraseña";
             this.tBcontraseniaRegistro.UseSystemPasswordChar = true;
-            // 
-            // tBcorreoRegistro
-            // 
-            this.tBcorreoRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBcorreoRegistro.Location = new System.Drawing.Point(177, 207);
-            this.tBcorreoRegistro.Name = "tBcorreoRegistro";
-            this.tBcorreoRegistro.Size = new System.Drawing.Size(220, 26);
-            this.tBcorreoRegistro.TabIndex = 1;
             // 
             // pBcorreoUsuarioIcono
             // 
@@ -137,10 +146,12 @@
             // tBnombreRegistro
             // 
             this.tBnombreRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBnombreRegistro.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tBnombreRegistro.Location = new System.Drawing.Point(177, 156);
             this.tBnombreRegistro.Name = "tBnombreRegistro";
             this.tBnombreRegistro.Size = new System.Drawing.Size(220, 26);
-            this.tBnombreRegistro.TabIndex = 0;
+            this.tBnombreRegistro.TabIndex = 1;
+            this.tBnombreRegistro.Text = "Nombre de usuario";
             // 
             // lblLoginTexto
             // 
@@ -162,8 +173,7 @@
             this.btnVolver.Location = new System.Drawing.Point(712, 12);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(44, 23);
-            this.btnVolver.TabIndex = 4;
-            this.btnVolver.TabStop = false;
+            this.btnVolver.TabIndex = 0;
             this.btnVolver.Text = "->";
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
@@ -202,6 +212,6 @@
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.TextBox tBcontraseniaRegistro;
-        private System.Windows.Forms.TextBox tBcorreoRegistro;
+        private System.Windows.Forms.ComboBox cBDepartamento;
     }
 }

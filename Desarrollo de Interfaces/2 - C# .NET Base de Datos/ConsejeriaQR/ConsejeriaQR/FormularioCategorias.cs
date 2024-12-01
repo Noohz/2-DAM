@@ -17,7 +17,7 @@ namespace ConsejeriaQR
             datosUsuario = listaUsuario;
             cnxC = cnx;
 
-            if (listaUsuario[0].Correo.Equals("admin"))
+            if (listaUsuario[0].Departamento.Equals("Administrador"))
             {
                 btnRegistrarProfesor.Visible = true;
             }

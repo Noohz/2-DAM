@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ConsejeriaQR
@@ -104,7 +100,7 @@ namespace ConsejeriaQR
             {
                 MessageBox.Show("Actualmente no hay ningún artículo en mantenimiento.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+
         }
     }
 }

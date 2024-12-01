@@ -4,15 +4,24 @@ using System.Windows.Forms;
 
 namespace ConsejeriaQR
 {
-    public partial class Form1 : Form
+    /// <summary>
+    /// El primer formulario que aparece nada más iniciar la aplicación. Le pedirá el nombre y contraseña al usuario que se utilizarán en una consulta SQL para comprobar si son correctos o no
+    /// </summary>
+    public partial class FormularioInicioSesion : Form
     {
         ClaseConectar cnx = new ClaseConectar();
         List<Usuarios> listaUsuario = new List<Usuarios>();
 
-        public Form1()
+        public FormularioInicioSesion()
         {
             InitializeComponent();
             this.Text = "Iniciar Sesión";
+
+            tBusuario.GotFocus += (sender, e) => EventoPlaceholderTextBox.HandlePlaceholder(sender, "");
+            tBusuario.LostFocus += (sender, e) => EventoPlaceholderTextBox.HandlePlaceholder(sender, "Nombre de usuario");
+
+            tBcontrasenia.GotFocus += (sender, e) => EventoPlaceholderTextBox.HandlePlaceholder(sender, "");
+            tBcontrasenia.LostFocus += (sender, e) => EventoPlaceholderTextBox.HandlePlaceholder(sender, "Contraseña");
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -23,11 +32,15 @@ namespace ConsejeriaQR
         // Después de que el usuario inicie sesión correctamente aparecerá el próximo formulario y este se ocultará.
         private void btniniciarSesion_Click(object sender, EventArgs e)
         {
-            if (cnx.IniciarSesion(tBcorreo.Text, tBcontrasenia.Text))
+            if (cnx.IniciarSesion(tBusuario.Text, tBcontrasenia.Text))
             {
-                listaUsuario = cnx.ObtenerDatosUsuario(tBcorreo.Text);
+                listaUsuario = cnx.ObtenerDatosUsuario(tBusuario.Text);
                 FormularioCategorias fP = new FormularioCategorias(listaUsuario, cnx);
                 fP.Show();
+
+                tBusuario.Text = "Nombre de Usuario";
+                tBcontrasenia.Text = "Contraseña";
+
                 this.Hide();
             }
             else

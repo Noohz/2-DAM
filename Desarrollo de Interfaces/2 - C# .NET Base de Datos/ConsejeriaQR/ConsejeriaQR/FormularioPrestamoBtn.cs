@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -10,9 +9,8 @@ namespace ConsejeriaQR
         int segundos = 0;
         ClaseConectar cnxFPB;
         Articulos datosArticulo;
-        List<Usuarios> usuario;
 
-        public FormularioPrestamoBtn(object tag, ClaseConectar cnxIPA, List<Usuarios> datosUser)
+        public FormularioPrestamoBtn(object tag, ClaseConectar cnxIPA)
         {
             InitializeComponent();
             this.Text = "Panel prestar artículo";
@@ -20,7 +18,6 @@ namespace ConsejeriaQR
             cnxFPB = cnxIPA;
 
             datosArticulo = (Articulos)tag;
-            usuario = datosUser;
 
             MemoryStream ms = new System.IO.MemoryStream(datosArticulo.Imagen);
             System.Drawing.Image imagen = System.Drawing.Image.FromStream(ms);
@@ -63,8 +60,8 @@ namespace ConsejeriaQR
                 segundos = 0;
 
                 if (cnxFPB.ComprobarQRExistente(textBoxCodigoQR.Text))
-                {                    
-                    FormularioConfirmaciónPrestamo fCP = new FormularioConfirmaciónPrestamo(cnxFPB, datosArticulo, usuario);
+                {
+                    FormularioConfirmaciónPrestamo fCP = new FormularioConfirmaciónPrestamo(cnxFPB, datosArticulo);
                     fCP.Show();
                     this.Close();
                 }

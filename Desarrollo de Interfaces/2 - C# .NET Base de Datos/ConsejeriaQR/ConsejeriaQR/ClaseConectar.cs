@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Security.Cryptography;
 using MySql.Data.MySqlClient;
 
@@ -10,36 +11,36 @@ namespace ConsejeriaQR
     /// </summary>
     public class ClaseConectar
     {
-        MySqlConnection conexion;
-        MySqlCommand comando;
-        MySqlDataReader datos;
+        private MySqlConnection conexion;
+        private MySqlCommand comando;
+        private MySqlDataReader datos;
 
         private List<Usuarios> listaUsuario = new List<Usuarios>();
         private List<Articulos> listaNombreArticulos = new List<Articulos>();
         private List<Articulos> listaArticulos = new List<Articulos>();
         private List<ArticulosDGV> listaArticulosDGV = new List<ArticulosDGV>();
         private List<Prestamos> listaArticulosPrestados = new List<Prestamos>();
+        private List<Articulos> listaArticulosEnMantenimiento = new List<Articulos>();
 
         public String CADENA_CONEXION = "server=localhost;Database=conserjeriaqr;Uid=root;pwd='';old guids=true";
-        private List<Articulos> listaArticulosEnMantenimiento = new List<Articulos>();
 
         /// <summary>
         /// Método que utiliza la contraseña que introduce el usuario y la encripta utilizando PBKDF2. Si esta coincide con la contraseña encriptada de la BD podrá iniciar sesión.
         /// </summary>
-        /// <param name="correo"> Texto con el correo introducido por el usuario. </param>
+        /// <param name="usuario"> Texto con el nombre del usuario introducido. </param>
         /// <param name="contrasenia"> Texto con la contraseña introducida por el usuario. </param>
         /// <returns> Verdadero / Falso => dependiendo de si encuentra el usuario en la BBDD o no. </returns>
-        internal bool IniciarSesion(string correo, string contrasenia)
+        internal bool IniciarSesion(string usuario, string contrasenia)
         {
             using (conexion = new MySqlConnection(CADENA_CONEXION))
             {
                 conexion.Open();
 
-                string cadenaSql = "SELECT Salt, Hash FROM usuarios WHERE correo = @correo";
+                string cadenaSql = "SELECT Salt, Hash FROM usuarios WHERE nombre = @usuario";
 
                 using (comando = new MySqlCommand(cadenaSql, conexion))
                 {
-                    comando.Parameters.AddWithValue("@correo", correo);
+                    comando.Parameters.AddWithValue("@usuario", usuario);
                     using (datos = comando.ExecuteReader())
                     {
                         if (datos.Read())
@@ -69,7 +70,7 @@ namespace ConsejeriaQR
         /// <param name="correoUsuario"> Texto con el correo introducido por el usuario. </param>
         /// <param name="contraseniaUsuario"> Texto con la contraseña introducido por el usuario. </param>
         /// <returns> Codigo => 1 si se realiza la insercción en la BBDD o 0 si no. </returns>
-        internal int RegistrarProfesor(string nombreUsuario, string correoUsuario, string contraseniaUsuario)
+        internal int RegistrarProfesor(string nombreUsuario, string departamento, string contraseniaUsuario)
         {
             int codigo;
 
@@ -83,12 +84,12 @@ namespace ConsejeriaQR
                 string saltBase64 = Convert.ToBase64String(salt);
                 string hashedBase64 = Convert.ToBase64String(hashedPassword);
 
-                string cadenaSql = "INSERT INTO usuarios VALUES (0, @nombre, @correo, @Salt, @Hash)";
+                string cadenaSql = "INSERT INTO usuarios VALUES (0, @nombre, @departamento, @Salt, @Hash)";
 
                 using (comando = new MySqlCommand(cadenaSql, conexion))
                 {
                     comando.Parameters.AddWithValue("@nombre", nombreUsuario);
-                    comando.Parameters.AddWithValue("@correo", correoUsuario);
+                    comando.Parameters.AddWithValue("@departamento", departamento);
                     comando.Parameters.AddWithValue("@Salt", saltBase64);
                     comando.Parameters.AddWithValue("@Hash", hashedBase64);
 
@@ -103,17 +104,17 @@ namespace ConsejeriaQR
         /// </summary>
         /// <param name="correo"> Texto con el correo del usuario a buscar. </param>
         /// <returns> listaUsuario => Lista con los datos del usuario que ha encontrado. </returns>
-        internal List<Usuarios> ObtenerDatosUsuario(string correo)
+        internal List<Usuarios> ObtenerDatosUsuario(string usuario)
         {
             using (conexion = new MySqlConnection(CADENA_CONEXION))
             {
                 conexion.Open();
 
-                string cadenaSql = "SELECT * FROM usuarios WHERE correo = @correo";
+                string cadenaSql = "SELECT * FROM usuarios WHERE nombre = @usuario";
 
                 using (comando = new MySqlCommand(cadenaSql, conexion))
                 {
-                    comando.Parameters.AddWithValue("@correo", correo);
+                    comando.Parameters.AddWithValue("@usuario", usuario);
 
                     using (datos = comando.ExecuteReader())
                     {
@@ -123,7 +124,7 @@ namespace ConsejeriaQR
                             {
                                 Id = (int)datos["id"],
                                 Nombre = (string)datos["nombre"],
-                                Correo = (string)datos["correo"],
+                                Departamento = (string)datos["departamento"],
                                 Salt = (string)datos["Salt"],
                                 Hash = (string)datos["Hash"]
                             };
@@ -349,13 +350,13 @@ namespace ConsejeriaQR
         /// <param name="user"> Lista con los datos del usuario que va a prestar el artículo. </param>
         /// <param name="fecha"> DateTime con la fecha de devolución aproximada. </param>
         /// <returns> Codigo => 1 si se realiza la insercción en la BBDD o 0 si no. </returns>
-        internal int PrestarArticulo(Articulos articulo, List<Usuarios> user, DateTime fecha)
+        internal int PrestarArticulo(Articulos articulo, string nombreProfe, DateTime fecha)
         {
 
             int codigo = 0;
             int id = articulo.Id;
             string nombreArticulo = articulo.Nombre;
-            string nombreProfesor = user[0].Nombre;
+            string nombreProfesor = nombreProfe;
             string codigoArticulo = articulo.Codigo;
             DateTime fechaPestamo = DateTime.Now;
             DateTime fechaDevolucion = fecha;
@@ -472,7 +473,7 @@ namespace ConsejeriaQR
         {
             int resultado = 0;
 
-            using (MySqlConnection conexion = new MySqlConnection(CADENA_CONEXION))
+            using (conexion = new MySqlConnection(CADENA_CONEXION))
             {
                 conexion.Open();
                 using (MySqlTransaction transaccion = conexion.BeginTransaction())
@@ -480,7 +481,7 @@ namespace ConsejeriaQR
                     bool exito = true;
 
                     string cadenaSqlDelete = "DELETE FROM prestamos WHERE idArticulo = @idArticulo AND nombreArticulo = @nombreArticulo";
-                    using (MySqlCommand comando = new MySqlCommand(cadenaSqlDelete, conexion, transaccion))
+                    using (comando = new MySqlCommand(cadenaSqlDelete, conexion, transaccion))
                     {
                         comando.Parameters.AddWithValue("@idArticulo", datosArticulo.IdArticulo);
                         comando.Parameters.AddWithValue("@nombreArticulo", datosArticulo.NombreArticulo);
@@ -575,6 +576,49 @@ namespace ConsejeriaQR
             return listaArticulosEnMantenimiento;
         }
 
+        /// <summary>
+        /// Método que se encarga de insertar todos los datos del fichero .CSV
+        /// </summary>
+        /// <param name="articulosFichero"> Lista con los datos de los artículos a insertar. </param>
+        internal void InsertarArticuloFichero(List<Articulos> articulosFichero)
+        {
+            using (conexion = new MySqlConnection(CADENA_CONEXION))
+            {
+                conexion.Open();
+
+                using (MySqlTransaction transaccion = conexion.BeginTransaction())
+                {
+                    try
+                    {
+                        foreach (var articulo in articulosFichero)
+                        {
+                            string consultaSQL = "INSERT INTO articulos VALUES (0, @nombre, @descripcion, @codigo, @claveQR, @imagenQR, @imagen, true, @mantenimiento)";
+
+                            using (comando = new MySqlCommand(consultaSQL, conexion, transaccion))
+                            {
+                                comando.Parameters.AddWithValue("@nombre", articulo.Nombre);
+                                comando.Parameters.AddWithValue("@descripcion", articulo.Descripcion);
+                                comando.Parameters.AddWithValue("@codigo", articulo.Codigo);
+                                comando.Parameters.AddWithValue("@claveQR", articulo.ClaveQR);
+                                comando.Parameters.AddWithValue("@imagenQR", articulo.ImagenQR);
+                                comando.Parameters.AddWithValue("@imagen", articulo.Imagen);
+                                comando.Parameters.AddWithValue("@mantenimiento", articulo.Mantenimiento);
+
+                                comando.ExecuteNonQuery();
+                            }
+                        }
+
+                        transaccion.Commit();
+                    }
+                    catch
+                    {
+                        transaccion.Rollback();
+                        throw;
+                    }
+                }
+            }
+        }
+
         // Métodos para encriptar la contraseña...
         private static byte[] GenerateSalt()
         {
@@ -592,6 +636,6 @@ namespace ConsejeriaQR
             {
                 return pbkdf2.GetBytes(32);
             }
-        }        
+        }
     }
 }

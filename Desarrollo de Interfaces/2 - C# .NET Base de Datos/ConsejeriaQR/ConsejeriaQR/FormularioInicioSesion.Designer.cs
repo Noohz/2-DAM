@@ -1,6 +1,6 @@
 ﻿namespace ConsejeriaQR
 {
-    partial class Form1
+    partial class FormularioInicioSesion
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pBcorreoUsuarioIcono = new System.Windows.Forms.PictureBox();
+            this.pBUsuarioIcono = new System.Windows.Forms.PictureBox();
             this.pBcontraseniaIcono = new System.Windows.Forms.PictureBox();
             this.pBLoginIcono = new System.Windows.Forms.PictureBox();
             this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.tBcontrasenia = new System.Windows.Forms.TextBox();
-            this.tBcorreo = new System.Windows.Forms.TextBox();
+            this.tBusuario = new System.Windows.Forms.TextBox();
             this.lblLoginTexto = new System.Windows.Forms.Label();
             this.btnCerrarLogin = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBcorreoUsuarioIcono)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBUsuarioIcono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBcontraseniaIcono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBLoginIcono)).BeginInit();
             this.SuspendLayout();
@@ -46,27 +46,27 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.pBcorreoUsuarioIcono);
+            this.panel1.Controls.Add(this.pBUsuarioIcono);
             this.panel1.Controls.Add(this.pBcontraseniaIcono);
             this.panel1.Controls.Add(this.pBLoginIcono);
             this.panel1.Controls.Add(this.btnIniciarSesion);
             this.panel1.Controls.Add(this.tBcontrasenia);
-            this.panel1.Controls.Add(this.tBcorreo);
+            this.panel1.Controls.Add(this.tBusuario);
             this.panel1.Controls.Add(this.lblLoginTexto);
             this.panel1.Location = new System.Drawing.Point(122, 58);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(507, 353);
             this.panel1.TabIndex = 0;
             // 
-            // pBcorreoUsuarioIcono
+            // pBUsuarioIcono
             // 
-            this.pBcorreoUsuarioIcono.Image = global::ConsejeriaQR.Properties.Resources.email;
-            this.pBcorreoUsuarioIcono.Location = new System.Drawing.Point(139, 156);
-            this.pBcorreoUsuarioIcono.Name = "pBcorreoUsuarioIcono";
-            this.pBcorreoUsuarioIcono.Size = new System.Drawing.Size(26, 26);
-            this.pBcorreoUsuarioIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pBcorreoUsuarioIcono.TabIndex = 11;
-            this.pBcorreoUsuarioIcono.TabStop = false;
+            this.pBUsuarioIcono.Image = global::ConsejeriaQR.Properties.Resources.user;
+            this.pBUsuarioIcono.Location = new System.Drawing.Point(139, 156);
+            this.pBUsuarioIcono.Name = "pBUsuarioIcono";
+            this.pBUsuarioIcono.Size = new System.Drawing.Size(26, 26);
+            this.pBUsuarioIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBUsuarioIcono.TabIndex = 11;
+            this.pBUsuarioIcono.TabStop = false;
             // 
             // pBcontraseniaIcono
             // 
@@ -97,7 +97,7 @@
             this.btnIniciarSesion.Location = new System.Drawing.Point(139, 258);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
             this.btnIniciarSesion.Size = new System.Drawing.Size(258, 43);
-            this.btnIniciarSesion.TabIndex = 2;
+            this.btnIniciarSesion.TabIndex = 3;
             this.btnIniciarSesion.Text = "Acceder";
             this.btnIniciarSesion.UseVisualStyleBackColor = false;
             this.btnIniciarSesion.Click += new System.EventHandler(this.btniniciarSesion_Click);
@@ -105,20 +105,24 @@
             // tBcontrasenia
             // 
             this.tBcontrasenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBcontrasenia.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tBcontrasenia.Location = new System.Drawing.Point(177, 203);
             this.tBcontrasenia.Name = "tBcontrasenia";
             this.tBcontrasenia.Size = new System.Drawing.Size(220, 26);
-            this.tBcontrasenia.TabIndex = 1;
+            this.tBcontrasenia.TabIndex = 2;
+            this.tBcontrasenia.Text = "Contraseña";
             this.tBcontrasenia.UseSystemPasswordChar = true;
             this.tBcontrasenia.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBcontrasenia_KeyDown);
             // 
-            // tBcorreo
+            // tBusuario
             // 
-            this.tBcorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBcorreo.Location = new System.Drawing.Point(177, 156);
-            this.tBcorreo.Name = "tBcorreo";
-            this.tBcorreo.Size = new System.Drawing.Size(220, 26);
-            this.tBcorreo.TabIndex = 0;
+            this.tBusuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBusuario.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.tBusuario.Location = new System.Drawing.Point(177, 156);
+            this.tBusuario.Name = "tBusuario";
+            this.tBusuario.Size = new System.Drawing.Size(220, 26);
+            this.tBusuario.TabIndex = 1;
+            this.tBusuario.Text = "Nombre de usuario";
             // 
             // lblLoginTexto
             // 
@@ -139,13 +143,13 @@
             this.btnCerrarLogin.Location = new System.Drawing.Point(712, 12);
             this.btnCerrarLogin.Name = "btnCerrarLogin";
             this.btnCerrarLogin.Size = new System.Drawing.Size(44, 23);
-            this.btnCerrarLogin.TabIndex = 3;
-            this.btnCerrarLogin.TabStop = false;
+            this.btnCerrarLogin.TabIndex = 0;
+            this.btnCerrarLogin.Tag = "0";
             this.btnCerrarLogin.Text = "X";
             this.btnCerrarLogin.UseVisualStyleBackColor = false;
             this.btnCerrarLogin.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // Form1
+            // FormularioInicioSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -154,12 +158,12 @@
             this.Controls.Add(this.btnCerrarLogin);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "FormularioInicioSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBcorreoUsuarioIcono)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBUsuarioIcono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBcontraseniaIcono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBLoginIcono)).EndInit();
             this.ResumeLayout(false);
@@ -173,10 +177,10 @@
         private System.Windows.Forms.Label lblLoginTexto;
         private System.Windows.Forms.Button btnIniciarSesion;
         private System.Windows.Forms.TextBox tBcontrasenia;
-        private System.Windows.Forms.TextBox tBcorreo;
+        private System.Windows.Forms.TextBox tBusuario;
         private System.Windows.Forms.PictureBox pBLoginIcono;
         private System.Windows.Forms.PictureBox pBcontraseniaIcono;
-        private System.Windows.Forms.PictureBox pBcorreoUsuarioIcono;
+        private System.Windows.Forms.PictureBox pBUsuarioIcono;
     }
 }
 

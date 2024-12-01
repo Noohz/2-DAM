@@ -32,6 +32,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.calendarioFechaDevolucion = new ConsejeriaQR.Controls_Personalizados.Calendario_personalizado();
             this.btnConfirmarPrestamo = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tBNombreProfesor = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -49,7 +51,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 107);
+            this.label2.Location = new System.Drawing.Point(12, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(272, 18);
             this.label2.TabIndex = 11;
@@ -61,7 +63,7 @@
             this.calendarioFechaDevolucion.BorderColor = System.Drawing.Color.Black;
             this.calendarioFechaDevolucion.BorderSize = 1;
             this.calendarioFechaDevolucion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.calendarioFechaDevolucion.Location = new System.Drawing.Point(290, 97);
+            this.calendarioFechaDevolucion.Location = new System.Drawing.Point(290, 61);
             this.calendarioFechaDevolucion.MinimumSize = new System.Drawing.Size(4, 35);
             this.calendarioFechaDevolucion.Name = "calendarioFechaDevolucion";
             this.calendarioFechaDevolucion.Size = new System.Drawing.Size(256, 35);
@@ -87,12 +89,32 @@
             this.btnConfirmarPrestamo.UseVisualStyleBackColor = false;
             this.btnConfirmarPrestamo.Click += new System.EventHandler(this.BtnConfirmarPrestamo_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 118);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(322, 18);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Nombre del profesor que recibe el prestamo";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tBNombreProfesor
+            // 
+            this.tBNombreProfesor.Location = new System.Drawing.Point(341, 115);
+            this.tBNombreProfesor.Name = "tBNombreProfesor";
+            this.tBNombreProfesor.Size = new System.Drawing.Size(205, 20);
+            this.tBNombreProfesor.TabIndex = 14;
+            // 
             // FormularioConfirmaciónPrestamo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(103)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(550, 205);
+            this.Controls.Add(this.tBNombreProfesor);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnConfirmarPrestamo);
             this.Controls.Add(this.calendarioFechaDevolucion);
             this.Controls.Add(this.label2);
@@ -113,5 +135,7 @@
         private System.Windows.Forms.Label label2;
         private Controls_Personalizados.Calendario_personalizado calendarioFechaDevolucion;
         private System.Windows.Forms.Button btnConfirmarPrestamo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tBNombreProfesor;
     }
 }

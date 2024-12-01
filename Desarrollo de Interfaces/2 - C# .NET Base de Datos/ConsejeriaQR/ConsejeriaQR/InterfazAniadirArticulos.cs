@@ -16,7 +16,6 @@ namespace ConsejeriaQR
         List<Control> listaControles;
         List<Control> listaControlesDB;
         List<ArticulosDGV> listaArticulosDGV = new List<ArticulosDGV>();
-        List<String> listaNombreArticulos = new List<string> { "Llaves de aula", "Llaves de armarios de ordenadores", "Mandos de proyectores", "Lápiz tablet", "Cables de tablet" };
 
         public InterfazAniadirArticulos(ClaseConectar cnxGP)
         {
@@ -80,14 +79,12 @@ namespace ConsejeriaQR
             };
 
             // TextBox en el que el usuario puede escribir el nombre del artículo.
-            ComboBox cBNombre = new ComboBox
+            TextBox tBNombre = new TextBox
             {
                 Width = 442,
                 Height = 26,
                 Location = new Point((int)(panelArticulo.Width * 0.40), 245)
             };
-            cBNombre.Items.AddRange(listaNombreArticulos.ToArray());
-            cBNombre.DropDownStyle = ComboBoxStyle.DropDownList;
 
             // Label para contener el texto..
             Label lblDescripcionArticulo = new Label
@@ -145,9 +142,9 @@ namespace ConsejeriaQR
             btnCrearArticulo.Location = new Point((int)(panelArticulo.Width * 0.40), 490);
             btnCrearArticulo.Text = "Crear artículo";
 
-            listaControles = new List<Control> { lblImagenArticulo, pBImagenArticulo, lblIndicadorImagen, lblNombreArticulo, cBNombre, lblDescripcionArticulo, tBDescripcion, lblCodigoArticulo, tBCodigo, btnCrearArticulo };
+            listaControles = new List<Control> { lblImagenArticulo, pBImagenArticulo, lblIndicadorImagen, lblNombreArticulo, tBNombre, lblDescripcionArticulo, tBDescripcion, lblCodigoArticulo, tBCodigo, btnCrearArticulo };
 
-            btnCrearArticulo.Click += (sender, e) => BtnCrearArticulo_Click(cBNombre.Text, tBDescripcion.Text, tBCodigo.Text);
+            btnCrearArticulo.Click += (sender, e) => BtnCrearArticulo_Click(tBNombre.Text, tBDescripcion.Text, tBCodigo.Text);
 
             panelArticulo.Controls.AddRange(listaControles.ToArray());
 
@@ -155,7 +152,7 @@ namespace ConsejeriaQR
         }
 
         // Método que generará un Panel para almacenar un DataGridView que contendrá los artículos de la BD.
-        internal Panel GenerarPanelDatosArticulosBD(int width, int height)
+        public Panel GenerarPanelDatosArticulosBD(int width, int height)
         {
             Panel panelDatosBD = new Panel
             {

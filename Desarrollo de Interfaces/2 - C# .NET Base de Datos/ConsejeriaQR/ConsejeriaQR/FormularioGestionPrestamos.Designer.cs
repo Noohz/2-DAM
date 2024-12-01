@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblGestionPrestamoTitulo = new System.Windows.Forms.Label();
             this.btnVolverGestionPrestamos = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnModificarArticulo = new System.Windows.Forms.Button();
+            this.btnArticulosMantenimiento = new System.Windows.Forms.Button();
             this.btnArticulosPrestados = new System.Windows.Forms.Button();
             this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,10 +43,13 @@
             this.btnAniadirArticulo = new System.Windows.Forms.Button();
             this.pBLoginIcono = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnArticulosMantenimiento = new System.Windows.Forms.Button();
+            this.boton_desplegableAniadirArticulos = new ConsejeriaQR.Controls_Personalizados.Boton_desplegable(this.components);
+            this.aniadirArtículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cargarFicherosConDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBLoginIcono)).BeginInit();
+            this.boton_desplegableAniadirArticulos.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -88,6 +94,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(113)))), ((int)(((byte)(73)))));
+            this.panel2.Controls.Add(this.btnModificarArticulo);
             this.panel2.Controls.Add(this.btnArticulosMantenimiento);
             this.panel2.Controls.Add(this.btnArticulosPrestados);
             this.panel2.Controls.Add(this.lblNombreUsuario);
@@ -102,19 +109,55 @@
             this.panel2.Size = new System.Drawing.Size(248, 717);
             this.panel2.TabIndex = 1;
             // 
+            // btnModificarArticulo
+            // 
+            this.btnModificarArticulo.BackColor = System.Drawing.SystemColors.Control;
+            this.btnModificarArticulo.Enabled = false;
+            this.btnModificarArticulo.FlatAppearance.BorderSize = 0;
+            this.btnModificarArticulo.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnModificarArticulo.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnModificarArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificarArticulo.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnModificarArticulo.Location = new System.Drawing.Point(12, 364);
+            this.btnModificarArticulo.Name = "btnModificarArticulo";
+            this.btnModificarArticulo.Size = new System.Drawing.Size(221, 43);
+            this.btnModificarArticulo.TabIndex = 2;
+            this.btnModificarArticulo.Text = "Modificar artículos";
+            this.btnModificarArticulo.UseVisualStyleBackColor = false;
+            // 
+            // btnArticulosMantenimiento
+            // 
+            this.btnArticulosMantenimiento.BackColor = System.Drawing.SystemColors.Control;
+            this.btnArticulosMantenimiento.Enabled = false;
+            this.btnArticulosMantenimiento.FlatAppearance.BorderSize = 0;
+            this.btnArticulosMantenimiento.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnArticulosMantenimiento.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnArticulosMantenimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArticulosMantenimiento.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArticulosMantenimiento.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnArticulosMantenimiento.Location = new System.Drawing.Point(12, 545);
+            this.btnArticulosMantenimiento.Name = "btnArticulosMantenimiento";
+            this.btnArticulosMantenimiento.Size = new System.Drawing.Size(221, 54);
+            this.btnArticulosMantenimiento.TabIndex = 5;
+            this.btnArticulosMantenimiento.Text = "Articulos en mantenimiento";
+            this.btnArticulosMantenimiento.UseVisualStyleBackColor = false;
+            this.btnArticulosMantenimiento.Click += new System.EventHandler(this.BtnArticulosMantenimiento_Click);
+            // 
             // btnArticulosPrestados
             // 
             this.btnArticulosPrestados.BackColor = System.Drawing.SystemColors.Control;
+            this.btnArticulosPrestados.Enabled = false;
             this.btnArticulosPrestados.FlatAppearance.BorderSize = 0;
             this.btnArticulosPrestados.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.btnArticulosPrestados.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.btnArticulosPrestados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnArticulosPrestados.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnArticulosPrestados.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnArticulosPrestados.Location = new System.Drawing.Point(12, 428);
+            this.btnArticulosPrestados.Location = new System.Drawing.Point(12, 484);
             this.btnArticulosPrestados.Name = "btnArticulosPrestados";
             this.btnArticulosPrestados.Size = new System.Drawing.Size(221, 43);
-            this.btnArticulosPrestados.TabIndex = 15;
+            this.btnArticulosPrestados.TabIndex = 4;
             this.btnArticulosPrestados.Text = "Artículos prestados";
             this.btnArticulosPrestados.UseVisualStyleBackColor = false;
             this.btnArticulosPrestados.Click += new System.EventHandler(this.BtnArticulosPrestados_Click);
@@ -144,16 +187,17 @@
             // btnPrestarArticulo
             // 
             this.btnPrestarArticulo.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPrestarArticulo.Enabled = false;
             this.btnPrestarArticulo.FlatAppearance.BorderSize = 0;
             this.btnPrestarArticulo.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.btnPrestarArticulo.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.btnPrestarArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrestarArticulo.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrestarArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnPrestarArticulo.Location = new System.Drawing.Point(12, 369);
+            this.btnPrestarArticulo.Location = new System.Drawing.Point(12, 425);
             this.btnPrestarArticulo.Name = "btnPrestarArticulo";
             this.btnPrestarArticulo.Size = new System.Drawing.Size(221, 43);
-            this.btnPrestarArticulo.TabIndex = 8;
+            this.btnPrestarArticulo.TabIndex = 3;
             this.btnPrestarArticulo.Text = "Prestar artículos";
             this.btnPrestarArticulo.UseVisualStyleBackColor = false;
             this.btnPrestarArticulo.Click += new System.EventHandler(this.BtnPrestarArticulo_Click);
@@ -161,16 +205,17 @@
             // btnEliminarArticulo
             // 
             this.btnEliminarArticulo.BackColor = System.Drawing.SystemColors.Control;
+            this.btnEliminarArticulo.Enabled = false;
             this.btnEliminarArticulo.FlatAppearance.BorderSize = 0;
             this.btnEliminarArticulo.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.btnEliminarArticulo.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.btnEliminarArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarArticulo.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarArticulo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnEliminarArticulo.Location = new System.Drawing.Point(12, 306);
+            this.btnEliminarArticulo.Location = new System.Drawing.Point(12, 301);
             this.btnEliminarArticulo.Name = "btnEliminarArticulo";
             this.btnEliminarArticulo.Size = new System.Drawing.Size(221, 43);
-            this.btnEliminarArticulo.TabIndex = 7;
+            this.btnEliminarArticulo.TabIndex = 1;
             this.btnEliminarArticulo.Text = "Eliminar artículos";
             this.btnEliminarArticulo.UseVisualStyleBackColor = false;
             this.btnEliminarArticulo.Click += new System.EventHandler(this.BtnEliminarArticulo_Click);
@@ -178,6 +223,7 @@
             // btnAniadirArticulo
             // 
             this.btnAniadirArticulo.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAniadirArticulo.Enabled = false;
             this.btnAniadirArticulo.FlatAppearance.BorderSize = 0;
             this.btnAniadirArticulo.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.btnAniadirArticulo.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
@@ -187,7 +233,7 @@
             this.btnAniadirArticulo.Location = new System.Drawing.Point(12, 241);
             this.btnAniadirArticulo.Name = "btnAniadirArticulo";
             this.btnAniadirArticulo.Size = new System.Drawing.Size(221, 43);
-            this.btnAniadirArticulo.TabIndex = 6;
+            this.btnAniadirArticulo.TabIndex = 0;
             this.btnAniadirArticulo.Text = "Añadir artículos";
             this.btnAniadirArticulo.UseVisualStyleBackColor = false;
             this.btnAniadirArticulo.Click += new System.EventHandler(this.BtnAniadirArticulo_Click);
@@ -211,22 +257,31 @@
             this.panel3.Size = new System.Drawing.Size(1183, 717);
             this.panel3.TabIndex = 2;
             // 
-            // btnArticulosMantenimiento
+            // boton_desplegableAniadirArticulos
             // 
-            this.btnArticulosMantenimiento.BackColor = System.Drawing.SystemColors.Control;
-            this.btnArticulosMantenimiento.FlatAppearance.BorderSize = 0;
-            this.btnArticulosMantenimiento.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnArticulosMantenimiento.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnArticulosMantenimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArticulosMantenimiento.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArticulosMantenimiento.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnArticulosMantenimiento.Location = new System.Drawing.Point(12, 489);
-            this.btnArticulosMantenimiento.Name = "btnArticulosMantenimiento";
-            this.btnArticulosMantenimiento.Size = new System.Drawing.Size(221, 54);
-            this.btnArticulosMantenimiento.TabIndex = 16;
-            this.btnArticulosMantenimiento.Text = "Articulos en mantenimiento";
-            this.btnArticulosMantenimiento.UseVisualStyleBackColor = false;
-            this.btnArticulosMantenimiento.Click += new System.EventHandler(this.btnArticulosMantenimiento_Click);
+            this.boton_desplegableAniadirArticulos.IsMainMenu = false;
+            this.boton_desplegableAniadirArticulos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aniadirArtículoToolStripMenuItem,
+            this.cargarFicherosConDatosToolStripMenuItem});
+            this.boton_desplegableAniadirArticulos.MenuItemHeight = 25;
+            this.boton_desplegableAniadirArticulos.MenuItemTextColor = System.Drawing.Color.Empty;
+            this.boton_desplegableAniadirArticulos.Name = "boton_desplegableAñadirArticulos";
+            this.boton_desplegableAniadirArticulos.PrimaryColor = System.Drawing.Color.Empty;
+            this.boton_desplegableAniadirArticulos.Size = new System.Drawing.Size(205, 48);
+            // 
+            // aniadirArtículoToolStripMenuItem
+            // 
+            this.aniadirArtículoToolStripMenuItem.Name = "aniadirArtículoToolStripMenuItem";
+            this.aniadirArtículoToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.aniadirArtículoToolStripMenuItem.Text = "Añadir artículo";
+            this.aniadirArtículoToolStripMenuItem.Click += new System.EventHandler(this.AniadirArtículoToolStripMenuItem_Click);
+            // 
+            // cargarFicherosConDatosToolStripMenuItem
+            // 
+            this.cargarFicherosConDatosToolStripMenuItem.Name = "cargarFicherosConDatosToolStripMenuItem";
+            this.cargarFicherosConDatosToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.cargarFicherosConDatosToolStripMenuItem.Text = "Cargar fichero con datos";
+            this.cargarFicherosConDatosToolStripMenuItem.Click += new System.EventHandler(this.CargarFicherosConDatosToolStripMenuItem_Click);
             // 
             // FormularioGestionPrestamos
             // 
@@ -246,6 +301,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBLoginIcono)).EndInit();
+            this.boton_desplegableAniadirArticulos.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -265,5 +321,9 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnArticulosPrestados;
         private System.Windows.Forms.Button btnArticulosMantenimiento;
+        private System.Windows.Forms.Button btnModificarArticulo;
+        private Controls_Personalizados.Boton_desplegable boton_desplegableAniadirArticulos;
+        private System.Windows.Forms.ToolStripMenuItem aniadirArtículoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cargarFicherosConDatosToolStripMenuItem;
     }
 }
