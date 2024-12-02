@@ -128,6 +128,12 @@
     <Compile Include="FormularioGestionPrestamos.Designer.cs">
       <DependentUpon>FormularioGestionPrestamos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormularioModDatosBoton.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormularioModDatosBoton.Designer.cs">
+      <DependentUpon>FormularioModDatosBoton.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormularioPrestamoBtn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,7 @@
     <Compile Include="InterfazArticulosPrestados.cs" />
     <Compile Include="InterfazEliminarArticulos.cs" />
     <Compile Include="InterfazImportarFichero.cs" />
+    <Compile Include="InterfazModificarArticulo.cs" />
     <Compile Include="InterfazPrestarArticulo.cs" />
     <Compile Include="Prestamos.cs" />
     <Compile Include="PrestamosHistorico.cs" />
@@ -165,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioGestionPrestamos.resx">
       <DependentUpon>FormularioGestionPrestamos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormularioModDatosBoton.resx">
+      <DependentUpon>FormularioModDatosBoton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioPrestamoBtn.resx">
       <DependentUpon>FormularioPrestamoBtn.cs</DependentUpon>

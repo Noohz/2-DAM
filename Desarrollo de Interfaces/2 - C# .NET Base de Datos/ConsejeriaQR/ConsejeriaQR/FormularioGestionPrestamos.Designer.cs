@@ -125,6 +125,7 @@
             this.btnModificarArticulo.TabIndex = 2;
             this.btnModificarArticulo.Text = "Modificar artículos";
             this.btnModificarArticulo.UseVisualStyleBackColor = false;
+            this.btnModificarArticulo.Click += new System.EventHandler(this.btnModificarArticulo_Click);
             // 
             // btnArticulosMantenimiento
             // 

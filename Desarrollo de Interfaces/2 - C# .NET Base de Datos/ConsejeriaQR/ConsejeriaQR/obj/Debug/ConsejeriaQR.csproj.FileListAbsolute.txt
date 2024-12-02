@@ -22,3 +22,4 @@ C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.exe
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.pdb
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.FormularioInicioSesion.resources
+C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.FormularioModDatosBoton.resources

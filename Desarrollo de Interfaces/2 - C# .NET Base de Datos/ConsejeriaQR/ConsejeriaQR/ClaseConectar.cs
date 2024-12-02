@@ -468,7 +468,7 @@ namespace ConsejeriaQR
         /// <param name="datosArticulo"> Lista con los datos del artículo prestado. </param>
         /// <param name="activo"> int que se utiliza para marcar el artículo como activo en el update. </param>
         /// <param name="mantenimiento"> int que indica si el artículo deberá estar en mantenimiento o no, este parámetro dependerá de la respuesta del MessageBox. </param>
-        /// <returns> Resultado => 1 si se realizan correctamente todas las queries en la BBDD o 0 si no.</returns>
+        /// <returns> Resultado => 1 si se realizan correctamente todas las queries en la BBDD o 0 si no. </returns>
         internal int devolverArticulo(Prestamos datosArticulo, int activo, int mantenimiento)
         {
             int resultado = 0;
@@ -619,6 +619,41 @@ namespace ConsejeriaQR
             }
         }
 
+        /// <summary>
+        /// Método para modificar los datos del artículo que coincide con el idArticulo que recibe por parámetro.
+        /// </summary>
+        /// <param name="idArticulo"> El ID del artículo a modificar. </param>
+        /// <param name="nombreArticuloMod"> El nuevo nombre del artículo. </param>
+        /// <param name="descripcionArticuloMod"> La nueva descripción del artículo. </param>
+        /// <param name="codigoArticuloMod"> El nuevo código del artículo. </param>
+        /// <param name="claveQRArticuloMod"> La nueva claveQR del artículo. </param>
+        /// <param name="imagenQR"> La nueva imágen del códigoQR. </param>
+        /// <returns> Resultado => 1 si se realizan correctamente todas las queries en la BBDD o 0 si no. </returns>
+        internal int ModificarArticulo(string idArticulo, string nombreArticuloMod, string descripcionArticuloMod, string codigoArticuloMod, string claveQRArticuloMod, byte[] imagenQR)
+        {
+            int codigo = 0;
+
+            using (conexion = new MySqlConnection(CADENA_CONEXION))
+            {
+                conexion.Open();
+                string cadenaSql = "UPDATE articulos SET nombre = @nombreArticuloMod, descripcion = @descripcionArticuloMod, codigo = @codigoArticuloMod, " +
+                    "claveQR = @claveQRArticuloMod, imagenQR = @imagenQR WHERE id = @idArticulo";
+
+                using (comando = new MySqlCommand(cadenaSql, conexion))
+                {
+                    comando.Parameters.AddWithValue("@nombreArticuloMod", nombreArticuloMod);
+                    comando.Parameters.AddWithValue("@descripcionArticuloMod", descripcionArticuloMod);
+                    comando.Parameters.AddWithValue("@codigoArticuloMod", codigoArticuloMod);
+                    comando.Parameters.AddWithValue("@claveQRArticuloMod", claveQRArticuloMod);
+                    comando.Parameters.AddWithValue("@imagenQR", imagenQR);
+                    comando.Parameters.AddWithValue("@idArticulo", idArticulo);
+
+                    codigo = comando.ExecuteNonQuery();
+                }
+            }
+            return codigo;
+        }
+
         // Métodos para encriptar la contraseña...
         private static byte[] GenerateSalt()
         {
@@ -636,6 +671,6 @@ namespace ConsejeriaQR
             {
                 return pbkdf2.GetBytes(32);
             }
-        }
+        }        
     }
 }
