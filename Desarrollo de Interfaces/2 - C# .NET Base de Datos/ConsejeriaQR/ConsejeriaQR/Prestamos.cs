@@ -10,6 +10,7 @@ namespace ConsejeriaQR
         private int id;
         private int idArticulo;
         private string nombreArticulo;
+        private string categoria;
         private string nombreProfesor;
         private string codigo;
         private DateTime fechaPrestamo;
@@ -20,11 +21,12 @@ namespace ConsejeriaQR
         {
         }
 
-        public Prestamos(int id, int idArticulo, string nombreArticulo, string nombreProfesor, string codigo, DateTime fechaPrestamo, DateTime fechaDevolucion, byte[] imagen)
+        public Prestamos(int id, int idArticulo, string nombreArticulo, string categoria, string nombreProfesor, string codigo, DateTime fechaPrestamo, DateTime fechaDevolucion, byte[] imagen)
         {
             this.id = id;
             this.idArticulo = idArticulo;
             this.nombreArticulo = nombreArticulo;
+            this.categoria = categoria;
             this.nombreProfesor = nombreProfesor;
             this.codigo = codigo;
             this.fechaPrestamo = fechaPrestamo;
@@ -35,6 +37,7 @@ namespace ConsejeriaQR
         public int Id { get => id; set => id = value; }
         public int IdArticulo { get => idArticulo; set => idArticulo = value; }
         public string NombreArticulo { get => nombreArticulo; set => nombreArticulo = value; }
+        public string Categoria { get => categoria; set => categoria = value; }
         public string NombreProfesor { get => nombreProfesor; set => nombreProfesor = value; }
         public string Codigo { get => codigo; set => codigo = value; }
         public DateTime FechaPrestamo { get => fechaPrestamo; set => fechaPrestamo = value; }

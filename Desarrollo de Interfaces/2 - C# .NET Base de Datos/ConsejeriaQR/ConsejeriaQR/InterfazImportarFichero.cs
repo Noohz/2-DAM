@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using System.Net.NetworkInformation;
 using System.Windows.Forms;
 using QRCoder;
 
@@ -15,8 +14,8 @@ namespace ConsejeriaQR
     /// </summary>
     internal class InterfazImportarFichero
     {
-        String nombreImagen;
         ClaseConectar cnxiIF;
+        private static string RUTA_CARPEA_IMAGEN = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "FotosPrestamo");
 
         private List<Control> listaControles;
         private List<Control> listaControlesDB;
@@ -41,39 +40,19 @@ namespace ConsejeriaQR
             Panel panelArticulo = new Panel
             {
                 Width = width - (width * 30 / 100),
-                Height = height - (height * 45 / 100),
+                Height = height - (height * 65 / 100),
                 BackColor = Color.White
             };
             panelArticulo.Location = new Point((width - panelArticulo.Width) / 2, 100);
 
-            Label lblImagenArticulo = new Label
+            Label lblTitulo = new Label
             {
-                Text = "Imágen de los artículo",
+                Text = "Importar datos mediante .CSV",
                 TextAlign = ContentAlignment.MiddleCenter,
-                Width = 193,
-                Height = 19,
-                Location = new Point((int)(panelArticulo.Width * 0.15), 110),
-                Font = new Font("Arial", 12, FontStyle.Bold)
-            };
-
-            PictureBox pBImagenArticulo = new PictureBox
-            {
-                Width = 200,
-                Height = 180,
-                Location = new Point((int)(panelArticulo.Width * 0.5), 35),
-                BorderStyle = BorderStyle.FixedSingle,
-                SizeMode = PictureBoxSizeMode.StretchImage
-            };
-            pBImagenArticulo.Click += PBImagenArticulo_Click;
-
-            Label lblIndicadorImagen = new Label
-            {
-                Text = "Click en el cuadrado para introducir una imágen",
-                TextAlign = ContentAlignment.MiddleCenter,
-                Width = 269,
-                Height = 14,
-                Location = new Point((int)(panelArticulo.Width * 0.47), 220),
-                Font = new Font("Arial", 8, FontStyle.Bold)
+                Width = 350,
+                Height = 40,
+                Location = new Point((int)(panelArticulo.Width * 0.35), 80),
+                Font = new Font("Arial", 16, FontStyle.Bold)
             };
 
             Label lblImportarArticulo = new Label
@@ -82,7 +61,7 @@ namespace ConsejeriaQR
                 TextAlign = ContentAlignment.MiddleCenter,
                 Width = 320,
                 Height = 19,
-                Location = new Point((int)(panelArticulo.Width * 0.15), 335),
+                Location = new Point((int)(panelArticulo.Width * 0.15), 220),
                 Font = new Font("Arial", 12, FontStyle.Bold)
             };
 
@@ -90,7 +69,7 @@ namespace ConsejeriaQR
             {
                 Width = 442,
                 Height = 88,
-                Location = new Point((int)(panelArticulo.Width * 0.43), 335),
+                Location = new Point((int)(panelArticulo.Width * 0.43), 220),
                 Enabled = false
             };
 
@@ -98,7 +77,7 @@ namespace ConsejeriaQR
             {
                 Width = 40,
                 Height = 23,
-                Location = new Point((int)(panelArticulo.Width * 0.81), 333),
+                Location = new Point((int)(panelArticulo.Width * 0.81), 220),
                 BackgroundImageLayout = ImageLayout.Stretch,
                 BackgroundImage = imgBotonFichero,
 
@@ -114,11 +93,11 @@ namespace ConsejeriaQR
             btnImportarFichero.Font = new Font("Arial", 14, FontStyle.Bold);
             btnImportarFichero.Width = 221;
             btnImportarFichero.Height = 43;
-            btnImportarFichero.Location = new Point((int)(panelArticulo.Width * 0.40), 490);
+            btnImportarFichero.Location = new Point((int)(panelArticulo.Width * 0.40), 300);
             btnImportarFichero.Text = "Importar fichero";
             btnImportarFichero.Click += BtnImportarFichero_Click;
 
-            listaControles = new List<Control> { lblImagenArticulo, pBImagenArticulo, lblIndicadorImagen, lblImportarArticulo, tBDirFichero, btnInsertarFichero, btnImportarFichero };
+            listaControles = new List<Control> { lblTitulo, lblImportarArticulo, tBDirFichero, btnInsertarFichero, btnImportarFichero };
 
             panelArticulo.Controls.AddRange(listaControles.ToArray());
 
@@ -136,10 +115,10 @@ namespace ConsejeriaQR
             Panel panelDatosBD = new Panel
             {
                 Width = width - (width * 30 / 100),
-                Height = height - (height * 70 / 100),
+                Height = height - (height * 50 / 100),
                 BackColor = Color.White
             };
-            panelDatosBD.Location = new Point((width - panelDatosBD.Width) / 2, 680);
+            panelDatosBD.Location = new Point((width - panelDatosBD.Width) / 2, 470);
 
             Label lblTituloBD = new Label
             {
@@ -156,7 +135,8 @@ namespace ConsejeriaQR
                 Location = new Point((int)(panelDatosBD.Width * 0.03), 40),
                 EditMode = DataGridViewEditMode.EditProgrammatically,
                 AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
-                ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+                ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing,
+                Enabled = false
             };
 
             listaControlesDB = new List<Control> { lblTituloBD, dGVArticulos };
@@ -176,7 +156,6 @@ namespace ConsejeriaQR
         /// <param name="e"> Los argumentos del evento. </param>
         private void BtnImportarFichero_Click(object sender, EventArgs e)
         {
-            PictureBox imgArticulo = (PictureBox)listaControles[1];
             DataGridView comboDGV = (DataGridView)listaControlesDB[1];
 
             if (articulosFichero.Count == 0)
@@ -189,8 +168,7 @@ namespace ConsejeriaQR
                 cnxiIF.InsertarArticuloFichero(articulosFichero);
                 MessageBox.Show("Artículos importados correctamente en la base de datos.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                imgArticulo.Image = null;
-                listaControles[4].Text = "";
+                listaControles[2].Text = "";
 
                 listaArticulosDGV = cnxiIF.ObtenerArticulosDGV();
                 comboDGV.DataSource = null;
@@ -199,99 +177,202 @@ namespace ConsejeriaQR
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al importar fichero: {ex.Message}");
+                MessageBox.Show($"Ha ocurrido un error al intentar importar el fichero:\n {ex.Message}");
             }
         }
 
         /// <summary>
-        /// Evento que se encarga de cargar los datos del fichero .CSV y guardarlos en una lista par autilizarlos después.
+        /// Evento para insertar un fichero CSV y procesar sus datos.
         /// </summary>
-        /// <param name="sender"> Control que ha llamado al evento. </param>
-        /// <param name="e"> Los argumentos del evento. </param>
         private void BtnInsertarFichero_Click(object sender, EventArgs e)
         {
             articulosFichero.Clear();
 
-            PictureBox imgArticulo = (PictureBox)listaControles[1];
-            string claveQR;
-
-            if (imgArticulo.Image != null)
+            // Validar que la carpeta de imágenes existe o crearla
+            if (!ValidarCarpetaImagenes())
             {
-                FileStream fs = new FileStream(nombreImagen, FileMode.Open, FileAccess.Read);
-                BinaryReader br = new BinaryReader(fs);
-                byte[] imagenArticulo = br.ReadBytes((int)fs.Length);
+                return;
+            }
 
-                OpenFileDialog openFileDialog = new OpenFileDialog
+            // Abrir diálogo para seleccionar archivo CSV
+            string dirArchivo = ObtenerRutaArchivoCSV();
+            if (string.IsNullOrEmpty(dirArchivo))
+                return;
+
+            // Procesar el archivo seleccionado
+            ProcesarArchivoCSV(dirArchivo);
+        }
+
+        /// <summary>
+        /// Verifica la existencia de la carpeta de imágenes o la crea si no existe.
+        /// </summary>
+        /// <returns> True si la carpeta existe o ha sido creada correctamente, False en caso de error. </returns>
+        private bool ValidarCarpetaImagenes()
+        {
+            if (!Directory.Exists(RUTA_CARPEA_IMAGEN))
+            {
+                try
                 {
-                    Filter = "Archivos CSV (*.csv)|*.csv",
-                    Title = "Seleccionar archivo .CSV"
-                };
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string dirArchivo = openFileDialog.FileName;
-
-                    try
-                    {
-                        var linea = File.ReadAllLines(dirArchivo).Skip(1);
-
-                        Random random = new Random();
-
-                        foreach (var line in linea)
-                        {
-                            int numAleatorio = random.Next(100000000, 999999999 + 1);
-                            char letraAleatoria = (char)random.Next('A', 'Z' + 1);
-                            claveQR = numAleatorio.ToString() + letraAleatoria;
-
-                            while (cnxiIF.ComprobarQRExistente(claveQR))
-                            {
-                                int nuevoNumAleatorio = random.Next(100000000, 999999999 + 1);
-                                char nuevaLetraAleatoria = (char)random.Next('A', 'Z' + 1);
-                                claveQR = nuevoNumAleatorio.ToString() + nuevaLetraAleatoria;
-                            }
-
-                            byte[] imagenQR = GenerarImagenQR(claveQR);
-
-                            var datos = line.Split(',');
-
-                            if (datos.Length >= 4)
-                            {
-                                string nombre = datos[0];
-                                string descripcion = datos[1];
-                                string codigo = datos[2];
-                                string estado = datos[3];
-
-                                bool mantenimiento = estado.Trim().Equals("Mantenimiento", StringComparison.OrdinalIgnoreCase) ? true : false;
-
-                                Articulos articulo = new Articulos
-                                {
-                                    Nombre = nombre,
-                                    Descripcion = descripcion,
-                                    Codigo = codigo,
-                                    ClaveQR = claveQR,
-                                    ImagenQR = imagenQR,
-                                    Imagen = imagenArticulo,
-                                    Mantenimiento = mantenimiento
-                                };
-
-                                articulosFichero.Add(articulo);
-                            }
-                        }
-
-                        listaControles[4].Text = dirArchivo;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error al importar datos: {ex.Message}");
-                    }
+                    Directory.CreateDirectory(RUTA_CARPEA_IMAGEN);
+                    MessageBox.Show($"La carpeta 'FotosPrestamo' no existía y ha sido creada en: {RUTA_CARPEA_IMAGEN}. " +
+                                    "Por favor, asegúrate de tener las imágenes necesarias en esa carpeta antes de intentar insertar los datos de un fichero.",
+                                    "Carpeta no encontrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return false;
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al crear la carpeta:\n\n {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Muestra un cuadro de diálogo para seleccionar un archivo CSV.
+        /// </summary>
+        /// <returns> La ruta del archivo seleccionado o null si se cancela la selección. </returns>
+        private string ObtenerRutaArchivoCSV()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Archivos CSV (*.csv)|*.csv",
+                Title = "Seleccionar archivo .CSV"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                return openFileDialog.FileName;
             }
             else
             {
-                MessageBox.Show("Por favor, selecciona antes la imágen de los artículos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, selecciona antes el archivo .CSV.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
         }
 
+        /// <summary>
+        /// Procesa las líneas del archivo CSV y genera una lista de artículos.
+        /// </summary>
+        /// <param name="dirArchivo"> Ruta completa del archivo CSV. </param>
+        private void ProcesarArchivoCSV(string dirArchivo)
+        {
+            try
+            {
+                var lineas = File.ReadAllLines(dirArchivo).Skip(1); // Un skip para que se salte la primera línea del .CSV que es la cabecera
+                int numeroLinea = 2;
+
+                foreach (var linea in lineas)
+                {
+                    string claveQR = GenerarClaveQRUnica();
+                    if (ProcesarLineaCSV(linea, claveQR, numeroLinea))
+                    {
+                        numeroLinea++;
+                    }
+                }
+
+                listaControles[2].Text = dirArchivo;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al importar datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Procesa una línea específica del archivo CSV.
+        /// </summary>
+        /// <param name="linea"> Texto de la línea a procesar. </param>
+        /// <param name="claveQR"> Clave QR generada para el artículo. </param>
+        /// <param name="numeroLinea"> Número de la línea en el archivo para referencia en caso de error. </param>
+        /// <returns> True si la línea fue procesada correctamente, False si ocurrió un error. </returns>
+        private bool ProcesarLineaCSV(string linea, string claveQR, int numeroLinea)
+        {
+            try
+            {
+                var datos = linea.Split(',');
+
+                if (datos.Length < 6)
+                {
+                    MessageBox.Show($"Datos incompletos en la línea {numeroLinea}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+
+                string nombre = datos[0];
+                string categoria = datos[1];
+                string descripcion = datos[2];
+                string codigo = datos[3];
+                string estado = datos[4];
+                string nombreImagen = datos[5].Trim();
+
+                string rutaImagenCompleta = Path.Combine(RUTA_CARPEA_IMAGEN, nombreImagen);
+                byte[] imagenArticulo = CargarImagenArticulo(rutaImagenCompleta, numeroLinea);
+                if (imagenArticulo == null)
+                {
+                    return false;
+                }                    
+
+                bool mantenimiento = estado.Equals("Mantenimiento", StringComparison.OrdinalIgnoreCase);
+
+                Articulos articulo = new Articulos
+                {
+                    Nombre = nombre,
+                    Categoria = categoria,
+                    Descripcion = descripcion,
+                    Codigo = codigo,
+                    ClaveQR = claveQR,
+                    ImagenQR = GenerarImagenQR(claveQR),
+                    Imagen = imagenArticulo,
+                    Mantenimiento = mantenimiento
+                };
+
+                articulosFichero.Add(articulo);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error procesando la línea {numeroLinea}: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Genera una clave QR única.
+        /// </summary>
+        /// <returns> Una clave QR generada aleatoriamente. </returns>
+        private string GenerarClaveQRUnica()
+        {
+            Random random = new Random();
+            string claveQR;
+
+            do
+            {
+                int numAleatorio = random.Next(100000000, 999999999 + 1);
+                char letraAleatoria = (char)random.Next('A', 'Z' + 1);
+                claveQR = numAleatorio.ToString() + letraAleatoria;
+            } while (cnxiIF.ComprobarQRExistente(claveQR));
+
+            return claveQR;
+        }
+
+        /// <summary>
+        /// Carga una imagen desde el sistema de archivos.
+        /// </summary>
+        /// <param name="rutaImagen"> Ruta completa de la imagen. </param>
+        /// <param name="numeroLinea"> Número de línea para referencia en caso de error. </param>
+        /// <returns> byte[] con el contenido de la imagen o null si ocurre un error. </returns>
+        private byte[] CargarImagenArticulo(string rutaImagen, int numeroLinea)
+        {
+            if (File.Exists(rutaImagen))
+            {
+                return File.ReadAllBytes(rutaImagen);
+            }
+            else
+            {
+                MessageBox.Show($"No se encontró la imagen: {rutaImagen} (Línea {numeroLinea})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+        }
 
         /// <summary>
         /// Método que genera una imágen QR a partir del código QR generado que recibe por parámetros.
@@ -309,23 +390,6 @@ namespace ConsejeriaQR
             qrCodeImage.Save(ms, ImageFormat.Png);
 
             return ms.ToArray();
-        }
-
-        private void PBImagenArticulo_Click(object sender, EventArgs e)
-        {
-            PictureBox pbX = (PictureBox)sender;
-
-            OpenFileDialog opf = new OpenFileDialog
-            {
-                Filter = "Imágenes | *.jpg; *.png"
-            };
-            nombreImagen = opf.FileName;
-
-            if (opf.ShowDialog() == DialogResult.OK)
-            {
-                nombreImagen = opf.FileName;
-                pbX.Image = Image.FromFile(nombreImagen);
-            }
         }
     }
 }

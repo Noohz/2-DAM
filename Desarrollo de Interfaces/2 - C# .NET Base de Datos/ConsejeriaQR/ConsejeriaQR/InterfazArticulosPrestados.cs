@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ConsejeriaQR
@@ -16,7 +14,7 @@ namespace ConsejeriaQR
     {
         ClaseConectar cnxIAP;
         List<Control> listaControles;
-        List<Articulos> listaNombreArticulos = new List<Articulos>();
+        List<Articulos> listaCategoriaArticulos = new List<Articulos>();
         List<Prestamos> listaArticulosPrestados = new List<Prestamos>();
         List<Usuarios> datosUser;
 
@@ -28,7 +26,7 @@ namespace ConsejeriaQR
 
         internal Panel GenerarPanelArticulosPrestados(int width, int height)
         {
-            listaNombreArticulos = cnxIAP.ObtenerNombreArticulos();
+            listaCategoriaArticulos = cnxIAP.ObtenerCategoriaArticulos();
 
             // Panel que contendrá los Controls para introducir los datos del artículo.
             Panel panelArticulo = new Panel
@@ -59,9 +57,9 @@ namespace ConsejeriaQR
             comboBoxArticulo.Location = new Point((int)(panelArticulo.Width - comboBoxArticulo.Width - (panelArticulo.Width * 0.10)), 35);
             comboBoxArticulo.SelectedIndexChanged += ComboBoxArticulo_SelectedIndexChanged;
 
-            foreach (var articulo in listaNombreArticulos)
+            foreach (var categoria in listaCategoriaArticulos)
             {
-                comboBoxArticulo.Items.Add(articulo.Nombre);
+                comboBoxArticulo.Items.Add(categoria.Categoria);
             }
 
             // Un FlowLayoutPanel donde aparecerán los artículos con el nombre seleccionado en el comboBox.
@@ -81,67 +79,105 @@ namespace ConsejeriaQR
             return panelArticulo;
         }
 
+        /// <summary>
+        /// Evento que se activa cuando se selecciona un nuevo artículo en el ComboBox y actualiza el FlowLayoutPanel con los botones de los artículos correspondientes.
+        /// </summary>
         private void ComboBoxArticulo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ComboBox cbX = (ComboBox)sender;
-            FlowLayoutPanel fLPArticulo = (FlowLayoutPanel)listaControles[2];
-
-            listaArticulosPrestados = cnxIAP.ObtenerArticulosPrestados(datosUser);
-            fLPArticulo.Controls.Clear();
-
-            foreach (var articulo in listaArticulosPrestados)
+            ComboBox comboBox = sender as ComboBox;
+            if (comboBox == null)
             {
-                if (articulo.NombreArticulo.Equals(cbX.Text))
-                {
-                    Button btn = new Button
-                    {
-                        Name = articulo.Codigo,
+                return;
+            }
 
-                        Width = 95,
-                        Height = 95,
-                        Margin = new Padding(13, 5, 0, 5),
-                        Text = articulo.Codigo,
-                        TextAlign = ContentAlignment.BottomCenter,
-                        Font = new Font("Arial", 9, FontStyle.Bold)
-                    };
+            FlowLayoutPanel flowLayoutPanel = listaControles[2] as FlowLayoutPanel;
+            if (flowLayoutPanel == null)
+            {
+                return;
+            }
 
-                    MemoryStream ms = new System.IO.MemoryStream(articulo.Imagen);
-                    System.Drawing.Image imagen = System.Drawing.Image.FromStream(ms);
-                    System.Drawing.Image imagenRedimensionada = new System.Drawing.Bitmap(imagen, new System.Drawing.Size(70, 70));
-                    btn.Image = imagenRedimensionada;
-                    btn.ImageAlign = ContentAlignment.TopCenter;
-                    btn.Tag = articulo;
-                    btn.Click += Btn_Click;
+            // Obtener la lista de artículos prestados para el usuario.
+            var articulosPrestados = cnxIAP.ObtenerArticulosPrestados(datosUser);
 
-                    fLPArticulo.Controls.Add(btn);
-                }
+            flowLayoutPanel.Controls.Clear();
+
+            // Se filtran los artículos de articulosPrestados donde a que es el artículo coincide con el nombre del artículo.
+            foreach (var articulo in articulosPrestados.Where(a => a.Categoria.Equals(comboBox.Text)))
+            {
+                Button articuloButton = CrearBotonArticulo(articulo);
+                flowLayoutPanel.Controls.Add(articuloButton);
             }
         }
 
+        /// <summary>
+        /// Crea un botón para representar un artículo en la interfaz.
+        /// </summary>
+        /// <param name="articulo"> El objeto de artículo a representar. </param>
+        /// <returns> Un botón configurado para el artículo. </returns>
+        private Button CrearBotonArticulo(Prestamos articulo)
+        {
+            Button boton = new Button
+            {
+                Name = articulo.Codigo,
+                Width = 95,
+                Height = 95,
+                Margin = new Padding(13, 5, 0, 5),
+                Text = articulo.Codigo,
+                TextAlign = ContentAlignment.BottomCenter,
+                Font = new Font("Arial", 9, FontStyle.Bold),
+                Tag = articulo
+            };
+
+            using (MemoryStream ms = new MemoryStream(articulo.Imagen))
+            {
+                Image imagenOriginal = Image.FromStream(ms);
+                boton.Image = new Bitmap(imagenOriginal, new Size(70, 70));
+            }
+
+            boton.ImageAlign = ContentAlignment.TopCenter;
+
+            boton.Click += Btn_Click;
+
+            return boton;
+        }
+
+        /// <summary>
+        /// Maneja el evento de clic de un botón de artículo. Permite devolver el artículo seleccionado.
+        /// </summary>
         private void Btn_Click(object sender, EventArgs e)
         {
-            Button btnX = (Button)sender;
-            Prestamos datosArticulo = (Prestamos)btnX.Tag;
-
-            int activo = 1;
-            int mantenimiento = 0;
-
-            if (MessageBox.Show("¿Deseas devolver el artículo " + datosArticulo.NombreArticulo + " y código " +datosArticulo.Codigo + "?", "Confirmar devolución", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            Button boton = sender as Button;
+            if (boton == null)
             {
-                if (MessageBox.Show("¿El artículo tiene algún problema técnico?", "Confirmar devolución", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    mantenimiento = 1;
-                }
+                return;
+            }
 
-                if (cnxIAP.devolverArticulo(datosArticulo, activo, mantenimiento) == 1)
-                {
-                    ComboBoxArticulo_SelectedIndexChanged(listaControles[1], EventArgs.Empty);
-                    MessageBox.Show("Se ha devuelto el artículo correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Ha ocurrido un error al intentar devolver el artículo, por favor, vuelve a intentarlo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            Prestamos articulo = boton.Tag as Prestamos;
+            if (articulo == null)
+            {
+                return;
+            }
+
+            // Mensaje para que el usuario confirme si quiere devolver el artículo o no.
+            if (MessageBox.Show($"¿Deseas devolver el artículo '{articulo.NombreArticulo}' con código '{articulo.Codigo}'?", "Confirmar devolución",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Information) != DialogResult.Yes)
+            {
+                return;
+            }
+
+            // Mensaje para que el usuario confirme si el artículo tiene algún problema técnico y deba ser enviado a mantenimiento.
+            int enMantenimiento = MessageBox.Show("¿El artículo tiene algún problema técnico?", "Confirmar devolución",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes ? 1 : 0;
+
+            if (cnxIAP.devolverArticulo(articulo, activo: 1, enMantenimiento) == 1)
+            {
+                // Actualiza la lista de los artículos por si han ocurrido cambios.
+                ComboBoxArticulo_SelectedIndexChanged(listaControles[1], EventArgs.Empty);
+                MessageBox.Show("Se ha devuelto el artículo correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error al intentar devolver el artículo, por favor, vuelve a intentarlo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

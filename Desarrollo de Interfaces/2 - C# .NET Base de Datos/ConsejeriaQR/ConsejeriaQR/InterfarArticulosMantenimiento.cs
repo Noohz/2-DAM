@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ConsejeriaQR
@@ -12,7 +14,7 @@ namespace ConsejeriaQR
     {
         ClaseConectar cnxIAM;
         List<Control> listaControles;
-        List<Articulos> listadoArticulosEnMantenimiento;
+        List<Articulos> listadoArticulosEnMantenimiento = new List<Articulos>();
 
         public InterfarArticulosMantenimiento(ClaseConectar cnxGP)
         {
@@ -59,48 +61,95 @@ namespace ConsejeriaQR
             listaControles = new List<Control> { lblTextoBusqueda, fLPArticulos };
             panelArticulo.Controls.AddRange(listaControles.ToArray());
 
+            fLPArticulos.Controls.Clear();
             cargarArticulosEnFlow();
 
             return panelArticulo;
         }
 
+        /// <summary>
+        /// Carga los artículos en mantenimiento y los presenta como botones dentro de un FlowLayoutPanel.
+        /// </summary>
         private void cargarArticulosEnFlow()
         {
-            FlowLayoutPanel fLPArticulo = (FlowLayoutPanel)listaControles[1];
-
-            listadoArticulosEnMantenimiento = cnxIAM.ObtenerArticulosEnMantenimiento();
-
-            if (listadoArticulosEnMantenimiento != null)
+            try
             {
+                FlowLayoutPanel fLPArticulo = listaControles[1] as FlowLayoutPanel;
+                if (fLPArticulo == null)
+                {
+                    MessageBox.Show("No se pudo encontrar el panel para los artículos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                
+                listadoArticulosEnMantenimiento = cnxIAM.ObtenerArticulosEnMantenimiento();
+
+                if (listadoArticulosEnMantenimiento == null || !listadoArticulosEnMantenimiento.Any())
+                {
+                    MessageBox.Show("Actualmente no hay ningún artículo en mantenimiento.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                fLPArticulo.Controls.Clear();
+
                 foreach (var articulo in listadoArticulosEnMantenimiento)
                 {
-                    Button btn = new Button
+                    if (articulo != null)
                     {
-                        Name = articulo.Codigo,
+                        Button btn = CrearBotonParaArticulo(articulo);
+                        fLPArticulo.Controls.Add(btn);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al cargar los artículos:\n\n {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-                        Width = 95,
-                        Height = 95,
-                        Margin = new Padding(13, 5, 0, 5),
-                        Text = articulo.Codigo,
-                        TextAlign = ContentAlignment.BottomCenter,
-                        Font = new Font("Arial", 9, FontStyle.Bold)
-                    };
+        /// <summary>
+        /// Crea un botón representativo para un artículo dado.
+        /// </summary>
+        /// <param name="articulo"> El artículo a representar en el botón. </param>
+        /// <returns> Un botón configurado para el artículo. </returns>
+        private Button CrearBotonParaArticulo(Articulos articulo)
+        {
+            Button btn = new Button
+            {
+                Name = articulo.Codigo,
+                Width = 95,
+                Height = 95,
+                Margin = new Padding(13, 5, 0, 5),
+                Text = articulo.Codigo,
+                TextAlign = ContentAlignment.BottomCenter,
+                Font = new Font("Arial", 9, FontStyle.Bold),
+                Tag = articulo
+            };
 
-                    MemoryStream ms = new System.IO.MemoryStream(articulo.Imagen);
+            btn.Click += Btn_Click;
+
+            if (articulo.Imagen != null && articulo.Imagen.Length > 0)
+            {
+                using (MemoryStream ms = new MemoryStream(articulo.Imagen))
+                {
                     System.Drawing.Image imagen = System.Drawing.Image.FromStream(ms);
                     System.Drawing.Image imagenRedimensionada = new System.Drawing.Bitmap(imagen, new System.Drawing.Size(70, 70));
                     btn.Image = imagenRedimensionada;
                     btn.ImageAlign = ContentAlignment.TopCenter;
-                    btn.Tag = articulo;
-
-                    fLPArticulo.Controls.Add(btn);
+                    btn.BackgroundImageLayout = ImageLayout.Stretch;
                 }
             }
-            else
-            {
-                MessageBox.Show("Actualmente no hay ningún artículo en mantenimiento.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
 
+            return btn;
+        }
+
+        private void Btn_Click(object sender, EventArgs e)
+        {
+            Button btnX = (Button)sender;
+
+            char accesoDatos = 'V'; // R = Remove / V = View
+
+            FormularioDatosBtn fDB = new FormularioDatosBtn(btnX.Tag, cnxIAM, accesoDatos);
+            fDB.ShowDialog();
         }
     }
 }

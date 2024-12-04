@@ -9,6 +9,7 @@ namespace ConsejeriaQR
     {
         private int id;
         private string nombre;
+        private string categoria;
         private string descripcion;
         private string codigo;
         private string claveQR;
@@ -21,10 +22,11 @@ namespace ConsejeriaQR
         {
         }
 
-        public Articulos(int id, string nombre, string descripcion, string codigo, string claveQR, byte[] imagenQR, byte[] imagen, bool activo, bool mantenimiento)
+        public Articulos(int id, string nombre, string categoria, string descripcion, string codigo, string claveQR, byte[] imagenQR, byte[] imagen, bool activo, bool mantenimiento)
         {
             this.id = id;
             this.nombre = nombre;
+            this.categoria = categoria;
             this.descripcion = descripcion;
             this.codigo = codigo;
             this.claveQR = claveQR;
@@ -36,6 +38,7 @@ namespace ConsejeriaQR
 
         public int Id { get => id; set => id = value; }
         public string Nombre { get => nombre; set => nombre = value; }
+        public string Categoria { get => categoria; set => categoria = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public string Codigo { get => codigo; set => codigo = value; }
         public string ClaveQR { get => claveQR; set => claveQR = value; }

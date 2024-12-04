@@ -16,7 +16,7 @@ namespace ConsejeriaQR
         private MySqlDataReader datos;
 
         private List<Usuarios> listaUsuario = new List<Usuarios>();
-        private List<Articulos> listaNombreArticulos = new List<Articulos>();
+        private List<Articulos> listaCategoriaArticulos = new List<Articulos>();
         private List<Articulos> listaArticulos = new List<Articulos>();
         private List<ArticulosDGV> listaArticulosDGV = new List<ArticulosDGV>();
         private List<Prestamos> listaArticulosPrestados = new List<Prestamos>();
@@ -170,13 +170,14 @@ namespace ConsejeriaQR
         /// Método que se encarga de insertar el artículo según los datos que recibe por los parámetros.
         /// </summary>
         /// <param name="nombreArticulo"> Texto con el nombre del artículo. </param>
+        /// <param name="categoriaArticulo"> Texto con la categoría a la que pertenece el artículo. </param>
         /// <param name="descripcionArticulo"> Texto con la descripción del artículo. </param>
         /// <param name="codigoArticulo"> Texto con el código del artículo. </param>
         /// <param name="claveQR"> Texto con el código QR del artículo. </param>
         /// <param name="imagenQR"> byte[] que contiene los datos de la imágen. </param>
         /// <param name="imagenArticulo"> byte[] que contiene los datos de la imágen QR. </param>
         /// <returns> Codigo => 1 si se realiza la insercción en la BBDD o 0 si no. </returns>
-        internal int InsertarArticulo(string nombreArticulo, string descripcionArticulo, string codigoArticulo, string claveQR, byte[] imagenQR, byte[] imagenArticulo)
+        internal int InsertarArticulo(string nombreArticulo, string categoriaArticulo, string descripcionArticulo, string codigoArticulo, string claveQR, byte[] imagenQR, byte[] imagenArticulo)
         {
             int codigo;
 
@@ -184,11 +185,12 @@ namespace ConsejeriaQR
             {
                 conexion.Open();
 
-                string cadenaSql = "INSERT INTO articulos VALUES (0, @nombre, @descripcion, @codigo, @claveQR, @imagenQR, @imagen, true, false)";
+                string cadenaSql = "INSERT INTO articulos VALUES (0, @nombre, @categoria, @descripcion, @codigo, @claveQR, @imagenQR, @imagen, true, false)";
 
                 using (comando = new MySqlCommand(cadenaSql, conexion))
                 {
                     comando.Parameters.AddWithValue("@nombre", nombreArticulo);
+                    comando.Parameters.AddWithValue("@categoria", categoriaArticulo);
                     comando.Parameters.AddWithValue("@descripcion", descripcionArticulo);
                     comando.Parameters.AddWithValue("@codigo", codigoArticulo);
                     comando.Parameters.AddWithValue("@claveQR", claveQR);
@@ -202,17 +204,17 @@ namespace ConsejeriaQR
         }
 
         /// <summary>
-        /// Método que devuelve una lista con los nombres de los artículos que hay en la tabla Articulos en la BD sin repetirse.
+        /// Método que devuelve una lista con las categorias de los artículos que hay en la tabla Articulos en la BD sin repetirse.
         /// </summary>
-        /// <returns> listaNombreArticulos => Una lista con los nombres de los artículos que hay en la BBDD. </returns>
-        internal List<Articulos> ObtenerNombreArticulos()
+        /// <returns> listaNombreArticulos => Una lista con las categorias de los artículos que hay en la BBDD. </returns>
+        internal List<Articulos> ObtenerCategoriaArticulos()
         {
-            listaNombreArticulos.Clear();
+            listaCategoriaArticulos.Clear();
             using (conexion = new MySqlConnection(CADENA_CONEXION))
             {
                 conexion.Open();
 
-                string cadenaSql = "SELECT DISTINCT nombre FROM articulos WHERE activo = 1";
+                string cadenaSql = "SELECT DISTINCT categoria FROM articulos";
 
                 using (comando = new MySqlCommand(cadenaSql, conexion))
                 {
@@ -222,15 +224,15 @@ namespace ConsejeriaQR
                         {
                             Articulos articulo = new Articulos
                             {
-                                Nombre = (string)datos["nombre"]
+                                Categoria = (string)datos["categoria"]
                             };
 
-                            listaNombreArticulos.Add(articulo);
+                            listaCategoriaArticulos.Add(articulo);
                         }
                     }
                 }
             }
-            return listaNombreArticulos;
+            return listaCategoriaArticulos;
         }
 
         /// <summary>
@@ -257,6 +259,7 @@ namespace ConsejeriaQR
                             {
                                 Id = (int)datos["id"],
                                 Nombre = (string)datos["nombre"],
+                                Categoria = (string)datos["categoria"],
                                 Descripcion = (string)datos["descripcion"],
                                 Codigo = (string)datos["codigo"],
                                 ClaveQR = (string)datos["claveQR"],
@@ -299,6 +302,7 @@ namespace ConsejeriaQR
                             {
                                 Id = (int)datos["id"],
                                 Nombre = (string)datos["nombre"],
+                                Categoria = (string)datos["categoria"],
                                 Descripcion = (string)datos["descripcion"],
                                 Codigo = (string)datos["codigo"],
                                 Activo = (bool)datos["activo"],
@@ -356,6 +360,7 @@ namespace ConsejeriaQR
             int codigo = 0;
             int id = articulo.Id;
             string nombreArticulo = articulo.Nombre;
+            string categoriaArticulo = articulo.Categoria;
             string nombreProfesor = nombreProfe;
             string codigoArticulo = articulo.Codigo;
             DateTime fechaPestamo = DateTime.Now;
@@ -366,12 +371,13 @@ namespace ConsejeriaQR
             {
                 conexion.Open();
 
-                string cadenaSql = "INSERT INTO prestamos VALUES (0, @id, @nombreArticulo, @nombreProfesor, @codigoArticulo, @fechaPestamo, @fechaDevolucion, @imagenArticulo)";
+                string cadenaSql = "INSERT INTO prestamos VALUES (0, @id, @nombreArticulo, @categoria, @nombreProfesor, @codigoArticulo, @fechaPestamo, @fechaDevolucion, @imagenArticulo)";
 
                 using (comando = new MySqlCommand(cadenaSql, conexion))
                 {
                     comando.Parameters.AddWithValue("@id", id);
                     comando.Parameters.AddWithValue("@nombreArticulo", nombreArticulo);
+                    comando.Parameters.AddWithValue("@categoria", categoriaArticulo);
                     comando.Parameters.AddWithValue("@nombreProfesor", nombreProfesor);
                     comando.Parameters.AddWithValue("@codigoArticulo", codigoArticulo);
                     comando.Parameters.AddWithValue("@fechaPestamo", fechaPestamo);
@@ -444,6 +450,7 @@ namespace ConsejeriaQR
                                 Id = (int)datos["id"],
                                 IdArticulo = (int)datos["idArticulo"],
                                 NombreArticulo = (string)datos["nombreArticulo"],
+                                Categoria = (string)datos["categoria"],
                                 NombreProfesor = (string)datos["nombreProfesor"],
                                 Codigo = (string)datos["codigo"],
                                 FechaPrestamo = (DateTime)datos["fechaPrestamo"],
@@ -542,6 +549,7 @@ namespace ConsejeriaQR
         /// <returns> listaArticulosEnMantenimiento => Lista con los artículos que están en mantenimiento. </returns>
         internal List<Articulos> ObtenerArticulosEnMantenimiento()
         {
+            listaArticulosEnMantenimiento.Clear();
             using (conexion = new MySqlConnection(CADENA_CONEXION))
             {
                 conexion.Open();
@@ -558,6 +566,7 @@ namespace ConsejeriaQR
                             {
                                 Id = (int)datos["id"],
                                 Nombre = (string)datos["nombre"],
+                                Categoria = (string)datos["categoria"],
                                 Descripcion = (string)datos["descripcion"],
                                 Codigo = (string)datos["codigo"],
                                 ClaveQR = (string)datos["claveQR"],
@@ -592,11 +601,12 @@ namespace ConsejeriaQR
                     {
                         foreach (var articulo in articulosFichero)
                         {
-                            string consultaSQL = "INSERT INTO articulos VALUES (0, @nombre, @descripcion, @codigo, @claveQR, @imagenQR, @imagen, true, @mantenimiento)";
+                            string consultaSQL = "INSERT INTO articulos VALUES (0, @nombre, @categoria, @descripcion, @codigo, @claveQR, @imagenQR, @imagen, true, @mantenimiento)";
 
                             using (comando = new MySqlCommand(consultaSQL, conexion, transaccion))
                             {
                                 comando.Parameters.AddWithValue("@nombre", articulo.Nombre);
+                                comando.Parameters.AddWithValue("@categoria", articulo.Categoria);
                                 comando.Parameters.AddWithValue("@descripcion", articulo.Descripcion);
                                 comando.Parameters.AddWithValue("@codigo", articulo.Codigo);
                                 comando.Parameters.AddWithValue("@claveQR", articulo.ClaveQR);
@@ -671,6 +681,6 @@ namespace ConsejeriaQR
             {
                 return pbkdf2.GetBytes(32);
             }
-        }        
+        }
     }
 }

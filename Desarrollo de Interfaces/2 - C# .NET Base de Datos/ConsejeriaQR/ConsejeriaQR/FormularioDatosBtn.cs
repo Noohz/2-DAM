@@ -11,7 +11,7 @@ namespace ConsejeriaQR
         ClaseConectar cnxFDB;
         Articulos datosArticulo;
 
-        public FormularioDatosBtn(object tag, ClaseConectar cnxIEA)
+        public FormularioDatosBtn(object tag, ClaseConectar cnxIEA, char accesoDatos)
         {
             InitializeComponent();
             this.Text = "Panel eliminar artículo";
@@ -35,6 +35,14 @@ namespace ConsejeriaQR
             MemoryStream mst = new System.IO.MemoryStream(datosArticulo.ImagenQR);
             System.Drawing.Image imagenQR = System.Drawing.Image.FromStream(mst);
             pictureBoxImagenQR.Image = imagenQR;
+
+            if (accesoDatos.Equals('V'))
+            {
+                btnEliminarArticulo.Enabled = false;
+                btnEliminarArticulo.Visible = false;
+                btnCancelar.Size = new System.Drawing.Size(443, 43);
+                btnCancelar.Location = new System.Drawing.Point(52, 667);
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

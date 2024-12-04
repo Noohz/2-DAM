@@ -9,6 +9,7 @@ namespace ConsejeriaQR
     {
         ClaseConectar cnxGP;
         List<Usuarios> datosUsuarioLogeado;
+        public static List<string> CATEGORIAS_PRESTAMO = new List<string> { "Llaves de aula", "Llaves de armarios de ordenadores", "Mandos de proyectores", "Lapiz tablet", "Cables de tablet" };
 
         public FormularioGestionPrestamos(List<Usuarios> datosUsuario, ClaseConectar cnxC)
         {
@@ -84,6 +85,50 @@ namespace ConsejeriaQR
         }
 
         /// <summary>
+        /// Evento del boton desplegable que se encarga de llamar al Form "InterfazAniadirArticulos" para generar el panel que permite al usuario añadir un artículo a la BBDD.
+        /// </summary>
+        private void AniadirArtículoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel3.Controls.Clear();
+
+            InterfazAniadirArticulos iAA = new InterfazAniadirArticulos(cnxGP, CATEGORIAS_PRESTAMO);
+            Panel panelAniadirArticulo = iAA.GenerarPanelAniadirArticulos(panel3.Width, panel3.Height);
+            Panel panelDatosBD = iAA.GenerarPanelDatosArticulosBD(panel3.Width, panel3.Height);
+
+            List<Control> paneles = new List<Control> { panelAniadirArticulo, panelDatosBD };
+
+            panel3.Controls.AddRange(paneles.ToArray());
+        }
+
+        /// <summary>
+        /// Evento del boton desplegable que se encarga de llamar al Form "InterfazImportarFichero" para permitir que el usuario utilice un archivo .CSV para cargar los archivos en la BBDD.
+        /// </summary>
+        private void CargarFicherosConDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel3.Controls.Clear();
+
+            InterfazImportarFichero iIF = new InterfazImportarFichero(cnxGP);
+            Panel panelImportarFichero = iIF.GenerarPanelImportarFichero(panel3.Width, panel3.Height);
+            Panel panelDatosBD = iIF.GenerarPanelDatosArticulosBD(panel3.Width, panel3.Height);
+
+            List<Control> paneles = new List<Control> { panelImportarFichero, panelDatosBD };
+            panel3.Controls.AddRange(paneles.ToArray());
+        }
+
+        /// <summary>
+        /// Evento que se encarga de invocar al Form "InterfazModificarArticulo" para que se genere el Panel que permita al usuario elegir un artículo para la modificación de sus datos.
+        /// </summary>
+        private void btnModificarArticulo_Click(object sender, EventArgs e)
+        {
+            panel3.Controls.Clear();
+
+            InterfazModificarArticulo iMA = new InterfazModificarArticulo(cnxGP);
+            Panel panelModificarArticulo = iMA.GenerarPanelModificarArticulos(panel3.Width, panel3.Height);
+
+            panel3.Controls.Add(panelModificarArticulo);
+        }
+
+        /// <summary>
         /// Método que se encarga de comparar si el departamento del usuario coincide con algúna de las opciones para habilitar los respectivos botones.
         /// </summary>
         /// <param name="datosUsuario"> Lista con los datos del usuario logeado. </param>
@@ -127,50 +172,6 @@ namespace ConsejeriaQR
         {
 
             this.Close();
-        }
-
-        /// <summary>
-        /// Evento del boton desplegable que se encarga de llamar al Form "InterfazAniadirArticulos" para generar el panel que permite al usuario añadir un artículo a la BBDD.
-        /// </summary>
-        private void AniadirArtículoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            panel3.Controls.Clear();
-
-            InterfazAniadirArticulos iAA = new InterfazAniadirArticulos(cnxGP);
-            Panel panelAniadirArticulo = iAA.GenerarPanelAniadirArticulos(panel3.Width, panel3.Height);
-            Panel panelDatosBD = iAA.GenerarPanelDatosArticulosBD(panel3.Width, panel3.Height);
-
-            List<Control> paneles = new List<Control> { panelAniadirArticulo, panelDatosBD };
-
-            panel3.Controls.AddRange(paneles.ToArray());
-        }
-
-        /// <summary>
-        /// Evento del boton desplegable que se encarga de llamar al Form "InterfazImportarFichero" para permitir que el usuario utilice un archivo .CSV para cargar los archivos en la BBDD.
-        /// </summary>
-        private void CargarFicherosConDatosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            panel3.Controls.Clear();
-
-            InterfazImportarFichero iIF = new InterfazImportarFichero(cnxGP);
-            Panel panelImportarFichero = iIF.GenerarPanelImportarFichero(panel3.Width, panel3.Height);
-            Panel panelDatosBD = iIF.GenerarPanelDatosArticulosBD(panel3.Width, panel3.Height);
-
-            List<Control> paneles = new List<Control> { panelImportarFichero, panelDatosBD };
-            panel3.Controls.AddRange(paneles.ToArray());
-        }
-
-        /// <summary>
-        /// Evento que se encarga de invocar al Form "InterfazModificarArticulo" para que se genere el Panel que permita al usuario elegir un artículo para la modificación de sus datos.
-        /// </summary>
-        private void btnModificarArticulo_Click(object sender, EventArgs e)
-        {
-            panel3.Controls.Clear();
-
-            InterfazModificarArticulo iMA = new InterfazModificarArticulo(cnxGP);
-            Panel panelModificarArticulo = iMA.GenerarPanelModificarArticulos(panel3.Width, panel3.Height);
-
-            panel3.Controls.Add(panelModificarArticulo);
-        }
+        }        
     }
 }

@@ -10,7 +10,7 @@ namespace ConsejeriaQR
     {
         ClaseConectar cnxIEA;
         List<Control> listaControles;
-        List<Articulos> listaNombreArticulos = new List<Articulos>();
+        List<Articulos> listaCategoriaArticulos = new List<Articulos>();
         List<Articulos> listaArticulos = new List<Articulos>();
 
         public InterfazEliminarArticulos(ClaseConectar cnxGP)
@@ -28,7 +28,7 @@ namespace ConsejeriaQR
         {
             listaArticulos.Clear();
 
-            listaNombreArticulos = cnxIEA.ObtenerNombreArticulos();
+            listaCategoriaArticulos = cnxIEA.ObtenerCategoriaArticulos();
 
             // Panel que contendrá los Controls para introducir los datos del artículo.
             Panel panelArticulo = new Panel
@@ -59,9 +59,9 @@ namespace ConsejeriaQR
             comboBoxArticulo.Location = new Point((int)(panelArticulo.Width - comboBoxArticulo.Width - (panelArticulo.Width * 0.10)), 35);
             comboBoxArticulo.SelectedIndexChanged += ComboBoxArticulo_SelectedIndexChanged;
 
-            foreach (var articulo in listaNombreArticulos)
+            foreach (var categoria in listaCategoriaArticulos)
             {
-                comboBoxArticulo.Items.Add(articulo.Nombre);
+                comboBoxArticulo.Items.Add(categoria.Categoria);
             }
 
             // Un FlowLayoutPanel donde aparecerán los artículos con el nombre seleccionado en el comboBox.
@@ -84,8 +84,6 @@ namespace ConsejeriaQR
         /// <summary>
         /// Evento que se encarga de mostrar los artículos de la tabla "articulos" de la BBDD que coincidan con el texto seleccionado del comboBox.
         /// </summary>
-        /// <param name="sender"> Esto es el Control que ha llamado al evento. </param>
-        /// <param name="e"> Los argumentos del evento. </param>
         private void ComboBoxArticulo_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cbX = (ComboBox)sender;
@@ -99,7 +97,7 @@ namespace ConsejeriaQR
             {
                 foreach (var articulo in listaArticulos)
                 {
-                    if (articulo.Nombre.Equals(cbX.Text) && articulo.Mantenimiento != true)
+                    if (articulo.Categoria.Equals(cbX.Text) && articulo.Mantenimiento != true)
                     {
                         Button btn = new Button
                         {
@@ -134,13 +132,13 @@ namespace ConsejeriaQR
         /// <summary>
         /// Evento que abrirá un nuevo Form para que el usuario decida si eliminar el artículo o no.
         /// </summary>
-        /// <param name="sender"> Esto es el Control que ha llamado al evento. </param>
-        /// <param name="e"> Los argumentos del evento. </param>
         private void Btn_Click(object sender, EventArgs e)
         {
             Button btnX = (Button)sender;
 
-            FormularioDatosBtn fDBtn = new FormularioDatosBtn(btnX.Tag, cnxIEA);
+            char accesoDatos = 'R'; // R = Remove / V = View
+
+            FormularioDatosBtn fDBtn = new FormularioDatosBtn(btnX.Tag, cnxIEA, accesoDatos);
             fDBtn.FormClosed += FDBtn_FormClosed;
             fDBtn.ShowDialog();
         }

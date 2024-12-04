@@ -13,7 +13,7 @@ namespace ConsejeriaQR
     {
         ClaseConectar cnxIMA;
         List<Control> listaControles;
-        List<Articulos> listaNombreArticulos = new List<Articulos>();
+        List<Articulos> listaCategoriaArticulos = new List<Articulos>();
         List<Articulos> listaArticulos = new List<Articulos>();
         private ClaseConectar cnxGP;
 
@@ -32,7 +32,7 @@ namespace ConsejeriaQR
         {
             listaArticulos.Clear();
 
-            listaNombreArticulos = cnxIMA.ObtenerNombreArticulos();
+            listaCategoriaArticulos = cnxIMA.ObtenerCategoriaArticulos();
 
             Panel panelArticulo = new Panel
             {
@@ -61,9 +61,9 @@ namespace ConsejeriaQR
             comboBoxArticulo.Location = new Point((int)(panelArticulo.Width - comboBoxArticulo.Width - (panelArticulo.Width * 0.10)), 35);
             comboBoxArticulo.SelectedIndexChanged += ComboBoxArticulo_SelectedIndexChanged;
 
-            foreach (var articulo in listaNombreArticulos)
+            foreach (var categoria in listaCategoriaArticulos)
             {
-                comboBoxArticulo.Items.Add(articulo.Nombre);
+                comboBoxArticulo.Items.Add(categoria.Categoria);
             }
 
             FlowLayoutPanel fLPArticulos = new FlowLayoutPanel
@@ -100,7 +100,7 @@ namespace ConsejeriaQR
             {
                 foreach (var articulo in listaArticulos)
                 {
-                    if (articulo.Nombre.Equals(cbX.Text) && articulo.Mantenimiento != true)
+                    if (articulo.Categoria.Equals(cbX.Text) && articulo.Mantenimiento != true)
                     {
                         Button btn = new Button
                         {

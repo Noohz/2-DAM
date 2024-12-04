@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -20,7 +19,7 @@ namespace ConsejeriaQR
 
         private void BtnConfirmarPrestamo_Click(object sender, EventArgs e)
         {
-            if (calendarioFechaDevolucion.Value < DateTime.Now && tBNombreProfesor.Text != "")
+            if (calendarioFechaDevolucion.Value < DateTime.Now || string.IsNullOrEmpty(tBNombreProfesor.Text))
             {
                 MessageBox.Show("La fecha de devolución no puede ser anterior al día actual y debes de introducir el nombre del profesor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

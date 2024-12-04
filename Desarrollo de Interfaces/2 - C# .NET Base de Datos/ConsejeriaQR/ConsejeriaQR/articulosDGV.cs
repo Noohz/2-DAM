@@ -9,6 +9,7 @@ namespace ConsejeriaQR
     {
         private int id;
         private string nombre;
+        private string categoria;
         private string descripcion;
         private string codigo;
         private bool activo;
@@ -18,10 +19,11 @@ namespace ConsejeriaQR
         {
         }
 
-        public ArticulosDGV(int id, string nombre, string descripcion, string codigo, bool activo, bool mantenimiento)
+        public ArticulosDGV(int id, string nombre, string categoria, string descripcion, string codigo, bool activo, bool mantenimiento)
         {
             this.id = id;
             this.nombre = nombre;
+            this.categoria = categoria;
             this.descripcion = descripcion;
             this.codigo = codigo;
             this.activo = activo;
@@ -30,6 +32,7 @@ namespace ConsejeriaQR
 
         public int Id { get => id; set => id = value; }
         public string Nombre { get => nombre; set => nombre = value; }
+        public string Categoria { get => categoria; set => categoria = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public string Codigo { get => codigo; set => codigo = value; }
         public bool Activo { get => activo; set => activo = value; }

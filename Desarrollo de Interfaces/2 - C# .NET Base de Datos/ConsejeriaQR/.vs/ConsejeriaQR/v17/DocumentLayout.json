@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\consejeriaqr\\formulariogestionprestamos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|solutionrelative:consejeriaqr\\formulariogestionprestamos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\consejeriaqr\\consejeriaqr\\claseconectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|solutionrelative:consejeriaqr\\claseconectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\consejeriaqr\\consejeriaqr\\formulariocategorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|solutionrelative:consejeriaqr\\formulariocategorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,33 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 233,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ClaseConectar.cs",
-              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\ClaseConectar.cs",
-              "RelativeDocumentMoniker": "ConsejeriaQR\\ClaseConectar.cs",
-              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\ClaseConectar.cs",
-              "RelativeToolTip": "ConsejeriaQR\\ClaseConectar.cs",
-              "ViewState": "AgIAAKABAAAAAAAAAAAhwI8CAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T19:30:29.916Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FormularioGestionPrestamos.cs",
-              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\FormularioGestionPrestamos.cs",
-              "RelativeDocumentMoniker": "ConsejeriaQR\\FormularioGestionPrestamos.cs",
-              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\FormularioGestionPrestamos.cs",
-              "RelativeToolTip": "ConsejeriaQR\\FormularioGestionPrestamos.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAswHwAAAAAAAAAAAAAAA==",
+              "Title": "FormularioCategorias.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\FormularioCategorias.cs",
+              "RelativeDocumentMoniker": "ConsejeriaQR\\FormularioCategorias.cs",
+              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\FormularioCategorias.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ConsejeriaQR\\FormularioCategorias.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T19:11:46.977Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-04T12:40:08.557Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }
