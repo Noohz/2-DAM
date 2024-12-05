@@ -39,5 +39,11 @@ namespace ConsejeriaQR
             FormularioGestionPrestamos fGP = new FormularioGestionPrestamos(datosUsuario, cnxC);
             fGP.Show();
         }
+
+        private void btnGestionInventario_Click(object sender, EventArgs e)
+        {
+            FormularioGestionInventario fGI = new FormularioGestionInventario(datosUsuario, cnxC);
+            fGI.Show();
+        }
     }
 }

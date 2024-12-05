@@ -29,11 +29,11 @@ namespace ConsejeriaQR
             // Panel que contendrá los Controls para introducir los datos del artículo.
             Panel panelArticulo = new Panel
             {
-                Width = width - (width * 30 / 100),
-                Height = height - (height * 45 / 100),
+                Width = (int)(width * 0.85),
+                Height = (int)(height * 0.56),
                 BackColor = Color.White
             };
-            panelArticulo.Location = new Point((width - panelArticulo.Width) / 2, 100);
+            panelArticulo.Location = new Point((width - panelArticulo.Width) / 2, 50);
 
             // Label simplemente para contener el texto.
             Label lblImagenArticulo = new Label
@@ -181,11 +181,11 @@ namespace ConsejeriaQR
         {
             Panel panelDatosBD = new Panel
             {
-                Width = width - (width * 30 / 100),
-                Height = height - (height * 70 / 100),
+                Width = (int)(width * 0.85),
+                Height = (int)(height * 0.35),
                 BackColor = Color.White
             };
-            panelDatosBD.Location = new Point((width - panelDatosBD.Width) / 2, 680);
+            panelDatosBD.Location = new Point((width - panelDatosBD.Width) / 2, 610);
 
             Label lblTituloBD = new Label
             {

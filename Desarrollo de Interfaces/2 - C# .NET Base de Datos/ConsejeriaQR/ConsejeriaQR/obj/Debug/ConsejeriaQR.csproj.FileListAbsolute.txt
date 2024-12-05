@@ -6,11 +6,19 @@ C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\bin\Debug\MySql.Data.dll
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\bin\Debug\mysqlbackup.dll
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\bin\Debug\QRCoder.dll
+C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\bin\Debug\zxing.dll
+C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\bin\Debug\zxing.presentation.dll
+C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\bin\Debug\zxing.xml
+C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\bin\Debug\zxing.presentation.xml
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.csproj.AssemblyReference.cache
+C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.FormularioAniadirArticuloAula.resources
+C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.FormularioGestionInventario.resources
+C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.FormularioInicioSesion.resources
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.FormularioCategorias.resources
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.FormularioConfirmaciónPrestamo.resources
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.FormularioDatosBtn.resources
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.FormularioGestionPrestamos.resources
+C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.FormularioModDatosBoton.resources
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.FormularioPrestamoBtn.resources
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.FormularioRegistro.resources
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.Properties.Resources.resources
@@ -21,5 +29,5 @@ C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\Consejer.80F81901.Up2Date
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.exe
 C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.pdb
-C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.FormularioInicioSesion.resources
-C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.FormularioModDatosBoton.resources
+C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.FormularioCargarFicheroAula.resources
+C:\GitHub\2-DAM\Desarrollo de Interfaces\2 - C# .NET Base de Datos\ConsejeriaQR\ConsejeriaQR\obj\Debug\ConsejeriaQR.FormularioInventarioAula.resources

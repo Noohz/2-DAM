@@ -27,7 +27,7 @@ namespace ConsejeriaQR.Controls_Personalizados
                 leftColumnColor = Color.LightGray;
                 borderColor = Color.LightGray;
                 menuItemBorderColor = primaryColor;
-                menuItemSelectedColor = primaryColor;
+                menuItemSelectedColor = Color.LightGray;
             }
         }
 

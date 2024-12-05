@@ -26,7 +26,7 @@ namespace ConsejeriaQR.Controls_Personalizados
             {
                 arrowThickness = 2;
                 if (textColor == Color.Empty)
-                    this.textColor = Color.DimGray;
+                    this.textColor = Color.Black;
                 else
                     this.textColor = textColor;
             }

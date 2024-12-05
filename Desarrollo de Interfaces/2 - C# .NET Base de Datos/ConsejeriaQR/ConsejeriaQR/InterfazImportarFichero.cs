@@ -14,6 +14,8 @@ namespace ConsejeriaQR
     /// </summary>
     internal class InterfazImportarFichero
     {
+        private static Random random = new Random();
+
         ClaseConectar cnxiIF;
         private static string RUTA_CARPEA_IMAGEN = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "FotosPrestamo");
 
@@ -39,8 +41,8 @@ namespace ConsejeriaQR
 
             Panel panelArticulo = new Panel
             {
-                Width = width - (width * 30 / 100),
-                Height = height - (height * 65 / 100),
+                Width = (int)(width * 0.85),
+                Height = (int)(height * 0.38),
                 BackColor = Color.White
             };
             panelArticulo.Location = new Point((width - panelArticulo.Width) / 2, 100);
@@ -61,13 +63,13 @@ namespace ConsejeriaQR
                 TextAlign = ContentAlignment.MiddleCenter,
                 Width = 320,
                 Height = 19,
-                Location = new Point((int)(panelArticulo.Width * 0.15), 220),
+                Location = new Point((int)(panelArticulo.Width * 0.05), 220),
                 Font = new Font("Arial", 12, FontStyle.Bold)
             };
 
             TextBox tBDirFichero = new TextBox
             {
-                Width = 442,
+                Width = 380,
                 Height = 88,
                 Location = new Point((int)(panelArticulo.Width * 0.43), 220),
                 Enabled = false
@@ -77,7 +79,7 @@ namespace ConsejeriaQR
             {
                 Width = 40,
                 Height = 23,
-                Location = new Point((int)(panelArticulo.Width * 0.81), 220),
+                Location = new Point((int)(panelArticulo.Width * 0.87), 220),
                 BackgroundImageLayout = ImageLayout.Stretch,
                 BackgroundImage = imgBotonFichero,
 
@@ -114,11 +116,11 @@ namespace ConsejeriaQR
         {
             Panel panelDatosBD = new Panel
             {
-                Width = width - (width * 30 / 100),
-                Height = height - (height * 50 / 100),
+                Width = (int)(width * 0.85),
+                Height = (int)(height * 0.45),
                 BackColor = Color.White
             };
-            panelDatosBD.Location = new Point((width - panelDatosBD.Width) / 2, 470);
+            panelDatosBD.Location = new Point((width - panelDatosBD.Width) / 2, 490);
 
             Label lblTituloBD = new Label
             {
@@ -188,7 +190,6 @@ namespace ConsejeriaQR
         {
             articulosFichero.Clear();
 
-            // Validar que la carpeta de imágenes existe o crearla
             if (!ValidarCarpetaImagenes())
             {
                 return;
@@ -197,9 +198,10 @@ namespace ConsejeriaQR
             // Abrir diálogo para seleccionar archivo CSV
             string dirArchivo = ObtenerRutaArchivoCSV();
             if (string.IsNullOrEmpty(dirArchivo))
+            {
                 return;
+            }                
 
-            // Procesar el archivo seleccionado
             ProcesarArchivoCSV(dirArchivo);
         }
 
@@ -337,12 +339,11 @@ namespace ConsejeriaQR
         }
 
         /// <summary>
-        /// Genera una clave QR única.
+        /// Genera una clave QR única, asegurando que no exista ni en la base de datos ni en los artículos a importar.
         /// </summary>
-        /// <returns> Una clave QR generada aleatoriamente. </returns>
+        /// <returns>Una clave QR generada aleatoriamente.</returns>
         private string GenerarClaveQRUnica()
         {
-            Random random = new Random();
             string claveQR;
 
             do
@@ -350,7 +351,8 @@ namespace ConsejeriaQR
                 int numAleatorio = random.Next(100000000, 999999999 + 1);
                 char letraAleatoria = (char)random.Next('A', 'Z' + 1);
                 claveQR = numAleatorio.ToString() + letraAleatoria;
-            } while (cnxiIF.ComprobarQRExistente(claveQR));
+
+            } while (cnxiIF.ComprobarQRExistente(claveQR) || articulosFichero.Any(a => a.ClaveQR == claveQR));
 
             return claveQR;
         }

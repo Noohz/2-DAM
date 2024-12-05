@@ -169,7 +169,7 @@ namespace ConsejeriaQR
             int enMantenimiento = MessageBox.Show("¿El artículo tiene algún problema técnico?", "Confirmar devolución",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes ? 1 : 0;
 
-            if (cnxIAP.devolverArticulo(articulo, activo: 1, enMantenimiento) == 1)
+            if (cnxIAP.DevolverArticulo(articulo, activo: 1, enMantenimiento) == 1)
             {
                 // Actualiza la lista de los artículos por si han ocurrido cambios.
                 ComboBoxArticulo_SelectedIndexChanged(listaControles[1], EventArgs.Empty);

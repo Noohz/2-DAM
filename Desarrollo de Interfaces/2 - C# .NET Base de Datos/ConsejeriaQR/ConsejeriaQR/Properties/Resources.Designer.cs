@@ -103,6 +103,16 @@ namespace ConsejeriaQR.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GestionInventario {
+            get {
+                object obj = ResourceManager.GetObject("GestionInventario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GestionPrestamos {
             get {
                 object obj = ResourceManager.GetObject("GestionPrestamos", resourceCulture);
@@ -126,6 +136,36 @@ namespace ConsejeriaQR.Properties {
         internal static System.Drawing.Bitmap pass {
             get {
                 object obj = ResourceManager.GetObject("pass", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PlantaAlta_Dia {
+            get {
+                object obj = ResourceManager.GetObject("PlantaAlta_Dia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PlantaBaja_Dia {
+            get {
+                object obj = ResourceManager.GetObject("PlantaBaja_Dia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PlantaBaja_Tarde {
+            get {
+                object obj = ResourceManager.GetObject("PlantaBaja_Tarde", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

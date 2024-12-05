@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Security.Cryptography;
 using MySql.Data.MySqlClient;
 
@@ -21,6 +20,7 @@ namespace ConsejeriaQR
         private List<ArticulosDGV> listaArticulosDGV = new List<ArticulosDGV>();
         private List<Prestamos> listaArticulosPrestados = new List<Prestamos>();
         private List<Articulos> listaArticulosEnMantenimiento = new List<Articulos>();
+        private List<ArticulosAulaDGV> inventarioAula = new List<ArticulosAulaDGV>();
 
         public String CADENA_CONEXION = "server=localhost;Database=conserjeriaqr;Uid=root;pwd='';old guids=true";
 
@@ -149,6 +149,30 @@ namespace ConsejeriaQR
                 conexion.Open();
 
                 string cadenaSql = "SELECT * FROM articulos WHERE claveQR = ?claveQR";
+
+                using (comando = new MySqlCommand(cadenaSql, conexion))
+                {
+                    comando.Parameters.AddWithValue("@claveQR", claveQR);
+
+                    using (datos = comando.ExecuteReader())
+                    {
+                        if (datos.Read())
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        internal bool ComprobarQRExistenteAula(string claveQR)
+        {
+            using (conexion = new MySqlConnection(CADENA_CONEXION))
+            {
+                conexion.Open();
+
+                string cadenaSql = "SELECT * FROM articulosaula WHERE CodigoQR = @claveQR";
 
                 using (comando = new MySqlCommand(cadenaSql, conexion))
                 {
@@ -476,7 +500,7 @@ namespace ConsejeriaQR
         /// <param name="activo"> int que se utiliza para marcar el artículo como activo en el update. </param>
         /// <param name="mantenimiento"> int que indica si el artículo deberá estar en mantenimiento o no, este parámetro dependerá de la respuesta del MessageBox. </param>
         /// <returns> Resultado => 1 si se realizan correctamente todas las queries en la BBDD o 0 si no. </returns>
-        internal int devolverArticulo(Prestamos datosArticulo, int activo, int mantenimiento)
+        internal int DevolverArticulo(Prestamos datosArticulo, int activo, int mantenimiento)
         {
             int resultado = 0;
 
@@ -664,6 +688,168 @@ namespace ConsejeriaQR
             return codigo;
         }
 
+        /// <summary>
+        /// Inserta un nuevo artículo en el inventario de un aula.
+        /// </summary>
+        /// <param name="aula"> Nombre o identificador del aula donde se encuentra el artículo. </param>
+        /// <param name="tipoArticulo"> Tipo de artículo. </param>
+        /// <param name="cantidad"> Cantidad del artículo. </param>
+        /// <param name="modelo"> Modelo del artículo. </param>
+        /// <param name="caracteristicas"> Características adicionales del artículo. </param>
+        /// <param name="estado"> Estado del artículo. </param>
+        /// <param name="claveQR"> Código QR del artículo. </param>
+        /// <param name="imagenQR"> Imagen asociada al código QR del artículo. </param>
+        /// <returns> Retorna el número de filas afectadas por la inserción. </returns>
+        internal int InsertarArticuloAula(string aula, string tipoArticulo, decimal cantidad, string modelo, string caracteristicas, string estado, string claveQR, byte[] imagenQR)
+        {
+            int codigo;
+
+            using (conexion = new MySqlConnection(CADENA_CONEXION))
+            {
+                conexion.Open();
+
+                string cadenaSql = "INSERT INTO articulosaula VALUES (0, @Aula, @TipoArticulo, @Cantidad, @Modelo, @Caracteristicas, @Estado, @CodigoQR, @imagenQR)";
+
+                using (comando = new MySqlCommand(cadenaSql, conexion))
+                {
+                    comando.Parameters.AddWithValue("@Aula", aula);
+                    comando.Parameters.AddWithValue("@TipoArticulo", tipoArticulo);
+                    comando.Parameters.AddWithValue("@Cantidad", cantidad);
+                    comando.Parameters.AddWithValue("@Modelo", modelo);
+                    comando.Parameters.AddWithValue("@Caracteristicas", caracteristicas);
+                    comando.Parameters.AddWithValue("@Estado", estado);
+                    comando.Parameters.AddWithValue("@CodigoQR", claveQR);
+                    comando.Parameters.AddWithValue("@imagenQR", imagenQR);
+
+                    codigo = comando.ExecuteNonQuery();
+                }
+            }
+            return codigo;
+        }
+
+        /// <summary>
+        /// Inserta una lista de artículos en el inventario del aula desde un archivo.
+        /// </summary>
+        /// <param name="articulosFicheroAula"> Lista de artículos a insertar en el inventario del aula. </param>
+        internal void InsertarFicheroAula(List<ArticulosAula> articulosFicheroAula)
+        {
+            using (conexion = new MySqlConnection(CADENA_CONEXION))
+            {
+                conexion.Open();
+
+                using (MySqlTransaction transaccion = conexion.BeginTransaction())
+                {
+                    try
+                    {
+                        foreach (var articulo in articulosFicheroAula)
+                        {
+                            string consultaSQL = "INSERT INTO articulosaula VALUES (0, @Aula, @TipoArticulo, @Cantidad, @Modelo, @Caracteristicas, @Estado, @CodigoQR, @imagenQR)";
+
+                            using (comando = new MySqlCommand(consultaSQL, conexion, transaccion))
+                            {
+                                comando.Parameters.AddWithValue("@Aula", articulo.Aula);
+                                comando.Parameters.AddWithValue("@TipoArticulo", articulo.TipoArticulo);
+                                comando.Parameters.AddWithValue("@Cantidad", articulo.Cantidad);
+                                comando.Parameters.AddWithValue("@Modelo", articulo.Modelo);
+                                comando.Parameters.AddWithValue("@Caracteristicas", articulo.Caracteristicas);
+                                comando.Parameters.AddWithValue("@Estado", articulo.Estado);
+                                comando.Parameters.AddWithValue("@CodigoQR", articulo.CodigoQR);
+                                comando.Parameters.AddWithValue("@imagenQR", articulo.ImagenQR);
+
+                                comando.ExecuteNonQuery();
+                            }
+                        }
+
+                        transaccion.Commit();
+                    }
+                    catch
+                    {
+                        transaccion.Rollback();
+                        throw;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Carga el inventario de un aula específico desde la base de datos.
+        /// </summary>
+        /// <param name="aulaSeleccionada"> El aula cuyo inventario se desea cargar. </param>
+        /// <returns> Lista de artículos presentes en el inventario del aula seleccionada. </returns>
+        internal List<ArticulosAulaDGV> CargarInventarioAula(string aulaSeleccionada)
+        {
+            inventarioAula.Clear();
+            using (conexion = new MySqlConnection(CADENA_CONEXION))
+            {
+                conexion.Open();
+
+                string cadenaSql = "SELECT * FROM articulosaula WHERE Aula = @aulaSeleccionada";
+
+                using (comando = new MySqlCommand(cadenaSql, conexion))
+                {
+                    comando.Parameters.AddWithValue("@aulaSeleccionada", aulaSeleccionada);
+
+                    using (datos = comando.ExecuteReader())
+                    {
+                        while (datos.Read())
+                        {
+                            ArticulosAulaDGV articulo = new ArticulosAulaDGV
+                            {
+                                Id = (int)datos["ID"],
+                                Aula = (string)datos["Aula"],
+                                TipoArticulo = (string)datos["TipoArticulo"],
+                                Cantidad = (int)datos["Cantidad"],
+                                Modelo = (string)datos["Modelo"],
+                                Caracteristicas = (string)datos["Caracteristicas"],
+                                Estado = (string)datos["Estado"]
+                            };
+
+                            inventarioAula.Add(articulo);
+                        }
+                    }
+                }
+            }
+
+            return inventarioAula;
+        }
+
+        /// <summary>
+        /// Modifica los datos de un artículo existente en el inventario de un aula.
+        /// </summary>
+        /// <param name="idArticulo"> ID del artículo a modificar. </param>
+        /// <param name="aula"> Aula donde se encuentra el artículo. </param>
+        /// <param name="tipoArticulo"> Nuevo tipo de artículo. </param>
+        /// <param name="cantidad"> Nueva cantidad del artículo. </param>
+        /// <param name="modelo"> Nuevo modelo del artículo. </param>
+        /// <param name="caracteristicas"> Nuevas características del artículo. </param>
+        /// <param name="estado"> Nuevo estado del artículo. </param>
+        /// <returns> El número de filas afectadas por la actualización. </returns>
+        internal int ModificarArticuloAula(int idArticulo, string aula, string tipoArticulo, decimal cantidad, string modelo, string caracteristicas, string estado)
+        {
+            int codigo = 0;
+
+            using (conexion = new MySqlConnection(CADENA_CONEXION))
+            {
+                conexion.Open();
+                string cadenaSql = "UPDATE articulosaula SET Aula = @aula, TipoArticulo = @tipoArticulo, Cantidad = @cantidad, " +
+                    "Modelo = @modelo, Caracteristicas = @caracteristicas, Estado = @estado WHERE ID = @idArticulo";
+
+                using (comando = new MySqlCommand(cadenaSql, conexion))
+                {
+                    comando.Parameters.AddWithValue("@aula", aula);
+                    comando.Parameters.AddWithValue("@tipoArticulo", tipoArticulo);
+                    comando.Parameters.AddWithValue("@cantidad", cantidad);
+                    comando.Parameters.AddWithValue("@modelo", modelo);
+                    comando.Parameters.AddWithValue("@caracteristicas", caracteristicas);
+                    comando.Parameters.AddWithValue("@estado", estado);
+                    comando.Parameters.AddWithValue("@idArticulo", idArticulo);
+
+                    codigo = comando.ExecuteNonQuery();
+                }
+            }
+            return codigo;
+        }
+
         // Métodos para encriptar la contraseña...
         private static byte[] GenerateSalt()
         {
@@ -681,6 +867,6 @@ namespace ConsejeriaQR
             {
                 return pbkdf2.GetBytes(32);
             }
-        }
+        }        
     }
 }

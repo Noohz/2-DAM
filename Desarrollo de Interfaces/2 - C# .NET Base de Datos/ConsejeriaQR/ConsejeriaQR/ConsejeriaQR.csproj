@@ -84,8 +84,16 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
+    <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArticulosAulaDGV.cs" />
+    <Compile Include="ArticulosAula.cs" />
     <Compile Include="ArticulosDGV.cs" />
     <Compile Include="Articulos.cs" />
     <Compile Include="ClaseConectar.cs" />
@@ -98,6 +106,24 @@
     <Compile Include="Controls Personalizados\MenuColorTable.cs" />
     <Compile Include="Controls Personalizados\MenuRenderer.cs" />
     <Compile Include="EventoPlaceholderTextBox.cs" />
+    <Compile Include="FormularioAniadirArticuloAula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormularioAniadirArticuloAula.Designer.cs">
+      <DependentUpon>FormularioAniadirArticuloAula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioCargarFicheroAula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormularioCargarFicheroAula.Designer.cs">
+      <DependentUpon>FormularioCargarFicheroAula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioGestionInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormularioGestionInventario.Designer.cs">
+      <DependentUpon>FormularioGestionInventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormularioInicioSesion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +153,12 @@
     </Compile>
     <Compile Include="FormularioGestionPrestamos.Designer.cs">
       <DependentUpon>FormularioGestionPrestamos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioInventarioAula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormularioInventarioAula.Designer.cs">
+      <DependentUpon>FormularioInventarioAula.cs</DependentUpon>
     </Compile>
     <Compile Include="FormularioModDatosBoton.cs">
       <SubType>Form</SubType>
@@ -158,6 +190,15 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuarios.cs" />
+    <EmbeddedResource Include="FormularioAniadirArticuloAula.resx">
+      <DependentUpon>FormularioAniadirArticuloAula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormularioCargarFicheroAula.resx">
+      <DependentUpon>FormularioCargarFicheroAula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormularioGestionInventario.resx">
+      <DependentUpon>FormularioGestionInventario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormularioInicioSesion.resx">
       <DependentUpon>FormularioInicioSesion.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioGestionPrestamos.resx">
       <DependentUpon>FormularioGestionPrestamos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormularioInventarioAula.resx">
+      <DependentUpon>FormularioInventarioAula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioModDatosBoton.resx">
       <DependentUpon>FormularioModDatosBoton.cs</DependentUpon>
@@ -222,11 +266,15 @@
   <ItemGroup>
     <None Include="Resources\calendarDark.png" />
     <None Include="Resources\calendarWhite.png" />
+    <None Include="Resources\craiyon_193306_Production_carton.png" />
     <Content Include="Resources\email.png" />
     <None Include="Resources\folder.png" />
     <Content Include="Resources\GestionPrestamos.png" />
     <Content Include="Resources\loginIcon.png" />
     <Content Include="Resources\pass.png" />
+    <None Include="Resources\PlantaBaja_Dia.png" />
+    <None Include="Resources\PlantaAlta_Dia.png" />
+    <None Include="Resources\PlantaBaja_Tarde.png" />
     <Content Include="Resources\user.jpg" />
   </ItemGroup>
   <ItemGroup />

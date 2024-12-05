@@ -172,6 +172,6 @@ namespace ConsejeriaQR
         {
 
             this.Close();
-        }        
+        }
     }
 }
