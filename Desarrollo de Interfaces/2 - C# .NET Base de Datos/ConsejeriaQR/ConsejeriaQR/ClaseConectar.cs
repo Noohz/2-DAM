@@ -387,7 +387,7 @@ namespace ConsejeriaQR
             string categoriaArticulo = articulo.Categoria;
             string nombreProfesor = nombreProfe;
             string codigoArticulo = articulo.Codigo;
-            DateTime fechaPestamo = DateTime.Now;
+            DateTime fechaPrestamo = DateTime.Now;
             DateTime fechaDevolucion = fecha;
             byte[] imagenArticulo = articulo.Imagen;
 
@@ -395,16 +395,16 @@ namespace ConsejeriaQR
             {
                 conexion.Open();
 
-                string cadenaSql = "INSERT INTO prestamos VALUES (0, @id, @nombreArticulo, @categoria, @nombreProfesor, @codigoArticulo, @fechaPestamo, @fechaDevolucion, @imagenArticulo)";
+                string cadenaSql = "INSERT INTO prestamos VALUES (0, @idArticulo, @nombreArticulo, @categoria, @nombreProfesor, @codigo, @fechaPrestamo, @fechaDevolucion, @imagenArticulo)";
 
                 using (comando = new MySqlCommand(cadenaSql, conexion))
                 {
-                    comando.Parameters.AddWithValue("@id", id);
+                    comando.Parameters.AddWithValue("@idArticulo", id);
                     comando.Parameters.AddWithValue("@nombreArticulo", nombreArticulo);
                     comando.Parameters.AddWithValue("@categoria", categoriaArticulo);
                     comando.Parameters.AddWithValue("@nombreProfesor", nombreProfesor);
-                    comando.Parameters.AddWithValue("@codigoArticulo", codigoArticulo);
-                    comando.Parameters.AddWithValue("@fechaPestamo", fechaPestamo);
+                    comando.Parameters.AddWithValue("@codigo", codigoArticulo);
+                    comando.Parameters.AddWithValue("@fechaPrestamo", fechaPrestamo);
                     comando.Parameters.AddWithValue("@fechaDevolucion", fechaDevolucion);
                     comando.Parameters.AddWithValue("@imagenArticulo", imagenArticulo);
 

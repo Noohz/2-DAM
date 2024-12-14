@@ -7,16 +7,20 @@
       "RelativeMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|solutionrelative:consejeriaqr\\formularioinventarioaula.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\consejeriaqr\\formularioinventarioaula.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|solutionrelative:consejeriaqr\\formularioinventarioaula.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\consejeriaqr\\consejeriaqr\\claseconectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|solutionrelative:consejeriaqr\\claseconectar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\consejeriaqr\\consejeriaqr\\formularioinventarioaula.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|solutionrelative:consejeriaqr\\formularioinventarioaula.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\consejeriaqr\\formulariogestioninventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|solutionrelative:consejeriaqr\\formulariogestioninventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|c:\\github\\2-dam\\desarrollo de interfaces\\2 - c# .net base de datos\\consejeriaqr\\consejeriaqr\\formulariogestioninventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|solutionrelative:consejeriaqr\\formulariogestioninventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\consejeriaqr\\formulariogestioninventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2026F977-717B-4942-9830-C19D2787FE63}|ConsejeriaQR\\ConsejeriaQR.csproj|solutionrelative:consejeriaqr\\formulariogestioninventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,21 +30,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 257,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ClaseConectar.cs",
-              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\ClaseConectar.cs",
-              "RelativeDocumentMoniker": "ConsejeriaQR\\ClaseConectar.cs",
-              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\ClaseConectar.cs",
-              "RelativeToolTip": "ConsejeriaQR\\ClaseConectar.cs",
-              "ViewState": "AgIAAKcBAAAAAAAAAAA7wBoDAACkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T17:30:08.337Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -49,22 +40,34 @@
               "RelativeDocumentMoniker": "ConsejeriaQR\\FormularioInventarioAula.cs",
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\FormularioInventarioAula.cs",
               "RelativeToolTip": "ConsejeriaQR\\FormularioInventarioAula.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAA2wFYAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAnwG4AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T17:25:18.711Z",
+              "WhenOpened": "2024-12-10T11:24:50.012Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "FormularioInventarioAula.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\FormularioInventarioAula.cs",
               "RelativeDocumentMoniker": "ConsejeriaQR\\FormularioInventarioAula.cs",
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\FormularioInventarioAula.cs [Dise\u00F1o]",
               "RelativeToolTip": "ConsejeriaQR\\FormularioInventarioAula.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T17:04:56.38Z",
+              "WhenOpened": "2024-12-09T22:17:58.703Z",
               "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormularioGestionInventario.cs",
+              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\FormularioGestionInventario.cs",
+              "RelativeDocumentMoniker": "ConsejeriaQR\\FormularioGestionInventario.cs",
+              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\FormularioGestionInventario.cs",
+              "RelativeToolTip": "ConsejeriaQR\\FormularioGestionInventario.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAASwGQAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T22:06:50.685Z"
             },
             {
               "$type": "Document",
@@ -75,8 +78,20 @@
               "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\FormularioGestionInventario.cs [Dise\u00F1o]",
               "RelativeToolTip": "ConsejeriaQR\\FormularioGestionInventario.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T16:22:01.714Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-12-09T22:06:46.807Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClaseConectar.cs",
+              "DocumentMoniker": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\ClaseConectar.cs",
+              "RelativeDocumentMoniker": "ConsejeriaQR\\ClaseConectar.cs",
+              "ToolTip": "C:\\GitHub\\2-DAM\\Desarrollo de Interfaces\\2 - C# .NET Base de Datos\\ConsejeriaQR\\ConsejeriaQR\\ClaseConectar.cs",
+              "RelativeToolTip": "ConsejeriaQR\\ClaseConectar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T21:56:08.318Z",
+              "EditorCaption": ""
             }
           ]
         }

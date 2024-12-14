@@ -43,8 +43,8 @@ namespace ConsejeriaQR
                 Font = new Font("Arial", 15, FontStyle.Bold),
                 Width = 980,
                 Height = 24,
-                Location = new Point((int)(panelArticulo.Width * 0.13), 38),
-                Text = "Mostrando a continuación todos los artículos que están en mantenimiento e indisponible al prestamo"
+                Location = new Point((int)(panelArticulo.Width * 0.08), 38),
+                Text = "Mostrando a continuación todos los artículos que están en mantenimiento"
             };
 
             // Un FlowLayoutPanel donde aparecerán los artículos con el nombre seleccionado en el comboBox.

@@ -102,6 +102,7 @@ namespace ConsejeriaQR
         {
             panelDiurnoPlantaBaja.Visible = true;
             panelDiurnoPlantaAlta.Visible = false;
+            panelNocturnoPlantaBaja.Visible = false;
         }
 
         /// <summary>

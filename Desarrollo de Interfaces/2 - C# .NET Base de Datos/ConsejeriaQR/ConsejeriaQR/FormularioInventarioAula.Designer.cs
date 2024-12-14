@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.panelInventarioAula = new System.Windows.Forms.Panel();
-            this.dGVInventarioAula = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnModificarDatos = new System.Windows.Forms.Button();
             this.comboEstado = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tBCaracteristicas = new System.Windows.Forms.TextBox();
@@ -42,11 +43,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tBAula = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnModificarDatos = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dGVInventarioAula = new System.Windows.Forms.DataGridView();
             this.panelInventarioAula.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dGVInventarioAula)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVInventarioAula)).BeginInit();
             this.SuspendLayout();
             // 
             // panelInventarioAula
@@ -75,16 +75,42 @@
             this.panelInventarioAula.Size = new System.Drawing.Size(884, 605);
             this.panelInventarioAula.TabIndex = 0;
             // 
-            // dGVInventarioAula
+            // button1
             // 
-            this.dGVInventarioAula.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dGVInventarioAula.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dGVInventarioAula.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dGVInventarioAula.Location = new System.Drawing.Point(3, 315);
-            this.dGVInventarioAula.Name = "dGVInventarioAula";
-            this.dGVInventarioAula.Size = new System.Drawing.Size(877, 287);
-            this.dGVInventarioAula.TabIndex = 0;
-            this.dGVInventarioAula.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVInventarioAula_CellClick);
+            this.button1.AutoSize = true;
+            this.button1.BackColor = System.Drawing.Color.Firebrick;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(427, 268);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(276, 29);
+            this.button1.TabIndex = 42;
+            this.button1.Text = "Salir";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnModificarDatos
+            // 
+            this.btnModificarDatos.AutoSize = true;
+            this.btnModificarDatos.BackColor = System.Drawing.SystemColors.Control;
+            this.btnModificarDatos.Enabled = false;
+            this.btnModificarDatos.FlatAppearance.BorderSize = 0;
+            this.btnModificarDatos.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnModificarDatos.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnModificarDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificarDatos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarDatos.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnModificarDatos.Location = new System.Drawing.Point(129, 268);
+            this.btnModificarDatos.Name = "btnModificarDatos";
+            this.btnModificarDatos.Size = new System.Drawing.Size(276, 29);
+            this.btnModificarDatos.TabIndex = 41;
+            this.btnModificarDatos.Text = "Modificar artículo";
+            this.btnModificarDatos.UseVisualStyleBackColor = false;
+            this.btnModificarDatos.Click += new System.EventHandler(this.btnModificarDatos_Click);
             // 
             // comboEstado
             // 
@@ -220,43 +246,16 @@
             this.label1.TabIndex = 31;
             this.label1.Text = "Aula";
             // 
-            // btnModificarDatos
+            // dGVInventarioAula
             // 
-            this.btnModificarDatos.AutoSize = true;
-            this.btnModificarDatos.BackColor = System.Drawing.SystemColors.Control;
-            this.btnModificarDatos.Enabled = false;
-            this.btnModificarDatos.FlatAppearance.BorderSize = 0;
-            this.btnModificarDatos.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnModificarDatos.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnModificarDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarDatos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarDatos.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnModificarDatos.Location = new System.Drawing.Point(129, 268);
-            this.btnModificarDatos.Name = "btnModificarDatos";
-            this.btnModificarDatos.Size = new System.Drawing.Size(276, 29);
-            this.btnModificarDatos.TabIndex = 41;
-            this.btnModificarDatos.Text = "Modificar artículo";
-            this.btnModificarDatos.UseVisualStyleBackColor = false;
-            this.btnModificarDatos.Click += new System.EventHandler(this.btnModificarDatos_Click);
-            // 
-            // button1
-            // 
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.Color.Firebrick;
-            this.button1.Enabled = false;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(427, 268);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(276, 29);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "Salir";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.dGVInventarioAula.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dGVInventarioAula.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dGVInventarioAula.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dGVInventarioAula.Location = new System.Drawing.Point(3, 315);
+            this.dGVInventarioAula.Name = "dGVInventarioAula";
+            this.dGVInventarioAula.Size = new System.Drawing.Size(877, 287);
+            this.dGVInventarioAula.TabIndex = 0;
+            this.dGVInventarioAula.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVInventarioAula_CellClick);
             // 
             // FormularioInventarioAula
             // 
@@ -267,11 +266,12 @@
             this.Controls.Add(this.panelInventarioAula);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormularioInventarioAula";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormularioInventarioAula";
             this.panelInventarioAula.ResumeLayout(false);
             this.panelInventarioAula.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dGVInventarioAula)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVInventarioAula)).EndInit();
             this.ResumeLayout(false);
 
         }
